@@ -60,13 +60,13 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
 /* intro scene */
 .scene{position:relative;height:clamp(540px,84vh,820px);overflow:hidden;background:#1E1A16;color:#fff}
 .scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform,opacity}
-.shot-forest{transform-origin:55% 66%;animation:forestIn 2.6s cubic-bezier(.55,.05,.35,1) .2s both}
-.shot-sony{transform-origin:50.5% 52%;opacity:0;animation:sonyIn 3s cubic-bezier(.2,.7,.2,1) 1.9s forwards}
-@keyframes forestIn{from{transform:scale(1)}to{transform:scale(2.4)}}
-@keyframes sonyIn{0%{opacity:0;transform:scale(1.02)}25%{opacity:1}100%{opacity:1;transform:scale(1.38)}}
+.shot-forest{transform-origin:50% 60%;animation:forestIn 3.4s cubic-bezier(.5,0,.75,.4) .2s both}
+.shot-sony{transform-origin:50.5% 50%;opacity:0;animation:sonyIn 2.6s cubic-bezier(.2,.75,.25,1) 3.0s forwards}
+@keyframes forestIn{from{transform:scale(1.3) translateX(9%)}to{transform:scale(1.42) translateX(-9%)}}
+@keyframes sonyIn{0%{opacity:0;transform:scale(1.12) translateX(14%);filter:blur(6px)}22%{opacity:1}100%{opacity:1;transform:scale(1.38) translateX(0);filter:blur(0)}}
 .scene .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,.0) 35%,rgba(20,16,12,.72) 100%),linear-gradient(90deg,rgba(20,16,12,.45),rgba(20,16,12,0) 55%)}
 .scene .wrap{position:relative;height:100%;display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;padding-block:40px}
-.scene .copy{opacity:0;transform:translateY(16px);animation:rise .8s ease 3.3s forwards;max-width:620px}
+.scene .copy{opacity:0;transform:translateY(16px);animation:rise .8s ease 4.6s forwards;max-width:620px}
 .scene .eyebrow{display:inline-block;background:var(--yellow);color:var(--on-yellow);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:6px}
 .scene h1{font-size:clamp(38px,6vw,72px);font-weight:800;letter-spacing:-.03em;margin-top:14px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
 .scene h1 em{font-style:normal;color:var(--yellow)}
@@ -403,6 +403,19 @@ section{scroll-margin-top:70px}
 .scene h1 .a{color:#FFE500;font-family:var(--display);font-weight:800;margin-right:10px;font-size:.6em;vertical-align:.35em}
 .belief .qlabel{display:block;font:700 13px var(--body);letter-spacing:.04em;color:var(--brown);margin-bottom:8px}
 .belief .qlabel i{font-style:normal;background:var(--yellow);color:var(--on-yellow);border-radius:5px;padding:0 6px;margin-right:6px}
+/* about */
+.about .wrap{padding-block:40px 8px}
+.about .ab-list{margin-top:0}
+.ab-title{font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-.025em;margin-top:4px}
+.ab-title em{font-style:normal;background:linear-gradient(transparent 60%,var(--yellow) 60%)}
+.ab-list{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.ab-list li{padding:22px 24px 24px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-content:start;min-width:0}
+.ab-list li:nth-child(even){padding-left:24px;padding-right:0;border-left:1px solid var(--line)}
+.ab-n{grid-row:span 2;font:800 14px var(--display);color:var(--on-yellow);background:var(--yellow);border-radius:6px;padding:2px 7px;height:max-content;font-variant-numeric:tabular-nums}
+.ab-list h3{font-size:18px;letter-spacing:-.01em;line-height:1.35}
+.ab-list p{font-size:15px;color:var(--muted);line-height:1.7}
+.ab-close{margin-top:22px;font-family:var(--display);font-weight:700;font-size:clamp(17px,2vw,21px);max-width:40em}
+@media (max-width:760px){.ab-list{grid-template-columns:1fr}.ab-list li,.ab-list li:nth-child(even){padding:20px 0;border-left:0}}
 /* thanks */
 .thanks{padding-block:96px 120px;text-align:center}
 .thanks .big{font-family:var(--display);font-weight:800;font-size:clamp(64px,13vw,168px);letter-spacing:-.045em;line-height:.9}
@@ -473,7 +486,7 @@ section{scroll-margin-top:70px}
 <section id="intro" style="scroll-margin-top:70px">
   <div class="wrap" style="padding-top:72px">
     <span class="place num-place"><b>01</b>Introduction</span>
-    <h2 style="font-size:clamp(30px,4.2vw,48px);font-weight:800;letter-spacing:-.025em"><span lang="ko">고객 접점에서 신뢰를 쌓고, 성과로 증명합니다</span><span lang="en">I build trust at every touchpoint and prove it with results</span></h2>
+    <h2 class="ab-title"><span lang="ko">사람을 설득하기보다,<br><em>믿을 이유</em>를 만드는 마케팅</span><span lang="en">Marketing that gives people<br><em>a reason to trust,</em> not a push</span></h2>
   </div>
 <div class="intro">
   <div class="wrap">
@@ -495,9 +508,14 @@ section{scroll-margin-top:70px}
     <div class="stat"><div class="n" data-count="2312">2,312</div><div class="l"><span lang="ko">지점 인스타그램 최고 조회수 영상</span><span lang="en">views, the branch's top Instagram video</span></div></div>
   </div>
 </div>
-<div class="belief"><div class="wrap">
-    <span class="qlabel"><i>Q.</i><span lang="ko">어떤 마케터가 되고 싶나요?</span><span lang="en">What kind of marketer do you want to be?</span></span>
-    <p class="q"><span lang="ko">고객이 브랜드의 좋은 면을 직접 경험하게 만드는 마케터입니다. 사람마다 장단점이 있듯 브랜드에도 좋은 날과 어려운 날이 있습니다. 그 안에서 고객에게 실제로 도움이 되는 가치를 정확히 보여주고, 그 경험이 신뢰로 이어지게 하는 것이 마케터의 일이라고 생각합니다. 신뢰는 한 사람이 아니라 팀이 함께 만듭니다. 주어진 역할을 정확히 해내는 것에서 그치지 않고, 그 이상 필요한 일을 먼저 찾아 주도적으로 기여하겠습니다.</span><span lang="en">A marketer who helps customers experience the best of a brand for themselves. Just as every person has strengths and weaknesses, every brand has good days and hard ones. I believe the job is to show customers the value that genuinely helps them, and to turn that experience into trust. Trust is built by a team, not one person. I will do my given role precisely, then look for what else needs doing and take the lead on it.</span></p>
+<div class="about"><div class="wrap">
+    <ol class="ab-list">
+      <li><span class="ab-n">01</span><h3><span lang="ko">사람마다 다른 선택을 존중하는 것에서 시작합니다</span><span lang="en">It starts with respecting that people choose differently</span></h3><p><span lang="ko">사람마다 중요하게 여기는 가치가 다르기에, 같은 서비스도 받아들이는 이유가 다릅니다. 이 차이를 바꾸려 하기보다 있는 그대로 이해하는 것이 마케팅의 출발점이라고 생각합니다. 선택은 고객의 몫이지만, 그 선택에 필요한 정보를 어떻게 전달하느냐는 우리의 몫입니다.</span><span lang="en">People value different things, so they accept the same service for different reasons. I believe marketing starts by understanding those differences rather than trying to change them. The choice belongs to the customer; how we present the information behind it is our job.</span></p></li>
+      <li><span class="ab-n">02</span><h3><span lang="ko">가진 강점을 발견하고, 고객의 언어로 전달합니다</span><span lang="en">I find real strengths and say them in the customer’s words</span></h3><p><span lang="ko">브랜드도 사람처럼 모든 면에서 완벽할 수는 없지만, 고객에게 줄 수 있는 분명한 가치는 있습니다. 그중 고객에게 실제로 의미 있는 강점을 찾아 가장 이해하기 쉬운 메시지로 전달할 때, 단순한 인지를 넘어 신뢰가 만들어진다고 생각합니다.</span><span lang="en">Like people, brands are never perfect, yet each has value it can clearly offer. When we find the strengths that truly matter to customers and say them in the simplest terms, awareness turns into trust.</span></p></li>
+      <li><span class="ab-n">03</span><h3><span lang="ko">맡은 역할에서 한 걸음 더 나아갑니다</span><span lang="en">I go one step beyond my role</span></h3><p><span lang="ko">좋은 결과는 한 사람의 아이디어가 아니라, 각자의 역할을 다하면서 지금 필요한 일을 함께 고민하는 팀에서 나옵니다. 고객의 반응과 데이터, 동료의 의견을 살펴 부족한 부분을 찾고, 필요한 일을 스스로 실행하겠습니다.</span><span lang="en">Good results come from a team where everyone does their part and also asks what is needed now. I will watch customer reactions, data and colleagues’ input, spot the gaps, and act on them myself.</span></p></li>
+      <li><span class="ab-n">04</span><h3><span lang="ko">제가 만들고 싶은 신뢰</span><span lang="en">The trust I want to build</span></h3><p><span lang="ko">카카오뱅크에서도 고객이 무엇을 원하는지 세심하게 관찰하고, 우리가 가진 가치를 고객이 이해하고 신뢰할 수 있는 언어와 경험으로 연결하겠습니다.</span><span lang="en">At KakaoBank, I will watch closely for what customers want and connect our value to language and experiences they can understand and trust.</span></p></li>
+    </ol>
+    <p class="ab-close"><span lang="ko">고객을 설득하는 마케팅보다, 고객이 스스로 믿을 이유를 발견하게 하는 마케팅을 지향합니다.</span><span lang="en">Rather than persuading customers, I aim for marketing that lets them find their own reason to trust.</span></p>
   </div></div>
 <div id="voices" style="padding-top:56px">
   <div class="wrap">
@@ -900,24 +918,57 @@ section{scroll-margin-top:70px}
     const vs=`attribute vec2 p;varying vec2 v;void main(){v=p*.5+.5;gl_Position=vec4(p,0.,1.);}`;
     const fs=`precision mediump float;
       uniform sampler2D A,B;uniform vec2 R;uniform float rA,rB,t,idle;uniform vec2 m;varying vec2 v;
-      vec2 cover(vec2 uv,float r){float a=R.x/R.y;vec2 k=a>r?vec2(1.,r/a):vec2(a/r,1.);return .5+(uv-.5)*k;}
-      vec3 zb(sampler2D tx,vec2 tc,vec2 c,float bl){vec3 acc=vec3(0.);for(int i=0;i<24;i++){float f=1.-bl*float(i)/23.;acc+=texture2D(tx,c+(tc-c)*f).rgb;}return acc/24.;}
-      float ease(float x){return x<.5?4.*x*x*x:1.-pow(-2.*x+2.,3.)/2.;}
+      vec2 kfit(float r){float a=R.x/R.y;return a>r?vec2(1.,r/a):vec2(a/r,1.);}
+      mat2 rot(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}
+      float eio(float x){x=clamp(x,0.,1.);return x<.5?4.*x*x*x:1.-pow(-2.*x+2.,3.)/2.;}
+      float eo(float x){x=clamp(x,0.,1.);return 1.-pow(1.-x,3.);}
+      vec3 dirblur(sampler2D tx,vec2 tc,vec2 dir,float amt){
+        if(amt<.0005) return texture2D(tx,tc).rgb;
+        vec3 acc=vec3(0.);
+        for(int i=0;i<20;i++){float o=(float(i)/19.-.5)*2.;acc+=texture2D(tx,tc+dir*o*amt).rgb;}
+        return acc/20.;
+      }
+      vec3 bokeh(sampler2D tx,vec2 tc,float r){
+        if(r<.0003) return texture2D(tx,tc).rgb;
+        vec3 acc=texture2D(tx,tc).rgb;
+        for(int i=0;i<12;i++){float a=float(i)*.5236;acc+=texture2D(tx,tc+vec2(cos(a),sin(a))*r).rgb;}
+        return acc/13.;
+      }
       void main(){
-        float e=ease(clamp(t,0.,1.));
-        vec2 cA=vec2(.55,.34), cB=vec2(.505,.48)+m*.012;
-        float sA=1.+2.6*e;
-        float sB=mix(1.04,1.36,smoothstep(.38,1.,t))+idle;
-        float bl=.17*sin(3.14159*smoothstep(.12,.88,t));
-        float mx=smoothstep(.40,.68,t);
-        vec2 tA=cA+(cover(v,rA)-cA)/sA;
-        vec2 tB=cB+(cover(v,rB)-cB)/sB;
-        vec3 a=zb(A,tA,cA,bl);
-        vec3 b=zb(B,tB,cB,bl*.8);
-        vec3 col=mix(a,b,mx);
-        col+=vec3(1.,.95,.75)*.10*sin(3.14159*mx);
-        float vg=smoothstep(1.15,.35,length(v-.5)*1.25);
-        col*=mix(.78,1.,vg);
+        /* shot A: drone sweeps right across Seoul Forest */
+        float x=clamp(t/.64,0.,1.);
+        float pA=pow(x,1.7);
+        float sA=1.16+.16*x;
+        vec2 kA=kfit(rA); vec2 hA=.5*kA/sA;
+        vec2 cA=vec2(mix(hA.x+.01,1.-hA.x-.01,pA), mix(.47,.40,x));
+        cA.y=clamp(cA.y,hA.y,1.-hA.y);
+        float rollA=-.03*sin(3.14159*x);
+        vec2 tA=cA+rot(rollA)*((v-.5)*kA)/sA;
+        /* shot B: camera keeps moving right and settles on Sony */
+        float q=eo((t-.50)/.42);
+        float sB=mix(1.10,1.40,eo((t-.50)/.50))+idle;
+        vec2 kB=kfit(rB); vec2 hB=.5*kB/sB;
+        float fx=clamp(.505+m.x*.01,hB.x,1.-hB.x);
+        float sx=clamp(.505-.34,hB.x,1.-hB.x);
+        vec2 cB=vec2(mix(sx,fx,q), clamp(mix(.53,.50,q)+m.y*.008,hB.y,1.-hB.y));
+        float rollB=.022*(1.-q);
+        vec2 tB=cB+rot(rollB)*((v-.5)*kB)/sB;
+        /* motion: whip blur peaks at the cut */
+        float whip=.05*exp(-pow((t-.585)/.07,2.))+.010*smoothstep(.15,.55,t)*(1.-smoothstep(.62,.80,t));
+        vec2 dA=vec2(cos(rollA),sin(rollA))/sA, dB=vec2(cos(rollB),sin(rollB))/sB;
+        vec3 a=dirblur(A,tA,dA,whip);
+        /* focus pull on Sony after landing */
+        float f=smoothstep(.70,.98,t);
+        vec2 sp=(v-vec2(.5,.46))*vec2(R.x/R.y,1.)*vec2(1.,.62);
+        float bg=smoothstep(.16,.50,length(sp));
+        float rr=(.0045*bg*f)/sB;
+        vec3 bc=whip>.002?dirblur(B,tB,dB,whip*.9):bokeh(B,tB,rr);
+        float mixF=smoothstep(.54,.64,t);
+        vec3 col=mix(a,bc,mixF);
+        col*=1.+.06*exp(-pow((t-.59)/.05,2.));
+        col=mix(col,col*vec3(1.02,1.0,.96),f*.6);
+        float vg=smoothstep(1.2,.35,length((v-.5)*vec2(1.,.9))*1.25);
+        col*=mix(.74,1.,vg);
         gl_FragColor=vec4(col,1.);
       }`;
     function sh(type,src){const o=gl.createShader(type);gl.shaderSource(o,src);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(o));return o}
@@ -938,7 +989,7 @@ section{scroll-margin-top:70px}
       gl.uniform1i(U('A'),0);gl.uniform1i(U('B'),1);
       gl.uniform1f(U('rA'),imgs[0].naturalWidth/imgs[0].naturalHeight);gl.uniform1f(U('rB'),imgs[1].naturalWidth/imgs[1].naturalHeight);
       scene.insertBefore(cv,scene.querySelector('.shade'));scene.classList.add('gl');
-      const DUR=4600;let t0=performance.now(),revealed=false,mx=0,my=0,tx=0,ty=0,visible=true;
+      const DUR=5400;let t0=performance.now(),revealed=false,mx=0,my=0,tx=0,ty=0,visible=true;
       function size(){const d=Math.min(devicePixelRatio||1,2);const w=Math.round(cv.clientWidth*d),h=Math.round(cv.clientHeight*d);if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h;gl.viewport(0,0,w,h);gl.uniform2f(U('R'),w,h)}}
       scene.addEventListener('pointermove',e=>{const r=scene.getBoundingClientRect();tx=(e.clientX-r.left)/r.width-.5;ty=.5-(e.clientY-r.top)/r.height});
       scene.addEventListener('pointerleave',()=>{tx=0;ty=0});
@@ -947,7 +998,7 @@ section{scroll-margin-top:70px}
         if(!visible) return;
         size();
         const t=Math.max(0,(now-t0)/DUR);
-        if(t>.74&&!revealed){revealed=true;scene.classList.add('reveal')}
+        if(t>.80&&!revealed){revealed=true;scene.classList.add('reveal')}
         mx+=(tx-mx)*.05;my+=(ty-my)*.05;
         const idle=t>1?.015*Math.sin((now-t0-DUR)/2600):0;
         gl.uniform1f(U('t'),Math.min(t,1));gl.uniform1f(U('idle'),idle);gl.uniform2f(U('m'),mx,my);
@@ -983,7 +1034,7 @@ section{scroll-margin-top:70px}
     const io=new IntersectionObserver(es=>{es.forEach(en=>{
       if(!en.isIntersecting) return; io.unobserve(en.target);
       const el=en.target,to=+el.dataset.count,t0=performance.now(),d=1100;
-      (function step(t){const p=Math.min(1,(t-t0)/d),v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=fmt(v);if(p<1)requestAnimationFrame(step)})(t0);
+      (function step(t){const p=Math.max(0,Math.min(1,(t-t0)/d)),v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=fmt(v);if(p<1)requestAnimationFrame(step)})(t0);
     })},{threshold:.6});
     document.querySelectorAll('[data-count]').forEach(el=>io.observe(el));
   }
