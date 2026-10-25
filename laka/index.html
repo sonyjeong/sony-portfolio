@@ -1,0 +1,1406 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="고객이 직접 참여하고 기억하는 브랜드 경험을 기획하는 마케터 정수현(Sony Jeong)의 라카 브랜드 마케팅 인턴 지원 포트폴리오">
+<meta name="theme-color" content="#7A1F33">
+<meta property="og:title" content="Sony Jeong Portfolio · for LAKA">
+<meta property="og:description" content="고객이 직접 만들고 기억하는 경험을 기획하는 마케터, 정수현">
+<title>Sony Jeong · LAKA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans+KR:wght@400;500;700&family=Nanum+Pen+Script&display=swap">
+<style>
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0}
+img,video{max-width:100%}
+
+/* LAKA edition: same structure as the main portfolio. Opens on the Seongsu storefront, then Sony with a LAKA bag.
+   Palette after the LAKA Seongsu flagship: burgundy wine (main), wood brown and silver (support).
+   Token names are kept from the main site: --yellow = main accent (wine), --brown = wood. */
+:root{
+  --bg:#FFFFFF; --bg-2:#F8F2F1; --card:#FFFFFF; --ink:#24161A; --muted:#6F5E61; --line:#EDE3E1;
+  --yellow:#7A1F33; --yellow-soft:#F3DDE2; --brown:#8A5A3B; --on-yellow:#FFFFFF;
+  --silver:#A7ABB2; --deep:#2A1218; --metal:#DCDDE2; --rose:#F1C9D2;
+  --display:"Bricolage Grotesque","IBM Plex Sans KR",system-ui,sans-serif;
+  --body:"IBM Plex Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo",sans-serif;
+  --hand:"Nanum Pen Script","Segoe Print",cursive;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#140E10; --bg-2:#1D1416; --card:#22181B; --ink:#F6EEEF; --muted:#B9A9AC; --line:#382A2E;
+  --yellow:#A53B54; --yellow-soft:#43202A; --brown:#D3A986; --on-yellow:#FFFFFF; --silver:#8E929A; --deep:#1D0C11; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#140E10; --bg-2:#1D1416; --card:#22181B; --ink:#F6EEEF; --muted:#B9A9AC; --line:#382A2E;
+  --yellow:#A53B54; --yellow-soft:#43202A; --brown:#D3A986; --on-yellow:#FFFFFF; --silver:#8E929A; --deep:#1D0C11; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+h1,h2,h3,p,li,summary,.voice{word-break:keep-all;overflow-wrap:anywhere}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:6px}
+body [lang="en"]{display:none}
+html.en body [lang="en"]{display:revert}
+html.en body [lang="ko"]{display:none}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{font-family:var(--display);font-weight:800;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:center;gap:8px}
+.brand i{width:14px;height:14px;border-radius:4px;background:var(--yellow);display:inline-block;box-shadow:3px 3px 0 var(--silver)}
+.links{display:flex;gap:20px;font-size:14px}
+.links a{text-decoration:none;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:99px;padding:3px;background:var(--card)}
+.lang button{border:0;background:none;font:600 12px var(--body);padding:5px 11px;border-radius:99px;color:var(--muted);cursor:pointer;letter-spacing:.04em}
+.lang button[aria-pressed="true"]{background:var(--yellow);color:var(--on-yellow)}
+@media (max-width:720px){.links{display:none}}
+
+/* intro scene */
+.scene{position:relative;height:clamp(540px,84vh,820px);overflow:hidden;background:#140E10;color:#fff}
+.scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform,opacity}
+.shot-forest{transform-origin:50% 55%;animation:forestIn 3.6s ease-in-out .2s both}
+.shot-sony{object-position:48% 70%;transform-origin:48% 70%;opacity:0;animation:sonyIn 3s ease-out 1.8s forwards}
+@keyframes forestIn{from{transform:scale(1.06) translateX(2%)}to{transform:scale(1.11) translateX(-2%)}}
+@keyframes sonyIn{0%{opacity:0;transform:scale(1.1)}40%{opacity:1}100%{opacity:1;transform:scale(1.3)}}
+.scene .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,.0) 35%,rgba(20,16,12,.72) 100%),linear-gradient(90deg,rgba(20,16,12,.45),rgba(20,16,12,0) 55%)}
+.scene .wrap{position:relative;height:100%;display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;padding-block:40px}
+.scene .copy{opacity:0;transform:translateY(16px);animation:rise .8s ease 3.4s forwards;max-width:620px}
+.scene .eyebrow{display:inline-block;background:var(--yellow);color:var(--on-yellow);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:6px}
+.scene h1{font-size:clamp(38px,6vw,72px);font-weight:800;letter-spacing:-.03em;margin-top:14px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.scene h1 em{font-style:normal;color:var(--rose)}
+.scene .loc{margin-top:10px;font-size:13px;opacity:.85}
+@keyframes rise{to{opacity:1;transform:none}}
+.replay{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:16px;z-index:2;border:1px solid rgba(255,255,255,.5);background:rgba(20,16,12,.35);color:#fff;border-radius:99px;font:600 12px var(--body);padding:6px 12px;cursor:pointer;backdrop-filter:blur(6px)}
+
+.tag{width:240px;border-radius:18px;background:var(--yellow);box-shadow:0 26px 50px -24px rgba(0,0,0,.7);transform:rotate(6deg);cursor:grab;user-select:none;touch-action:none;overflow:hidden;opacity:0;animation:stick .7s cubic-bezier(.3,1.5,.5,1) 3.6s forwards}
+.tag:active{cursor:grabbing}
+@keyframes stick{from{opacity:0;transform:rotate(18deg) scale(1.25)}to{opacity:1;transform:rotate(6deg) scale(1)}}
+.tag .top{color:var(--on-yellow);text-align:center;padding:14px 12px 8px}
+.tag .hello{font-family:var(--display);font-weight:800;font-size:36px;letter-spacing:.02em;line-height:1}
+.tag .mn{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.06em;margin-top:2px}
+.tag .white{background:#fff;margin:0 10px;border-radius:6px;padding:10px 8px 6px;text-align:center}
+.tag .name{font-family:var(--hand);font-size:64px;line-height:.95;color:#24161A}
+.tag .sub{font-family:var(--hand);font-size:20px;color:#6F5E61}
+.tag .foot{height:16px;margin:8px 10px 0;border-radius:3px 3px 0 0;background:linear-gradient(90deg,#9A9EA6,#E9EAED 45%,#A7ABB2)}
+@media (max-width:760px){
+  .scene .wrap{grid-template-columns:1fr;align-content:end}
+  .tag{position:absolute;top:58px;right:max(16px,env(safe-area-inset-right,0px));width:150px}
+  .tag .hello{font-size:24px}.tag .name{font-size:42px}.tag .sub{font-size:15px}
+}
+
+/* lede + stats */
+.intro .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding-block:48px}
+.intro .lede{font-size:18px;color:var(--ink);max-width:34em}
+.intro .lede b{background:linear-gradient(transparent 60%,var(--yellow-soft) 60%)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;padding:13px 20px;font:700 15px var(--body);text-decoration:none;border:1.5px solid var(--ink);cursor:pointer;background:none;color:var(--ink);transition:transform .15s}
+.btn.solid{background:var(--yellow);border-color:var(--yellow);color:var(--on-yellow)}
+.btn:hover{transform:translateY(-2px)}
+@media (max-width:760px){.intro .wrap{grid-template-columns:1fr;padding-block:32px}.cta{justify-content:flex-start}}
+
+.stats{background:var(--deep);color:#FFFFFF}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:26px 18px;border-left:1px solid rgba(255,255,255,.12)}
+.stat:first-child{border-left:0}
+.stat .n{font-family:var(--display);font-weight:800;font-size:clamp(30px,4vw,44px);letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--metal)}
+.stat .n small{font-size:.5em;margin-left:2px}
+.stat .l{font-size:13px;color:rgba(255,255,255,.72);line-height:1.5}
+@media (max-width:720px){.stats .wrap{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.12)}}
+
+section{scroll-margin-top:70px}
+.sec{padding-block:88px 0}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:36px}
+.sec-head h2{font-size:clamp(30px,4.2vw,48px);font-weight:800;letter-spacing:-.025em;max-width:16em}
+.sec-head .meta{font-size:13px;color:var(--muted);text-align:right}
+.place{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brown);margin-bottom:12px}
+
+/* callback case */
+.case{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;min-width:0}
+.panel h3{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.panel .desc{color:var(--muted);margin-top:10px;font-size:15px}
+.seg{display:inline-flex;gap:4px;background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:3px;margin-top:20px}
+.seg button{border:0;background:none;font:600 13px var(--body);padding:7px 14px;border-radius:9px;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.bars{display:grid;gap:16px;margin-top:24px}
+.bar-row{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:center}
+.bar-row .k{font-size:13px;color:var(--muted)}
+.track{height:44px;background:var(--bg-2);border-radius:10px;overflow:hidden}
+.fill{height:100%;border-radius:10px;background:var(--line);display:flex;align-items:center;justify-content:flex-end;padding-right:12px;font:800 16px var(--display);color:var(--ink);font-variant-numeric:tabular-nums;transition:width .7s cubic-bezier(.2,.8,.2,1);min-width:64px}
+.fill.hot{background:var(--yellow);color:var(--on-yellow)}
+.bar-note{font-size:13px;color:var(--muted);margin-top:14px}
+
+.phone{display:grid;gap:10px;margin-top:22px;min-height:150px;align-content:start}
+.bubble{border-radius:16px;padding:12px 16px;font-size:15px;line-height:1.55;max-width:92%}
+.bubble.me{background:var(--yellow);color:var(--on-yellow);justify-self:end;border-bottom-right-radius:4px}
+.bubble.old{background:var(--bg-2);border:1px dashed var(--line);color:var(--muted);border-bottom-left-radius:4px}
+.bubble .why{display:block;font-size:12px;opacity:.7;margin-top:4px}
+.steps-ctrl{display:flex;align-items:center;gap:10px;margin-top:16px}
+.dots{display:flex;gap:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--ink)}
+.mini{border:1px solid var(--line);background:var(--card);border-radius:10px;width:36px;height:36px;cursor:pointer;color:var(--ink);font-size:16px}
+.extras{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.extra{border-top:3px solid var(--silver);padding-top:14px}
+.extra .ey{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--brown);text-transform:uppercase}
+.extra b{font-family:var(--display);font-size:18px;display:block;margin:2px 0 6px}
+.extra p{font-size:14px;color:var(--muted)}
+@media (max-width:860px){.case{grid-template-columns:1fr}.extras{grid-template-columns:1fr}}
+
+/* parties */
+.party-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.round{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;cursor:pointer;text-align:left;font:inherit;color:inherit;transition:transform .2s;display:flex;flex-direction:column;gap:10px}
+.round:hover{transform:translateY(-3px)}
+.round[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 2px var(--ink) inset}
+.round .rn{font-size:12px;letter-spacing:.1em;color:var(--muted);font-weight:700;text-transform:uppercase}
+.round .ppl{font-family:var(--display);font-weight:800;font-size:38px;line-height:1;font-variant-numeric:tabular-nums}
+.round .ppl span{font-size:15px;color:var(--muted);font-weight:600;margin-left:4px}
+.crowd{display:flex;flex-wrap:wrap;gap:3px}
+.crowd i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.round[aria-pressed="true"] .crowd i{background:var(--yellow);box-shadow:0 0 0 1px rgba(30,26,22,.25)}
+.round .note{font-size:13px;color:var(--muted);min-height:1.5em}
+@media (max-width:860px){.party-grid{grid-template-columns:1fr 1fr}}
+
+.media{margin-top:28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start}
+.media .live{grid-column:1/-1}
+.media .live video{aspect-ratio:16/9;max-height:480px}
+.media figure{margin:0}
+.media video,.media img{display:block;width:100%;max-width:100%;aspect-ratio:9/14;object-fit:cover;border-radius:16px;background:#1E1A16;cursor:zoom-in}
+.media figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.media figcaption b{color:var(--ink);font-weight:700}
+.party-side{display:grid;gap:18px;min-width:0}
+.ticket{border:1.5px dashed var(--ink);border-radius:16px;padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;background:var(--bg-2)}
+.ticket .t-k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.ticket .t-v{font-family:var(--display);font-weight:800;font-size:28px;font-variant-numeric:tabular-nums}
+.ticket .t-c{grid-column:1/-1;font-size:14px;color:var(--muted);margin-top:8px;border-top:1px dashed var(--line);padding-top:12px}
+.game{display:flex;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
+.game b{font-family:var(--display);min-width:7.5em}
+.game span{font-size:14px;color:var(--muted)}
+@media (max-width:760px){.media{grid-template-columns:1fr 1fr}.media .live{grid-column:1/-1}}
+
+.roles{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.roles .panel{padding:22px}
+.roles ul{margin:8px 0 0;padding-left:18px;font-size:14px;color:var(--muted)}
+@media (max-width:860px){.roles{grid-template-columns:1fr}}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:40;background:rgba(15,12,9,.88);display:grid;place-items:center;padding:max(24px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(24px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lightbox img,.lightbox video{max-width:100%;max-height:86vh;border-radius:12px}
+.lightbox button{position:absolute;top:max(16px,env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));background:#7A1F33;color:#FFFFFF;border:0;border-radius:99px;padding:8px 14px;font:700 13px var(--body);cursor:pointer}
+
+/* timeline */
+.tl{border-top:1px solid var(--line)}
+.tl details{border-bottom:1px solid var(--line)}
+.tl summary{list-style:none;display:grid;grid-template-columns:130px 1fr auto;gap:18px;align-items:center;padding:22px 4px;cursor:pointer}
+.tl summary::-webkit-details-marker{display:none}
+.tl .when{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tl .what{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.01em;min-width:0}
+.tl .what small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted);letter-spacing:0}
+.tl .plus{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:transform .25s;font-size:18px}
+.tl details[open] .plus{transform:rotate(45deg);background:var(--yellow);border-color:var(--yellow);color:var(--on-yellow)}
+.tl .body{padding:0 4px 24px 152px;color:var(--muted);font-size:15px;max-width:60em}
+.chip{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:6px;background:var(--yellow);color:var(--on-yellow);margin-left:8px;vertical-align:2px}
+@media (max-width:640px){.tl summary{grid-template-columns:1fr auto}.tl .when{grid-column:1/-1;margin-bottom:-12px}.tl .body{padding-left:4px}}
+
+/* voices marquee */
+.voices-band{background:var(--bg-2);padding-block:28px;border-block:1px solid var(--line);overflow:hidden}
+.lane{display:flex;gap:14px;width:max-content;animation:slide 70s linear infinite}
+.lane.rev{animation-direction:reverse;margin-top:14px;animation-duration:80s}
+.voices-band:hover .lane{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.voice{flex:0 0 auto;width:300px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;font-size:16px;line-height:1.5;font-weight:500}
+.voice.y{background:var(--yellow);border-color:var(--yellow);color:var(--on-yellow)}
+.voice small{display:block;font-size:12px;color:var(--muted);margin-top:8px;font-weight:400}
+.voice.y small{color:rgba(255,255,255,.72)}
+@media (prefers-reduced-motion:reduce){.lane{animation:none;flex-wrap:wrap;width:auto;padding-inline:16px}.lane.rev{display:none}}
+
+/* toolkit */
+.kit{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.kit h3{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-family:var(--body);font-weight:700;margin-bottom:12px}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.kv b{font-family:var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills span{border:1px solid var(--line);border-radius:8px;padding:5px 12px;font-size:14px;background:var(--card)}
+@media (max-width:860px){.kit{grid-template-columns:1fr}}
+
+/* contact */
+.contact{margin-top:96px;background:#7A1F33;color:#FFFFFF}
+.contact .wrap{padding-block:72px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:end}
+.contact h2{font-size:clamp(34px,5vw,60px);font-weight:800;letter-spacing:-.03em}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:22px}
+.mail code{font:600 17px var(--body);user-select:all;background:#FFFFFF;padding:10px 14px;border-radius:10px;word-break:break-all;color:#24161A}
+.mail button.copy{border:0;background:#2A1218;color:#FFFFFF;border-radius:10px;padding:12px 16px;font:700 14px var(--body);cursor:pointer}
+.contact .side{font-size:14px;color:rgba(255,255,255,.78)}
+@media (max-width:760px){.contact .wrap{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+  .shot-forest{animation:none;opacity:0}
+  .shot-sony,.scene .copy,.tag{animation:none;opacity:1;transform:none;filter:none}
+  .shot-sony{transform:scale(1.12)}
+  .tag{transform:rotate(6deg)}
+}
+/* contents */
+.toc{background:var(--deep);color:#FFFFFF}
+.toc .wrap{padding-block:56px 60px;display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start}
+.toc h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--metal);font-family:var(--body);font-weight:700;padding-top:12px}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.toc a{display:flex;gap:14px;align-items:baseline;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.14);transition:color .2s,padding-left .2s}
+.toc a:hover{color:var(--rose);padding-left:6px}
+.toc .num{color:var(--rose);font:700 13px var(--body);font-variant-numeric:tabular-nums;min-width:22px}
+.toc .t{font-family:var(--display);font-weight:800;font-size:clamp(22px,2.8vw,32px);letter-spacing:-.01em;line-height:1.1}
+.toc .k{margin-left:auto;font-size:13px;color:rgba(255,255,255,.55)}
+@media (max-width:760px){.toc .wrap{grid-template-columns:1fr;gap:12px}.toc ol{grid-template-columns:1fr}}
+
+.num-place{display:inline-flex;gap:8px;align-items:center}
+.num-place b{background:var(--yellow);color:var(--on-yellow);border-radius:6px;padding:1px 7px;font-size:12px}
+
+/* education */
+.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.edu .panel{display:flex;flex-direction:column;gap:8px}
+.edu .yr{font-family:var(--display);font-weight:800;font-size:15px;color:var(--brown);font-variant-numeric:tabular-nums}
+.edu h3{font-size:21px}
+.edu .big{font-family:var(--display);font-weight:800;font-size:44px;letter-spacing:-.02em;line-height:1;margin-top:auto;padding-top:14px;font-variant-numeric:tabular-nums}
+.edu .big small{font-size:16px;color:var(--muted);font-weight:600}
+.edu .panel.main{background:var(--yellow);border-color:var(--yellow);color:var(--on-yellow)}
+.edu .panel.main .yr,.edu .panel.main .desc,.edu .panel.main .big small{color:rgba(255,255,255,.8)}
+@media (max-width:860px){.edu{grid-template-columns:1fr}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cert{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.cert div{background:var(--bg-2);border-radius:14px;padding:14px;text-align:center}
+.cert b{display:block;font-family:var(--display);font-weight:800;font-size:28px;line-height:1.1}
+.cert span{font-size:12px;color:var(--muted)}
+.strength{display:grid;gap:10px;margin-top:16px}
+.strength div{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.strength b{font-family:var(--display);font-size:17px}
+.strength span{font-size:13px;color:var(--muted);text-align:right}
+.skills .wide{grid-column:1/-1}
+@media (max-width:860px){.skills{grid-template-columns:1fr}.cert{grid-template-columns:repeat(3,1fr)}}
+
+/* experience links */
+.tl .go{display:inline-block;margin-top:10px;font-weight:700;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--yellow)}
+
+/* portfolio divider */
+.pf-banner{margin-top:96px;background:var(--yellow);color:var(--on-yellow)}
+.pf-banner .wrap{padding-block:44px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:end}
+.pf-banner .no{font-family:var(--display);font-weight:800;font-size:clamp(64px,10vw,128px);line-height:.85;letter-spacing:-.04em}
+.pf-banner h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.02em}
+.pf-banner p{font-size:14px;color:rgba(255,255,255,.8);margin-top:6px}
+.pf-banner .when{font-size:13px;font-weight:700;color:rgba(255,255,255,.8);text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:760px){.pf-banner .wrap{grid-template-columns:1fr;gap:10px}.pf-banner .when{text-align:left}}
+
+/* educanspire */
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
+.flow div{padding:20px 22px;border-left:1px solid var(--line);position:relative}
+.flow div:first-child{border-left:0}
+.flow .s{font:700 12px var(--body);letter-spacing:.08em;color:var(--brown);text-transform:uppercase}
+.flow b{display:block;font-family:var(--display);font-size:18px;margin:4px 0}
+.flow p{font-size:14px;color:var(--muted)}
+@media (max-width:760px){.flow{grid-template-columns:1fr}.flow div{border-left:0;border-top:1px solid var(--line)}.flow div:first-child{border-top:0}}
+.deliver{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.stack{position:relative;height:300px;display:grid;place-items:center}
+.sheet{position:absolute;width:170px;height:230px;border-radius:6px;background:var(--card);border:1px solid var(--line);box-shadow:0 1px 0 rgba(0,0,0,.04);transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .4s}
+.sheet.cover{background:var(--yellow);border-color:var(--yellow);display:flex;flex-direction:column;justify-content:space-between;padding:16px;color:var(--on-yellow)}
+.sheet.cover b{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.1}
+.sheet.cover span{font-size:12px;font-weight:700}
+.sheet.cover .lines i{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.3);margin-top:6px}
+.sheet.cover .lines i:nth-child(2){width:70%}
+.pages{font-family:var(--display);font-weight:800;font-size:64px;line-height:1;font-variant-numeric:tabular-nums}
+.pages small{font-size:18px;color:var(--muted);margin-left:4px}
+.deliver .tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.deliver .tabs button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 14px;font:600 14px var(--body);color:var(--muted);cursor:pointer}
+.deliver .tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.deliver .info p{color:var(--muted);margin-top:10px;font-size:15px}
+.topics{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.topics span{background:var(--bg-2);border-radius:8px;padding:5px 12px;font-size:14px}
+@media (max-width:760px){.deliver{grid-template-columns:1fr}.stack{height:270px}}
+
+/* culcom intro */
+.pf-intro .wrap{display:grid;grid-template-columns:300px 1fr;gap:36px;align-items:center;padding-block:48px 0}
+.pf-intro figure{margin:0}
+.pf-intro figure img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;display:block;cursor:zoom-in}
+.pf-intro figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.pf-intro .logo{width:150px;height:auto;background:#FFFFFF;border-radius:12px;padding:4px 10px;display:block}
+.pf-intro p{margin-top:16px;font-size:16px;max-width:36em}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.facts div{border-top:2px solid var(--silver);padding-top:10px}
+.facts b{display:block;font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums}
+.facts span{font-size:13px;color:var(--muted)}
+@media (max-width:760px){.pf-intro .wrap{grid-template-columns:1fr}.pf-intro figure{max-width:280px}.facts{grid-template-columns:1fr 1fr}}
+.tl-photos{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.tl-photos img{width:150px;aspect-ratio:3/4;object-fit:cover;border-radius:12px;cursor:zoom-in;max-width:100%}
+.party-info{margin-top:22px;display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+@media (max-width:860px){.party-info{grid-template-columns:1fr}}
+/* intro webgl */
+.scene canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.scene.gl img{visibility:hidden;animation:none!important}
+.scene .copy{filter:blur(10px)}
+@keyframes rise{to{opacity:1;transform:none;filter:blur(0)}}
+.scene.gl .copy,.scene.gl .tag{animation:none;opacity:0}
+.scene.gl.reveal .copy{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) forwards}
+.scene.gl.reveal .tag{animation:stick .8s cubic-bezier(.3,1.5,.5,1) .35s forwards}
+
+/* flipbook */
+.deliver{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);align-items:start}
+.book-wrap{background:var(--bg-2);border:1px solid var(--line);border-radius:20px;padding:22px;min-width:0}
+.book-holder{width:100%;max-width:820px;margin:0 auto;min-height:200px}
+.book-holder img.fallback{display:block;width:100%;max-width:420px;margin:0 auto;border-radius:6px;box-shadow:0 12px 30px -16px rgba(0,0,0,.4)}
+.book-ctrl{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.book-hint{text-align:center;font-size:12px;color:var(--muted);margin-top:6px}
+.cert-card{display:flex;gap:14px;align-items:center;margin-top:22px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.cert-card img{width:96px;border-radius:6px;border:1px solid var(--line)}
+.cert-card b{display:block;font-family:var(--display);font-size:16px}
+.cert-card span{font-size:13px;color:var(--muted)}
+@media (max-width:860px){.deliver{grid-template-columns:1fr}}
+
+/* doc buttons + viewer */
+.doc-btn{display:flex;gap:14px;align-items:center;margin-top:16px;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);cursor:pointer;font:inherit;color:inherit;text-align:left;width:100%;max-width:460px;transition:transform .15s}
+.doc-btn:hover{transform:translateY(-2px)}
+.doc-btn img{width:120px;border-radius:6px;flex:none;border:1px solid var(--line)}
+.doc-btn.portrait img{width:64px}
+.doc-btn b{display:block;font-family:var(--display);font-size:15px;color:var(--ink)}
+.doc-btn span{font-size:13px;color:var(--muted)}
+.viewer{position:fixed;inset:0;z-index:45;background:rgba(15,12,9,.97);display:flex;flex-direction:column;color:#fff;padding:max(14px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(14px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.viewer .vbar{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px}
+.viewer .vbar b{font-family:var(--display)}
+.viewer .vclose{background:#7A1F33;color:#FFFFFF;border:0;border-radius:99px;padding:8px 14px;font:700 13px var(--body);cursor:pointer}
+.viewer .vstage{flex:1;min-height:0;display:grid;grid-template-columns:44px 1fr 44px;align-items:center;gap:10px;margin-block:12px}
+.viewer .vstage img{max-width:100%;max-height:100%;margin:auto;display:block;border-radius:8px;box-shadow:0 20px 50px -20px rgba(0,0,0,.8);object-fit:contain}
+.viewer .vimg{height:100%;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.viewer .vnav{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font-size:18px;cursor:pointer}
+.viewer .vthumbs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.viewer .vthumbs img{height:54px;border-radius:4px;opacity:.5;cursor:pointer;border:2px solid transparent;flex:none}
+.viewer .vthumbs img.on{opacity:1;border-color:#DCDDE2}
+@media (max-width:600px){.viewer .vstage{grid-template-columns:1fr}.viewer .vnav{display:none}}
+.growth{display:inline-flex;align-items:baseline;gap:10px;margin-bottom:16px;background:var(--yellow);color:var(--on-yellow);border-radius:12px;padding:8px 14px;font-size:14px;font-weight:600}
+.growth b{font-family:var(--display);font-size:22px;font-weight:800}
+
+.belief .wrap{padding-block:12px 8px}
+.belief .q{font-family:var(--display);font-weight:600;font-size:clamp(19px,2.2vw,24px);line-height:1.6;max-width:44em;border-left:4px solid var(--yellow);padding-left:20px;letter-spacing:-.01em}
+.thanks .close-note{max-width:40em;margin:22px auto 0;color:var(--ink);font-size:17px}
+/* problem → plan → action → result */
+.star{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card);counter-reset:none}
+.star>li{padding:22px 20px;border-left:1px solid var(--line);min-width:0;display:flex;flex-direction:column;gap:8px}
+.star>li:first-child{border-left:0}
+.star>li:last-child{background:var(--bg-2)}
+.star .st{display:flex;align-items:center;gap:8px;font:700 12px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--brown)}
+.star .st b{background:var(--ink);color:var(--bg);border-radius:6px;padding:1px 7px;font-size:11px;font-variant-numeric:tabular-nums}
+.star>li:last-child .st b{background:var(--yellow);color:var(--on-yellow)}
+.star h4{margin:0;font-family:var(--display);font-size:17px;line-height:1.35;letter-spacing:-.01em;text-wrap:balance}
+.star ul{margin:0;padding-left:17px;font-size:14px;color:var(--muted);line-height:1.6;display:grid;gap:6px}
+.star .lesson{margin-top:auto;padding-top:10px;border-top:1px dashed var(--line);font-size:13px;color:var(--ink)}
+.star .doc-btn{margin-top:6px;max-width:none;padding:10px}
+@media (max-width:960px){.star{grid-template-columns:1fr 1fr}.star>li:nth-child(3){border-left:0}.star>li:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:600px){.star{grid-template-columns:1fr}.star>li{border-left:0}.star>li+li{border-top:1px solid var(--line)}}
+.case-lead{font-size:17px;max-width:46em;margin-top:-12px;margin-bottom:24px}
+.case-lead b{background:linear-gradient(transparent 60%,var(--yellow-soft) 60%)}
+.scene .qa-q{display:block;font:600 clamp(15px,1.7vw,19px) var(--body);color:rgba(255,255,255,.88);margin-top:16px;letter-spacing:0}
+.scene .qa-q i{font-style:normal;color:var(--metal);font-family:var(--display);font-weight:800;margin-right:8px}
+.scene h1 .a{color:var(--metal);font-family:var(--display);font-weight:800;margin-right:10px;font-size:.6em;vertical-align:.35em}
+.belief .qlabel{display:block;font:700 13px var(--body);letter-spacing:.04em;color:var(--brown);margin-bottom:8px}
+.belief .qlabel i{font-style:normal;background:var(--yellow);color:var(--on-yellow);border-radius:5px;padding:0 6px;margin-right:6px}
+/* about */
+.about .wrap{padding-block:40px 8px}
+.about .ab-list{margin-top:0}
+.ab-title{font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-.025em;margin-top:4px}
+.ab-title em{font-style:normal;text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:.1em;text-underline-offset:.14em;text-decoration-skip-ink:none}
+.ab-list{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.ab-list li{padding:22px 24px 24px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-content:start;min-width:0}
+.ab-list li:nth-child(even){padding-left:24px;padding-right:0;border-left:1px solid var(--line)}
+.ab-n{grid-row:span 2;font:800 14px var(--display);color:var(--on-yellow);background:var(--yellow);border-radius:6px;padding:2px 7px;height:max-content;font-variant-numeric:tabular-nums}
+.ab-list h3{font-size:18px;letter-spacing:-.01em;line-height:1.35}
+.ab-list p{font-size:15px;color:var(--muted);line-height:1.7}
+.ab-close{margin-top:22px;font-family:var(--display);font-weight:700;font-size:clamp(17px,2vw,21px);max-width:40em}
+@media (max-width:760px){.ab-list{grid-template-columns:1fr}.ab-list li,.ab-list li:nth-child(even){padding:20px 0;border-left:0}}
+/* thanks */
+.thanks{padding-block:96px 120px;text-align:center}
+.thanks .big{font-family:var(--display);font-weight:800;font-size:clamp(64px,13vw,168px);letter-spacing:-.045em;line-height:.9}
+.thanks .big span{background:linear-gradient(transparent 62%,var(--yellow-soft) 62%)}
+.thanks .sign{font-family:var(--hand);font-size:44px;margin-top:18px;color:var(--brown)}
+.thanks p{color:var(--muted);margin-top:10px}
+.thanks .btn{margin-top:28px}
+
+/* why LAKA */
+.why{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:36px;align-items:start}
+.why-photo{margin:0;position:relative}
+.why-photo img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:20px;cursor:zoom-in}
+.why-photo figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.why-photo .stamp{position:absolute;left:14px;top:14px;background:var(--yellow);color:var(--on-yellow);font:700 12px var(--body);letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:8px;box-shadow:3px 3px 0 var(--silver)}
+.why .case-lead{margin-top:0}
+.path{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.path li{background:var(--bg-2);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:4px;position:relative;min-width:0}
+.path li:last-child{background:var(--yellow);color:var(--on-yellow)}
+.path .pn{font:700 11px var(--body);letter-spacing:.1em;color:var(--brown)}
+.path li:last-child .pn{color:rgba(255,255,255,.8)}
+.path b{font-family:var(--display);font-size:16px;line-height:1.3}
+.path span{font-size:13px;color:var(--muted);line-height:1.5}
+.path li:last-child span{color:rgba(255,255,255,.82)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.vs div{border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:var(--card)}
+.vs div.us{border:1.5px solid var(--yellow);box-shadow:0 0 0 3px var(--yellow-soft)}
+.vs .k{font:700 12px var(--body);letter-spacing:.06em;color:var(--muted)}
+.vs div.us .k{color:var(--yellow)}
+.vs b{display:block;font-family:var(--display);font-size:19px;margin:2px 0 4px}
+.vs p{font-size:14px;color:var(--muted)}
+.why-ins{margin-top:32px}
+@media (max-width:860px){.why{grid-template-columns:1fr}.why-photo{max-width:360px}.path{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.vs{grid-template-columns:1fr}}
+
+/* mixology demo */
+.mixer{margin-top:28px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px;align-items:center;background:linear-gradient(135deg,var(--bg-2),var(--card))}
+.bottle{position:relative;width:110px;height:230px;margin:0 auto}
+.bottle .cap{position:absolute;left:28px;top:0;width:54px;height:62px;border-radius:10px 10px 4px 4px;background:linear-gradient(90deg,#8F939B,#ECEDEF 40%,#B4B8BF 70%,#8F939B)}
+.bottle .glass{position:absolute;left:0;right:0;top:56px;bottom:0;border-radius:22px;border:2px solid var(--silver);overflow:hidden;background:color-mix(in srgb,var(--card) 70%,transparent)}
+.bottle .liquid{position:absolute;left:0;right:0;bottom:0;height:0;background:var(--mix,#c9a5ab);transition:height .5s cubic-bezier(.2,.8,.2,1),background-color .5s}
+.bottle .liquid::after{content:"";position:absolute;left:12px;top:10px;width:12px;bottom:12px;border-radius:8px;background:rgba(255,255,255,.28)}
+.bottle .label{position:absolute;left:14px;right:14px;bottom:40px;background:rgba(255,255,255,.9);color:#24161A;border-radius:6px;padding:6px;text-align:center;font:700 11px var(--body);letter-spacing:.06em;z-index:1}
+.bottle .label small{display:block;font-weight:500;letter-spacing:0;color:#6F5E61;font-variant-numeric:tabular-nums}
+.mixer h3{font-size:22px}
+.shades{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.drop{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:6px 14px 6px 6px;font:600 14px var(--body);cursor:pointer;transition:transform .15s}
+.drop:hover{transform:translateY(-2px)}
+.drop i{width:26px;height:26px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.drop b{font:700 12px var(--body);color:var(--muted);min-width:1.2em;font-variant-numeric:tabular-nums}
+.mix-out{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin-top:18px;font-size:14px;color:var(--muted)}
+.mix-out .sw{width:44px;height:22px;border-radius:99px;background:var(--mix,#c9a5ab);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.mix-out code{font:600 13px var(--body);color:var(--ink)}
+.mix-ctrl{display:flex;gap:8px;margin-top:14px}
+.mix-ctrl button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 14px;font:600 13px var(--body);cursor:pointer}
+.mix-note{font-size:12px;color:var(--muted);margin-top:12px}
+@media (max-width:700px){.mixer{grid-template-columns:1fr}}
+
+/* ideas */
+.ideas-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-top:56px}
+.ideas-head h3{font-size:clamp(22px,3vw,30px);letter-spacing:-.02em}
+.ideas-head p{font-size:13px;color:var(--muted)}
+.ideas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.idea{display:flex;flex-direction:column;gap:10px}
+.idea .jd{align-self:flex-start;font:700 11px var(--body);letter-spacing:.06em;color:var(--brown);border:1px solid var(--brown);border-radius:6px;padding:2px 8px}
+.idea h4{margin:0;font-family:var(--display);font-size:19px;line-height:1.35;letter-spacing:-.01em}
+.idea p{font-size:14px;color:var(--muted)}
+.idea .proof{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);font-size:13px;color:var(--ink)}
+.idea .proof b{color:var(--yellow)}
+@media (max-width:860px){.ideas{grid-template-columns:1fr}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .idea .proof b,:root:not([data-theme="light"]) .vs div.us .k{color:var(--rose)}}
+:root[data-theme="dark"] .idea .proof b,:root[data-theme="dark"] .vs div.us .k{color:var(--rose)}
+</style>
+
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><i></i>Sony Jeong</a>
+    <div class="links">
+      <a href="#intro"><span lang="ko">소개</span><span lang="en">Intro</span></a>
+      <a href="#why">Why LAKA</a>
+      <a href="#education"><span lang="ko">교육</span><span lang="en">Education</span></a>
+      <a href="#skills"><span lang="ko">스킬</span><span lang="en">Skills</span></a>
+      <a href="#journey"><span lang="ko">경험</span><span lang="en">Experience</span></a>
+      <a href="#portfolio"><span lang="ko">포트폴리오</span><span lang="en">Portfolio</span></a>
+      <a href="#contact"><span lang="ko">연락처</span><span lang="en">Contact</span></a>
+    </div>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="btn-ko" aria-pressed="true">KR</button>
+      <button id="btn-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="scene" id="top">
+  <img class="shot-forest" src="../assets/laka/store.jpg" alt="A softly lit storefront on a Seongsu street at night">
+  <img class="shot-sony" src="../assets/laka/hero.jpg" alt="Sony Jeong in Seongsu at night, holding a small LAKA shopping bag">
+  <div class="shade"></div>
+  <button class="replay" id="replay"><span lang="ko">↺ 다시 보기</span><span lang="en">↺ Replay</span></button>
+  <div class="wrap">
+    <div class="copy">
+      <span class="eyebrow">Brand Marketing</span>
+      <p class="qa-q"><i>Q.</i><span lang="ko">고객은 브랜드의 무엇을 기억할까요?</span><span lang="en">What do customers remember about a brand?</span></p>
+      <h1>
+        <span lang="ko"><span class="a">A.</span>직접 고르고 만든<br><em>나만의 경험</em>입니다.</span>
+        <span lang="en"><span class="a">A.</span>The experience they<br><em>made their own.</em></span>
+      </h1>
+      <p class="loc">Seongsu, Seoul · Applying for LAKA Brand Marketing Intern</p>
+    </div>
+    <div class="tag" id="tag" tabindex="0" aria-label="Name tag: Hello, my name is Sony">
+      <div class="top"><div class="hello">HELLO</div><div class="mn">my name is</div></div>
+      <div class="white"><div class="name">Sony</div><div class="sub">정수현</div></div>
+      <div class="foot"></div>
+    </div>
+  </div>
+</header>
+
+<section class="toc" aria-label="Contents">
+  <div class="wrap">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#intro"><span class="num">01</span><span class="t">Introduction</span><span class="k">소개</span></a></li>
+      <li><a href="#journey"><span class="num">05</span><span class="t">Experience</span><span class="k">경험</span></a></li>
+      <li><a href="#why"><span class="num">02</span><span class="t">Why LAKA</span><span class="k">고객으로 본 라카</span></a></li>
+      <li><a href="#portfolio"><span class="num">06</span><span class="t">Portfolio</span><span class="k">포트폴리오</span></a></li>
+      <li><a href="#education"><span class="num">03</span><span class="t">Education</span><span class="k">교육</span></a></li>
+      <li><a href="#contact"><span class="num">07</span><span class="t">Contact</span><span class="k">연락처</span></a></li>
+      <li><a href="#skills"><span class="num">04</span><span class="t">Skills</span><span class="k">스킬</span></a></li>
+      <li><a href="#thanks"><span class="num">08</span><span class="t">Thank you</span><span class="k">감사 인사</span></a></li>
+    </ol>
+  </div>
+</section>
+
+<section id="intro" style="scroll-margin-top:70px">
+  <div class="wrap" style="padding-top:72px">
+    <span class="place num-place"><b>01</b>Introduction</span>
+    <h2 class="ab-title"><span lang="ko">보여주는 것보다,<br><em>직접 해보게</em> 만드는 마케팅</span><span lang="en">Marketing that lets people<br><em>try it themselves,</em> not just watch</span></h2>
+  </div>
+<div class="intro">
+  <div class="wrap">
+    <p class="lede">
+      <span lang="ko">저는 <b>고객이 직접 참여하고 기억하는 경험을 기획하는 마케터</b>입니다. 컬컴 신촌점에서 80~150명 규모의 오프라인 행사 4회를 기획·운영해 참여 인원을 66.7% 늘렸고, 직접 만든 홍보 영상 2개는 지점 인스타그램 조회수 1·2위를 기록했습니다. 미국 메릴랜드에서 나고 자라, 영어로 소통하고 콘텐츠를 만드는 일이 익숙합니다.</span>
+      <span lang="en">I am a marketer who <b>plans experiences customers take part in and remember</b>. At Culcom Sinchon I planned and ran four offline events of 80–150 guests, growing turnout 66.7%, and my two promo videos became the branch account’s most-viewed posts. Born and raised in Maryland, I am at home communicating and making content in English.</span>
+    </p>
+    <div class="cta">
+      <a class="btn solid" href="#why"><span lang="ko">라카에서 본 것</span><span lang="en">What I saw at LAKA</span> →</a>
+      <a class="btn" href="#party"><span lang="ko">대표 성과 보기</span><span lang="en">See the work</span></a>
+    </div>
+  </div>
+</div>
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="n" data-count="430">430</div><div class="l"><span lang="ko">오프라인 행사 4회 누적 게스트</span><span lang="en">guests across four offline events</span></div></div>
+    <div class="stat"><div class="n">+66.7<small>%</small></div><div class="l"><span lang="ko">행사 참여 인원 증가 (90→150명)</span><span lang="en">turnout growth (90 → 150 guests)</span></div></div>
+    <div class="stat"><div class="n" data-count="2312">2,312</div><div class="l"><span lang="ko">직접 만든 홍보 영상 최고 조회수</span><span lang="en">views on my top promo video</span></div></div>
+    <div class="stat"><div class="n"><span data-count="11">11</span><small lang="ko">년</small><small lang="en">yrs</small></div><div class="l"><span lang="ko">미국 메릴랜드 거주 · OPIc AL</span><span lang="en">lived in Maryland, USA · OPIc AL</span></div></div>
+  </div>
+</div>
+<div class="about"><div class="wrap">
+    <ol class="ab-list">
+      <li><span class="ab-n">01</span><h3><span lang="ko">사람마다 다른 선택을 존중하는 것에서 시작합니다</span><span lang="en">It starts with respecting that people choose differently</span></h3><p><span lang="ko">사람마다 중요하게 여기는 가치가 다르기에, 같은 서비스도 받아들이는 이유가 다릅니다. 이 차이를 바꾸려 하기보다 있는 그대로 이해하는 것이 마케팅의 출발점이라고 생각합니다. 선택은 고객의 몫이지만, 그 선택에 필요한 정보를 어떻게 전달하느냐는 우리의 몫입니다.</span><span lang="en">People value different things, so they accept the same service for different reasons. I believe marketing starts by understanding those differences rather than trying to change them. The choice belongs to the customer; how we present the information behind it is our job.</span></p></li>
+      <li><span class="ab-n">02</span><h3><span lang="ko">가진 강점을 발견하고, 고객의 언어로 전달합니다</span><span lang="en">I find real strengths and say them in the customer’s words</span></h3><p><span lang="ko">브랜드도 사람처럼 모든 면에서 완벽할 수는 없지만, 고객에게 줄 수 있는 분명한 가치는 있습니다. 그중 고객에게 실제로 의미 있는 강점을 찾아 가장 이해하기 쉬운 메시지로 전달할 때, 단순한 인지를 넘어 신뢰가 만들어진다고 생각합니다.</span><span lang="en">Like people, brands are never perfect, yet each has value it can clearly offer. When we find the strengths that truly matter to customers and say them in the simplest terms, awareness turns into trust.</span></p></li>
+      <li><span class="ab-n">03</span><h3><span lang="ko">맡은 역할에서 한 걸음 더 나아갑니다</span><span lang="en">I go one step beyond my role</span></h3><p><span lang="ko">좋은 결과는 한 사람의 아이디어가 아니라, 각자의 역할을 다하면서 지금 필요한 일을 함께 고민하는 팀에서 나옵니다. 고객의 반응과 데이터, 동료의 의견을 살펴 부족한 부분을 찾고, 필요한 일을 스스로 실행하겠습니다.</span><span lang="en">Good results come from a team where everyone does their part and also asks what is needed now. I will watch customer reactions, data and colleagues’ input, spot the gaps, and act on them myself.</span></p></li>
+      <li><span class="ab-n">04</span><h3><span lang="ko">라카에서 만들고 싶은 경험</span><span lang="en">The experience I want to build at LAKA</span></h3><p><span lang="ko">매장에서 직접 고르고 섞어 본 즐거움이 SNS 콘텐츠와 팝업, 해외 고객과의 접점으로까지 이어지도록, 오프라인 경험과 글로벌 커뮤니케이션을 잇는 일을 하고 싶습니다.</span><span lang="en">I want the fun of picking and mixing colors in store to carry into social content, pop-ups and global touchpoints, linking offline experience with global communication.</span></p></li>
+    </ol>
+    <p class="ab-close"><span lang="ko">제품을 설명하는 마케팅보다, 고객이 브랜드를 직접 경험하고 자기만의 이유로 기억하게 하는 마케팅을 지향합니다.</span><span lang="en">Rather than explaining a product, I aim for marketing that lets customers experience the brand and remember it for reasons of their own.</span></p>
+  </div></div>
+<div id="voices" style="padding-top:56px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="place">People said</span>
+        <h2><span lang="ko">함께한 고객과 동료의 평가</span><span lang="en">What members and colleagues said</span></h2>
+      </div>
+      <p class="meta"><span lang="ko">인스타그램 스토리 설문에 받은 답장</span><span lang="en">Replies to an Instagram story poll</span></p>
+    </div>
+  </div>
+  <div class="voices-band">
+    <div class="lane" id="lane1"></div>
+    <div class="lane rev" id="lane2"></div>
+  </div>
+</div>
+</section>
+
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="place num-place"><b>02</b>Why LAKA</span>
+        <h2><span lang="ko">샘플 대신, ‘나만의 틴트’를 건네는 브랜드</span><span lang="en">A brand that hands you your own tint, not a sample</span></h2>
+      </div>
+      <p class="meta"><span lang="ko">고객으로 경험한 라카 · Personalization</span><span lang="en">LAKA as I experienced it as a customer</span></p>
+    </div>
+    <div class="why">
+      <figure class="why-photo">
+        <span class="stamp">Customer view</span>
+        <img src="../assets/laka/why.jpg" alt="Sony holding a small burgundy LAKA shopping bag in Seongsu" data-zoom>
+        <figcaption><span lang="ko">라카 미니 쇼핑백을 들고, 성수에서</span><span lang="en">With a mini LAKA shopping bag in Seongsu</span></figcaption>
+      </figure>
+      <div>
+        <p class="case-lead"><span lang="ko"><b>라카 매장에서는 3만 원 이상 구매하면 믹솔로지 바 이용권을 받을 수 있습니다.</b> 친구 생일선물로 틴트를 고르면서, 이용권으로 제게 어울리는 컬러들을 골라 섞어 하나뿐인 개인 틴트를 만들 수 있었습니다.</span><span lang="en"><b>At the LAKA store, spending ₩30,000 or more earns a pass to the mixology bar.</b> While picking out a tint as a friend’s birthday gift, I used the pass to choose colors that suit me and blend them into a tint of my own.</span></p>
+        <ol class="path">
+          <li><span class="pn">01</span><b><span lang="ko">선물 구매</span><span lang="en">Buy a gift</span></b><span><span lang="ko">친구 생일선물로 틴트 구매</span><span lang="en">A tint for a friend’s birthday</span></span></li>
+          <li><span class="pn">02</span><b><span lang="ko">이용권</span><span lang="en">Get a pass</span></b><span><span lang="ko">3만 원 이상 구매 혜택</span><span lang="en">Perk for ₩30,000+</span></span></li>
+          <li><span class="pn">03</span><b><span lang="ko">고르고 섞기</span><span lang="en">Pick and mix</span></b><span><span lang="ko">나에게 어울리는 컬러 조합</span><span lang="en">Colors that suit me</span></span></li>
+          <li><span class="pn">04</span><b><span lang="ko">나만의 틴트</span><span lang="en">My own tint</span></b><span><span lang="ko">하나뿐인 결과물을 들고 나옴</span><span lang="en">Walk out with a one-off</span></span></li>
+        </ol>
+        <div class="vs">
+          <div><span class="k"><span lang="ko">흔한 구매 혜택</span><span lang="en">The usual perk</span></span><b><span lang="ko">샘플 증정</span><span lang="en">Free samples</span></b><p><span lang="ko">받는 순간 끝나는 혜택. 어떤 브랜드에서 받았는지 금방 잊힙니다.</span><span lang="en">Over the moment you get it, and easy to forget which brand gave it.</span></p></div>
+          <div class="us"><span class="k">LAKA</span><b><span lang="ko">믹솔로지 바</span><span lang="en">Mixology bar</span></b><p><span lang="ko">직접 고르고 만드는 과정 자체가 브랜드 경험. 결과물에 나의 취향이 남습니다.</span><span lang="en">Making it is the brand experience, and the result carries my own taste.</span></p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="extras why-ins">
+      <div class="extra"><span class="ey">Personalization</span><b><span lang="ko">‘정답 컬러’ 대신 ‘내 컬러’</span><span lang="en">My color, not the right color</span></b><p><span lang="ko">사람마다 어울리는 색이 다르다는 걸 인정하고, 고객이 스스로 고르게 합니다. 사람마다 다른 선택을 존중하는 제 마케팅 관점과 같습니다.</span><span lang="en">It accepts that a good color differs by person and lets customers choose. It matches how I think about marketing: respect that people choose differently.</span></p></div>
+      <div class="extra"><span class="ey">Reason to visit</span><b><span lang="ko">매장에 와야 하는 이유</span><span lang="en">A reason to come in</span></b><p><span lang="ko">온라인에서는 할 수 없는 체험이라, 구매가 방문의 목적이 되고 방문이 다시 구매로 이어집니다.</span><span lang="en">It can’t be done online, so buying becomes a reason to visit and the visit leads back to buying.</span></p></div>
+      <div class="extra"><span class="ey">Shareable</span><b><span lang="ko">자랑하고 싶은 결과물</span><span lang="en">Something worth showing off</span></b><p><span lang="ko">내가 만든 하나뿐인 틴트는 자연스럽게 사진과 이야기로 공유되고, 선물한 친구에게도 브랜드가 전해집니다.</span><span lang="en">A one-off tint you made gets photographed and talked about, and the friend who got the gift meets the brand too.</span></p></div>
+    </div>
+
+    <div class="panel mixer" aria-label="Tint mixing demo">
+      <div class="bottle" aria-hidden="true">
+        <div class="cap"></div>
+        <div class="glass"><div class="liquid" id="liquid"></div><div class="label">MY MIX<small id="mix-no">No. 000</small></div></div>
+      </div>
+      <div>
+        <span class="place"><span lang="ko">직접 섞어보기</span><span lang="en">Try mixing</span></span>
+        <h3><span lang="ko">컬러를 눌러 한 방울씩 더해보세요</span><span lang="en">Tap a color to add a drop</span></h3>
+        <div class="shades" id="shades"></div>
+        <div class="mix-out"><span class="sw" id="mix-sw"></span><code id="mix-hex">—</code><span id="mix-ratio"></span></div>
+        <div class="mix-ctrl"><button id="mix-undo"><span lang="ko">한 방울 빼기</span><span lang="en">Undo a drop</span></button><button id="mix-reset"><span lang="ko">다시 섞기</span><span lang="en">Start over</span></button></div>
+        <p class="mix-note"><span lang="ko">믹솔로지 바의 재미를 웹으로 옮겨 본 데모이며, 실제 라카 제품 컬러가 아닙니다.</span><span lang="en">A web demo of the mixology bar idea. These are not actual LAKA product shades.</span></p>
+      </div>
+    </div>
+
+    <div class="ideas-head">
+      <h3><span lang="ko">이 경험을 더 많은 고객에게 닿게 하려면</span><span lang="en">Taking this experience to more customers</span></h3>
+      <p><span lang="ko">브랜드 마케팅 인턴으로 해보고 싶은 일 · 제안 아이디어</span><span lang="en">What I’d like to try as an intern · ideas, not plans</span></p>
+    </div>
+    <div class="ideas">
+      <div class="panel idea">
+        <span class="jd"><span lang="ko">글로벌 콘텐츠 · SNS</span><span lang="en">Global content · SNS</span></span>
+        <h4><span lang="ko">“같은 바, 다른 결과” 숏폼 시리즈</span><span lang="en">“Same bar, different shade” short-form series</span></h4>
+        <p><span lang="ko">여러 사람이 각자 고른 컬러로 믹스한 결과를 나란히 보여주는 시리즈를 국문·영문 캡션으로 운영해, 해외 고객에게도 ‘직접 만드는 라카’를 알립니다.</span><span lang="en">A series showing how different people’s mixes turn out side by side, captioned in Korean and English, so global customers see LAKA as a brand you make your own.</span></p>
+        <p class="proof"><span lang="ko"><b>근거</b> 마스코트로 통일한 홍보 시리즈 · 지점 인스타그램 조회수 1·2위</span><span lang="en"><b>Proof</b> A mascot-led promo series · the branch’s top 2 videos</span></p>
+      </div>
+      <div class="panel idea">
+        <span class="jd"><span lang="ko">팝업 · 체험 행사</span><span lang="en">Pop-ups · events</span></span>
+        <h4><span lang="ko">팝업·박람회용 믹솔로지 체험 운영</span><span lang="en">A mixology station for pop-ups and fairs</span></h4>
+        <p><span lang="ko">사전 예약과 현장 참여를 나누고, 대기 동선과 스태프 역할을 미리 설계해 많은 인원이 몰려도 체험의 즐거움이 유지되도록 운영합니다.</span><span lang="en">Split pre-booked and walk-in guests and plan queues and staff roles ahead, so the fun holds up even with big crowds.</span></p>
+        <p class="proof"><span lang="ko"><b>근거</b> 80~150명 행사 4회 · RSVP/워크인 가격 설계 · 스태프 근무표 작성</span><span lang="en"><b>Proof</b> 4 events of 80–150 · RSVP/walk-in pricing · staff rota</span></p>
+      </div>
+      <div class="panel idea">
+        <span class="jd"><span lang="ko">인플루언서 협업 · 성과 분석</span><span lang="en">Influencers · analysis</span></span>
+        <h4><span lang="ko">인플루언서 ‘시그니처 믹스’ 캠페인</span><span lang="en">Influencer “signature mix” campaign</span></h4>
+        <p><span lang="ko">인플루언서가 자신만의 조합을 공개하고 팔로워가 따라 만들어 보도록 유도하고, 참여 수·저장·매장 방문 반응을 기록해 다음 협업에 반영합니다.</span><span lang="en">Influencers share their own blend and invite followers to recreate it; participation, saves and store visits are logged to shape the next collaboration.</span></p>
+        <p class="proof"><span lang="ko"><b>근거</b> 상담 미확정 사유 분류 기록 · 행사 예산·정산 시트 관리</span><span lang="en"><b>Proof</b> Tagged drop-off reasons · event budget and settlement sheets</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+<section class="sec" id="education">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="place num-place"><b>03</b>Education</span>
+        <h2><span lang="ko">경제학과 국제통상을 기반으로</span><span lang="en">Grounded in economics and international trade</span></h2>
+      </div>
+    </div>
+    <div class="edu">
+      <div class="panel main">
+        <span class="yr">2024.03 – 2026.08</span>
+        <h3><span lang="ko">동국대학교 경제학과</span><span lang="en">Dongguk University, Economics</span></h3>
+        <p class="desc"><span lang="ko">일반편입 후 학업과 주 4일 조교 아르바이트를 병행하며 졸업</span><span lang="en">Transferred in and graduated while working part-time as an assistant four days a week</span></p>
+        <div class="big">4.05<small> / 4.5 GPA</small></div>
+      </div>
+      <div class="panel">
+        <span class="yr">2021 – 2023</span>
+        <h3><span lang="ko">강원대학교 강릉캠퍼스(강릉원주대) 국제통상학과</span><span lang="en">Kangwon Natl. Univ. Gangneung Campus (GWNU), International Trade</span></h3>
+        <p class="desc"><span lang="ko">3학년 1학기까지 이수 후 편입 · 교내 글로벌마케팅대회 최우수상</span><span lang="en">Completed coursework through junior year, then transferred · 1st place, campus global marketing competition</span></p>
+        <div class="big">4.48<small> / 4.5 GPA</small></div>
+      </div>
+      <div class="panel">
+        <span class="yr">2018.03 – 2021.01</span>
+        <h3><span lang="ko">강릉여자고등학교 인문계열</span><span lang="en">Gangneung Girls' High School</span></h3>
+      </div>
+      <div class="panel">
+        <span class="yr">~ 2012</span>
+        <h3><span lang="ko">미국 메릴랜드(Maryland)주 거주</span><span lang="en">Lived in Maryland, USA</span></h3>
+        <p class="desc"><span lang="ko">메릴랜드에서 출생해 약 11년간 거주하며 현지 초등 교육 과정 이수</span><span lang="en">Born in Maryland and lived there about 11 years, completing elementary school</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="place num-place"><b>04</b>Skills</span>
+        <h2><span lang="ko">오프라인 경험 · 콘텐츠 · 글로벌 커뮤니케이션</span><span lang="en">Offline experiences, content and global communication</span></h2>
+      </div>
+    </div>
+    <div class="skills">
+      <div class="panel">
+        <h3><span lang="ko">어학 · 자격</span><span lang="en">Languages · Certificates</span></h3>
+        <div class="cert">
+          <div><b>985</b><span>TOEIC</span></div>
+          <div><b>AL</b><span>OPIc</span></div>
+          <div><b>SQLD</b><span><span lang="ko">취득</span><span lang="en">Certified</span></span></div>
+        </div>
+        <p class="desc" style="margin-top:16px"><span lang="ko">미국 메릴랜드에서 출생해 약 11년간 거주했고, 미국 스타트업 비대면 인턴으로 현지 상사와 함께 일했습니다. 영어권 고객과 파트너를 대하는 일이 낯설지 않습니다.</span><span lang="en">Born in Maryland, I lived in the US for about 11 years and later worked remotely for a US startup under a US-based manager. Working with English-speaking customers and partners feels natural to me.</span></p>
+      </div>
+      <div class="panel">
+        <h3><span lang="ko">실무 역량</span><span lang="en">On-the-job skills</span></h3>
+        <div class="strength">
+          <div><b><span lang="ko">오프라인 이벤트 기획 · 운영</span><span lang="en">Offline event planning</span></b><span><span lang="ko">4회 · 누적 430명</span><span lang="en">4 events · 430 guests</span></span></div>
+          <div><b><span lang="ko">SNS 콘텐츠 제작</span><span lang="en">Social content</span></b><span><span lang="ko">지점 인스타그램 조회수 1·2위</span><span lang="en">Branch's top 2 videos</span></span></div>
+          <div><b><span lang="ko">글로벌 콘텐츠 제작</span><span lang="en">Global content</span></b><span><span lang="ko">미국 스타트업 영문 브로슈어 2종</span><span lang="en">2 English brochures for a US startup</span></span></div>
+          <div><b><span lang="ko">성과 기록 · 정리</span><span lang="en">Tracking results</span></b><span><span lang="ko">예산·정산 시트 · 사유 분류</span><span lang="en">Budget sheets · drop-off tagging</span></span></div>
+          <div><b><span lang="ko">고객 커뮤니케이션</span><span lang="en">Customer communication</span></b><span><span lang="ko">회신 7,303건 · 확정률 7%</span><span lang="en">7,303 callbacks · 7% booked</span></span></div>
+        </div>
+      </div>
+      <div class="panel wide">
+        <h3><span lang="ko">콘텐츠 제작 · 업무 도구</span><span lang="en">Content and work tools</span></h3>
+        <div class="pills" style="margin-top:14px">
+          <span>Canva</span><span>Visme</span><span>Instagram</span><span>Pinterest</span><span>ChatGPT</span><span>Gemini</span><span>Claude</span><span>Figma</span><span>Notion</span><span>Google Sheets</span><span>Google Docs</span><span>SQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="journey">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="place num-place"><b>05</b>Experience</span>
+        <h2><span lang="ko">주요 경력 및 활동</span><span lang="en">Experience and activities</span></h2>
+      </div>
+      <p class="meta"><span lang="ko">항목을 눌러 자세히 보기</span><span lang="en">Tap a row to open it</span></p>
+    </div>
+    <div class="tl">
+      <details>
+        <summary><span class="when">2018.02</span><span class="what"><span lang="ko">평창동계올림픽 통역 봉사</span><span lang="en">PyeongChang 2018 Olympics, volunteer interpreter</span><small><span lang="ko">강릉역 영어 안내</span><span lang="en">English help desk at Gangneung Station</span></small></span><span class="plus">+</span></summary>
+        <div class="body"><p><span lang="ko">강원도 자원봉사자로 강릉역에 배치되어 해외 방문객에게 영어로 교통 및 길 안내를 제공했습니다.</span><span lang="en">As a Gangwon-do volunteer stationed at Gangneung Station, I helped international visitors with transit and directions in English.</span></p>
+          <div class="tl-photos"><img src="../assets/pyeongchang-volunteer.jpg" alt="Volunteering at Gangneung Station" data-zoom><img src="../assets/pyeongchang-badge.jpg" alt="PyeongChang 2018 English volunteer badge" data-zoom></div></div>
+      </details>
+      <details>
+        <summary><span class="when">2021</span><span class="what"><span lang="ko">교내 글로벌마케팅대회 최우수상</span><span lang="en">Global Marketing Competition, 1st place</span><span class="chip">1st</span><small><span lang="ko">악취저감장치의 해외 진출국 제안</span><span lang="en">Picking an export market for an odor-control device</span></small></span><span class="plus">+</span></summary>
+        <p class="body" style="padding-bottom:8px"><span lang="ko">지역별 환경 모니터링 시장 규모로 북미 시장을 좁히고, 토론토 하수처리장 악취 민원 증가와 수질 관리 공백을 근거로 캐나다를 선정했습니다. 가족회사 담당자와 소통해 제품을 파악하고, 제품소개 → 브랜드 → STP·4P → 시장 선정 → 기대효과 순으로 발표를 설계했습니다.</span><span lang="en">I narrowed by environmental-monitoring market size to North America, then chose Canada on rising odor complaints at Toronto treatment plants and gaps in water management. I learned the product from the partner company and structured the pitch: product, brand, STP and 4P, market choice, impact.</span></p>
+        <div class="body" style="padding-top:0"><button class="doc-btn" data-doc="deck"><img src="../assets/deck/s-01.jpg" alt=""><div><b><span lang="ko">발표 자료 보기</span><span lang="en">View the pitch deck</span></b><span><span lang="ko">도원엔바이로 글로벌 마케팅 전략 · 18장</span><span lang="en">Global marketing strategy · 18 slides</span></span></div></button></div>
+      </details>
+      <details>
+        <summary><span class="when">2022.01 – 02</span><span class="what"><span lang="ko">Educanspire 마케팅 인턴 (미국, 비대면)</span><span lang="en">Marketing Intern, Educanspire (US, remote)</span><small><span lang="ko">포트폴리오 02</span><span lang="en">Portfolio 02</span></small></span><span class="plus">+</span></summary>
+        <p class="body"><span lang="ko">교내 LINC+ 사업단 현장직무체험 공고로 지원해 미국 스타트업에서 미국 내 학생 대상 영문 마케팅 자료를 제작했습니다.</span><span lang="en">Applied through my university's LINC+ field-experience program and made English marketing materials for students in the US.</span><br><a class="go" href="#portfolio2"><span lang="ko">포트폴리오에서 자세히 보기 →</span><span lang="en">See the portfolio →</span></a></p>
+      </details>
+      <details open>
+        <summary><span class="when">2024.08 – 2026</span><span class="what"><span lang="ko">컬컴 신촌점 조교 (최장기 근무)</span><span lang="en">Assistant, Culcom Sinchon (longest-serving)</span><small><span lang="ko">포트폴리오 01</span><span lang="en">Portfolio 01</span></small></span><span class="plus">+</span></summary>
+        <p class="body"><span lang="ko">국내 최대 영어회화 스터디 체인의 1호점에서 근무했습니다. 세션당 최대 80명을 응대하고, 리더가 비는 날엔 초급부터 레벨 4 프리토킹까지 직접 진행했습니다.</span><span lang="en">Worked at the first branch of Korea's largest English conversation chain. Hosted up to 80 members per session and led tables from beginner to level-4 free talk when leaders were out.</span><br><a class="go" href="#portfolio"><span lang="ko">포트폴리오에서 자세히 보기 →</span><span lang="en">See the portfolio →</span></a></p>
+      </details>
+      <details>
+        <summary><span class="when">2025</span><span class="what"><span lang="ko">삼성금융아카데미 7기 수료</span><span lang="en">Samsung Finance Academy, cohort 7 (completed)</span><small><span lang="ko">금융 산업 이해를 위한 교육 과정</span><span lang="en">Training program on the finance industry</span></small></span><span class="plus">+</span></summary>
+        <p class="body"><span lang="ko">경제학 전공 지식을 금융 산업 실무 맥락으로 넓히고자 교육 과정을 수료했습니다.</span><span lang="en">Completed the program to extend my economics background into how the finance industry works in practice.</span></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="pf-banner" id="portfolio" style="scroll-margin-top:60px">
+  <div class="wrap">
+    <div class="no">01</div>
+    <div>
+      <span class="place num-place" style="color:rgba(255,255,255,.82)"><b style="background:#FFFFFF;color:#7A1F33">06</b>Portfolio</span>
+      <h2><span lang="ko">컬컴 신촌점</span><span lang="en">Culcom Sinchon</span></h2>
+      <p><span lang="ko">국내 최대 영어회화 스터디 체인 1호점 · 조교</span><span lang="en">First branch of Korea's largest English conversation chain · Assistant</span></p>
+    </div>
+    <div class="when">2024.08 – 2026</div>
+  </div>
+</div>
+<section class="pf-intro">
+  <div class="wrap">
+    <figure>
+      <img src="../assets/coco.jpg" alt="Coco, the Culcom Sinchon branch cat" data-zoom>
+      <figcaption><span lang="ko">지점 고양이 ‘코코’ · 홍보물 시리즈 마스코트</span><span lang="en">Coco, the branch cat and mascot of our promo series</span></figcaption>
+    </figure>
+    <div>
+      <img class="logo" src="../assets/culcom-logo.png" alt="Culcom">
+      <p><span lang="ko">컬컴은 평생교육원 소속의 영어회화 스터디로, 전국 40~50개 지점을 운영합니다. 1호점인 신촌점에서 최장기 근무 조교로 일하며 신규 고객 문의 응대와 상담 예약, 멤버 관리, 고객 행사 기획·운영을 담당했습니다.</span><span lang="en">Culcom is an English conversation study program under a lifelong-education institute, with 40–50 branches nationwide. At Sinchon, the first branch, I was the longest-serving assistant, handling new-customer inquiries and booking, member care, and customer events.</span></p>
+      <div class="facts">
+        <div><b>2024.08 – 2026</b><span><span lang="ko">근무 기간 · 주 4일</span><span lang="en">Tenure · 4 days a week</span></span></div>
+        <div><b>~80</b><span><span lang="ko">세션당 최대 응대 인원</span><span lang="en">Members hosted per session</span></span></div>
+        <div><b><span lang="ko">1호점</span><span lang="en">No. 1</span></b><span><span lang="ko">전국 40~50개 지점 중 첫 지점</span><span lang="en">First of 40–50 branches</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="party" style="padding-top:56px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="place">Portfolio 01-A · Offline events</span>
+        <h2><span lang="ko">참여 장벽을 낮춘 오프라인 체험 행사 기획</span><span lang="en">Offline events that lower the barrier to join</span></h2>
+      </div>
+      <p class="meta"><span lang="ko">기획 · 가격 설계 · SNS 홍보물 제작 · 현장 운영 · 성과 정리</span><span lang="en">Planning · pricing · social promos · running the night · results</span></p>
+    </div>
+    <p class="case-lead"><span lang="ko"><b>고객 행사 4회를 직접 기획·운영해 참여 인원을 66.7% 늘리고 신규 회원 유입까지 이끌었습니다.</b></span><span lang="en"><b>I planned and ran four customer events, growing turnout 66.7% and bringing in new members.</b></span></p>
+
+    <p class="growth"><span lang="ko">1회차 90명 → 3회차 150명</span><span lang="en">Party 1: 90 → Party 3: 150 guests</span><b>+66.7%</b></p>
+    <div class="party-grid" id="rounds"></div>
+
+    <div class="media">
+      <figure class="live">
+        <video src="../assets/party-live.mp4" poster="../assets/party-live.jpg" muted loop playsinline autoplay data-zoom aria-label="Party footage"></video>
+        <figcaption><b><span lang="ko">파티 현장</span><span lang="en">On the night</span></b> · <span lang="ko">직접 촬영</span><span lang="en">Filmed by me</span></figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/dreamhouse-poster.jpg" alt="Dreamhouse Party poster" data-zoom>
+        <figcaption><b><span lang="ko">드림하우스 파티 포스터</span><span lang="en">Dreamhouse Party poster</span></b><br><span lang="ko">2회차 · 2025.07.19</span><span lang="en">Party 2 · Jul 19, 2025</span></figcaption>
+      </figure>
+      <figure>
+        <video src="../assets/christmas.mp4" poster="../assets/christmas.jpg" muted loop playsinline autoplay data-zoom aria-label="Christmas party promo video"></video>
+        <figcaption><b><span lang="ko">크리스마스 파티 홍보 영상</span><span lang="en">Christmas Party promo video</span></b><br><span lang="ko">3회차 · 2025.12.20 · 150명</span><span lang="en">Party 3 · Dec 20, 2025 · 150 guests</span></figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/casino-poster.jpg" alt="Casino Party poster" data-zoom>
+        <figcaption><b><span lang="ko">카지노 파티 포스터</span><span lang="en">Casino Party poster</span></b><br><span lang="ko">4회차 · 2026.02.07</span><span lang="en">Party 4 · Feb 7, 2026</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="party-info">
+      <div class="ticket">
+        <div><div class="t-k">RSVP</div><div class="t-v">₩12,000</div></div>
+        <div><div class="t-k">Walk-in</div><div class="t-v">₩15,000</div></div>
+        <p class="t-c"><span lang="ko">타 지점 평균가(약 2만 원) 대비 대학가 상권 특성을 반영해 가격을 낮췄습니다. 수익보다 신규 고객의 참여 장벽을 낮추는 데 목표를 두었으며, 무제한 음료와 럭키드로우를 포함한 구성으로 4회 모두 흑자 운영했습니다.</span><span lang="en">Priced below the roughly ₩20,000 other branches charged, to fit a student neighborhood. The goal was a lower barrier for new customers rather than margin; with unlimited drinks and a lucky draw included, all four events ran in the black.</span></p>
+      </div>
+      <div>
+        <div class="game"><b><span lang="ko">짝 그림 찾기</span><span lang="en">Picture match</span></b><span><span lang="ko">같은 그림을 가진 참가자끼리 팀 구성</span><span lang="en">Guests form teams by matching cards</span></span></div>
+        <div class="game"><b><span lang="ko">소셜 게임</span><span lang="en">Social game</span></b><span><span lang="ko">간식을 매개로 명함 교환을 유도한 네트워킹</span><span lang="en">Snacks as a prompt to exchange name cards</span></span></div>
+        <div class="game"><b><span lang="ko">슈팅 · 빙고</span><span lang="en">Shooting · Bingo</span></b><span><span lang="ko">자율 참여형 게임과 경품</span><span lang="en">Drop-in games with prizes</span></span></div>
+        <div class="game"><b><span lang="ko">럭키드로우</span><span lang="en">Lucky draw</span></b><span><span lang="ko">스태프와 대화 시 응모권 지급 · 당첨자 6명</span><span lang="en">Entries for chatting with staff · 6 winners</span></span></div>
+      </div>
+    </div>
+
+    <ol class="star">
+        <li><span class="st"><b>01</b><span lang="ko">상황</span><span lang="en">Situation</span></span>
+          <h4><span lang="ko">파티가 회식과 다르지 않았습니다</span><span lang="en">Parties felt like staff dinners</span></h4>
+          <ul><li><span lang="ko">지점 파티가 주기적으로 열렸지만 참여도가 낮고 신규 고객 유입으로 이어지지 않았습니다.</span><span lang="en">Branch parties ran regularly but drew few people and no new customers.</span></li><li><span lang="ko">국내 최대 영어회화 스터디 체인임에도 홍보와 정보 전달이 약했습니다.</span><span lang="en">Despite being Korea’s largest chain of its kind, promotion was weak.</span></li></ul></li>
+        <li><span class="st"><b>02</b><span lang="ko">기획</span><span lang="en">Plan</span></span>
+          <h4><span lang="ko">영어를 ‘공부’가 아닌 ‘연결’의 경험으로</span><span lang="en">English as connection, not homework</span></h4>
+          <ul><li><span lang="ko">조교 업무 범위 밖이었지만 매니저에게 직접 제안해 기획 권한을 위임받았습니다.</span><span lang="en">Outside my role, so I pitched it to the manager and was given ownership.</span></li><li><span lang="ko">대학가 상권을 고려해 타 지점 평균(약 2만 원)보다 낮은 RSVP 12,000원·현장 15,000원으로 참여 장벽을 낮췄습니다.</span><span lang="en">Priced RSVP ₩12,000 and walk-in ₩15,000, below the ~₩20,000 at other branches, for a student area.</span></li><li><span lang="ko">낯선 사람도 쉽게 어울리는 자율 참여형 게임을 설계했습니다.</span><span lang="en">Designed drop-in games so strangers could mix easily.</span></li></ul></li>
+        <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
+          <h4><span lang="ko">홍보부터 현장 운영까지 공동 호스트와 전담했습니다</span><span lang="en">Ran it end to end with a co-host</span></h4>
+          <ul><li><span lang="ko">생성형 AI, 직접 촬영한 지점·고양이 사진, Canva, 인스타그램 도구로 홍보물을 제작하고, 지점 고양이 ‘코코’를 마스코트로 시리즈를 통일했습니다.</span><span lang="en">Made promos with generative AI, my own branch photos, Canva and Instagram tools, with Coco the branch cat as mascot.</span></li><li><span lang="ko">예산·정산 시트로 품목별 비용과 구매 여부를 관리했습니다.</span><span lang="en">Tracked every item and cost in a budget and settlement sheet.</span></li><li><span lang="ko">대규모 인원 속 혼선을 막기 위해 AI를 활용해 효율적이고 유동적인 스태프 시간표를 짜고 업무를 세분화했습니다.</span><span lang="en">Used AI to build a flexible staff rota and break down roles to prevent confusion with large crowds.</span></li></ul>
+          <button class="doc-btn portrait" data-doc="staff"><img src="../assets/staff/p-1.jpg" alt=""><div><b><span lang="ko">스태프 근무표 · 업무 매뉴얼</span><span lang="en">Staff rota and role manual</span></b><span><span lang="ko">국·영문 4쪽 · 직접 작성</span><span lang="en">Korean/English · 4 pages</span></span></div></button></li>
+        <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
+          <h4><span lang="ko">참여 인원 66.7% 증가, 신규 회원 유입</span><span lang="en">Turnout +66.7%, new members joined</span></h4>
+          <ul><li><span lang="ko">첫 회 90명 → 3회차 150명</span><span lang="en">90 guests at the first party → 150 at the third</span></li><li><span lang="ko">회원이 데려온 지인이 재방문해 등록하는 등 신규 회원 유입</span><span lang="en">Friends brought by members came back and signed up</span></li><li><span lang="ko">4회 모두 흑자 운영</span><span lang="en">All four events ran in the black</span></li><li><span lang="ko">홍보 영상 2개가 지점 인스타그램 조회수 1·2위 (2,312회·1,630회)</span><span lang="en">Two promo videos were the branch account’s top two (2,312 and 1,630 views)</span></li></ul>
+          <p class="lesson"><span lang="ko">배운 점: 고객이 직접 참여하는 경험은 지인을 데려오게 만들고, 그 확산이 신규 고객 유입으로 이어진다는 것을 숫자로 확인했습니다.</span><span lang="en">Lesson: experiences people take part in make them bring friends, and that spread is what brings in new customers. The numbers showed it.</span></p></li>
+      </ol>
+  </div>
+</section>
+
+<section class="sec" id="callback">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="place">Portfolio 01-B · Customer touchpoint</span>
+        <h2><span lang="ko">고객 첫 접점의 메시지를 다시 설계해 전환을 높이다</span><span lang="en">Rewriting the first touchpoint to lift conversion</span></h2>
+      </div>
+      <p class="meta"><span lang="ko">문의자 콜백 · 상담 예약 · 스크립트 개선</span><span lang="en">Inquiry callbacks · booking · script redesign</span></p>
+    </div>
+    <p class="case-lead"><span lang="ko"><b>응대 스크립트와 예약 프로세스를 직접 개선해 회신량을 2.3배 늘리고 조교 중 최고 확정률 7%를 달성했습니다.</b></span><span lang="en"><b>I redesigned the call script and booking process, growing callbacks 2.3× and reaching a 7% booking rate, the highest among staff.</b></span></p>
+    <div class="case">
+      <div class="panel">
+        <h3><span lang="ko">회신량과 확정률 동시 개선</span><span lang="en">More callbacks, higher conversion</span></h3>
+        <p class="desc"><span lang="ko">신촌점은 외국인 문의와 광고 허수 유입 비중이 높아 상담 전환이 어려운 환경이었습니다. 그럼에도 회신량과 확정률을 함께 끌어올려, 2026년 상반기 성과표 기준 회신 시도 3,393건으로 조교 중 최다를 기록했습니다.</span><span lang="en">In a neighborhood full of foreign visitors and junk ad clicks, I raised volume and conversion together. In the H1 2026 staff report I logged 3,393 callback attempts, the most of any assistant.</span></p>
+        <div class="seg" role="group" aria-label="metric">
+          <button id="m-vol" aria-pressed="true"><span lang="ko">회신 건수</span><span lang="en">Callbacks</span></button>
+          <button id="m-rate" aria-pressed="false"><span lang="ko">확정률</span><span lang="en">Booking rate</span></button>
+        </div>
+        <div class="bars">
+          <div class="bar-row"><span class="k"><span lang="ko">1년차</span><span lang="en">Year 1</span></span><div class="track"><div class="fill" id="b1" style="width:44%">2,241</div></div></div>
+          <div class="bar-row"><span class="k"><span lang="ko">2년차</span><span lang="en">Year 2</span></span><div class="track"><div class="fill hot" id="b2" style="width:100%">5,062</div></div></div>
+          <div class="bar-row" id="avg-row" hidden><span class="k"><span lang="ko">지점 평균</span><span lang="en">Branch avg</span></span><div class="track"><div class="fill" id="b3" style="width:57%">4%</div></div></div>
+        </div>
+        <p class="bar-note" id="bar-note"></p>
+      </div>
+
+      <div class="panel">
+        <h3><span lang="ko">고객 신뢰를 위한 응대 스크립트 재설계</span><span lang="en">Redesigning the call script for trust</span></h3>
+        <p class="desc"><span lang="ko">첫 통화에서 광고 전화로 오인해 통화를 종료하는 고객이 많았습니다. 신뢰·속도·효율을 기준으로 응대 순서를 재설계했습니다.</span><span lang="en">Many people hung up thinking it was a sales call. I reordered the opening around trust, speed and efficiency.</span></p>
+        <div class="phone" id="phone" aria-live="polite"></div>
+        <div class="steps-ctrl">
+          <button class="mini" id="s-prev" aria-label="Previous">←</button>
+          <div class="dots" id="dots"></div>
+          <button class="mini" id="s-next" aria-label="Next">→</button>
+        </div>
+      </div>
+
+      <div style="grid-column:1/-1">
+      <ol class="star">
+        <li><span class="st"><b>01</b><span lang="ko">상황</span><span lang="en">Situation</span></span>
+          <h4><span lang="ko">첫 통화에서 고객이 이탈했습니다</span><span lang="en">First calls were losing customers</span></h4>
+          <ul><li><span lang="ko">외국인 문의와 광고 허수 유입이 많아 상담 전환이 낮은 지점이었습니다.</span><span lang="en">The branch drew many international inquiries and fake ad leads, so conversion was low.</span></li><li><span lang="ko">첫 통화를 광고 전화로 오인해 끊는 고객이 많았습니다.</span><span lang="en">Many customers hung up, mistaking the first call for a sales call.</span></li><li><span lang="ko">2025년 11월 일본어·중국어 스터디가 추가되며 예약 일정이 복잡해졌습니다.</span><span lang="en">In Nov 2025 Japanese and Chinese studies were added, complicating scheduling.</span></li></ul></li>
+        <li><span class="st"><b>02</b><span lang="ko">기획</span><span lang="en">Plan</span></span>
+          <h4><span lang="ko">신뢰·속도·효율 기준으로 응대 흐름을 재설계했습니다</span><span lang="en">Redesigned the flow for trust, speed and efficiency</span></h4>
+          <ul><li><span lang="ko">통화 첫마디부터 신뢰를 줄 수 있도록 통화 순서를 바꿨습니다.</span><span lang="en">Reordered the call to earn trust from the very first words.</span></li><li><span lang="ko">유효 문의에 집중하기 위해 미확정 사유를 기록하고 원인을 찾기로 했습니다.</span><span lang="en">Decided to log every non-booking reason to find root causes.</span></li><li><span lang="ko">언어 확대 전 예약 구조의 위험 요소를 먼저 점검했습니다.</span><span lang="en">Checked the booking setup for risks before new languages launched.</span></li></ul></li>
+        <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
+          <h4><span lang="ko">스크립트·데이터·예약 구조를 직접 개선했습니다</span><span lang="en">Fixed the script, the data and the booking flow</span></h4>
+          <ul><li><span lang="ko">이름 확인 → 문의 경로 안내 → “1분만 통화 가능하실까요?” → 가장 빠른 상담 시간 제안 순으로 스크립트를 재구성했습니다.</span><span lang="en">Rebuilt the script: confirm name, state the inquiry source, ask for one minute, offer the earliest slot.</span></li><li><span lang="ko">미확정 사유를 오입력·타지점 희망·사정상 거절·허수로 분류해 시트로 관리하고, 허수 비중이 높은 광고를 매니저에게 보고해 광고 운영에 반영했습니다.</span><span lang="en">Tagged misses as wrong number, other branch, declined or fake lead, and reported noisy ads so the ad setup changed.</span></li><li><span lang="ko">매니저와 언어별 상담 가능 시간대를 명확히 하고, 전 조교가 실시간으로 쓰는 구글 문서 메시지 템플릿을 업데이트했습니다.</span><span lang="en">Clarified each language’s hours with the manager and updated the shared message templates in Google Docs.</span></li><li><span lang="ko">네이버 예약의 자동 확정을 수동 확정으로 전환하자고 선제적으로 제안했습니다.</span><span lang="en">Proposed switching Naver bookings from auto- to manual confirmation in advance.</span></li></ul></li>
+        <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
+          <h4><span lang="ko">회신량 2.3배, 확정률 7%로 조교 중 1위</span><span lang="en">2.3× callbacks, 7% booking rate, top among staff</span></h4>
+          <ul><li><span lang="ko">회신 1년차 2,241건 → 2년차 5,062건</span><span lang="en">Callbacks: 2,241 in year one → 5,062 in year two</span></li><li><span lang="ko">확정률 5% → 7% (지점 평균 4%)</span><span lang="en">Booking rate 5% → 7% (branch average 4%)</span></li><li><span lang="ko">2026년 상반기 회신 3,393건, 조교 중 최다</span><span lang="en">3,393 callbacks in H1 2026, the most of any assistant</span></li><li><span lang="ko">운영 언어 확대 후에도 중복 예약·혼선 없이 운영</span><span lang="en">No double bookings after the language expansion</span></li></ul>
+          <p class="lesson"><span lang="ko">배운 점: 전환은 첫마디의 신뢰에서 시작되고, 기록된 데이터가 있어야 개선을 설득할 수 있습니다.</span><span lang="en">Lesson: conversion starts with trust in the first words, and recorded data is what makes a fix persuasive.</span></p></li>
+      </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pf-banner" id="portfolio2" style="scroll-margin-top:60px">
+  <div class="wrap">
+    <div class="no">02</div>
+    <div>
+      <span class="place num-place" style="color:rgba(255,255,255,.82)"><b style="background:#FFFFFF;color:#7A1F33">06</b>Portfolio</span>
+      <h2>Educanspire</h2>
+      <p><span lang="ko">미국 교육 스타트업 · 마케팅 인턴 (비대면)</span><span lang="en">US education startup · Marketing intern (remote)</span></p>
+    </div>
+    <div class="when">2022.01.10 – 02.18</div>
+  </div>
+</div>
+<section class="sec" id="educanspire" style="padding-top:56px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="place">Portfolio 02 · Educanspire</span>
+        <h2><span lang="ko">영어권 독자를 위한 글로벌 콘텐츠 제작</span><span lang="en">Global content made for English-speaking readers</span></h2>
+      </div>
+      <p class="meta"><span lang="ko">미국 독자 대상 · Visme · 영문 브로슈어 2종</span><span lang="en">US readers · Visme · two English brochures</span></p>
+    </div>
+    <p class="case-lead"><span lang="ko"><b>텍스트로 빼곡한 원자료를 항목별로 구조화하고 시각 자료로 압축해, 23쪽·17쪽 분량의 브로슈어 2종을 제작했습니다.</b></span><span lang="en"><b>I restructured a text-heavy dataset and compressed it into visuals, producing two brochures of 23 and 17 pages.</b></span></p>
+    <ol class="star">
+        <li><span class="st"><b>01</b><span lang="ko">상황</span><span lang="en">Situation</span></span>
+          <h4><span lang="ko">정보는 많았지만 읽히지 않았습니다</span><span lang="en">Plenty of information, hard to read</span></h4>
+          <ul><li><span lang="ko">원자료는 수많은 프로그램 정보가 텍스트로 빼곡한 구글 시트였고, 항목도 흩어져 있었습니다.</span><span lang="en">The source was a Google Sheet packed with text on many programs, with scattered fields.</span></li><li><span lang="ko">그대로 전달하면 학생이 자신에게 맞는 정보를 찾는 데만 오랜 시간이 걸리는 구조였습니다.</span><span lang="en">As is, students would spend a long time just finding what fit them.</span></li></ul></li>
+        <li><span class="st"><b>02</b><span lang="ko">기획</span><span lang="en">Plan</span></span>
+          <h4><span lang="ko">독자와 문화에 맞는 형식으로 바꾸기로 했습니다</span><span lang="en">Choose a format that fits the reader</span></h4>
+          <ul><li><span lang="ko">프로그램 구분과 주요 내용 기준으로 정보를 항목별로 구조화했습니다.</span><span lang="en">Structured the content by program type and key details.</span></li><li><span lang="ko">처음 한국에서 익숙한 미리캔버스로 시안을 만들었으나, 미국 상사에게 형식이 어색하고 전달하려는 내용과 맞지 않는다는 피드백을 받았습니다.</span><span lang="en">My first draft in Miricanvas, a Korean tool, felt off to my US manager and did not suit the content.</span></li></ul></li>
+        <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
+          <h4><span lang="ko">미국에서 많이 쓰는 Visme를 단기간에 익혔습니다</span><span lang="en">Learned Visme, a US standard, quickly</span></h4>
+          <ul><li><span lang="ko">상급자의 피드백을 받아가며 Visme를 빠르게 익혔습니다.</span><span lang="en">Picked up Visme quickly while iterating on my manager’s feedback.</span></li><li><span lang="ko">프로그램 구분, 주요 내용, 디자인, 폰트, 색상을 통일해 시각적으로 편안한 책자를 만들었습니다.</span><span lang="en">Unified program types, key details, layout, fonts and colors into a calm, readable booklet.</span></li><li><span lang="ko">긴 텍스트를 시각 자료로 압축했습니다.</span><span lang="en">Compressed long text into visuals.</span></li></ul></li>
+        <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
+          <h4><span lang="ko">23쪽·17쪽 브로슈어 2종 완성 · 인턴십 수료</span><span lang="en">Two brochures (23 and 17 pages) · completed</span></h4>
+          <ul><li><span lang="ko">미국 내 아시아계 학생 대상 장학금·인턴십·서머 프로그램 정보를 23쪽, 17쪽 분량의 브로슈어 2종으로 제작했습니다.</span><span lang="en">Produced two brochures, 23 and 17 pages, on scholarships, internships and summer programs for Asian-American students.</span></li><li><span lang="ko">교내 LINC+ 사업단 현장직무체험 공고로 지원해 영어 면접을 거쳐 선발되었고, 기간을 마치고 수료했습니다.</span><span lang="en">Selected via my university’s LINC+ program and an English interview, and completed the internship.</span></li></ul>
+          <p class="lesson"><span lang="ko">배운 점: 같은 정보라도 독자의 관점과 문화에 맞는 형식이어야 제대로 전달됩니다.</span><span lang="en">Lesson: the same information only lands when its format fits the reader’s point of view and culture.</span></p></li>
+      </ol>
+
+    <div class="deliver">
+      <div class="book-wrap">
+        <div class="book-holder" id="book-holder"></div>
+        <div class="book-ctrl">
+          <button class="mini" id="bk-prev" aria-label="Previous page">←</button>
+          <span id="bk-count">1 / 23</span>
+          <button class="mini" id="bk-next" aria-label="Next page">→</button>
+        </div>
+        <p class="book-hint"><span lang="ko">페이지 모서리를 끌거나 화살표로 넘겨보세요</span><span lang="en">Drag a page corner or use the arrows to turn pages</span></p>
+      </div>
+      <div class="info">
+        <div class="tabs" role="group" aria-label="Deliverables">
+          <button data-d="0" aria-pressed="true"><span lang="ko">브로슈어 1</span><span lang="en">Brochure 1</span></button>
+          <button data-d="1" aria-pressed="false"><span lang="ko">브로슈어 2</span><span lang="en">Brochure 2</span></button>
+        </div>
+        <div class="pages" id="pages">23<small>p</small></div>
+        <p id="d-desc"></p>
+        <div class="topics">
+          <span lang="ko">해외 장학금</span><span lang="en">Scholarships</span>
+          <span lang="ko">인턴십</span><span lang="en">Internships</span>
+          <span lang="ko">서머 프로그램</span><span lang="en">Summer programs</span>
+          <span>Visme</span>
+        </div>
+        <button class="cert-card" data-doc="cert"><img src="../assets/certificate.jpg" alt=""><div><b><span lang="ko">인턴십 수료증</span><span lang="en">Certificate of completion</span></b><span>PLUS Career, Inc. · 2022.02.18</span></div></button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <span class="place num-place" style="color:rgba(255,255,255,.82)"><b style="background:#FFFFFF;color:#7A1F33">07</b>Contact</span>
+      <h2><span lang="ko">항상 밝게<br>인사드리겠습니다.</span><span lang="en">I'll always greet you<br>with a smile.</span></h2>
+      <div class="mail">
+        <code id="email">sonyjsunny@gmail.com</code>
+        <button class="copy" data-copy="email"><span lang="ko">이메일 복사</span><span lang="en">Copy email</span></button>
+      </div>
+      <div class="mail" style="margin-top:10px">
+        <code id="tel-num">010-5192-2077</code>
+        <button class="copy" data-copy="tel-num"><span lang="ko">번호 복사</span><span lang="en">Copy number</span></button>
+      </div>
+    </div>
+    <p class="side">Currently based in Seoul, Korea</p>
+  </div>
+</section>
+
+<section class="thanks" id="thanks">
+  <div class="wrap">
+    <div class="big"><span>Thank you.</span></div>
+    <div class="sign">— Sony</div>
+    <p class="close-note"><span lang="ko">무엇이든 온라인으로 살 수 있는 시대일수록, 직접 와서 고르고 만들어 보는 경험이 브랜드를 기억하게 만든다고 믿습니다. 라카를 좋아하는 한 명의 고객의 눈으로, 그 경험을 더 많은 사람에게 전하겠습니다.</span><span lang="en">The more we can buy anything online, the more I believe it is coming in, choosing and making something that makes a brand memorable. I will bring that experience to more people, seeing it as a customer who loves LAKA.</span></p>
+    <p><span lang="ko">제 이야기를 끝까지 들어주셔서 감사드립니다.</span><span lang="en">Thank you for listening to my story to the end.</span></p>
+    <a class="btn" href="#top"><span lang="ko">↑ 처음으로</span><span lang="en">↑ Back to top</span></a>
+  </div>
+</section>
+
+<div class="lightbox" id="lb" hidden><button id="lb-close"><span lang="ko">닫기</span><span lang="en">Close</span></button><div id="lb-body"></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script>
+(function(){
+  const html=document.documentElement;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let lang='ko';
+  try{ if(localStorage.getItem('sony-lang')==='en') lang='en'; }catch(e){}
+  const bKo=document.getElementById('btn-ko'), bEn=document.getElementById('btn-en');
+  function setLang(l){
+    lang=l; html.classList.toggle('en',l==='en'); html.lang=l;
+    bKo.setAttribute('aria-pressed',l==='ko'); bEn.setAttribute('aria-pressed',l==='en');
+    try{localStorage.setItem('sony-lang',l)}catch(e){}
+    renderScript(); renderRounds(); renderVoices(); renderMix(); chart(mode); if(typeof renderDeliver==="function") renderDeliver(false);
+  }
+  bKo.onclick=()=>setLang('ko'); bEn.onclick=()=>setLang('en');
+
+  /* cinematic intro: WebGL zoom with radial motion blur */
+  const scene=document.querySelector('.scene');
+  let glReplay=null;
+  (function(){
+    if(reduce) return;
+    const cv=document.createElement('canvas');
+    const gl=cv.getContext('webgl',{premultipliedAlpha:false,antialias:false})||cv.getContext('experimental-webgl');
+    if(!gl) return;
+    const vs=`attribute vec2 p;varying vec2 v;void main(){v=p*.5+.5;gl_Position=vec4(p,0.,1.);}`;
+    const fs=`precision mediump float;
+      uniform sampler2D A,B;uniform vec2 R;uniform float rA,rB,t,idle;uniform vec2 m;varying vec2 v;
+      vec2 kfit(float r){float a=R.x/R.y;return a>r?vec2(1.,r/a):vec2(a/r,1.);}
+      float eio(float x){x=clamp(x,0.,1.);return x*x*(3.-2.*x);}
+      vec3 soft(sampler2D tx,vec2 tc,float r){
+        if(r<.0003) return texture2D(tx,tc).rgb;
+        vec3 acc=texture2D(tx,tc).rgb;
+        for(int i=0;i<12;i++){float a=float(i)*.5236;acc+=texture2D(tx,tc+vec2(cos(a),sin(a))*r).rgb;}
+        return acc/13.;
+      }
+      void main(){
+        /* shot A: slow drift across the storefront */
+        float x=eio(t/.70);
+        float sA=1.06+.05*x;
+        vec2 kA=kfit(rA); vec2 hA=.5*kA/sA;
+        vec2 cA=vec2(mix(.5-.035,.5+.035,x),.46);
+        cA=clamp(cA,hA,1.-hA);
+        vec2 tA=cA+((v-.5)*kA)/sA;
+        /* shot B: gentle push-in on Sony and the LAKA bag */
+        float y=eio((t-.42)/.58);
+        float sB=mix(1.04,1.16,y)+idle;
+        vec2 kB=kfit(rB); vec2 hB=.5*kB/sB;
+        vec2 cB=clamp(vec2(.47+m.x*.008,.31+m.y*.006),hB,1.-hB);
+        vec2 tB=cB+((v-.5)*kB)/sB;
+        /* soft focus on the background once she is in view */
+        float f=eio((t-.60)/.40);
+        vec2 sp=(v-vec2(.5,.5))*vec2(R.x/R.y,1.)*vec2(1.,.62);
+        float bg=smoothstep(.18,.52,length(sp));
+        vec3 a=texture2D(A,tA).rgb;
+        vec3 b=soft(B,tB,(.0035*bg*f)/sB);
+        float mixF=eio((t-.40)/.30);
+        vec3 col=mix(a,b,mixF);
+        float vg=smoothstep(1.2,.35,length((v-.5)*vec2(1.,.9))*1.25);
+        col*=mix(.80,1.,vg);
+        gl_FragColor=vec4(col,1.);
+      }`;
+    function sh(type,src){const o=gl.createShader(type);gl.shaderSource(o,src);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(o));return o}
+    let prog;
+    try{prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vs));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(prog);if(!gl.getProgramParameter(prog,gl.LINK_STATUS))return;}catch(e){return}
+    gl.useProgram(prog);
+    const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+    const loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    const U=n=>gl.getUniformLocation(prog,n);
+    const imgs=[document.querySelector('.shot-forest'),document.querySelector('.shot-sony')];
+    function tex(img,unit){const tx=gl.createTexture();gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,tx);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,img);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);}
+    const ready=Promise.all(imgs.map(i=>i.complete&&i.naturalWidth?Promise.resolve():new Promise((r,j)=>{i.onload=r;i.onerror=j})));
+    ready.then(()=>{
+      try{tex(imgs[0],0);tex(imgs[1],1);}catch(e){return}
+      gl.uniform1i(U('A'),0);gl.uniform1i(U('B'),1);
+      gl.uniform1f(U('rA'),imgs[0].naturalWidth/imgs[0].naturalHeight);gl.uniform1f(U('rB'),imgs[1].naturalWidth/imgs[1].naturalHeight);
+      scene.insertBefore(cv,scene.querySelector('.shade'));scene.classList.add('gl');
+      const DUR=4200;let t0=performance.now(),revealed=false,mx=0,my=0,tx=0,ty=0,visible=true;
+      function size(){const d=Math.min(devicePixelRatio||1,2);const w=Math.round(cv.clientWidth*d),h=Math.round(cv.clientHeight*d);if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h;gl.viewport(0,0,w,h);gl.uniform2f(U('R'),w,h)}}
+      scene.addEventListener('pointermove',e=>{const r=scene.getBoundingClientRect();tx=(e.clientX-r.left)/r.width-.5;ty=.5-(e.clientY-r.top)/r.height});
+      scene.addEventListener('pointerleave',()=>{tx=0;ty=0});
+      new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible)requestAnimationFrame(frame)}).observe(scene);
+      function frame(now){
+        if(!visible) return;
+        size();
+        const t=Math.max(0,(now-t0)/DUR);
+        if(t>.72&&!revealed){revealed=true;scene.classList.add('reveal')}
+        mx+=(tx-mx)*.05;my+=(ty-my)*.05;
+        const idle=t>1?.015*Math.sin((now-t0-DUR)/2600):0;
+        gl.uniform1f(U('t'),Math.min(t,1));gl.uniform1f(U('idle'),idle);gl.uniform2f(U('m'),mx,my);
+        gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+      glReplay=()=>{t0=performance.now();revealed=false;scene.classList.remove('reveal');void scene.offsetWidth};
+    }).catch(()=>{});
+  })();
+
+  /* replay intro */
+  document.getElementById('replay').onclick=()=>{
+    if(glReplay){glReplay();return}
+    document.querySelectorAll('.shot-forest,.shot-sony,.scene .copy,.tag').forEach(el=>{el.style.animation='none';el.style.transform='';void el.offsetWidth;el.style.animation=''});
+  };
+
+  /* name tag wiggle */
+  const tag=document.getElementById('tag');
+  let drag=null;
+  tag.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY};tag.setPointerCapture(e.pointerId);tag.style.animation='none';tag.style.opacity='1';tag.style.transition='none'});
+  tag.addEventListener('pointermove',e=>{
+    if(!drag||reduce) return;
+    const dx=e.clientX-drag.x, dy=e.clientY-drag.y;
+    tag.style.transform=`translate(${dx*.25}px,${dy*.25}px) rotate(${6+dx*.08}deg) rotateY(${dx*.15}deg) rotateX(${-dy*.15}deg)`;
+  });
+  const release=()=>{if(!drag)return;drag=null;tag.style.transition='transform .6s cubic-bezier(.3,1.6,.5,1)';tag.style.transform='rotate(6deg)'};
+  tag.addEventListener('pointerup',release);tag.addEventListener('pointercancel',release);
+
+  /* counters */
+  const fmt=n=>n.toLocaleString('en-US');
+  if(!reduce && 'IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>{es.forEach(en=>{
+      if(!en.isIntersecting) return; io.unobserve(en.target);
+      const el=en.target,to=+el.dataset.count,t0=performance.now(),d=1100;
+      (function step(t){const p=Math.max(0,Math.min(1,(t-t0)/d)),v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=fmt(v);if(p<1)requestAnimationFrame(step)})(t0);
+    })},{threshold:.6});
+    document.querySelectorAll('[data-count]').forEach(el=>io.observe(el));
+  }
+
+  /* callback chart */
+  const b1=document.getElementById('b1'),b2=document.getElementById('b2'),b3=document.getElementById('b3'),avg=document.getElementById('avg-row'),note=document.getElementById('bar-note');
+  const mv=document.getElementById('m-vol'),mr=document.getElementById('m-rate');
+  let mode='vol';
+  const notes={
+    vol:{ko:'허수 광고 필터링이 반영되며 2년차 회신량은 1년차의 2.3배',en:'With fake-lead ads filtered out, year-two callbacks reached 2.3× year one'},
+    rate:{ko:'1년차부터 지점 평균(4%)을 넘었고, 2년차엔 조교 중 최고 확정률',en:'Above the 4% branch average from year one, and the top rate among staff in year two'}
+  };
+  function chart(m){
+    mode=m;mv.setAttribute('aria-pressed',m==='vol');mr.setAttribute('aria-pressed',m==='rate');
+    if(m==='vol'){avg.hidden=true;b1.style.width=(2241/5062*100)+'%';b1.textContent='2,241';b2.style.width='100%';b2.textContent='5,062';}
+    else{avg.hidden=false;b1.style.width=(5/7*100)+'%';b1.textContent='5%';b2.style.width='100%';b2.textContent='7%';b3.style.width=(4/7*100)+'%';}
+    note.textContent=notes[m][lang];
+  }
+  mv.onclick=()=>chart('vol'); mr.onclick=()=>chart('rate');
+
+  /* script stepper */
+  const steps=[
+    {old:{ko:'“안녕하세요, 컬컴입니다.”',en:'“Hello, this is Culcom.”'},me:{ko:'“○○님 되시죠?”',en:'“Is this ○○?”'},why:{ko:'이름부터 확인해 광고 전화가 아니라는 신호',en:'Using their name first signals it isn’t a cold call'}},
+    {me:{ko:'“영어회화 스터디 컬컴 신촌점 문의 주셔서 연락드렸어요.”',en:'“You asked about Culcom Sinchon’s English study, so I’m calling back.”'},why:{ko:'어디서 남긴 문의인지 바로 밝히기',en:'Say right away where their inquiry came from'}},
+    {me:{ko:'“1분만 통화 가능하실까요?”',en:'“Do you have one minute?”'},why:{ko:'시간 부담을 먼저 낮추기',en:'Lower the time commitment up front'}},
+    {me:{ko:'“가장 빠른 상담은 내일 7시인데 괜찮으세요?”',en:'“The earliest consultation is tomorrow at 7. Does that work?”'},why:{ko:'필요한 설명만 하고 가장 빠른 시간 제안',en:'Explain only what’s needed, then offer the earliest slot'}}
+  ];
+  let si=0;
+  const phone=document.getElementById('phone'),dots=document.getElementById('dots');
+  steps.forEach(()=>dots.appendChild(document.createElement('i')));
+  function renderScript(){
+    const s=steps[si];phone.innerHTML='';
+    if(s.old){const o=document.createElement('div');o.className='bubble old';o.textContent=(lang==='ko'?'이전 · ':'Before · ')+s.old[lang];phone.appendChild(o)}
+    const m=document.createElement('div');m.className='bubble me';m.textContent=s.me[lang];
+    const w=document.createElement('span');w.className='why';w.textContent=s.why[lang];m.appendChild(w);phone.appendChild(m);
+    [...dots.children].forEach((d,i)=>d.classList.toggle('on',i===si));
+  }
+  document.getElementById('s-next').onclick=()=>{si=(si+1)%steps.length;renderScript()};
+  document.getElementById('s-prev').onclick=()=>{si=(si+steps.length-1)%steps.length;renderScript()};
+
+  /* party rounds */
+  const rounds=[
+    {n:90,ko:'첫 파티',en:'First party'},
+    {n:110,ko:'드림하우스 파티 · 2025.07.19',en:'Dreamhouse Party · Jul 19, 2025'},
+    {n:150,ko:'크리스마스 파티 · 최다 인원',en:'Christmas Party · largest turnout'},
+    {n:80,ko:'카지노 파티 · 설 연휴 직전',en:'Casino Party · right before Lunar New Year'}
+  ];
+  let ri=2;
+  const wrapR=document.getElementById('rounds');
+  function renderRounds(){
+    wrapR.innerHTML='';
+    rounds.forEach((r,i)=>{
+      const b=document.createElement('button');b.className='round';b.setAttribute('aria-pressed',i===ri);
+      b.innerHTML=`<span class="rn">${lang==='ko'?(i+1)+'회차':'Party '+(i+1)}</span><span class="ppl">${r.n}<span>${lang==='ko'?'명':'guests'}</span></span><span class="crowd">${'<i></i>'.repeat(Math.round(r.n/5))}</span><span class="note">${i===ri?r[lang]:''}</span>`;
+      b.onclick=()=>{ri=i;renderRounds()};
+      wrapR.appendChild(b);
+    });
+  }
+
+  /* voices */
+  const voices=[
+    {ko:'햇살같이 환한 미소로 반겨주는, 늘 빛나는 사람',en:'Greets you with a sunny smile, always glowing',y:1},
+    {ko:'You were always brightening the mood and fun to chat with when the classes were boring haha',en:'You were always brightening the mood and fun to chat with when the classes were boring haha'},
+    {ko:'일을 찾아서 하는 적극적인 사람',en:'Proactive, finds the work before it’s handed over'},
+    {ko:'몸을 두, 세 개로 쪼갤 각오로 주어진 일을 다하려는 모습을 보인 인상적인 조교',en:'An impressive assistant who worked like she could split herself in three'},
+    {ko:'정말 섬세하고 다정하면서 일잘러',en:'Thoughtful, kind, and really good at the job',y:1},
+    {ko:'항상 밝은 얼굴로 인사해주시고, 모르는 걸 물어봐도 친절하게 대답해주시는 좋은 분',en:'Always greeted us brightly and answered every question kindly'},
+    {ko:'믿을 수 있는 조교님!',en:'An assistant you can count on!'},
+    {ko:'항상 밝고, 컬컴의 활기찬 분위기를 유지하는 데 핵심적인 역할을 했습니다',en:'Played a key role in keeping Culcom lively',y:1},
+    {ko:'경청 및 공감을 잘 해줌! 또, 일 머리가 좋아서 누구보다 빠르게',en:'Listens and empathizes, and works faster than anyone'},
+    {ko:'Always super friendly, kind, welcoming. Someone I knew would be helpful!!',en:'Always super friendly, kind, welcoming. Someone I knew would be helpful!!',y:1},
+    {ko:'언제나 맑은 웃음과! 사람들을 편하게 해주려고 노력하는 모습이 좋았어요',en:'Loved her clear laugh and how she worked to put people at ease'},
+    {ko:'부담없이 곁을 내어주는 방법을 아는 사람',en:'Knows how to make room for people without pressure'},
+    {ko:'늘 해피바이러스 뿜뿜한 러블리 조교',en:'A lovely assistant spreading good vibes',y:1},
+    {ko:'주말 아침마다 기분좋게 인사해주는, 괜히 말 한 번이라도 더 걸고 싶었던 조교',en:'Her weekend-morning hellos made you want to chat a little longer'},
+    {ko:'늘 밝은 웃음으로 컬컴을 환하게 밝혀주는 햇살 같은 사람',en:'Sunshine that lights up Culcom with her smile'},
+    {ko:'밝고 긍정적이고 에너지가 넘치는',en:'Bright, positive, full of energy'}
+  ];
+  const l1=document.getElementById('lane1'),l2=document.getElementById('lane2');
+  function card(v){
+    const d=document.createElement('div');d.className='voice'+(v.y?' y':'');
+    d.textContent=lang==='ko'?v.ko:v.en;
+    if(lang==='en' && v.ko!==v.en){const s=document.createElement('small');s.textContent='Translated from Korean';d.appendChild(s)}
+    return d;
+  }
+  function renderVoices(){
+    const a=voices.slice(0,8),b=voices.slice(8);
+    [[l1,a],[l2,b]].forEach(([lane,list])=>{
+      lane.innerHTML='';
+      const copies=reduce?1:2;
+      for(let c=0;c<copies;c++) list.forEach(v=>{const el=card(v);if(c)el.setAttribute('aria-hidden','true');lane.appendChild(el)});
+    });
+  }
+
+  /* lightbox */
+  const lb=document.getElementById('lb'),lbBody=document.getElementById('lb-body');
+  function open(node){lbBody.innerHTML='';lbBody.appendChild(node);lb.hidden=false}
+  function close(){lb.hidden=true;lbBody.innerHTML=''}
+  document.getElementById('lb-close').onclick=close;
+  lb.addEventListener('click',e=>{if(e.target===lb)close()});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.hidden)close()});
+  document.querySelectorAll('[data-zoom]').forEach(el=>{
+    el.addEventListener('click',()=>{
+      if(el.tagName==='VIDEO'){const v=document.createElement('video');v.src=el.getAttribute('src');v.muted=true;v.loop=true;v.autoplay=true;v.playsInline=true;v.controls=true;open(v)}
+      else{const i=new Image();i.src=el.getAttribute('src');i.alt=el.alt;open(i)}
+    });
+  });
+  if(reduce) document.querySelectorAll('video[autoplay]').forEach(v=>{v.removeAttribute('autoplay');v.pause()});
+
+  /* copy */
+  document.querySelectorAll('button.copy').forEach(btn=>{
+    const orig=btn.innerHTML,src=document.getElementById(btn.dataset.copy);
+    btn.onclick=()=>{
+      const t=src.textContent;
+      const sel=()=>{const r=document.createRange();r.selectNodeContents(src);const s=getSelection();s.removeAllRanges();s.addRange(r)};
+      const done=()=>{btn.textContent=lang==='ko'?'복사됨':'Copied';setTimeout(()=>btn.innerHTML=orig,1600)};
+      try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
+    };
+  });
+
+  /* documents */
+  const pad=(n,w)=>String(n).padStart(w,'0');
+  const DOCS={
+    brochure:{title:'2022 Global Opportunities · Brochure 1',pages:Array.from({length:23},(_,i)=>`../assets/brochure/p-${pad(i+1,2)}.jpg`)},
+    ebook:{title:'2022 Global Opportunities · Brochure 2',pages:Array.from({length:17},(_,i)=>`../assets/ebook/p-${pad(i+1,2)}.jpg`)},
+    deck:{title:'Global Marketing Competition · Pitch deck',pages:Array.from({length:18},(_,i)=>`../assets/deck/s-${pad(i+1,2)}.jpg`)},
+    staff:{title:'Christmas Party · Staff rota & manual',pages:Array.from({length:4},(_,i)=>`../assets/staff/p-${i+1}.jpg`)},
+    cert:{title:'EducanSpire · Certificate of completion',pages:['../assets/certificate.jpg']}
+  };
+
+  /* flipbook */
+  const deliv=[
+    {key:'brochure',p:23,ko:'프로그램 유형별로 정보를 구조화한 23쪽 분량의 브로슈어입니다.',en:'A 23-page brochure structured by program type.'},
+    {key:'ebook',p:17,ko:'처음부터 끝까지 읽기 쉽게 재구성한 17쪽 분량의 브로슈어입니다.',en:'A 17-page brochure restructured to read start to finish.'}
+  ];
+  let di=0,pf=null;
+  const holder=document.getElementById('book-holder'),bkCount=document.getElementById('bk-count'),pagesEl=document.getElementById('pages'),dDesc=document.getElementById('d-desc');
+  const dBtns=[...document.querySelectorAll('.deliver .tabs button')];
+  let fbIdx=0;
+  function updCount(i,total){bkCount.textContent=`${i+1} / ${total}`}
+  function buildBook(){
+    const d=deliv[di],pages=DOCS[d.key].pages;
+    if(pf){try{pf.destroy()}catch(e){} pf=null}
+    holder.innerHTML='';
+    const el=document.createElement('div');holder.appendChild(el);
+    if(window.St&&St.PageFlip){
+      try{
+        pf=new St.PageFlip(el,{width:380,height:492,size:'stretch',minWidth:150,maxWidth:520,minHeight:194,maxHeight:673,showCover:true,maxShadowOpacity:.45,mobileScrollSupport:true,usePortrait:true,flippingTime:850});
+        pf.loadFromImages(pages);
+        pf.on('flip',e=>updCount(e.data,pages.length));
+        updCount(0,pages.length);
+        return;
+      }catch(e){pf=null;holder.innerHTML=''}
+    }
+    fbIdx=0;const img=document.createElement('img');img.className='fallback';img.alt='';holder.appendChild(img);
+    const show=()=>{img.src=pages[fbIdx];updCount(fbIdx,pages.length)};show();
+    holder._fb={next:()=>{fbIdx=Math.min(pages.length-1,fbIdx+1);show()},prev:()=>{fbIdx=Math.max(0,fbIdx-1);show()}};
+  }
+  function renderDeliver(rebuild){
+    const d=deliv[di];
+    pagesEl.innerHTML=`${d.p}<small>p</small>`;dDesc.textContent=d[lang];
+    dBtns.forEach((b,i)=>b.setAttribute('aria-pressed',i===di));
+    if(rebuild) buildBook();
+  }
+  dBtns.forEach((b,i)=>b.onclick=()=>{if(di===i)return;di=i;renderDeliver(true)});
+  document.getElementById('bk-next').onclick=()=>{pf?pf.flipNext():holder._fb&&holder._fb.next()};
+  document.getElementById('bk-prev').onclick=()=>{pf?pf.flipPrev():holder._fb&&holder._fb.prev()};
+  buildBook();
+
+  /* document viewer */
+  let vw=null,vDoc=null,vI=0;
+  function openDoc(key){
+    vDoc=DOCS[key];vI=0;
+    vw=document.createElement('div');vw.className='viewer';vw.setAttribute('role','dialog');vw.setAttribute('aria-label',vDoc.title);
+    vw.innerHTML=`<div class="vbar"><b></b><span class="vc"></span><button class="vclose">${lang==='ko'?'닫기':'Close'}</button></div>
+      <div class="vstage"><button class="vnav vp" aria-label="Previous">←</button><div class="vimg"><img alt=""></div><button class="vnav vn" aria-label="Next">→</button></div>
+      <div class="vthumbs"></div>`;
+    vw.querySelector('b').textContent=vDoc.title;
+    const th=vw.querySelector('.vthumbs');
+    if(vDoc.pages.length>1) vDoc.pages.forEach((p,i)=>{const t=new Image();t.src=p;t.alt='';t.onclick=()=>{vI=i;vShow()};th.appendChild(t)}); else th.remove();
+    if(vDoc.pages.length<2) vw.querySelectorAll('.vnav').forEach(b=>b.style.visibility='hidden');
+    vw.querySelector('.vclose').onclick=closeDoc;
+    vw.querySelector('.vp').onclick=()=>{vI=Math.max(0,vI-1);vShow()};
+    vw.querySelector('.vn').onclick=()=>{vI=Math.min(vDoc.pages.length-1,vI+1);vShow()};
+    let sx=null;const st=vw.querySelector('.vimg');
+    st.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+    st.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){vI=Math.max(0,Math.min(vDoc.pages.length-1,vI+(dx<0?1:-1)));vShow()}sx=null});
+    document.body.appendChild(vw);document.body.style.overflow='hidden';vShow();vw.querySelector('.vclose').focus();
+  }
+  function vShow(){
+    vw.querySelector('.vimg img').src=vDoc.pages[vI];
+    vw.querySelector('.vc').textContent=vDoc.pages.length>1?`${vI+1} / ${vDoc.pages.length}`:'';
+    [...vw.querySelectorAll('.vthumbs img')].forEach((t,i)=>{t.classList.toggle('on',i===vI);if(i===vI)t.scrollIntoView({block:'nearest',inline:'nearest'})});
+  }
+  function closeDoc(){if(!vw)return;vw.remove();vw=null;document.body.style.overflow=''}
+  addEventListener('keydown',e=>{if(!vw)return;if(e.key==='Escape')closeDoc();if(e.key==='ArrowRight'){vI=Math.min(vDoc.pages.length-1,vI+1);vShow()}if(e.key==='ArrowLeft'){vI=Math.max(0,vI-1);vShow()}});
+  document.querySelectorAll('[data-doc]').forEach(b=>b.addEventListener('click',()=>openDoc(b.dataset.doc)));
+
+  /* mixology demo */
+  const SH=[
+    {c:'#D98A8E',ko:'로즈',en:'Rose'},{c:'#EC7A62',ko:'코랄',en:'Coral'},{c:'#9E2342',ko:'베리',en:'Berry'},
+    {c:'#6E2C5A',ko:'플럼',en:'Plum'},{c:'#C9967E',ko:'누드',en:'Nude'}
+  ];
+  const MAXD=8, drops=[], shadesEl=document.getElementById('shades'), liq=document.getElementById('liquid');
+  const toLin=v=>{v/=255;return v<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4)}, toS=v=>{v=v<=.0031308?v*12.92:1.055*Math.pow(v,1/2.4)-.055;return Math.round(Math.max(0,Math.min(1,v))*255)};
+  const rgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+  function renderMix(){
+    shadesEl.innerHTML='';
+    SH.forEach((x,i)=>{
+      const b=document.createElement('button');b.className='drop';b.style.setProperty('--c',x.c);
+      const n=drops.filter(d=>d===i).length;
+      b.innerHTML=`<i></i>${x[lang]}<b>${n||''}</b>`;
+      b.setAttribute('aria-label',`${x[lang]} +1`);
+      b.onclick=()=>{if(drops.length>=MAXD)drops.shift();drops.push(i);renderMix()};
+      shadesEl.appendChild(b);
+    });
+    let hex='—',ratio=lang==='ko'?'아직 비어 있어요':'Empty for now';
+    if(drops.length){
+      const acc=[0,0,0];drops.forEach(i=>rgb(SH[i].c).forEach((v,k)=>acc[k]+=toLin(v)));
+      const out=acc.map(v=>toS(v/drops.length));
+      hex='#'+out.map(v=>v.toString(16).padStart(2,'0')).join('').toUpperCase();
+      ratio=SH.map((x,i)=>[x[lang],drops.filter(d=>d===i).length]).filter(a=>a[1]).map(a=>`${a[0]} ${a[1]}`).join(' · ');
+      document.querySelector('.mixer').style.setProperty('--mix',hex);
+    } else document.querySelector('.mixer').style.removeProperty('--mix');
+    liq.style.height=(drops.length/MAXD*100)+'%';
+    document.getElementById('mix-hex').textContent=hex;
+    document.getElementById('mix-ratio').textContent=ratio;
+    document.getElementById('mix-no').textContent='No. '+(drops.length?String(drops.reduce((a,d,i)=>(a*7+d+i)%997,drops.length)).padStart(3,'0'):'000');
+  }
+  document.getElementById('mix-undo').onclick=()=>{drops.pop();renderMix()};
+  document.getElementById('mix-reset').onclick=()=>{drops.length=0;renderMix()};
+  [2,0,0,4].forEach(i=>drops.push(i));
+
+  setLang(lang);
+})();
+</script>
+
+</body>
+</html>
