@@ -60,13 +60,13 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
 /* intro scene */
 .scene{position:relative;height:clamp(540px,84vh,820px);overflow:hidden;background:#1E1A16;color:#fff}
 .scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform,opacity}
-.shot-forest{transform-origin:50% 60%;animation:forestIn 3.4s cubic-bezier(.5,0,.75,.4) .2s both}
-.shot-sony{transform-origin:50.5% 50%;opacity:0;animation:sonyIn 2.6s cubic-bezier(.2,.75,.25,1) 3.0s forwards}
-@keyframes forestIn{from{transform:scale(1.3) translateX(9%)}to{transform:scale(1.42) translateX(-9%)}}
-@keyframes sonyIn{0%{opacity:0;transform:scale(1.12) translateX(14%);filter:blur(6px)}22%{opacity:1}100%{opacity:1;transform:scale(1.38) translateX(0);filter:blur(0)}}
+.shot-forest{transform-origin:50% 55%;animation:forestIn 3.6s ease-in-out .2s both}
+.shot-sony{transform-origin:50.5% 50%;opacity:0;animation:sonyIn 3s ease-out 1.8s forwards}
+@keyframes forestIn{from{transform:scale(1.06) translateX(2%)}to{transform:scale(1.11) translateX(-2%)}}
+@keyframes sonyIn{0%{opacity:0;transform:scale(1.1)}40%{opacity:1}100%{opacity:1;transform:scale(1.3)}}
 .scene .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,.0) 35%,rgba(20,16,12,.72) 100%),linear-gradient(90deg,rgba(20,16,12,.45),rgba(20,16,12,0) 55%)}
 .scene .wrap{position:relative;height:100%;display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;padding-block:40px}
-.scene .copy{opacity:0;transform:translateY(16px);animation:rise .8s ease 4.6s forwards;max-width:620px}
+.scene .copy{opacity:0;transform:translateY(16px);animation:rise .8s ease 3.4s forwards;max-width:620px}
 .scene .eyebrow{display:inline-block;background:var(--yellow);color:var(--on-yellow);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:6px}
 .scene h1{font-size:clamp(38px,6vw,72px);font-weight:800;letter-spacing:-.03em;margin-top:14px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
 .scene h1 em{font-style:normal;color:var(--yellow)}
@@ -919,56 +919,37 @@ section{scroll-margin-top:70px}
     const fs=`precision mediump float;
       uniform sampler2D A,B;uniform vec2 R;uniform float rA,rB,t,idle;uniform vec2 m;varying vec2 v;
       vec2 kfit(float r){float a=R.x/R.y;return a>r?vec2(1.,r/a):vec2(a/r,1.);}
-      mat2 rot(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}
-      float eio(float x){x=clamp(x,0.,1.);return x<.5?4.*x*x*x:1.-pow(-2.*x+2.,3.)/2.;}
-      float eo(float x){x=clamp(x,0.,1.);return 1.-pow(1.-x,3.);}
-      vec3 dirblur(sampler2D tx,vec2 tc,vec2 dir,float amt){
-        if(amt<.0005) return texture2D(tx,tc).rgb;
-        vec3 acc=vec3(0.);
-        for(int i=0;i<20;i++){float o=(float(i)/19.-.5)*2.;acc+=texture2D(tx,tc+dir*o*amt).rgb;}
-        return acc/20.;
-      }
-      vec3 bokeh(sampler2D tx,vec2 tc,float r){
+      float eio(float x){x=clamp(x,0.,1.);return x*x*(3.-2.*x);}
+      vec3 soft(sampler2D tx,vec2 tc,float r){
         if(r<.0003) return texture2D(tx,tc).rgb;
         vec3 acc=texture2D(tx,tc).rgb;
         for(int i=0;i<12;i++){float a=float(i)*.5236;acc+=texture2D(tx,tc+vec2(cos(a),sin(a))*r).rgb;}
         return acc/13.;
       }
       void main(){
-        /* shot A: drone sweeps right across Seoul Forest */
-        float x=clamp(t/.64,0.,1.);
-        float pA=pow(x,1.7);
-        float sA=1.16+.16*x;
+        /* shot A: slow, steady drift across Seoul Forest */
+        float x=eio(t/.70);
+        float sA=1.06+.05*x;
         vec2 kA=kfit(rA); vec2 hA=.5*kA/sA;
-        vec2 cA=vec2(mix(hA.x+.01,1.-hA.x-.01,pA), mix(.47,.40,x));
-        cA.y=clamp(cA.y,hA.y,1.-hA.y);
-        float rollA=-.03*sin(3.14159*x);
-        vec2 tA=cA+rot(rollA)*((v-.5)*kA)/sA;
-        /* shot B: camera keeps moving right and settles on Sony */
-        float q=eo((t-.50)/.42);
-        float sB=mix(1.10,1.40,eo((t-.50)/.50))+idle;
+        vec2 cA=vec2(mix(.5-.035,.5+.035,x),.46);
+        cA=clamp(cA,hA,1.-hA);
+        vec2 tA=cA+((v-.5)*kA)/sA;
+        /* shot B: gentle push-in on Sony */
+        float y=eio((t-.42)/.58);
+        float sB=mix(1.10,1.30,y)+idle;
         vec2 kB=kfit(rB); vec2 hB=.5*kB/sB;
-        float fx=clamp(.505+m.x*.01,hB.x,1.-hB.x);
-        float sx=clamp(.505-.34,hB.x,1.-hB.x);
-        vec2 cB=vec2(mix(sx,fx,q), clamp(mix(.53,.50,q)+m.y*.008,hB.y,1.-hB.y));
-        float rollB=.022*(1.-q);
-        vec2 tB=cB+rot(rollB)*((v-.5)*kB)/sB;
-        /* motion: whip blur peaks at the cut */
-        float whip=.05*exp(-pow((t-.585)/.07,2.))+.010*smoothstep(.15,.55,t)*(1.-smoothstep(.62,.80,t));
-        vec2 dA=vec2(cos(rollA),sin(rollA))/sA, dB=vec2(cos(rollB),sin(rollB))/sB;
-        vec3 a=dirblur(A,tA,dA,whip);
-        /* focus pull on Sony after landing */
-        float f=smoothstep(.70,.98,t);
+        vec2 cB=clamp(vec2(.505+m.x*.008,.50+m.y*.006),hB,1.-hB);
+        vec2 tB=cB+((v-.5)*kB)/sB;
+        /* soft focus on the background once she is in view */
+        float f=eio((t-.60)/.40);
         vec2 sp=(v-vec2(.5,.46))*vec2(R.x/R.y,1.)*vec2(1.,.62);
-        float bg=smoothstep(.16,.50,length(sp));
-        float rr=(.0045*bg*f)/sB;
-        vec3 bc=whip>.002?dirblur(B,tB,dB,whip*.9):bokeh(B,tB,rr);
-        float mixF=smoothstep(.54,.64,t);
-        vec3 col=mix(a,bc,mixF);
-        col*=1.+.06*exp(-pow((t-.59)/.05,2.));
-        col=mix(col,col*vec3(1.02,1.0,.96),f*.6);
+        float bg=smoothstep(.18,.52,length(sp));
+        vec3 a=texture2D(A,tA).rgb;
+        vec3 b=soft(B,tB,(.0035*bg*f)/sB);
+        float mixF=eio((t-.40)/.30);
+        vec3 col=mix(a,b,mixF);
         float vg=smoothstep(1.2,.35,length((v-.5)*vec2(1.,.9))*1.25);
-        col*=mix(.74,1.,vg);
+        col*=mix(.80,1.,vg);
         gl_FragColor=vec4(col,1.);
       }`;
     function sh(type,src){const o=gl.createShader(type);gl.shaderSource(o,src);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(o));return o}
@@ -989,7 +970,7 @@ section{scroll-margin-top:70px}
       gl.uniform1i(U('A'),0);gl.uniform1i(U('B'),1);
       gl.uniform1f(U('rA'),imgs[0].naturalWidth/imgs[0].naturalHeight);gl.uniform1f(U('rB'),imgs[1].naturalWidth/imgs[1].naturalHeight);
       scene.insertBefore(cv,scene.querySelector('.shade'));scene.classList.add('gl');
-      const DUR=5400;let t0=performance.now(),revealed=false,mx=0,my=0,tx=0,ty=0,visible=true;
+      const DUR=4200;let t0=performance.now(),revealed=false,mx=0,my=0,tx=0,ty=0,visible=true;
       function size(){const d=Math.min(devicePixelRatio||1,2);const w=Math.round(cv.clientWidth*d),h=Math.round(cv.clientHeight*d);if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h;gl.viewport(0,0,w,h);gl.uniform2f(U('R'),w,h)}}
       scene.addEventListener('pointermove',e=>{const r=scene.getBoundingClientRect();tx=(e.clientX-r.left)/r.width-.5;ty=.5-(e.clientY-r.top)/r.height});
       scene.addEventListener('pointerleave',()=>{tx=0;ty=0});
@@ -998,7 +979,7 @@ section{scroll-margin-top:70px}
         if(!visible) return;
         size();
         const t=Math.max(0,(now-t0)/DUR);
-        if(t>.80&&!revealed){revealed=true;scene.classList.add('reveal')}
+        if(t>.72&&!revealed){revealed=true;scene.classList.add('reveal')}
         mx+=(tx-mx)*.05;my+=(ty-my)*.05;
         const idle=t>1?.015*Math.sin((now-t0-DUR)/2600):0;
         gl.uniform1f(U('t'),Math.min(t,1));gl.uniform1f(U('idle'),idle);gl.uniform2f(U('m'),mx,my);
