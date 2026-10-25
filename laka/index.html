@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="고객이 직접 참여하고 기억하는 브랜드 경험을 기획하는 마케터 정수현(Sony Jeong)의 라카 브랜드 마케팅 인턴 지원 포트폴리오">
-<meta name="theme-color" content="#7A1F33">
+<meta name="theme-color" content="#8A0E1F">
 <meta property="og:title" content="Sony Jeong Portfolio · for LAKA">
 <meta property="og:description" content="고객이 직접 만들고 기억하는 경험을 기획하는 마케터, 정수현">
 <title>Sony Jeong · LAKA</title>
@@ -15,23 +15,23 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0}
 img,video{max-width:100%}
 
-/* LAKA edition: same structure as the main portfolio. Opens on the Seongsu storefront, then Sony with a LAKA bag.
-   Palette after the LAKA Seongsu flagship: burgundy wine (main), wood brown and silver (support).
+/* LAKA edition: same structure as the main portfolio. Opens on Seoul night traffic, then Sony (full, uncropped photo).
+   Palette: deep alluring red (main) after LAKA's velvet-red visuals, wood brown and silver (support).
    Token names are kept from the main site: --yellow = main accent (wine), --brown = wood. */
 :root{
   --bg:#FFFFFF; --bg-2:#F8F2F1; --card:#FFFFFF; --ink:#24161A; --muted:#6F5E61; --line:#EDE3E1;
-  --yellow:#7A1F33; --yellow-soft:#F3DDE2; --brown:#8A5A3B; --on-yellow:#FFFFFF;
-  --silver:#A7ABB2; --deep:#2A1218; --metal:#DCDDE2; --rose:#F1C9D2;
+  --yellow:#8A0E1F; --yellow-soft:#F6DADD; --brown:#8A5A3B; --on-yellow:#FFFFFF;
+  --silver:#A7ABB2; --deep:#1C0407; --metal:#DCDDE2; --rose:#F2B3BC;
   --display:"Bricolage Grotesque","IBM Plex Sans KR",system-ui,sans-serif;
   --body:"IBM Plex Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo",sans-serif;
   --hand:"Nanum Pen Script","Segoe Print",cursive;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#140E10; --bg-2:#1D1416; --card:#22181B; --ink:#F6EEEF; --muted:#B9A9AC; --line:#382A2E;
-  --yellow:#A53B54; --yellow-soft:#43202A; --brown:#D3A986; --on-yellow:#FFFFFF; --silver:#8E929A; --deep:#1D0C11; color-scheme:dark}}
+  --yellow:#B3172E; --yellow-soft:#46121A; --brown:#D3A986; --on-yellow:#FFFFFF; --silver:#8E929A; --deep:#160305; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#140E10; --bg-2:#1D1416; --card:#22181B; --ink:#F6EEEF; --muted:#B9A9AC; --line:#382A2E;
-  --yellow:#A53B54; --yellow-soft:#43202A; --brown:#D3A986; --on-yellow:#FFFFFF; --silver:#8E929A; --deep:#1D0C11; color-scheme:dark}
+  --yellow:#B3172E; --yellow-soft:#46121A; --brown:#D3A986; --on-yellow:#FFFFFF; --silver:#8E929A; --deep:#160305; color-scheme:dark}
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -60,37 +60,43 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
 .lang button[aria-pressed="true"]{background:var(--yellow);color:var(--on-yellow)}
 @media (max-width:720px){.links{display:none}}
 
-/* intro scene */
-.scene{position:relative;height:clamp(540px,84vh,820px);overflow:hidden;background:#140E10;color:#fff}
-.scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform,opacity}
-.shot-forest{transform-origin:50% 55%;animation:forestIn 3.6s ease-in-out .2s both}
-.shot-sony{object-position:48% 70%;transform-origin:48% 70%;opacity:0;animation:sonyIn 3s ease-out 1.8s forwards}
-@keyframes forestIn{from{transform:scale(1.06) translateX(2%)}to{transform:scale(1.11) translateX(-2%)}}
-@keyframes sonyIn{0%{opacity:0;transform:scale(1.1)}40%{opacity:1}100%{opacity:1;transform:scale(1.3)}}
-.scene .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,.0) 35%,rgba(20,16,12,.72) 100%),linear-gradient(90deg,rgba(20,16,12,.45),rgba(20,16,12,0) 55%)}
-.scene .wrap{position:relative;height:100%;display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;padding-block:40px}
-.scene .copy{opacity:0;transform:translateY(16px);animation:rise .8s ease 3.4s forwards;max-width:620px}
+/* intro scene: Seoul night traffic video, then Sony's photo shown whole (no zoom, no crop) */
+.scene{position:relative;height:clamp(560px,88vh,860px);overflow:hidden;background:#0E0406;color:#fff}
+.scene video.night{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:filter 1.4s ease}
+.scene.reveal video.night{filter:brightness(.42) saturate(1.15) blur(2px)}
+.scene .shade{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease;background:linear-gradient(180deg,rgba(14,4,6,0) 40%,rgba(14,4,6,.75) 100%),linear-gradient(90deg,rgba(14,4,6,.55),rgba(14,4,6,0) 60%)}
+.scene.reveal .shade{opacity:1}
+.scene .wrap{position:relative;height:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:40px;padding-block:36px}
+.scene .copy{opacity:0;transform:translateY(16px);filter:blur(8px);max-width:620px}
+.scene.reveal .copy{animation:rise 1s cubic-bezier(.2,.7,.2,1) .5s forwards}
+.me{position:relative;margin:0;align-self:end;height:calc(clamp(560px,88vh,860px) - 72px);width:auto;aspect-ratio:3/4;opacity:0;transform:translateY(28px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.scene.reveal .me{opacity:1;transform:none}
+.me img{display:block;width:100%;height:100%;object-fit:contain;border-radius:18px;box-shadow:0 30px 60px -30px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.12)}
 .scene .eyebrow{display:inline-block;background:var(--yellow);color:var(--on-yellow);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:6px}
-.scene h1{font-size:clamp(38px,6vw,72px);font-weight:800;letter-spacing:-.03em;margin-top:14px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.scene h1{font-size:clamp(34px,4.2vw,56px);font-weight:800;letter-spacing:-.03em;margin-top:14px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
 .scene h1 em{font-style:normal;color:var(--rose)}
 .scene .loc{margin-top:10px;font-size:13px;opacity:.85}
-@keyframes rise{to{opacity:1;transform:none}}
-.replay{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:16px;z-index:2;border:1px solid rgba(255,255,255,.5);background:rgba(20,16,12,.35);color:#fff;border-radius:99px;font:600 12px var(--body);padding:6px 12px;cursor:pointer;backdrop-filter:blur(6px)}
+@keyframes rise{to{opacity:1;transform:none;filter:blur(0)}}
+.replay{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:16px;z-index:3;border:1px solid rgba(255,255,255,.5);background:rgba(14,4,6,.35);color:#fff;border-radius:99px;font:600 12px var(--body);padding:6px 12px;cursor:pointer;backdrop-filter:blur(6px)}
 
-.tag{width:240px;border-radius:18px;background:var(--yellow);box-shadow:0 26px 50px -24px rgba(0,0,0,.7);transform:rotate(6deg);cursor:grab;user-select:none;touch-action:none;overflow:hidden;opacity:0;animation:stick .7s cubic-bezier(.3,1.5,.5,1) 3.6s forwards}
+.tag{position:absolute;right:-36px;top:28px;z-index:2;width:200px;border-radius:18px;background:var(--yellow);box-shadow:0 26px 50px -24px rgba(0,0,0,.7);transform:rotate(6deg);cursor:grab;user-select:none;touch-action:none;overflow:hidden;opacity:0}
+.scene.reveal .tag{animation:stick .8s cubic-bezier(.3,1.5,.5,1) 1s forwards}
 .tag:active{cursor:grabbing}
 @keyframes stick{from{opacity:0;transform:rotate(18deg) scale(1.25)}to{opacity:1;transform:rotate(6deg) scale(1)}}
 .tag .top{color:var(--on-yellow);text-align:center;padding:14px 12px 8px}
-.tag .hello{font-family:var(--display);font-weight:800;font-size:36px;letter-spacing:.02em;line-height:1}
+.tag .hello{font-family:var(--display);font-weight:800;font-size:30px;letter-spacing:.02em;line-height:1}
 .tag .mn{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.06em;margin-top:2px}
 .tag .white{background:#fff;margin:0 10px;border-radius:6px;padding:10px 8px 6px;text-align:center}
-.tag .name{font-family:var(--hand);font-size:64px;line-height:.95;color:#24161A}
+.tag .name{font-family:var(--hand);font-size:54px;line-height:.95;color:#24161A}
 .tag .sub{font-family:var(--hand);font-size:20px;color:#6F5E61}
 .tag .foot{height:16px;margin:8px 10px 0;border-radius:3px 3px 0 0;background:linear-gradient(90deg,#9A9EA6,#E9EAED 45%,#A7ABB2)}
 @media (max-width:760px){
-  .scene .wrap{grid-template-columns:1fr;align-content:end}
-  .tag{position:absolute;top:58px;right:max(16px,env(safe-area-inset-right,0px));width:150px}
-  .tag .hello{font-size:24px}.tag .name{font-size:42px}.tag .sub{font-size:15px}
+  .scene{height:auto}
+  .scene .wrap{grid-template-columns:1fr;gap:24px;padding-block:60px 32px}
+  .me{order:-1;align-self:auto;height:auto;width:100%;max-width:420px;justify-self:center}
+  .me img{height:auto}
+  .tag{top:auto;right:-6px;bottom:-18px;width:140px}
+  .tag .hello{font-size:22px}.tag .name{font-size:38px}.tag .sub{font-size:14px}
 }
 
 /* lede + stats */
@@ -191,7 +197,7 @@ section{scroll-margin-top:70px}
 /* lightbox */
 .lightbox{position:fixed;inset:0;z-index:40;background:rgba(15,12,9,.88);display:grid;place-items:center;padding:max(24px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(24px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .lightbox img,.lightbox video{max-width:100%;max-height:86vh;border-radius:12px}
-.lightbox button{position:absolute;top:max(16px,env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));background:#7A1F33;color:#FFFFFF;border:0;border-radius:99px;padding:8px 14px;font:700 13px var(--body);cursor:pointer}
+.lightbox button{position:absolute;top:max(16px,env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));background:#8A0E1F;color:#FFFFFF;border:0;border-radius:99px;padding:8px 14px;font:700 13px var(--body);cursor:pointer}
 
 /* timeline */
 .tl{border-top:1px solid var(--line)}
@@ -229,20 +235,18 @@ section{scroll-margin-top:70px}
 @media (max-width:860px){.kit{grid-template-columns:1fr}}
 
 /* contact */
-.contact{margin-top:96px;background:#7A1F33;color:#FFFFFF}
+.contact{margin-top:96px;background:#8A0E1F;color:#FFFFFF}
 .contact .wrap{padding-block:72px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:end}
 .contact h2{font-size:clamp(34px,5vw,60px);font-weight:800;letter-spacing:-.03em}
 .mail{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:22px}
 .mail code{font:600 17px var(--body);user-select:all;background:#FFFFFF;padding:10px 14px;border-radius:10px;word-break:break-all;color:#24161A}
-.mail button.copy{border:0;background:#2A1218;color:#FFFFFF;border-radius:10px;padding:12px 16px;font:700 14px var(--body);cursor:pointer}
+.mail button.copy{border:0;background:#1C0407;color:#FFFFFF;border-radius:10px;padding:12px 16px;font:700 14px var(--body);cursor:pointer}
 .contact .side{font-size:14px;color:rgba(255,255,255,.78)}
 @media (max-width:760px){.contact .wrap{grid-template-columns:1fr}}
 
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important}
-  .shot-forest{animation:none;opacity:0}
-  .shot-sony,.scene .copy,.tag{animation:none;opacity:1;transform:none;filter:none}
-  .shot-sony{transform:scale(1.12)}
+  .scene .copy,.scene .tag,.scene.reveal .copy,.scene.reveal .tag,.me{animation:none;opacity:1;transform:none;filter:none}
   .tag{transform:rotate(6deg)}
 }
 /* contents */
@@ -338,15 +342,6 @@ section{scroll-margin-top:70px}
 .tl-photos img{width:150px;aspect-ratio:3/4;object-fit:cover;border-radius:12px;cursor:zoom-in;max-width:100%}
 .party-info{margin-top:22px;display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
 @media (max-width:860px){.party-info{grid-template-columns:1fr}}
-/* intro webgl */
-.scene canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.scene.gl img{visibility:hidden;animation:none!important}
-.scene .copy{filter:blur(10px)}
-@keyframes rise{to{opacity:1;transform:none;filter:blur(0)}}
-.scene.gl .copy,.scene.gl .tag{animation:none;opacity:0}
-.scene.gl.reveal .copy{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) forwards}
-.scene.gl.reveal .tag{animation:stick .8s cubic-bezier(.3,1.5,.5,1) .35s forwards}
-
 /* flipbook */
 .deliver{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);align-items:start}
 .book-wrap{background:var(--bg-2);border:1px solid var(--line);border-radius:20px;padding:22px;min-width:0}
@@ -370,7 +365,7 @@ section{scroll-margin-top:70px}
 .viewer{position:fixed;inset:0;z-index:45;background:rgba(15,12,9,.97);display:flex;flex-direction:column;color:#fff;padding:max(14px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(14px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .viewer .vbar{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px}
 .viewer .vbar b{font-family:var(--display)}
-.viewer .vclose{background:#7A1F33;color:#FFFFFF;border:0;border-radius:99px;padding:8px 14px;font:700 13px var(--body);cursor:pointer}
+.viewer .vclose{background:#8A0E1F;color:#FFFFFF;border:0;border-radius:99px;padding:8px 14px;font:700 13px var(--body);cursor:pointer}
 .viewer .vstage{flex:1;min-height:0;display:grid;grid-template-columns:44px 1fr 44px;align-items:center;gap:10px;margin-block:12px}
 .viewer .vstage img{max-width:100%;max-height:100%;margin:auto;display:block;border-radius:8px;box-shadow:0 20px 50px -20px rgba(0,0,0,.8);object-fit:contain}
 .viewer .vimg{height:100%;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -433,48 +428,18 @@ section{scroll-margin-top:70px}
 .why-photo img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:20px;cursor:zoom-in}
 .why-photo figcaption{font-size:13px;color:var(--muted);margin-top:8px}
 .why-photo .stamp{position:absolute;left:14px;top:14px;background:var(--yellow);color:var(--on-yellow);font:700 12px var(--body);letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:8px;box-shadow:3px 3px 0 var(--silver)}
-.why .case-lead{margin-top:0}
-.path{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.path li{background:var(--bg-2);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:4px;position:relative;min-width:0}
-.path li:last-child{background:var(--yellow);color:var(--on-yellow)}
-.path .pn{font:700 11px var(--body);letter-spacing:.1em;color:var(--brown)}
-.path li:last-child .pn{color:rgba(255,255,255,.8)}
-.path b{font-family:var(--display);font-size:16px;line-height:1.3}
-.path span{font-size:13px;color:var(--muted);line-height:1.5}
-.path li:last-child span{color:rgba(255,255,255,.82)}
-.vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-.vs div{border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:var(--card)}
-.vs div.us{border:1.5px solid var(--yellow);box-shadow:0 0 0 3px var(--yellow-soft)}
-.vs .k{font:700 12px var(--body);letter-spacing:.06em;color:var(--muted)}
-.vs div.us .k{color:var(--yellow)}
-.vs b{display:block;font-family:var(--display);font-size:19px;margin:2px 0 4px}
-.vs p{font-size:14px;color:var(--muted)}
-.why-ins{margin-top:32px}
-@media (max-width:860px){.why{grid-template-columns:1fr}.why-photo{max-width:360px}.path{grid-template-columns:1fr 1fr}}
-@media (max-width:480px){.vs{grid-template-columns:1fr}}
-
-/* mixology demo */
-.mixer{margin-top:28px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px;align-items:center;background:linear-gradient(135deg,var(--bg-2),var(--card))}
-.bottle{position:relative;width:110px;height:230px;margin:0 auto}
-.bottle .cap{position:absolute;left:28px;top:0;width:54px;height:62px;border-radius:10px 10px 4px 4px;background:linear-gradient(90deg,#8F939B,#ECEDEF 40%,#B4B8BF 70%,#8F939B)}
-.bottle .glass{position:absolute;left:0;right:0;top:56px;bottom:0;border-radius:22px;border:2px solid var(--silver);overflow:hidden;background:color-mix(in srgb,var(--card) 70%,transparent)}
-.bottle .liquid{position:absolute;left:0;right:0;bottom:0;height:0;background:var(--mix,#c9a5ab);transition:height .5s cubic-bezier(.2,.8,.2,1),background-color .5s}
-.bottle .liquid::after{content:"";position:absolute;left:12px;top:10px;width:12px;bottom:12px;border-radius:8px;background:rgba(255,255,255,.28)}
-.bottle .label{position:absolute;left:14px;right:14px;bottom:40px;background:rgba(255,255,255,.9);color:#24161A;border-radius:6px;padding:6px;text-align:center;font:700 11px var(--body);letter-spacing:.06em;z-index:1}
-.bottle .label small{display:block;font-weight:500;letter-spacing:0;color:#6F5E61;font-variant-numeric:tabular-nums}
-.mixer h3{font-size:22px}
-.shades{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.drop{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:6px 14px 6px 6px;font:600 14px var(--body);cursor:pointer;transition:transform .15s}
-.drop:hover{transform:translateY(-2px)}
-.drop i{width:26px;height:26px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
-.drop b{font:700 12px var(--body);color:var(--muted);min-width:1.2em;font-variant-numeric:tabular-nums}
-.mix-out{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin-top:18px;font-size:14px;color:var(--muted)}
-.mix-out .sw{width:44px;height:22px;border-radius:99px;background:var(--mix,#c9a5ab);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
-.mix-out code{font:600 13px var(--body);color:var(--ink)}
-.mix-ctrl{display:flex;gap:8px;margin-top:14px}
-.mix-ctrl button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 14px;font:600 13px var(--body);cursor:pointer}
-.mix-note{font-size:12px;color:var(--muted);margin-top:12px}
-@media (max-width:700px){.mixer{grid-template-columns:1fr}}
+.slogan{margin:0;background:#0E0406;color:#fff;border-radius:20px;padding:28px 28px 22px;position:relative;overflow:hidden}
+.slogan::before{content:"";position:absolute;inset:auto -30% -60% auto;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(var(--yellow),transparent 70%);opacity:.7}
+.slogan p{position:relative;font-family:var(--display);font-weight:600;font-size:clamp(24px,3vw,34px);line-height:1.15;letter-spacing:.02em;text-transform:uppercase}
+.slogan cite{position:relative;display:block;margin-top:14px;font:600 12px var(--body);font-style:normal;color:var(--metal);letter-spacing:.06em}
+.why-lede{margin-top:20px;font-size:16px;max-width:36em}
+.why-lede b{background:linear-gradient(transparent 60%,var(--yellow-soft) 60%)}
+.aura{list-style:none;margin:20px 0 0;padding:0;border-top:2px solid var(--ink)}
+.aura li{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.aura li>b{font:800 13px var(--display);background:var(--yellow);color:var(--on-yellow);border-radius:6px;padding:2px 7px;height:max-content;font-variant-numeric:tabular-nums}
+.aura h4{margin:0;font-family:var(--display);font-size:17px;letter-spacing:-.01em}
+.aura p{font-size:14px;color:var(--muted);margin-top:2px}
+@media (max-width:860px){.why{grid-template-columns:1fr}.why-photo{max-width:360px}}
 
 /* ideas */
 .ideas-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-top:56px}
@@ -488,8 +453,8 @@ section{scroll-margin-top:70px}
 .idea .proof{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);font-size:13px;color:var(--ink)}
 .idea .proof b{color:var(--yellow)}
 @media (max-width:860px){.ideas{grid-template-columns:1fr}}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .idea .proof b,:root:not([data-theme="light"]) .vs div.us .k{color:var(--rose)}}
-:root[data-theme="dark"] .idea .proof b,:root[data-theme="dark"] .vs div.us .k{color:var(--rose)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .idea .proof b{color:var(--rose)}}
+:root[data-theme="dark"] .idea .proof b{color:var(--rose)}
 </style>
 
 </head>
@@ -514,8 +479,7 @@ section{scroll-margin-top:70px}
 </nav>
 
 <header class="scene" id="top">
-  <img class="shot-forest" src="../assets/laka/store.jpg" alt="A softly lit storefront on a Seongsu street at night">
-  <img class="shot-sony" src="../assets/laka/hero.jpg" alt="Sony Jeong in Seongsu at night, holding a small LAKA shopping bag">
+  <video class="night" id="night" src="../assets/laka/seoul-night.mp4" poster="../assets/laka/store.jpg" muted loop playsinline autoplay preload="auto" aria-hidden="true"></video>
   <div class="shade"></div>
   <button class="replay" id="replay"><span lang="ko">↺ 다시 보기</span><span lang="en">↺ Replay</span></button>
   <div class="wrap">
@@ -528,11 +492,14 @@ section{scroll-margin-top:70px}
       </h1>
       <p class="loc">Seongsu, Seoul · Applying for LAKA Brand Marketing Intern</p>
     </div>
-    <div class="tag" id="tag" tabindex="0" aria-label="Name tag: Hello, my name is Sony">
-      <div class="top"><div class="hello">HELLO</div><div class="mn">my name is</div></div>
-      <div class="white"><div class="name">Sony</div><div class="sub">정수현</div></div>
-      <div class="foot"></div>
-    </div>
+    <figure class="me">
+      <img src="../assets/laka/hero.jpg" alt="Sony Jeong in Seongsu at night, holding a small LAKA shopping bag">
+      <div class="tag" id="tag" tabindex="0" aria-label="Name tag: Hello, my name is Sony">
+        <div class="top"><div class="hello">HELLO</div><div class="mn">my name is</div></div>
+        <div class="white"><div class="name">Sony</div><div class="sub">정수현</div></div>
+        <div class="foot"></div>
+      </div>
+    </figure>
   </div>
 </header>
 
@@ -608,74 +575,49 @@ section{scroll-margin-top:70px}
     <div class="sec-head">
       <div>
         <span class="place num-place"><b>02</b>Why LAKA</span>
-        <h2><span lang="ko">샘플 대신, ‘나만의 틴트’를 건네는 브랜드</span><span lang="en">A brand that hands you your own tint, not a sample</span></h2>
+        <h2><span lang="ko">한계 없는 아름다움,<br>나만의 아우라를 고르는 립</span><span lang="en">Beauty without limits,<br>a lip that shows your own aura</span></h2>
       </div>
-      <p class="meta"><span lang="ko">고객으로 경험한 라카 · Personalization</span><span lang="en">LAKA as I experienced it as a customer</span></p>
+      <p class="meta"><span lang="ko">고객으로 경험한 라카</span><span lang="en">LAKA as I experienced it as a customer</span></p>
     </div>
     <div class="why">
       <figure class="why-photo">
         <span class="stamp">Customer view</span>
-        <img src="../assets/laka/why.jpg" alt="Sony holding a small burgundy LAKA shopping bag in Seongsu" data-zoom>
+        <img src="../assets/laka/why.jpg" alt="Sony holding a small LAKA shopping bag in Seongsu" data-zoom>
         <figcaption><span lang="ko">라카 미니 쇼핑백을 들고, 성수에서</span><span lang="en">With a mini LAKA shopping bag in Seongsu</span></figcaption>
       </figure>
       <div>
-        <p class="case-lead"><span lang="ko"><b>라카 매장에서는 3만 원 이상 구매하면 믹솔로지 바 이용권을 받을 수 있습니다.</b> 친구 생일선물로 틴트를 고르면서, 이용권으로 제게 어울리는 컬러들을 골라 섞어 하나뿐인 개인 틴트를 만들 수 있었습니다.</span><span lang="en"><b>At the LAKA store, spending ₩30,000 or more earns a pass to the mixology bar.</b> While picking out a tint as a friend’s birthday gift, I used the pass to choose colors that suit me and blend them into a tint of my own.</span></p>
-        <ol class="path">
-          <li><span class="pn">01</span><b><span lang="ko">선물 구매</span><span lang="en">Buy a gift</span></b><span><span lang="ko">친구 생일선물로 틴트 구매</span><span lang="en">A tint for a friend’s birthday</span></span></li>
-          <li><span class="pn">02</span><b><span lang="ko">이용권</span><span lang="en">Get a pass</span></b><span><span lang="ko">3만 원 이상 구매 혜택</span><span lang="en">Perk for ₩30,000+</span></span></li>
-          <li><span class="pn">03</span><b><span lang="ko">고르고 섞기</span><span lang="en">Pick and mix</span></b><span><span lang="ko">나에게 어울리는 컬러 조합</span><span lang="en">Colors that suit me</span></span></li>
-          <li><span class="pn">04</span><b><span lang="ko">나만의 틴트</span><span lang="en">My own tint</span></b><span><span lang="ko">하나뿐인 결과물을 들고 나옴</span><span lang="en">Walk out with a one-off</span></span></li>
+        <blockquote class="slogan"><p>Beauty has no limits.<br>It’s for everyone.</p><cite>@laka.official · 2025.07</cite></blockquote>
+        <p class="why-lede"><span lang="ko">편견과 타인의 시선을 넘어 <b>모두를 위한 뷰티</b>를 말하는 만큼, 라카는 고를 수 있는 틴트 컬러도 타 브랜드보다 훨씬 다양하다고 느꼈습니다.</span><span lang="en">True to its idea of <b>beauty for everyone</b>, beyond prejudice and other people’s gaze, LAKA offers far more tint shades to choose from than other brands I know.</span></p>
+        <ol class="aura">
+          <li><b>01</b><div><h4><span lang="ko">고를 수 있는 컬러가 많다</span><span lang="en">So many shades to choose</span></h4><p><span lang="ko">정답 컬러 하나가 아니라, 나에게 맞는 컬러를 찾을 선택지가 넓습니다.</span><span lang="en">Not one “right” shade, but room to find the one that is mine.</span></p></div></li>
+          <li><b>02</b><div><h4><span lang="ko">겹쳐 바르면 나만의 조합</span><span lang="en">Layer them into your own mix</span></h4><p><span lang="ko">고르고 레이어링할 조합이 많아, 립이 곧 나만의 아우라가 됩니다.</span><span lang="en">With so many layering combinations, the lip becomes your own aura.</span></p></div></li>
+          <li><b>03</b><div><h4><span lang="ko">믹솔로지 바에서 직접 만들기</span><span lang="en">Make it yourself at the mixology bar</span></h4><p><span lang="ko">3만 원 이상 구매 시 받는 이용권으로, 친구 선물을 사며 제게 어울리는 컬러를 섞어 개인 틴트를 만들었습니다.</span><span lang="en">A pass for ₩30,000+ purchases let me blend a tint of my own while buying a friend’s gift.</span></p></div></li>
         </ol>
-        <div class="vs">
-          <div><span class="k"><span lang="ko">흔한 구매 혜택</span><span lang="en">The usual perk</span></span><b><span lang="ko">샘플 증정</span><span lang="en">Free samples</span></b><p><span lang="ko">받는 순간 끝나는 혜택. 어떤 브랜드에서 받았는지 금방 잊힙니다.</span><span lang="en">Over the moment you get it, and easy to forget which brand gave it.</span></p></div>
-          <div class="us"><span class="k">LAKA</span><b><span lang="ko">믹솔로지 바</span><span lang="en">Mixology bar</span></b><p><span lang="ko">직접 고르고 만드는 과정 자체가 브랜드 경험. 결과물에 나의 취향이 남습니다.</span><span lang="en">Making it is the brand experience, and the result carries my own taste.</span></p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="extras why-ins">
-      <div class="extra"><span class="ey">Personalization</span><b><span lang="ko">‘정답 컬러’ 대신 ‘내 컬러’</span><span lang="en">My color, not the right color</span></b><p><span lang="ko">사람마다 어울리는 색이 다르다는 걸 인정하고, 고객이 스스로 고르게 합니다. 사람마다 다른 선택을 존중하는 제 마케팅 관점과 같습니다.</span><span lang="en">It accepts that a good color differs by person and lets customers choose. It matches how I think about marketing: respect that people choose differently.</span></p></div>
-      <div class="extra"><span class="ey">Reason to visit</span><b><span lang="ko">매장에 와야 하는 이유</span><span lang="en">A reason to come in</span></b><p><span lang="ko">온라인에서는 할 수 없는 체험이라, 구매가 방문의 목적이 되고 방문이 다시 구매로 이어집니다.</span><span lang="en">It can’t be done online, so buying becomes a reason to visit and the visit leads back to buying.</span></p></div>
-      <div class="extra"><span class="ey">Shareable</span><b><span lang="ko">자랑하고 싶은 결과물</span><span lang="en">Something worth showing off</span></b><p><span lang="ko">내가 만든 하나뿐인 틴트는 자연스럽게 사진과 이야기로 공유되고, 선물한 친구에게도 브랜드가 전해집니다.</span><span lang="en">A one-off tint you made gets photographed and talked about, and the friend who got the gift meets the brand too.</span></p></div>
-    </div>
-
-    <div class="panel mixer" aria-label="Tint mixing demo">
-      <div class="bottle" aria-hidden="true">
-        <div class="cap"></div>
-        <div class="glass"><div class="liquid" id="liquid"></div><div class="label">MY MIX<small id="mix-no">No. 000</small></div></div>
-      </div>
-      <div>
-        <span class="place"><span lang="ko">직접 섞어보기</span><span lang="en">Try mixing</span></span>
-        <h3><span lang="ko">컬러를 눌러 한 방울씩 더해보세요</span><span lang="en">Tap a color to add a drop</span></h3>
-        <div class="shades" id="shades"></div>
-        <div class="mix-out"><span class="sw" id="mix-sw"></span><code id="mix-hex">—</code><span id="mix-ratio"></span></div>
-        <div class="mix-ctrl"><button id="mix-undo"><span lang="ko">한 방울 빼기</span><span lang="en">Undo a drop</span></button><button id="mix-reset"><span lang="ko">다시 섞기</span><span lang="en">Start over</span></button></div>
-        <p class="mix-note"><span lang="ko">믹솔로지 바의 재미를 웹으로 옮겨 본 데모이며, 실제 라카 제품 컬러가 아닙니다.</span><span lang="en">A web demo of the mixology bar idea. These are not actual LAKA product shades.</span></p>
       </div>
     </div>
 
     <div class="ideas-head">
-      <h3><span lang="ko">이 경험을 더 많은 고객에게 닿게 하려면</span><span lang="en">Taking this experience to more customers</span></h3>
-      <p><span lang="ko">브랜드 마케팅 인턴으로 해보고 싶은 일 · 제안 아이디어</span><span lang="en">What I’d like to try as an intern · ideas, not plans</span></p>
+      <h3><span lang="ko">나만의 아우라를 더 많은 고객에게</span><span lang="en">Bringing that aura to more customers</span></h3>
+      <p><span lang="ko">인턴으로 해보고 싶은 일 · 제안 아이디어</span><span lang="en">What I’d like to try · ideas, not plans</span></p>
     </div>
     <div class="ideas">
       <div class="panel idea">
         <span class="jd"><span lang="ko">글로벌 콘텐츠 · SNS</span><span lang="en">Global content · SNS</span></span>
-        <h4><span lang="ko">“같은 바, 다른 결과” 숏폼 시리즈</span><span lang="en">“Same bar, different shade” short-form series</span></h4>
-        <p><span lang="ko">여러 사람이 각자 고른 컬러로 믹스한 결과를 나란히 보여주는 시리즈를 국문·영문 캡션으로 운영해, 해외 고객에게도 ‘직접 만드는 라카’를 알립니다.</span><span lang="en">A series showing how different people’s mixes turn out side by side, captioned in Korean and English, so global customers see LAKA as a brand you make your own.</span></p>
-        <p class="proof"><span lang="ko"><b>근거</b> 마스코트로 통일한 홍보 시리즈 · 지점 인스타그램 조회수 1·2위</span><span lang="en"><b>Proof</b> A mascot-led promo series · the branch’s top 2 videos</span></p>
+        <h4><span lang="ko">‘My Aura’ 레이어링 숏폼</span><span lang="en">“My Aura” layering shorts</span></h4>
+        <p><span lang="ko">같은 틴트도 레이어링에 따라 달라지는 결과를 국·영문 캡션 시리즈로 보여줍니다.</span><span lang="en">A Korean/English series on how one tint changes with layering.</span></p>
+        <p class="proof"><span lang="ko"><b>근거</b> 직접 만든 홍보 영상, 지점 조회수 1·2위</span><span lang="en"><b>Proof</b> My promo videos, the branch’s top 2</span></p>
       </div>
       <div class="panel idea">
         <span class="jd"><span lang="ko">팝업 · 체험 행사</span><span lang="en">Pop-ups · events</span></span>
-        <h4><span lang="ko">팝업·박람회용 믹솔로지 체험 운영</span><span lang="en">A mixology station for pop-ups and fairs</span></h4>
-        <p><span lang="ko">사전 예약과 현장 참여를 나누고, 대기 동선과 스태프 역할을 미리 설계해 많은 인원이 몰려도 체험의 즐거움이 유지되도록 운영합니다.</span><span lang="en">Split pre-booked and walk-in guests and plan queues and staff roles ahead, so the fun holds up even with big crowds.</span></p>
-        <p class="proof"><span lang="ko"><b>근거</b> 80~150명 행사 4회 · RSVP/워크인 가격 설계 · 스태프 근무표 작성</span><span lang="en"><b>Proof</b> 4 events of 80–150 · RSVP/walk-in pricing · staff rota</span></p>
+        <h4><span lang="ko">팝업·박람회 컬러 체험존 운영</span><span lang="en">Shade-try zones at pop-ups and fairs</span></h4>
+        <p><span lang="ko">예약·현장 참여를 나누고 동선과 스태프 역할을 미리 설계해 붐벼도 즐겁게.</span><span lang="en">Split bookings from walk-ins and plan flow and staff ahead, so crowds stay fun.</span></p>
+        <p class="proof"><span lang="ko"><b>근거</b> 80~150명 행사 4회 · 스태프 근무표</span><span lang="en"><b>Proof</b> 4 events of 80–150 · staff rota</span></p>
       </div>
       <div class="panel idea">
         <span class="jd"><span lang="ko">인플루언서 협업 · 성과 분석</span><span lang="en">Influencers · analysis</span></span>
-        <h4><span lang="ko">인플루언서 ‘시그니처 믹스’ 캠페인</span><span lang="en">Influencer “signature mix” campaign</span></h4>
-        <p><span lang="ko">인플루언서가 자신만의 조합을 공개하고 팔로워가 따라 만들어 보도록 유도하고, 참여 수·저장·매장 방문 반응을 기록해 다음 협업에 반영합니다.</span><span lang="en">Influencers share their own blend and invite followers to recreate it; participation, saves and store visits are logged to shape the next collaboration.</span></p>
-        <p class="proof"><span lang="ko"><b>근거</b> 상담 미확정 사유 분류 기록 · 행사 예산·정산 시트 관리</span><span lang="en"><b>Proof</b> Tagged drop-off reasons · event budget and settlement sheets</span></p>
+        <h4><span lang="ko">인플루언서 ‘시그니처 레이어링’</span><span lang="en">Influencer “signature layering”</span></h4>
+        <p><span lang="ko">인플루언서별 조합을 공개하고 참여·저장·방문 반응을 기록해 다음 협업에 반영합니다.</span><span lang="en">Share each creator’s combo, log participation, saves and visits, and feed it into the next one.</span></p>
+        <p class="proof"><span lang="ko"><b>근거</b> 미확정 사유 분류 · 예산·정산 시트</span><span lang="en"><b>Proof</b> Drop-off tagging · budget sheets</span></p>
       </div>
     </div>
   </div>
@@ -794,7 +736,7 @@ section{scroll-margin-top:70px}
   <div class="wrap">
     <div class="no">01</div>
     <div>
-      <span class="place num-place" style="color:rgba(255,255,255,.82)"><b style="background:#FFFFFF;color:#7A1F33">06</b>Portfolio</span>
+      <span class="place num-place" style="color:rgba(255,255,255,.82)"><b style="background:#FFFFFF;color:#8A0E1F">06</b>Portfolio</span>
       <h2><span lang="ko">컬컴 신촌점</span><span lang="en">Culcom Sinchon</span></h2>
       <p><span lang="ko">국내 최대 영어회화 스터디 체인 1호점 · 조교</span><span lang="en">First branch of Korea's largest English conversation chain · Assistant</span></p>
     </div>
@@ -947,7 +889,7 @@ section{scroll-margin-top:70px}
   <div class="wrap">
     <div class="no">02</div>
     <div>
-      <span class="place num-place" style="color:rgba(255,255,255,.82)"><b style="background:#FFFFFF;color:#7A1F33">06</b>Portfolio</span>
+      <span class="place num-place" style="color:rgba(255,255,255,.82)"><b style="background:#FFFFFF;color:#8A0E1F">06</b>Portfolio</span>
       <h2>Educanspire</h2>
       <p><span lang="ko">미국 교육 스타트업 · 마케팅 인턴 (비대면)</span><span lang="en">US education startup · Marketing intern (remote)</span></p>
     </div>
@@ -1013,7 +955,7 @@ section{scroll-margin-top:70px}
 <section class="contact" id="contact">
   <div class="wrap">
     <div>
-      <span class="place num-place" style="color:rgba(255,255,255,.82)"><b style="background:#FFFFFF;color:#7A1F33">07</b>Contact</span>
+      <span class="place num-place" style="color:rgba(255,255,255,.82)"><b style="background:#FFFFFF;color:#8A0E1F">07</b>Contact</span>
       <h2><span lang="ko">항상 밝게<br>인사드리겠습니다.</span><span lang="en">I'll always greet you<br>with a smile.</span></h2>
       <div class="mail">
         <code id="email">sonyjsunny@gmail.com</code>
@@ -1052,99 +994,22 @@ section{scroll-margin-top:70px}
     lang=l; html.classList.toggle('en',l==='en'); html.lang=l;
     bKo.setAttribute('aria-pressed',l==='ko'); bEn.setAttribute('aria-pressed',l==='en');
     try{localStorage.setItem('sony-lang',l)}catch(e){}
-    renderScript(); renderRounds(); renderVoices(); renderMix(); chart(mode); if(typeof renderDeliver==="function") renderDeliver(false);
+    renderScript(); renderRounds(); renderVoices(); chart(mode); if(typeof renderDeliver==="function") renderDeliver(false);
   }
   bKo.onclick=()=>setLang('ko'); bEn.onclick=()=>setLang('en');
 
-  /* cinematic intro: WebGL zoom with radial motion blur */
-  const scene=document.querySelector('.scene');
-  let glReplay=null;
-  (function(){
-    if(reduce) return;
-    const cv=document.createElement('canvas');
-    const gl=cv.getContext('webgl',{premultipliedAlpha:false,antialias:false})||cv.getContext('experimental-webgl');
-    if(!gl) return;
-    const vs=`attribute vec2 p;varying vec2 v;void main(){v=p*.5+.5;gl_Position=vec4(p,0.,1.);}`;
-    const fs=`precision mediump float;
-      uniform sampler2D A,B;uniform vec2 R;uniform float rA,rB,t,idle;uniform vec2 m;varying vec2 v;
-      vec2 kfit(float r){float a=R.x/R.y;return a>r?vec2(1.,r/a):vec2(a/r,1.);}
-      float eio(float x){x=clamp(x,0.,1.);return x*x*(3.-2.*x);}
-      vec3 soft(sampler2D tx,vec2 tc,float r){
-        if(r<.0003) return texture2D(tx,tc).rgb;
-        vec3 acc=texture2D(tx,tc).rgb;
-        for(int i=0;i<12;i++){float a=float(i)*.5236;acc+=texture2D(tx,tc+vec2(cos(a),sin(a))*r).rgb;}
-        return acc/13.;
-      }
-      void main(){
-        /* shot A: slow drift across the storefront */
-        float x=eio(t/.70);
-        float sA=1.06+.05*x;
-        vec2 kA=kfit(rA); vec2 hA=.5*kA/sA;
-        vec2 cA=vec2(mix(.5-.035,.5+.035,x),.46);
-        cA=clamp(cA,hA,1.-hA);
-        vec2 tA=cA+((v-.5)*kA)/sA;
-        /* shot B: gentle push-in on Sony and the LAKA bag */
-        float y=eio((t-.42)/.58);
-        float sB=mix(1.04,1.16,y)+idle;
-        vec2 kB=kfit(rB); vec2 hB=.5*kB/sB;
-        vec2 cB=clamp(vec2(.47+m.x*.008,.31+m.y*.006),hB,1.-hB);
-        vec2 tB=cB+((v-.5)*kB)/sB;
-        /* soft focus on the background once she is in view */
-        float f=eio((t-.60)/.40);
-        vec2 sp=(v-vec2(.5,.5))*vec2(R.x/R.y,1.)*vec2(1.,.62);
-        float bg=smoothstep(.18,.52,length(sp));
-        vec3 a=texture2D(A,tA).rgb;
-        vec3 b=soft(B,tB,(.0035*bg*f)/sB);
-        float mixF=eio((t-.40)/.30);
-        vec3 col=mix(a,b,mixF);
-        float vg=smoothstep(1.2,.35,length((v-.5)*vec2(1.,.9))*1.25);
-        col*=mix(.80,1.,vg);
-        gl_FragColor=vec4(col,1.);
-      }`;
-    function sh(type,src){const o=gl.createShader(type);gl.shaderSource(o,src);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(o));return o}
-    let prog;
-    try{prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vs));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(prog);if(!gl.getProgramParameter(prog,gl.LINK_STATUS))return;}catch(e){return}
-    gl.useProgram(prog);
-    const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
-    const loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-    const U=n=>gl.getUniformLocation(prog,n);
-    const imgs=[document.querySelector('.shot-forest'),document.querySelector('.shot-sony')];
-    function tex(img,unit){const tx=gl.createTexture();gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,tx);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);
-      gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,img);
-      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
-      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);}
-    const ready=Promise.all(imgs.map(i=>i.complete&&i.naturalWidth?Promise.resolve():new Promise((r,j)=>{i.onload=r;i.onerror=j})));
-    ready.then(()=>{
-      try{tex(imgs[0],0);tex(imgs[1],1);}catch(e){return}
-      gl.uniform1i(U('A'),0);gl.uniform1i(U('B'),1);
-      gl.uniform1f(U('rA'),imgs[0].naturalWidth/imgs[0].naturalHeight);gl.uniform1f(U('rB'),imgs[1].naturalWidth/imgs[1].naturalHeight);
-      scene.insertBefore(cv,scene.querySelector('.shade'));scene.classList.add('gl');
-      const DUR=4200;let t0=performance.now(),revealed=false,mx=0,my=0,tx=0,ty=0,visible=true;
-      function size(){const d=Math.min(devicePixelRatio||1,2);const w=Math.round(cv.clientWidth*d),h=Math.round(cv.clientHeight*d);if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h;gl.viewport(0,0,w,h);gl.uniform2f(U('R'),w,h)}}
-      scene.addEventListener('pointermove',e=>{const r=scene.getBoundingClientRect();tx=(e.clientX-r.left)/r.width-.5;ty=.5-(e.clientY-r.top)/r.height});
-      scene.addEventListener('pointerleave',()=>{tx=0;ty=0});
-      new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible)requestAnimationFrame(frame)}).observe(scene);
-      function frame(now){
-        if(!visible) return;
-        size();
-        const t=Math.max(0,(now-t0)/DUR);
-        if(t>.72&&!revealed){revealed=true;scene.classList.add('reveal')}
-        mx+=(tx-mx)*.05;my+=(ty-my)*.05;
-        const idle=t>1?.015*Math.sin((now-t0-DUR)/2600):0;
-        gl.uniform1f(U('t'),Math.min(t,1));gl.uniform1f(U('idle'),idle);gl.uniform2f(U('m'),mx,my);
-        gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
-        requestAnimationFrame(frame);
-      }
-      requestAnimationFrame(frame);
-      glReplay=()=>{t0=performance.now();revealed=false;scene.classList.remove('reveal');void scene.offsetWidth};
-    }).catch(()=>{});
-  })();
-
-  /* replay intro */
-  document.getElementById('replay').onclick=()=>{
-    if(glReplay){glReplay();return}
-    document.querySelectorAll('.shot-forest,.shot-sony,.scene .copy,.tag').forEach(el=>{el.style.animation='none';el.style.transform='';void el.offsetWidth;el.style.animation=''});
-  };
+  /* intro: Seoul night traffic first, then Sony appears (photo is never scaled) */
+  const scene=document.querySelector('.scene'), night=document.getElementById('night');
+  let rt=null, failed=false;
+  function intro(){
+    clearTimeout(rt); scene.classList.remove('reveal'); void scene.offsetWidth;
+    if(reduce){scene.classList.add('reveal');try{night.pause()}catch(e){}return}
+    try{night.currentTime=0;const pr=night.play();if(pr&&pr.catch)pr.catch(()=>{})}catch(e){}
+    rt=setTimeout(()=>scene.classList.add('reveal'),failed?700:3200);
+  }
+  night.addEventListener('error',()=>{failed=true;clearTimeout(rt);rt=setTimeout(()=>scene.classList.add('reveal'),700)});
+  document.getElementById('replay').onclick=intro;
+  intro();
 
   /* name tag wiggle */
   const tag=document.getElementById('tag');
@@ -1362,41 +1227,6 @@ section{scroll-margin-top:70px}
   function closeDoc(){if(!vw)return;vw.remove();vw=null;document.body.style.overflow=''}
   addEventListener('keydown',e=>{if(!vw)return;if(e.key==='Escape')closeDoc();if(e.key==='ArrowRight'){vI=Math.min(vDoc.pages.length-1,vI+1);vShow()}if(e.key==='ArrowLeft'){vI=Math.max(0,vI-1);vShow()}});
   document.querySelectorAll('[data-doc]').forEach(b=>b.addEventListener('click',()=>openDoc(b.dataset.doc)));
-
-  /* mixology demo */
-  const SH=[
-    {c:'#D98A8E',ko:'로즈',en:'Rose'},{c:'#EC7A62',ko:'코랄',en:'Coral'},{c:'#9E2342',ko:'베리',en:'Berry'},
-    {c:'#6E2C5A',ko:'플럼',en:'Plum'},{c:'#C9967E',ko:'누드',en:'Nude'}
-  ];
-  const MAXD=8, drops=[], shadesEl=document.getElementById('shades'), liq=document.getElementById('liquid');
-  const toLin=v=>{v/=255;return v<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4)}, toS=v=>{v=v<=.0031308?v*12.92:1.055*Math.pow(v,1/2.4)-.055;return Math.round(Math.max(0,Math.min(1,v))*255)};
-  const rgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
-  function renderMix(){
-    shadesEl.innerHTML='';
-    SH.forEach((x,i)=>{
-      const b=document.createElement('button');b.className='drop';b.style.setProperty('--c',x.c);
-      const n=drops.filter(d=>d===i).length;
-      b.innerHTML=`<i></i>${x[lang]}<b>${n||''}</b>`;
-      b.setAttribute('aria-label',`${x[lang]} +1`);
-      b.onclick=()=>{if(drops.length>=MAXD)drops.shift();drops.push(i);renderMix()};
-      shadesEl.appendChild(b);
-    });
-    let hex='—',ratio=lang==='ko'?'아직 비어 있어요':'Empty for now';
-    if(drops.length){
-      const acc=[0,0,0];drops.forEach(i=>rgb(SH[i].c).forEach((v,k)=>acc[k]+=toLin(v)));
-      const out=acc.map(v=>toS(v/drops.length));
-      hex='#'+out.map(v=>v.toString(16).padStart(2,'0')).join('').toUpperCase();
-      ratio=SH.map((x,i)=>[x[lang],drops.filter(d=>d===i).length]).filter(a=>a[1]).map(a=>`${a[0]} ${a[1]}`).join(' · ');
-      document.querySelector('.mixer').style.setProperty('--mix',hex);
-    } else document.querySelector('.mixer').style.removeProperty('--mix');
-    liq.style.height=(drops.length/MAXD*100)+'%';
-    document.getElementById('mix-hex').textContent=hex;
-    document.getElementById('mix-ratio').textContent=ratio;
-    document.getElementById('mix-no').textContent='No. '+(drops.length?String(drops.reduce((a,d,i)=>(a*7+d+i)%997,drops.length)).padStart(3,'0'):'000');
-  }
-  document.getElementById('mix-undo').onclick=()=>{drops.pop();renderMix()};
-  document.getElementById('mix-reset').onclick=()=>{drops.length=0;renderMix()};
-  [2,0,0,4].forEach(i=>drops.push(i));
 
   setLang(lang);
 })();
