@@ -497,6 +497,8 @@ section{scroll-margin-top:70px}
 .gf-steps li:last-child p{color:rgba(255,255,255,.85)}
 .gf-loop{display:flex;gap:10px;align-items:center;margin-top:12px;padding:12px 16px;border:1.5px dashed var(--yellow);border-radius:12px;font-size:14.5px}
 .gf-loop i{font-style:normal;font-size:18px;color:var(--yellow)}
+.gf-loop b{display:inline-block;margin-right:8px;font-weight:700}
+.gameflow .place{margin-bottom:6px}
 .gf-more{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
 .gf-more .k{display:block;font:700 12px var(--body);letter-spacing:.06em;color:var(--brown);margin-bottom:10px}
 .themes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
@@ -525,6 +527,18 @@ section{scroll-margin-top:70px}
 .star .lesson{font-size:15px;font-weight:600;line-height:1.65;padding-top:14px}
 .star .doc-btn{max-width:420px}
 @media (max-width:760px){.star{grid-template-columns:1fr}.star>li{padding:22px 20px}.star>li:nth-child(even){border-left:0}.star>li+li{border-top:1px solid var(--line)}.star h4{font-size:18px}.star ul{font-size:15px}}
+
+/* labeled action items */
+.star ul.labeled{list-style:none;padding-left:0;gap:14px}
+.star ul.labeled li{padding-left:0}
+.star .lb{display:inline-block;font:700 11.5px var(--body);letter-spacing:.02em;color:var(--on-yellow);background:var(--yellow);border-radius:5px;padding:1px 8px;margin-right:8px;vertical-align:1px}
+.star .flow-chips{display:block;margin-top:8px}
+html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[lang="en"]{display:flex;flex-wrap:wrap;gap:6px}
+.star .flow-chips span span{display:inline-flex;align-items:center;font-size:13px;line-height:1.4;padding:4px 10px;border-radius:99px;background:var(--bg-2);border:1px solid var(--line);color:var(--ink)}
+.star .flow-chips span span+span::before{content:"→";margin-right:6px;color:var(--yellow)}
+.star .fix{display:block;margin-top:6px;color:var(--ink);font-weight:600}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .star .flow-chips span span+span::before{color:var(--rose)}}
+:root[data-theme="dark"] .star .flow-chips span span+span::before{color:var(--rose)}
 </style>
 
 </head>
@@ -761,7 +775,7 @@ section{scroll-margin-top:70px}
       <div class="panel wide">
         <h3><span lang="ko">콘텐츠 제작 · 업무 도구</span><span lang="en">Content and work tools</span></h3>
         <div class="pills" style="margin-top:14px">
-          <span>Canva</span><span>Visme</span><span>Instagram</span><span>Pinterest</span><span>ChatGPT</span><span>Gemini</span><span>Claude</span><span>Figma</span><span>Notion</span><span>Google Sheets</span><span>Google Docs</span><span>SQL</span>
+          <span>Canva</span><span>Visme</span><span>Instagram</span><span>ChatGPT</span><span>Gemini</span><span>Claude</span><span>Notion</span><span>Google Sheets</span><span>Google Docs</span><span>SQL</span>
         </div>
       </div>
     </div>
@@ -793,7 +807,7 @@ section{scroll-margin-top:70px}
         <p class="body"><span lang="ko">교내 LINC+ 사업단 현장직무체험 공고로 지원해 미국 스타트업에서 미국 내 학생 대상 영문 마케팅 자료를 제작했습니다.</span><span lang="en">Applied through my university's LINC+ field-experience program and made English marketing materials for students in the US.</span><br><a class="go" href="#portfolio2"><span lang="ko">포트폴리오에서 자세히 보기 →</span><span lang="en">See the portfolio →</span></a></p>
       </details>
       <details open>
-        <summary><span class="when">2024.08 – 2026</span><span class="what"><span lang="ko">컬컴 신촌점 조교 (최장기 근무)</span><span lang="en">Assistant, Culcom Sinchon (longest-serving)</span><small><span lang="ko">포트폴리오 01</span><span lang="en">Portfolio 01</span></small></span><span class="plus">+</span></summary>
+        <summary><span class="when">2024.08 – 2026</span><span class="what"><span lang="ko">컬컴 신촌점 조교</span><span lang="en">Assistant, Culcom Sinchon</span><small><span lang="ko">포트폴리오 01</span><span lang="en">Portfolio 01</span></small></span><span class="plus">+</span></summary>
         <p class="body"><span lang="ko">국내 최대 영어회화 스터디 체인의 1호점에서 근무했습니다. 세션당 최대 80명을 응대하고, 리더가 비는 날엔 초급부터 레벨 4 프리토킹까지 직접 진행했습니다.</span><span lang="en">Worked at the first branch of Korea's largest English conversation chain. Hosted up to 80 members per session and led tables from beginner to level-4 free talk when leaders were out.</span><br><a class="go" href="#portfolio"><span lang="ko">포트폴리오에서 자세히 보기 →</span><span lang="en">See the portfolio →</span></a></p>
       </details>
       <details>
@@ -823,7 +837,7 @@ section{scroll-margin-top:70px}
     </figure>
     <div>
       <img class="logo" src="../assets/culcom-logo.png" alt="Culcom">
-      <p><span lang="ko">컬컴은 평생교육원 소속의 영어회화 스터디로, 전국 40~50개 지점을 운영합니다. 1호점인 신촌점에서 최장기 근무 조교로 일하며 신규 고객 문의 응대와 상담 예약, 멤버 관리, 고객 행사 기획·운영을 담당했습니다.</span><span lang="en">Culcom is an English conversation study program under a lifelong-education institute, with 40–50 branches nationwide. At Sinchon, the first branch, I was the longest-serving assistant, handling new-customer inquiries and booking, member care, and customer events.</span></p>
+      <p><span lang="ko">컬컴은 평생교육원 소속의 영어회화 스터디로, 전국 40~50개 지점을 운영합니다. 1호점인 신촌점에서 조교로 일하며 신규 고객 문의 응대와 상담 예약, 멤버 관리, 고객 행사 기획·운영을 담당했습니다.</span><span lang="en">Culcom is an English conversation study program under a lifelong-education institute, with 40–50 branches nationwide. At Sinchon, the first branch, I worked as an assistant, handling new-customer inquiries and booking, member care, and customer events.</span></p>
       <div class="facts">
         <div><b>2024.08 – 2026</b><span><span lang="ko">근무 기간 · 주 4일</span><span lang="en">Tenure · 4 days a week</span></span></div>
         <div><b>~80</b><span><span lang="ko">세션당 최대 응대 인원</span><span lang="en">Members hosted per session</span></span></div>
@@ -867,15 +881,16 @@ section{scroll-margin-top:70px}
     </div>
 
     <div class="panel gameflow">
-      <h3><span lang="ko">원활한 네트워킹을 위한 미니게임 설계</span><span lang="en">Mini-games designed for easy networking</span></h3>
-      <p class="desc"><span lang="ko">많이 참여할수록 당첨 확률이 높아지도록 설계해, 게임 참여율과 참가자 간 교류를 함께 높였습니다.</span><span lang="en">The more guests played, the better their odds, which raised both participation and interaction.</span></p>
+      <span class="place">Guest Connect Mission</span>
+      <h3><span lang="ko">게스트 커넥트 미션으로 처음 만난 게스트를 잇다</span><span lang="en">Connecting first-time guests through the Guest Connect Mission</span></h3>
+      <p class="desc"><span lang="ko">아는 사람끼리만 대화하던 분위기를 바꾸기 위해, 처음 만난 게스트와 짝을 이뤄 미션을 수행하도록 설계했습니다. 많이 참여할수록 당첨 확률이 높아져 참여율과 교류가 함께 늘었습니다.</span><span lang="en">To move beyond guests talking only with people they already knew, I had them pair up with someone new to complete missions. More play meant better odds, so participation and interaction rose together.</span></p>
       <ol class="gf-steps">
         <li><b>01</b><h4><span lang="ko">짝 그림 카드 받기</span><span lang="en">Get a picture card</span></h4><p><span lang="ko">입장 시 회차 테마에 맞춘 그림 카드 지급</span><span lang="en">Theme cards handed out at entry</span></p></li>
         <li><b>02</b><h4><span lang="ko">같은 그림의 짝꿍 찾기</span><span lang="en">Find your match</span></h4><p><span lang="ko">같은 그림을 가진 참가자와 팀 구성</span><span lang="en">Team up with the guest holding the same card</span></p></li>
         <li><b>03</b><h4><span lang="ko">사격 · 링 던지기</span><span lang="en">Shooting · ring toss</span></h4><p><span lang="ko">짝꿍과 함께 미니게임 도전</span><span lang="en">Take on a mini-game together</span></p></li>
         <li><b>04</b><h4><span lang="ko">경품 추첨 응모권</span><span lang="en">Lucky-draw entry</span></h4><p><span lang="ko">게임을 통과하면 응모권 지급</span><span lang="en">Pass the game, earn an entry</span></p></li>
       </ol>
-      <p class="gf-loop"><i>↻</i><span lang="ko">같은 그림 카드를 여러 장 준비해, 한 번 짝을 찾고 끝나는 대신 재참여하며 새로운 파트너와 교류할 수 있도록 했습니다.</span><span lang="en">With several copies of each card, guests could play again and meet a new partner instead of stopping after one match.</span></p>
+      <p class="gf-loop"><i>↻</i><span><span lang="ko"><b>선착순 마감 → 재참여형</b> 이벤트 인기로 미니게임이 선착순으로 조기 마감되던 구조를, 같은 그림 카드를 여러 장 준비한 재참여형으로 바꿔 더 많은 게스트가 반복 참여하며 새로운 파트너와 교류하도록 했습니다.</span><span lang="en"><b>First-come → replayable</b> As the event grew popular, mini-games kept filling up early on a first-come basis. With several copies of each card, I made them replayable so more guests could join again and meet new partners.</span></span></p>
       <div class="gf-more">
         <div>
           <span class="k"><span lang="ko">회차별 짝 그림 테마</span><span lang="en">Card theme by round</span></span>
@@ -903,14 +918,14 @@ section{scroll-margin-top:70px}
 
     <ol class="star">
         <li><span class="st"><b>01</b><span lang="ko">상황</span><span lang="en">Situation</span></span>
-          <h4><span lang="ko">파티가 친목에 그쳐, 소통을 이어갈 장치가 없었습니다</span><span lang="en">Parties stopped at socializing, with nothing to keep people talking</span></h4>
-          <ul><li><span lang="ko">기존 파티는 식음료와 스몰토크, 친목 위주로 진행되어 참가자 간 소통을 이어갈 장치가 부재했습니다.</span><span lang="en">Past parties were mostly food, drinks and small talk, with nothing designed to keep guests interacting.</span></li><li><span lang="ko">기존 포스터는 범용 템플릿의 틀 안에서 제작되어 특색이 부족했고, 컬컴 행사라는 점을 인상적으로 전달하지 못했습니다.</span><span lang="en">Posters were built on generic templates, lacked character, and did not make it clear this was a Culcom event.</span></li></ul></li>
+          <h4><span lang="ko">아는 사람끼리만 대화가 오가, 교류에 한계가 있었습니다</span><span lang="en">Guests mostly talked with people they already knew</span></h4>
+          <ul><li><span lang="ko">기존 파티는 식음료와 스몰토크 위주로 진행되어, 대화가 기존에 알던 사람들 사이에서만 오가는 등 새로운 교류로 이어지는 데 한계가 있었습니다.</span><span lang="en">Past parties centered on food, drinks and small talk, so conversation stayed among people who already knew each other and rarely led to new connections.</span></li><li><span lang="ko">기존 포스터는 범용 템플릿의 틀 안에서 제작되어 특색이 부족했고, 컬컴 행사라는 점을 인상적으로 전달하지 못했습니다.</span><span lang="en">Posters were built on generic templates, lacked character, and did not make it clear this was a Culcom event.</span></li></ul></li>
         <li><span class="st"><b>02</b><span lang="ko">기획</span><span lang="en">Plan</span></span>
-          <h4><span lang="ko">원활한 네트워킹을 위한 미니게임을 기획했습니다</span><span lang="en">Planned mini-games for easy networking</span></h4>
+          <h4><span lang="ko">게스트 커넥트 미션으로 네트워킹을 활성화했습니다</span><span lang="en">Activated networking with the Guest Connect Mission</span></h4>
           <ul><li><span lang="ko">조교 업무 범위 밖이었지만 매니저에게 직접 제안해 기획 권한을 위임받았습니다.</span><span lang="en">It was outside my role, so I proposed it to the manager and was given ownership.</span></li><li><span lang="ko">같은 그림의 짝꿍을 찾아 사격·링 던지기 게임을 통과하면 경품 추첨 응모권을 받도록 설계했습니다. 많이 참여할수록 당첨 확률이 높아져 게임 참여율과 교류를 함께 높일 수 있었습니다.</span><span lang="en">Guests who found their matching partner and cleared a shooting or ring-toss game earned a lucky-draw entry; more play meant better odds, lifting participation and interaction together.</span></li><li><span lang="ko">네트워킹 빙고판과 3인 참여형 캐롤 가사 잇기 게임을 더해 참여 방법과 게임 종류를 넓혔습니다.</span><span lang="en">Added networking bingo and a three-person carol lyric relay to widen how guests could take part.</span></li></ul></li>
         <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
           <h4><span lang="ko">반응을 반영해 회차마다 게임과 홍보물을 발전시켰습니다</span><span lang="en">Improved the games and promos every round</span></h4>
-          <ul><li><span lang="ko">짝 그림 찾기의 반응이 좋아 회차마다 게임 종류를 늘리고, 같은 그림 카드를 여러 장 준비해 재참여와 새로운 파트너와의 교류가 이어지도록 했습니다.</span><span lang="en">Picture matching went over well, so I added games each round and printed several copies of each card so guests could replay and meet new partners.</span></li><li><span lang="ko">범용 템플릿 대신 직접 촬영한 지점 사진과 지점 고양이 ‘코코’를 마스코트로 활용해 컬컴만의 홍보물 시리즈를 제작했습니다.</span><span lang="en">Replaced generic templates with my own branch photos and Coco the branch cat as mascot, creating a promo series that was clearly Culcom’s.</span></li><li><span lang="ko">예산·정산 시트와 AI로 작성한 스태프 시간표로 대규모 인원을 혼선 없이 운영했습니다.</span><span lang="en">Ran large crowds smoothly with a budget and settlement sheet and an AI-assisted staff rota.</span></li></ul>
+          <ul><li><span lang="ko">짝 그림 찾기의 반응이 좋아 회차마다 게임 종류를 늘렸습니다.</span><span lang="en">Picture matching went over well, so I added more games each round.</span></li><li><span lang="ko">이벤트 인기로 선착순 조기 마감되던 미니게임을, 같은 그림 카드를 여러 장 준비한 재참여형으로 바꿔 더 많은 게스트가 새로운 파트너와 교류하도록 했습니다.</span><span lang="en">As the event grew popular, first-come mini-games filled up early; I made them replayable with several copies of each card so more guests could meet new partners.</span></li><li><span lang="ko">범용 템플릿 대신 직접 촬영한 지점 사진과 지점 고양이 ‘코코’를 마스코트로 활용해 컬컴만의 홍보물 시리즈를 제작했습니다.</span><span lang="en">Replaced generic templates with my own branch photos and Coco the branch cat as mascot, creating a promo series that was clearly Culcom’s.</span></li><li><span lang="ko">예산·정산 시트와 AI로 작성한 스태프 시간표로 대규모 인원을 혼선 없이 운영했습니다.</span><span lang="en">Ran large crowds smoothly with a budget and settlement sheet and an AI-assisted staff rota.</span></li></ul>
           <button class="doc-btn portrait" data-doc="staff"><img src="../assets/staff/p-1.jpg" alt=""><div><b><span lang="ko">스태프 근무표 · 업무 매뉴얼</span><span lang="en">Staff rota and role manual</span></b><span><span lang="ko">국·영문 4쪽 · 직접 작성</span><span lang="en">Korean/English · 4 pages</span></span></div></button></li>
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
           <h4><span lang="ko">참여 인원 66.7% 증가</span><span lang="en">Turnout up 66.7%</span></h4>
@@ -947,7 +962,7 @@ section{scroll-margin-top:70px}
 
       <div class="panel">
         <h3><span lang="ko">고객 신뢰를 위한 응대 스크립트 재설계</span><span lang="en">Redesigning the call script for trust</span></h3>
-        <p class="desc"><span lang="ko">첫 통화에서 광고 전화로 오인해 통화를 종료하는 고객이 많았습니다. 신뢰·속도·효율을 기준으로 응대 순서를 재설계했습니다.</span><span lang="en">Many people hung up thinking it was a sales call. I reordered the opening around trust, speed and efficiency.</span></p>
+        <p class="desc"><span lang="ko">첫 통화를 광고 전화로 오인해 끊는 고객이 많았습니다. 신뢰·속도·효율을 기준으로 응대 순서를 4단계로 재설계했습니다. 화살표를 눌러 단계별로 확인해 보세요.</span><span lang="en">Many people hung up thinking it was a sales call. I reordered the opening around trust, speed and efficiency.</span></p>
         <div class="phone" id="phone" aria-live="polite"></div>
         <div class="steps-ctrl">
           <button class="mini" id="s-prev" aria-label="Previous">←</button>
@@ -966,7 +981,7 @@ section{scroll-margin-top:70px}
           <ul><li><span lang="ko">통화 첫마디부터 신뢰를 줄 수 있도록 통화 순서를 바꿨습니다.</span><span lang="en">Reordered the call to earn trust from the very first words.</span></li><li><span lang="ko">유효 문의에 집중하기 위해 미확정 사유를 기록하고 원인을 찾기로 했습니다.</span><span lang="en">Decided to log every non-booking reason to find root causes.</span></li><li><span lang="ko">언어 확대 전 예약 구조의 위험 요소를 먼저 점검했습니다.</span><span lang="en">Checked the booking setup for risks before new languages launched.</span></li></ul></li>
         <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
           <h4><span lang="ko">스크립트·데이터·예약 구조를 직접 개선했습니다</span><span lang="en">Fixed the script, the data and the booking flow</span></h4>
-          <ul><li><span lang="ko">이름 확인 → 문의 경로 안내 → “1분만 통화 가능하실까요?” → 가장 빠른 상담 시간 제안 순으로 스크립트를 재구성했습니다.</span><span lang="en">Rebuilt the script: confirm name, state the inquiry source, ask for one minute, offer the earliest slot.</span></li><li><span lang="ko">미확정 사유를 오입력·타지점 희망·사정상 거절·허수로 분류해 시트로 관리하고, 허수 비중이 높은 광고를 매니저에게 보고해 광고 운영에 반영했습니다.</span><span lang="en">Tagged misses as wrong number, other branch, declined or fake lead, and reported noisy ads so the ad setup changed.</span></li><li><span lang="ko">매니저와 언어별 상담 가능 시간대를 명확히 하고, 전 조교가 실시간으로 쓰는 구글 문서 메시지 템플릿을 업데이트했습니다.</span><span lang="en">Clarified each language’s hours with the manager and updated the shared message templates in Google Docs.</span></li><li><span lang="ko">제2외국어 스터디 개설 초기, 언어별 상담 가능 시간과 인원이 달라졌지만 네이버 예약은 영어 기준으로 자동 확정되어 중복·초과 예약 위험이 있었습니다. 업무 중 이를 먼저 파악해, 정원이 찬 상태에서 당일 예약이 확정되지 않도록 수동 확정 전환을 제안했습니다.</span><span lang="en">When the new language studies opened, each language had different consultation hours and capacity, yet Naver bookings still auto-confirmed on the English schedule, risking double and over-booking. I spotted this on the job and proposed manual confirmation so same-day bookings would not be confirmed once slots were full.</span></li></ul></li>
+          <ul class="labeled"><li><span class="lb"><span lang="ko">스크립트</span><span lang="en">Script</span></span><span lang="ko">첫마디부터 광고 전화가 아님을 알 수 있도록 통화 순서를 재구성했습니다.</span><span lang="en">Reordered the call so customers could tell from the first words it was not a sales call.</span><span class="flow-chips"><span lang="ko"><span>이름 확인</span><span>문의 경로 안내</span><span>1분 통화 양해</span><span>가장 빠른 상담 시간 제안</span></span><span lang="en"><span>Confirm name</span><span>State inquiry source</span><span>Ask for one minute</span><span>Offer earliest slot</span></span></span></li><li><span class="lb"><span lang="ko">데이터</span><span lang="en">Data</span></span><span lang="ko">미확정 사유를 <b>오입력 · 타지점 희망 · 사정상 거절 · 허수</b> 4가지로 분류해 시트에 기록했고, 허수 비중이 높은 광고를 매니저에게 공유해 광고 효율 개선에 반영되었습니다.</span><span lang="en">Logged every non-booking as <b>wrong number · other branch · declined · fake lead</b>, and shared ads with many fake leads with the manager, which fed into improving ad efficiency.</span></li><li><span class="lb"><span lang="ko">템플릿</span><span lang="en">Templates</span></span><span lang="ko">언어별 상담 가능 시간대를 매니저와 정리하고, 전 조교가 함께 쓰는 구글 문서 메시지 템플릿을 업데이트했습니다.</span><span lang="en">Clarified each language’s consultation hours with the manager and updated the Google Docs message templates all assistants share.</span></li><li><span class="lb"><span lang="ko">예약</span><span lang="en">Booking</span></span><span lang="ko">제2외국어 스터디 개설 초기, 언어별 상담 시간·정원은 달라졌지만 네이버 예약은 영어 기준으로 자동 확정되어 중복·초과 예약 위험이 있었습니다.</span><span lang="en">When new language studies opened, consultation hours and capacity differed by language, but Naver still auto-confirmed bookings on the English schedule, risking double and over-booking.</span><span class="fix"><span lang="ko">→ 업무 중 먼저 파악해, 정원이 찬 뒤 당일 예약이 확정되지 않도록 수동 확정 전환을 제안했습니다.</span><span lang="en">→ I spotted it on the job and proposed manual confirmation so same-day bookings would not be confirmed once slots were full.</span></span></li></ul></li>
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
           <h4><span lang="ko">회신량 2.3배, 확정률 7%로 조교 중 1위</span><span lang="en">2.3× callbacks, 7% booking rate, top among staff</span></h4>
           <ul><li><span lang="ko">회신 1년차 2,241건 → 2년차 5,062건</span><span lang="en">Callbacks: 2,241 in year one → 5,062 in year two</span></li><li><span lang="ko">확정률 5% → 7% (지점 평균 4%)</span><span lang="en">Booking rate 5% → 7% (branch average 4%)</span></li><li><span lang="ko">2026년 상반기 회신 3,393건, 조교 중 최다</span><span lang="en">3,393 callbacks in H1 2026, the most of any assistant</span></li><li><span lang="ko">운영 언어 확대 후에도 중복 예약·혼선 없이 운영</span><span lang="en">No double bookings after the language expansion</span></li></ul>
