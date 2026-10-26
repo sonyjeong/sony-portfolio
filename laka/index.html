@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="고객이 직접 참여하고 기억하는 브랜드 경험을 기획하는 마케터 정수현(Sony Jeong)의 라카 브랜드 마케팅 인턴 지원 포트폴리오">
+<meta name="description" content="라카 브랜드 마케팅 인턴에 지원하는 정수현(Sony Jeong)의 포트폴리오">
 <meta name="theme-color" content="#B0102C">
 <meta property="og:title" content="Sony Jeong Portfolio · for LAKA">
-<meta property="og:description" content="고객이 직접 만들고 기억하는 경험을 기획하는 마케터, 정수현">
+<meta property="og:description" content="라카 브랜드 마케팅 인턴 지원 포트폴리오 · 정수현">
 <title>Sony Jeong · LAKA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans+KR:wght@400;500;700&family=Nanum+Pen+Script&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap">
@@ -429,6 +429,9 @@ section{scroll-margin-top:70px}
 .ab-list h3{font-size:18px;letter-spacing:-.01em;line-height:1.35}
 .ab-list p{font-size:15px;color:var(--muted);line-height:1.7}
 .ab-close{margin-top:22px;font-family:var(--display);font-weight:700;font-size:clamp(17px,2vw,21px);max-width:40em}
+.ab-close.quote{margin-top:28px;padding-left:20px;border-left:4px solid var(--yellow)}
+.ab-close .q-en{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(24px,3vw,34px);line-height:1.25}
+.ab-close .q-ko{display:block;font-family:var(--body);font-weight:500;font-size:15px;color:var(--muted);margin-top:6px}
 @media (max-width:760px){.ab-list{grid-template-columns:1fr}.ab-list li,.ab-list li:nth-child(even){padding:20px 0;border-left:0}}
 /* thanks */
 .thanks{padding-block:96px 120px;text-align:center}
@@ -457,20 +460,57 @@ section{scroll-margin-top:70px}
 .aura p{font-size:14px;color:var(--muted);margin-top:2px}
 @media (max-width:860px){.why{grid-template-columns:1fr}.why-photo{max-width:360px}}
 
-/* ideas */
-.ideas-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-top:56px}
-.ideas-head h3{font-size:clamp(22px,3vw,30px);letter-spacing:-.02em}
-.ideas-head p{font-size:13px;color:var(--muted)}
-.ideas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
-.idea{display:flex;flex-direction:column;gap:10px}
-.idea .jd{align-self:flex-start;font:700 11px var(--body);letter-spacing:.06em;color:var(--brown);border:1px solid var(--brown);border-radius:6px;padding:2px 8px}
-.idea h4{margin:0;font-family:var(--display);font-size:19px;line-height:1.35;letter-spacing:-.01em}
-.idea p{font-size:14px;color:var(--muted)}
-.idea .proof{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);font-size:13px;color:var(--ink)}
-.idea .proof b{color:var(--yellow)}
-@media (max-width:860px){.ideas{grid-template-columns:1fr}}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .idea .proof b{color:var(--rose)}}
-:root[data-theme="dark"] .idea .proof b{color:var(--rose)}
+/* build your own aura */
+.byoa{margin-top:48px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--card)}
+.byoa-head{background:#0E0406;color:#fff;padding:26px 30px;position:relative;overflow:hidden}
+.byoa-head::after{content:"";position:absolute;right:-8%;top:-80%;width:46%;aspect-ratio:1;border-radius:50%;background:radial-gradient(var(--yellow),transparent 70%);opacity:.8}
+.byoa-head .place{color:var(--metal);margin-bottom:6px;position:relative}
+.byoa-head h3{position:relative;font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:clamp(30px,4vw,44px);letter-spacing:.02em}
+.byoa-head p{position:relative;margin-top:4px;font-size:15px;color:rgba(255,255,255,.82)}
+.byoa-body{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;padding:28px 30px 30px;align-items:start}
+.byoa-why .k{display:block;font:700 12px var(--body);letter-spacing:.06em;color:var(--brown);margin-bottom:8px}
+.byoa-why p{font-size:15.5px;line-height:1.8;color:color-mix(in srgb,var(--ink) 82%,var(--bg))}
+.byoa-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.byoa-steps li{background:var(--bg-2);border-radius:14px;padding:16px;display:grid;gap:4px}
+.byoa-steps li:last-child{background:var(--yellow);color:var(--on-yellow)}
+.byoa-steps b{font:800 12px var(--display);color:var(--yellow);font-variant-numeric:tabular-nums}
+.byoa-steps li:last-child b{color:rgba(255,255,255,.8)}
+.byoa-steps h4{margin:0;font-family:var(--display);font-size:17px}
+.byoa-steps p{font-size:13.5px;color:var(--muted)}
+.byoa-steps li:last-child p{color:rgba(255,255,255,.85)}
+@media (max-width:860px){.byoa-body{grid-template-columns:1fr}}
+@media (max-width:480px){.byoa-head,.byoa-body{padding-inline:20px}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .byoa-steps b{color:var(--rose)}}
+:root[data-theme="dark"] .byoa-steps b{color:var(--rose)}
+
+/* party game flow */
+.gameflow{margin-top:28px;padding:28px 30px}
+.gameflow h3{font-size:21px}
+.gameflow .desc{margin-top:6px}
+.gf-steps{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;counter-reset:none}
+.gf-steps li{position:relative;background:var(--bg-2);border-radius:14px;padding:16px;display:grid;gap:4px;align-content:start}
+.gf-steps li:last-child{background:var(--yellow);color:var(--on-yellow)}
+.gf-steps b{font:800 12px var(--display);color:var(--yellow);font-variant-numeric:tabular-nums}
+.gf-steps li:last-child b{color:rgba(255,255,255,.8)}
+.gf-steps h4{margin:0;font-family:var(--display);font-size:16.5px;line-height:1.35}
+.gf-steps p{font-size:13.5px;color:var(--muted);line-height:1.6}
+.gf-steps li:last-child p{color:rgba(255,255,255,.85)}
+.gf-loop{display:flex;gap:10px;align-items:center;margin-top:12px;padding:12px 16px;border:1.5px dashed var(--yellow);border-radius:12px;font-size:14.5px}
+.gf-loop i{font-style:normal;font-size:18px;color:var(--yellow)}
+.gf-more{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.gf-more .k{display:block;font:700 12px var(--body);letter-spacing:.06em;color:var(--brown);margin-bottom:10px}
+.themes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.themes li{border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;font-size:13.5px;line-height:1.4}
+.themes li b{display:block;font:700 11px var(--body);color:var(--muted);letter-spacing:.04em;margin-bottom:2px}
+.extra-games{display:flex;flex-wrap:wrap;gap:8px}
+.extra-games span{background:var(--bg-2);border-radius:10px;padding:8px 12px;font-size:14px}
+.party-info.solo{grid-template-columns:minmax(0,560px)}
+@media (max-width:860px){.gf-steps{grid-template-columns:1fr 1fr}.gf-more{grid-template-columns:1fr}}
+@media (max-width:480px){.gameflow{padding:22px 20px}.themes{grid-template-columns:1fr 1fr}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gf-steps b,:root:not([data-theme="light"]) .gf-loop i{color:var(--rose)}:root:not([data-theme="light"]) .gf-loop{border-color:var(--rose)}}
+:root[data-theme="dark"] .gf-steps b,:root[data-theme="dark"] .gf-loop i{color:var(--rose)}
+:root[data-theme="dark"] .gf-loop{border-color:var(--rose)}
+
 
 /* readability: case steps as a 2x2 grid with roomier type */
 .star{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -561,17 +601,16 @@ section{scroll-margin-top:70px}
 <section id="intro" style="scroll-margin-top:70px">
   <div class="wrap" style="padding-top:72px">
     <span class="place num-place"><b>01</b>Introduction</span>
-    <h2 class="ab-title"><span lang="ko">보여주는 것보다,<br><em>직접 해보게</em> 만드는 마케팅</span><span lang="en">Marketing that lets people<br><em>try it themselves,</em> not just watch</span></h2>
+    <h2 class="ab-title"><span lang="ko">고객이 머문 순간이<br><em>오래 남는 기억</em>이 되도록</span><span lang="en">Turning the moments customers spend with us<br>into <em>lasting memories</em></span></h2>
   </div>
 <div class="intro">
   <div class="wrap">
     <p class="lede">
-      <span lang="ko">저는 <b>고객이 직접 참여하고 기억하는 경험을 기획하는 마케터</b>입니다. 컬컴 신촌점에서 80~150명 규모의 오프라인 행사 4회를 기획·운영해 참여 인원을 66.7% 늘렸고, 직접 만든 홍보 영상 2개는 지점 인스타그램 조회수 1·2위를 기록했습니다. 미국 메릴랜드에서 나고 자라, 영어로 소통하고 콘텐츠를 만드는 일이 익숙합니다.</span>
-      <span lang="en">I am a marketer who <b>plans experiences customers take part in and remember</b>. At Culcom Sinchon I planned and ran four offline events of 80–150 guests, growing turnout 66.7%, and my two promo videos became the branch account’s most-viewed posts. Born and raised in Maryland, I am at home communicating and making content in English.</span>
+      <span lang="ko">고객이 브랜드와 만나는 순간을 <b>오래 기억에 남는 경험으로 만드는 일</b>에 관심을 두고 있습니다. 컬컴 신촌점에서 80~150명 규모의 오프라인 행사 4회를 기획·운영하며 참여 인원을 66.7% 늘렸고, 직접 제작한 홍보 영상 2편은 지점 인스타그램 조회수 1·2위를 기록했습니다.</span><span lang="en">I care about <b>turning the moments customers meet a brand into experiences they remember</b>. At Culcom Sinchon I planned and ran four offline events of 80–150 guests, growing turnout 66.7%, and the two promo videos I made became the branch account’s most-viewed posts.</span>
     </p>
     <div class="cta">
-      <a class="btn solid" href="#why"><span lang="ko">라카에서 본 것</span><span lang="en">What I saw at LAKA</span> →</a>
-      <a class="btn" href="#party"><span lang="ko">대표 성과 보기</span><span lang="en">See the work</span></a>
+      <a class="btn solid" href="#party"><span lang="ko">대표 성과 보기</span><span lang="en">See the work</span> →</a>
+      <a class="btn" href="#contact"><span lang="ko">연락처</span><span lang="en">Contact</span></a>
     </div>
   </div>
 </div>
@@ -580,17 +619,17 @@ section{scroll-margin-top:70px}
     <div class="stat"><div class="n" data-count="430">430</div><div class="l"><span lang="ko">오프라인 행사 4회 누적 게스트</span><span lang="en">guests across four offline events</span></div></div>
     <div class="stat"><div class="n">+66.7<small>%</small></div><div class="l"><span lang="ko">행사 참여 인원 증가 (90→150명)</span><span lang="en">turnout growth (90 → 150 guests)</span></div></div>
     <div class="stat"><div class="n" data-count="2312">2,312</div><div class="l"><span lang="ko">직접 만든 홍보 영상 최고 조회수</span><span lang="en">views on my top promo video</span></div></div>
-    <div class="stat"><div class="n"><span data-count="11">11</span><small lang="ko">년</small><small lang="en">yrs</small></div><div class="l"><span lang="ko">미국 메릴랜드 거주 · OPIc AL</span><span lang="en">lived in Maryland, USA · OPIc AL</span></div></div>
+    <div class="stat"><div class="n"><span data-count="11">11</span><small lang="ko">년</small><small lang="en">yrs</small></div><div class="l"><span lang="ko">영어권(미국) 거주 경험 · OPIc AL</span><span lang="en">lived in Maryland, USA · OPIc AL</span></div></div>
   </div>
 </div>
 <div class="about"><div class="wrap">
     <ol class="ab-list">
-      <li><span class="ab-n">01</span><h3><span lang="ko">사람마다 다른 선택을 존중하는 것에서 시작합니다</span><span lang="en">It starts with respecting that people choose differently</span></h3><p><span lang="ko">사람마다 중요하게 여기는 가치가 다르기에, 같은 서비스도 받아들이는 이유가 다릅니다. 이 차이를 바꾸려 하기보다 있는 그대로 이해하는 것이 마케팅의 출발점이라고 생각합니다. 선택은 고객의 몫이지만, 그 선택에 필요한 정보를 어떻게 전달하느냐는 우리의 몫입니다.</span><span lang="en">People value different things, so they accept the same service for different reasons. I believe marketing starts by understanding those differences rather than trying to change them. The choice belongs to the customer; how we present the information behind it is our job.</span></p></li>
-      <li><span class="ab-n">02</span><h3><span lang="ko">가진 강점을 발견하고, 고객의 언어로 전달합니다</span><span lang="en">I find real strengths and say them in the customer’s words</span></h3><p><span lang="ko">브랜드도 사람처럼 모든 면에서 완벽할 수는 없지만, 고객에게 줄 수 있는 분명한 가치는 있습니다. 그중 고객에게 실제로 의미 있는 강점을 찾아 가장 이해하기 쉬운 메시지로 전달할 때, 단순한 인지를 넘어 신뢰가 만들어진다고 생각합니다.</span><span lang="en">Like people, brands are never perfect, yet each has value it can clearly offer. When we find the strengths that truly matter to customers and say them in the simplest terms, awareness turns into trust.</span></p></li>
-      <li><span class="ab-n">03</span><h3><span lang="ko">맡은 역할에서 한 걸음 더 나아갑니다</span><span lang="en">I go one step beyond my role</span></h3><p><span lang="ko">좋은 결과는 한 사람의 아이디어가 아니라, 각자의 역할을 다하면서 지금 필요한 일을 함께 고민하는 팀에서 나옵니다. 고객의 반응과 데이터, 동료의 의견을 살펴 부족한 부분을 찾고, 필요한 일을 스스로 실행하겠습니다.</span><span lang="en">Good results come from a team where everyone does their part and also asks what is needed now. I will watch customer reactions, data and colleagues’ input, spot the gaps, and act on them myself.</span></p></li>
-      <li><span class="ab-n">04</span><h3><span lang="ko">라카에서 만들고 싶은 경험</span><span lang="en">The experience I want to build at LAKA</span></h3><p><span lang="ko">매장에서 직접 고르고 섞어 본 즐거움이 SNS 콘텐츠와 팝업, 해외 고객과의 접점으로까지 이어지도록, 오프라인 경험과 글로벌 커뮤니케이션을 잇는 일을 하고 싶습니다.</span><span lang="en">I want the fun of picking and mixing colors in store to carry into social content, pop-ups and global touchpoints, linking offline experience with global communication.</span></p></li>
+      <li><span class="ab-n">01</span><h3><span lang="ko">사람도 브랜드도, 고유한 개성에서 가치가 나옵니다</span><span lang="en">People and brands draw their value from what makes them unique</span></h3><p><span lang="ko">누구에게나 장점과 단점이 있기에 저마다의 개성이 생기고, 서로 영향을 주고받으며 살아가는 과정이 세상을 더 다채롭고 의미 있게 만든다고 생각합니다. 브랜드와 회사도 마찬가지입니다. 때로는 굴곡이 있더라도, 결국 고객이 우리가 제공할 수 있는 좋은 면을 발견하도록 돕는 것이 브랜드 마케팅의 역할이라고 믿습니다.</span><span lang="en">Everyone has strengths and weaknesses; that is what gives each of us character, and living alongside one another is what makes the world rich and meaningful. Brands and companies are the same. There may be ups and downs, but I believe brand marketing is about helping people see the good in what we can offer.</span></p></li>
+      <li><span class="ab-n">02</span><h3><span lang="ko">회사는 결국 사람으로 이루어져 있습니다</span><span lang="en">A company is made of people</span></h3><p><span lang="ko">서비스를 알리는 일도 중요하지만, 회사는 사람으로 구성되어 있습니다. 다양한 시각을 가진 동료들과 함께 고객에게 브랜드의 밝은 면을 보여 주고 신뢰를 전하는 과정 속에서, 주어진 역할은 물론 그 이상의 해야 할 일을 스스로 찾아 주도적으로 기여하는 것이 진정으로 가치 있는 일이라고 생각합니다.</span><span lang="en">Promoting a service matters, but a company is made of people. Working with colleagues of different perspectives to show customers the bright side of the brand and earn their trust, I believe the most valuable thing I can do is take on my role and find, on my own initiative, the work beyond it.</span></p></li>
+      <li><span class="ab-n">03</span><h3><span lang="ko">고객 또한 함께하는 팀원입니다</span><span lang="en">Customers are part of the team</span></h3><p><span lang="ko">고객이 매장을 방문한 순간은 곧 브랜드에 대한 기억이 됩니다. 저는 고객을 브랜드를 함께 만들어 가는 팀원으로 바라보며, 고객 한 분 한 분을 통해 배운다는 자세로 일하겠습니다.</span><span lang="en">The moment a customer visits a store becomes their memory of the brand. I see customers as teammates who help shape the brand, and I will work with the attitude of learning from each one of them.</span></p></li>
+      <li><span class="ab-n">04</span><h3><span lang="ko">라카에서 기여하고 싶은 일</span><span lang="en">What I hope to contribute at LAKA</span></h3><p><span lang="ko">‘모두를 위한 뷰티’라는 라카의 철학처럼, 고객이 자신에게 맞는 컬러와 텍스처로 고유한 아우라를 발견하는 경험을 매장과 콘텐츠, 그리고 글로벌 고객 접점으로 넓혀 가는 데 기여하고 싶습니다.</span><span lang="en">In line with LAKA’s belief in beauty for everyone, I hope to help extend the experience of finding one’s own aura through color and texture across stores, content and global touchpoints.</span></p></li>
     </ol>
-    <p class="ab-close"><span lang="ko">제품을 설명하는 마케팅보다, 고객이 브랜드를 직접 경험하고 자기만의 이유로 기억하게 하는 마케팅을 지향합니다.</span><span lang="en">Rather than explaining a product, I aim for marketing that lets customers experience the brand and remember it for reasons of their own.</span></p>
+    <p class="ab-close quote"><span class="q-en">“You can copy someone’s style, but not their aura.”</span><span lang="ko" class="q-ko">스타일은 따라 할 수 있어도, 아우라는 따라 할 수 없습니다.</span></p>
   </div></div>
 <div id="voices" style="padding-top:56px">
   <div class="wrap">
@@ -616,7 +655,7 @@ section{scroll-margin-top:70px}
         <span class="place num-place"><b>02</b>Why LAKA</span>
         <h2><span lang="ko">한계 없는 아름다움,<br>나만의 아우라를 완성하는 립</span><span lang="en">Beauty without limits,<br>a lip that completes your own aura</span></h2>
       </div>
-      <p class="meta"><span lang="ko">고객으로 경험한 라카</span><span lang="en">LAKA as I experienced it as a customer</span></p>
+      <p class="meta"><span lang="ko">라카 플래그십 스토어 방문 경험</span><span lang="en">From my visit to the LAKA flagship store</span></p>
     </div>
     <div class="why">
       <figure class="why-photo">
@@ -626,36 +665,31 @@ section{scroll-margin-top:70px}
       </figure>
       <div>
         <blockquote class="slogan"><p>Beauty has no limits.<br>It’s for everyone.</p><cite>@laka.official · 2025.07</cite></blockquote>
-        <p class="why-lede"><span lang="ko">편견과 타인의 시선을 넘어 <b>모두를 위한 뷰티</b>를 지향하는 브랜드 철학이, 제품과 매장 경험 전반에서 일관되게 느껴졌습니다.</span><span lang="en">LAKA’s belief in <b>beauty for everyone</b>, beyond prejudice and other people’s gaze, comes through consistently in both its products and its stores.</span></p>
+        <p class="why-lede"><span lang="ko">라카 플래그십 스토어를 방문했을 때, 두 가지가 특히 인상 깊었습니다.</span><span lang="en">Two things stood out when I visited the LAKA flagship store.</span></p>
         <ol class="aura">
-          <li><b>01</b><div><h4><span lang="ko">압도적인 틴트 컬러 선택지</span><span lang="en">An overwhelming range of tint shades</span></h4><p><span lang="ko">타 브랜드 대비 압도적으로 다양한 컬러를 갖추고 있어, 여러 컬러를 레이어링하며 자신에게 맞는 조합을 찾을 수 있습니다.</span><span lang="en">With far more shades than other brands, customers can layer colors to find the combination that suits them.</span></p></div></li>
-          <li><b>02</b><div><h4><span lang="ko">믹솔로지 바</span><span lang="en">The mixology bar</span></h4><p><span lang="ko">3만 원 이상 구매 시 제공되는 이용권으로 고객이 직접 컬러를 조합해 나만의 틴트를 만들 수 있습니다. 샘플 증정을 넘어선 차별화된 브랜드 경험이라고 생각합니다.</span><span lang="en">A pass for purchases of ₩30,000 or more lets customers blend their own tint, a distinctive brand experience that goes beyond free samples.</span></p></div></li>
+          <li><b>01</b><div><h4><span lang="ko">고혹적이고 시크한 매장 분위기</span><span lang="en">An alluring, chic store atmosphere</span></h4><p><span lang="ko">타 브랜드 매장과 확연히 다른 고혹적이고 시크한 공간이 라카만의 브랜드 무드를 선명하게 전달했습니다.</span><span lang="en">A space distinctly more alluring and chic than other brands’ stores conveyed LAKA’s mood clearly.</span></p></div></li>
+          <li><b>02</b><div><h4><span lang="ko">퍼스널 컬러별로 구성된 압도적인 틴트 선택지</span><span lang="en">An overwhelming range of tints, organized by personal color</span></h4><p><span lang="ko">퍼스널 컬러별로 나뉜 수많은 틴트 덕분에 고르는 재미와 안심이 있었고, 레이어링과 믹솔로지 바를 통해 나만의 조합까지 찾을 수 있었습니다.</span><span lang="en">So many tints, grouped by personal color, made choosing both fun and reassuring, and layering and the mixology bar let me go further to my own combination.</span></p></div></li>
         </ol>
       </div>
     </div>
 
-    <div class="ideas-head">
-      <h3><span lang="ko">나만의 아우라를 더 많은 고객에게</span><span lang="en">Bringing that aura to more customers</span></h3>
-      <p><span lang="ko">브랜드 마케팅 인턴으로서 기여하고 싶은 부분</span><span lang="en">What I’d like to try · ideas, not plans</span></p>
-    </div>
-    <div class="ideas">
-      <div class="panel idea">
-        <span class="jd"><span lang="ko">글로벌 콘텐츠 · SNS</span><span lang="en">Global content · SNS</span></span>
-        <h4><span lang="ko">‘My Aura’ 레이어링 숏폼</span><span lang="en">“My Aura” layering shorts</span></h4>
-        <p><span lang="ko">레이어링에 따라 달라지는 컬러를 국·영문 콘텐츠 시리즈로 기획해 글로벌 고객에게 전달하겠습니다.</span><span lang="en">A Korean/English series on how one tint changes with layering.</span></p>
-        <p class="proof"><span lang="ko"><b>경험</b> 직접 제작한 홍보 영상, 지점 조회수 1·2위</span><span lang="en"><b>Experience</b> My promo videos, the branch’s top 2</span></p>
+    <div class="byoa">
+      <div class="byoa-head">
+        <span class="place"><span lang="ko">제안</span><span lang="en">Proposal</span></span>
+        <h3>Build Your Own Aura</h3>
+        <p><span lang="ko">톤과 레이어링에 따라 달라지는 나만의 아우라를 찾아가는 체험</span><span lang="en">An experience for finding one’s own aura as tone and layering change</span></p>
       </div>
-      <div class="panel idea">
-        <span class="jd"><span lang="ko">팝업 · 체험 행사</span><span lang="en">Pop-ups · events</span></span>
-        <h4><span lang="ko">팝업·박람회 컬러 체험존 운영</span><span lang="en">Shade-try zones at pop-ups and fairs</span></h4>
-        <p><span lang="ko">사전 예약과 현장 참여, 동선과 스태프 역할을 미리 설계해 많은 방문객도 원활하게 응대하겠습니다.</span><span lang="en">Split bookings from walk-ins and plan flow and staff ahead, so crowds stay fun.</span></p>
-        <p class="proof"><span lang="ko"><b>경험</b> 80~150명 규모 행사 4회 운영 · 스태프 근무표 작성</span><span lang="en"><b>Experience</b> 4 events of 80–150 · staff rota</span></p>
-      </div>
-      <div class="panel idea">
-        <span class="jd"><span lang="ko">인플루언서 협업 · 성과 분석</span><span lang="en">Influencers · analysis</span></span>
-        <h4><span lang="ko">인플루언서 ‘시그니처 레이어링’</span><span lang="en">Influencer “signature layering”</span></h4>
-        <p><span lang="ko">인플루언서별 조합을 소개하고, 참여·저장·방문 반응을 기록해 다음 협업에 반영하겠습니다.</span><span lang="en">Share each creator’s combo, log participation, saves and visits, and feed it into the next one.</span></p>
-        <p class="proof"><span lang="ko"><b>경험</b> 미확정 사유 분류 기록 · 예산·정산 시트 관리</span><span lang="en"><b>Experience</b> Drop-off tagging · budget sheets</span></p>
+      <div class="byoa-body">
+        <div class="byoa-why">
+          <span class="k"><span lang="ko">고객으로서 느낀 점</span><span lang="en">What I noticed as a customer</span></span>
+          <p><span lang="ko">선택지가 많아 고르는 재미가 있지만, 테스트할 때마다 입술에 착색이 더해져 오히려 고르기 어려워지기도 합니다. 특히 뉴트럴·베이스 립은 어떤 퍼스널 컬러의 사람이 바르느냐에 따라 분위기가 달라지고, 수많은 선택지 중 무엇을 레이어링하느냐에 따라 결과가 크게 바뀝니다.</span><span lang="en">The wide choice is fun, but every swatch adds stain to the lips, which can make choosing harder. Neutral and base lips in particular look different depending on who wears them, and the result changes greatly with what you layer on top.</span></p>
+        </div>
+        <ol class="byoa-steps">
+          <li><b>01</b><h4><span lang="ko">톤 찾기</span><span lang="en">Find your tone</span></h4><p><span lang="ko">퍼스널 컬러 확인</span><span lang="en">Check personal color</span></p></li>
+          <li><b>02</b><h4><span lang="ko">베이스 고르기</span><span lang="en">Pick a base</span></h4><p><span lang="ko">톤별로 달라지는 뉴트럴·베이스 립 비교</span><span lang="en">Compare neutral and base lips by tone</span></p></li>
+          <li><b>03</b><h4><span lang="ko">레이어링</span><span lang="en">Layer</span></h4><p><span lang="ko">어울리는 컬러 조합 찾기</span><span lang="en">Find combinations that suit you</span></p></li>
+          <li><b>04</b><h4>My Aura</h4><p><span lang="ko">나만의 조합 완성</span><span lang="en">Complete your own combination</span></p></li>
+        </ol>
       </div>
     </div>
   </div>
@@ -804,11 +838,11 @@ section{scroll-margin-top:70px}
     <div class="sec-head">
       <div>
         <span class="place">Portfolio 01-A · Offline events</span>
-        <h2><span lang="ko">참여 장벽을 낮춘 오프라인 체험 행사 기획</span><span lang="en">Offline events that lower the barrier to join</span></h2>
+        <h2><span lang="ko">참가자 간 교류를 설계한 오프라인 행사 기획</span><span lang="en">Offline events designed for real interaction</span></h2>
       </div>
       <p class="meta"><span lang="ko">기획 · 가격 설계 · SNS 홍보물 제작 · 현장 운영 · 성과 정리</span><span lang="en">Planning · pricing · social promos · running the night · results</span></p>
     </div>
-    <p class="case-lead"><span lang="ko"><b>고객 행사 4회를 직접 기획·운영해 참여 인원을 66.7% 늘리고 신규 회원 유입까지 이끌었습니다.</b></span><span lang="en"><b>I planned and ran four customer events, growing turnout 66.7% and bringing in new members.</b></span></p>
+    <p class="case-lead"><span lang="ko"><b>고객 행사 4회를 직접 기획·운영해 1회차 90명에서 3회차 150명으로 참여 인원을 66.7% 늘렸습니다.</b></span><span lang="en"><b>I planned and ran four customer events, growing turnout 66.7%, from 90 guests at the first to 150 at the third.</b></span></p>
 
     <p class="growth"><span lang="ko">1회차 90명 → 3회차 150명</span><span lang="en">Party 1: 90 → Party 3: 150 guests</span><b>+66.7%</b></p>
     <div class="party-grid" id="rounds"></div>
@@ -832,35 +866,55 @@ section{scroll-margin-top:70px}
       </figure>
     </div>
 
-    <div class="party-info">
+    <div class="panel gameflow">
+      <h3><span lang="ko">원활한 네트워킹을 위한 미니게임 설계</span><span lang="en">Mini-games designed for easy networking</span></h3>
+      <p class="desc"><span lang="ko">많이 참여할수록 당첨 확률이 높아지도록 설계해, 게임 참여율과 참가자 간 교류를 함께 높였습니다.</span><span lang="en">The more guests played, the better their odds, which raised both participation and interaction.</span></p>
+      <ol class="gf-steps">
+        <li><b>01</b><h4><span lang="ko">짝 그림 카드 받기</span><span lang="en">Get a picture card</span></h4><p><span lang="ko">입장 시 회차 테마에 맞춘 그림 카드 지급</span><span lang="en">Theme cards handed out at entry</span></p></li>
+        <li><b>02</b><h4><span lang="ko">같은 그림의 짝꿍 찾기</span><span lang="en">Find your match</span></h4><p><span lang="ko">같은 그림을 가진 참가자와 팀 구성</span><span lang="en">Team up with the guest holding the same card</span></p></li>
+        <li><b>03</b><h4><span lang="ko">사격 · 링 던지기</span><span lang="en">Shooting · ring toss</span></h4><p><span lang="ko">짝꿍과 함께 미니게임 도전</span><span lang="en">Take on a mini-game together</span></p></li>
+        <li><b>04</b><h4><span lang="ko">경품 추첨 응모권</span><span lang="en">Lucky-draw entry</span></h4><p><span lang="ko">게임을 통과하면 응모권 지급</span><span lang="en">Pass the game, earn an entry</span></p></li>
+      </ol>
+      <p class="gf-loop"><i>↻</i><span lang="ko">같은 그림 카드를 여러 장 준비해, 한 번 짝을 찾고 끝나는 대신 재참여하며 새로운 파트너와 교류할 수 있도록 했습니다.</span><span lang="en">With several copies of each card, guests could play again and meet a new partner instead of stopping after one match.</span></p>
+      <div class="gf-more">
+        <div>
+          <span class="k"><span lang="ko">회차별 짝 그림 테마</span><span lang="en">Card theme by round</span></span>
+          <ol class="themes">
+            <li><b><span lang="ko">1회차</span><span lang="en">Party 1</span></b><span lang="ko">기본 이모지</span><span lang="en">Emoji</span></li>
+            <li><b><span lang="ko">2회차</span><span lang="en">Party 2</span></b><span lang="ko">바비 인형</span><span lang="en">Barbie dolls</span></li>
+            <li><b><span lang="ko">3회차</span><span lang="en">Party 3</span></b><span lang="ko">크리스마스 작품 캐릭터</span><span lang="en">Christmas characters</span></li>
+            <li><b><span lang="ko">4회차</span><span lang="en">Party 4</span></b><span lang="ko">트럼프 카드</span><span lang="en">Playing cards</span></li>
+          </ol>
+        </div>
+        <div>
+          <span class="k"><span lang="ko">함께 운영한 게임</span><span lang="en">Other games</span></span>
+          <div class="extra-games"><span><span lang="ko">네트워킹 빙고판</span><span lang="en">Networking bingo</span></span><span><span lang="ko">3인 참여형 캐롤 가사 잇기</span><span lang="en">Three-person carol lyric relay</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="party-info solo">
       <div class="ticket">
         <div><div class="t-k">RSVP</div><div class="t-v">₩12,000</div></div>
         <div><div class="t-k">Walk-in</div><div class="t-v">₩15,000</div></div>
-        <p class="t-c"><span lang="ko">타 지점 평균가(약 2만 원) 대비 대학가 상권 특성을 반영해 가격을 낮췄습니다. 수익보다 신규 고객의 참여 장벽을 낮추는 데 목표를 두었으며, 무제한 음료와 럭키드로우를 포함한 구성으로 4회 모두 흑자 운영했습니다.</span><span lang="en">Priced below the roughly ₩20,000 other branches charged, to fit a student neighborhood. The goal was a lower barrier for new customers rather than margin; with unlimited drinks and a lucky draw included, all four events ran in the black.</span></p>
-      </div>
-      <div>
-        <div class="game"><b><span lang="ko">짝 그림 찾기</span><span lang="en">Picture match</span></b><span><span lang="ko">같은 그림을 가진 참가자끼리 팀 구성</span><span lang="en">Guests form teams by matching cards</span></span></div>
-        <div class="game"><b><span lang="ko">소셜 게임</span><span lang="en">Social game</span></b><span><span lang="ko">간식을 매개로 명함 교환을 유도한 네트워킹</span><span lang="en">Snacks as a prompt to exchange name cards</span></span></div>
-        <div class="game"><b><span lang="ko">슈팅 · 빙고</span><span lang="en">Shooting · Bingo</span></b><span><span lang="ko">자율 참여형 게임과 경품</span><span lang="en">Drop-in games with prizes</span></span></div>
-        <div class="game"><b><span lang="ko">럭키드로우</span><span lang="en">Lucky draw</span></b><span><span lang="ko">스태프와 대화 시 응모권 지급 · 당첨자 6명</span><span lang="en">Entries for chatting with staff · 6 winners</span></span></div>
+        <p class="t-c"><span lang="ko">타 지점 평균가(약 2만 원) 대비 대학가 상권 특성을 반영해 가격을 낮췄습니다. 수익보다 참여 장벽을 낮추는 데 목표를 두었으며, 무제한 음료와 럭키드로우를 포함한 구성으로 4회 모두 흑자 운영했습니다.</span><span lang="en">Priced below the roughly ₩20,000 other branches charged, to fit a student neighborhood. The goal was a lower barrier to join rather than margin; with unlimited drinks and a lucky draw included, all four events ran in the black.</span></p>
       </div>
     </div>
 
     <ol class="star">
         <li><span class="st"><b>01</b><span lang="ko">상황</span><span lang="en">Situation</span></span>
-          <h4><span lang="ko">파티가 회식과 다르지 않았습니다</span><span lang="en">Parties felt like staff dinners</span></h4>
-          <ul><li><span lang="ko">지점 파티가 주기적으로 열렸지만 참여도가 낮고 신규 고객 유입으로 이어지지 않았습니다.</span><span lang="en">Branch parties ran regularly but drew few people and no new customers.</span></li><li><span lang="ko">국내 최대 영어회화 스터디 체인임에도 홍보와 정보 전달이 약했습니다.</span><span lang="en">Despite being Korea’s largest chain of its kind, promotion was weak.</span></li></ul></li>
+          <h4><span lang="ko">파티가 친목에 그쳐, 소통을 이어갈 장치가 없었습니다</span><span lang="en">Parties stopped at socializing, with nothing to keep people talking</span></h4>
+          <ul><li><span lang="ko">기존 파티는 식음료와 스몰토크, 친목 위주로 진행되어 참가자 간 소통을 이어갈 장치가 부재했습니다.</span><span lang="en">Past parties were mostly food, drinks and small talk, with nothing designed to keep guests interacting.</span></li><li><span lang="ko">기존 포스터는 범용 템플릿의 틀 안에서 제작되어 특색이 부족했고, 컬컴 행사라는 점을 인상적으로 전달하지 못했습니다.</span><span lang="en">Posters were built on generic templates, lacked character, and did not make it clear this was a Culcom event.</span></li></ul></li>
         <li><span class="st"><b>02</b><span lang="ko">기획</span><span lang="en">Plan</span></span>
-          <h4><span lang="ko">영어를 ‘공부’가 아닌 ‘연결’의 경험으로</span><span lang="en">English as connection, not homework</span></h4>
-          <ul><li><span lang="ko">조교 업무 범위 밖이었지만 매니저에게 직접 제안해 기획 권한을 위임받았습니다.</span><span lang="en">Outside my role, so I pitched it to the manager and was given ownership.</span></li><li><span lang="ko">대학가 상권을 고려해 타 지점 평균(약 2만 원)보다 낮은 RSVP 12,000원·현장 15,000원으로 참여 장벽을 낮췄습니다.</span><span lang="en">Priced RSVP ₩12,000 and walk-in ₩15,000, below the ~₩20,000 at other branches, for a student area.</span></li><li><span lang="ko">낯선 사람도 쉽게 어울리는 자율 참여형 게임을 설계했습니다.</span><span lang="en">Designed drop-in games so strangers could mix easily.</span></li></ul></li>
+          <h4><span lang="ko">원활한 네트워킹을 위한 미니게임을 기획했습니다</span><span lang="en">Planned mini-games for easy networking</span></h4>
+          <ul><li><span lang="ko">조교 업무 범위 밖이었지만 매니저에게 직접 제안해 기획 권한을 위임받았습니다.</span><span lang="en">It was outside my role, so I proposed it to the manager and was given ownership.</span></li><li><span lang="ko">같은 그림의 짝꿍을 찾아 사격·링 던지기 게임을 통과하면 경품 추첨 응모권을 받도록 설계했습니다. 많이 참여할수록 당첨 확률이 높아져 게임 참여율과 교류를 함께 높일 수 있었습니다.</span><span lang="en">Guests who found their matching partner and cleared a shooting or ring-toss game earned a lucky-draw entry; more play meant better odds, lifting participation and interaction together.</span></li><li><span lang="ko">네트워킹 빙고판과 3인 참여형 캐롤 가사 잇기 게임을 더해 참여 방법과 게임 종류를 넓혔습니다.</span><span lang="en">Added networking bingo and a three-person carol lyric relay to widen how guests could take part.</span></li></ul></li>
         <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
-          <h4><span lang="ko">홍보부터 현장 운영까지 공동 호스트와 전담했습니다</span><span lang="en">Ran it end to end with a co-host</span></h4>
-          <ul><li><span lang="ko">생성형 AI, 직접 촬영한 지점·고양이 사진, Canva, 인스타그램 도구로 홍보물을 제작하고, 지점 고양이 ‘코코’를 마스코트로 시리즈를 통일했습니다.</span><span lang="en">Made promos with generative AI, my own branch photos, Canva and Instagram tools, with Coco the branch cat as mascot.</span></li><li><span lang="ko">예산·정산 시트로 품목별 비용과 구매 여부를 관리했습니다.</span><span lang="en">Tracked every item and cost in a budget and settlement sheet.</span></li><li><span lang="ko">대규모 인원 속 혼선을 막기 위해 AI를 활용해 효율적이고 유동적인 스태프 시간표를 짜고 업무를 세분화했습니다.</span><span lang="en">Used AI to build a flexible staff rota and break down roles to prevent confusion with large crowds.</span></li></ul>
+          <h4><span lang="ko">반응을 반영해 회차마다 게임과 홍보물을 발전시켰습니다</span><span lang="en">Improved the games and promos every round</span></h4>
+          <ul><li><span lang="ko">짝 그림 찾기의 반응이 좋아 회차마다 게임 종류를 늘리고, 같은 그림 카드를 여러 장 준비해 재참여와 새로운 파트너와의 교류가 이어지도록 했습니다.</span><span lang="en">Picture matching went over well, so I added games each round and printed several copies of each card so guests could replay and meet new partners.</span></li><li><span lang="ko">범용 템플릿 대신 직접 촬영한 지점 사진과 지점 고양이 ‘코코’를 마스코트로 활용해 컬컴만의 홍보물 시리즈를 제작했습니다.</span><span lang="en">Replaced generic templates with my own branch photos and Coco the branch cat as mascot, creating a promo series that was clearly Culcom’s.</span></li><li><span lang="ko">예산·정산 시트와 AI로 작성한 스태프 시간표로 대규모 인원을 혼선 없이 운영했습니다.</span><span lang="en">Ran large crowds smoothly with a budget and settlement sheet and an AI-assisted staff rota.</span></li></ul>
           <button class="doc-btn portrait" data-doc="staff"><img src="../assets/staff/p-1.jpg" alt=""><div><b><span lang="ko">스태프 근무표 · 업무 매뉴얼</span><span lang="en">Staff rota and role manual</span></b><span><span lang="ko">국·영문 4쪽 · 직접 작성</span><span lang="en">Korean/English · 4 pages</span></span></div></button></li>
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
-          <h4><span lang="ko">참여 인원 66.7% 증가, 신규 회원 유입</span><span lang="en">Turnout +66.7%, new members joined</span></h4>
-          <ul><li><span lang="ko">첫 회 90명 → 3회차 150명</span><span lang="en">90 guests at the first party → 150 at the third</span></li><li><span lang="ko">회원이 데려온 지인이 재방문해 등록하는 등 신규 회원 유입</span><span lang="en">Friends brought by members came back and signed up</span></li><li><span lang="ko">4회 모두 흑자 운영</span><span lang="en">All four events ran in the black</span></li><li><span lang="ko">홍보 영상 2개가 지점 인스타그램 조회수 1·2위 (2,312회·1,630회)</span><span lang="en">Two promo videos were the branch account’s top two (2,312 and 1,630 views)</span></li></ul>
-          <p class="lesson"><span lang="ko">배운 점: 고객이 직접 참여하는 경험은 지인을 데려오게 만들고, 그 확산이 신규 고객 유입으로 이어진다는 것을 숫자로 확인했습니다.</span><span lang="en">Lesson: experiences people take part in make them bring friends, and that spread is what brings in new customers. The numbers showed it.</span></p></li>
+          <h4><span lang="ko">참여 인원 66.7% 증가</span><span lang="en">Turnout up 66.7%</span></h4>
+          <ul><li><span lang="ko">1회차 90명 → 3회차 150명</span><span lang="en">90 guests at the first party → 150 at the third</span></li><li><span lang="ko">4회 모두 흑자 운영</span><span lang="en">All four events ran in the black</span></li><li><span lang="ko">홍보 영상 2편이 지점 인스타그램 조회수 1·2위 (2,312회·1,630회)</span><span lang="en">Two promo videos were the branch account’s top two (2,312 and 1,630 views)</span></li></ul></li>
       </ol>
   </div>
 </section>
@@ -912,11 +966,11 @@ section{scroll-margin-top:70px}
           <ul><li><span lang="ko">통화 첫마디부터 신뢰를 줄 수 있도록 통화 순서를 바꿨습니다.</span><span lang="en">Reordered the call to earn trust from the very first words.</span></li><li><span lang="ko">유효 문의에 집중하기 위해 미확정 사유를 기록하고 원인을 찾기로 했습니다.</span><span lang="en">Decided to log every non-booking reason to find root causes.</span></li><li><span lang="ko">언어 확대 전 예약 구조의 위험 요소를 먼저 점검했습니다.</span><span lang="en">Checked the booking setup for risks before new languages launched.</span></li></ul></li>
         <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
           <h4><span lang="ko">스크립트·데이터·예약 구조를 직접 개선했습니다</span><span lang="en">Fixed the script, the data and the booking flow</span></h4>
-          <ul><li><span lang="ko">이름 확인 → 문의 경로 안내 → “1분만 통화 가능하실까요?” → 가장 빠른 상담 시간 제안 순으로 스크립트를 재구성했습니다.</span><span lang="en">Rebuilt the script: confirm name, state the inquiry source, ask for one minute, offer the earliest slot.</span></li><li><span lang="ko">미확정 사유를 오입력·타지점 희망·사정상 거절·허수로 분류해 시트로 관리하고, 허수 비중이 높은 광고를 매니저에게 보고해 광고 운영에 반영했습니다.</span><span lang="en">Tagged misses as wrong number, other branch, declined or fake lead, and reported noisy ads so the ad setup changed.</span></li><li><span lang="ko">매니저와 언어별 상담 가능 시간대를 명확히 하고, 전 조교가 실시간으로 쓰는 구글 문서 메시지 템플릿을 업데이트했습니다.</span><span lang="en">Clarified each language’s hours with the manager and updated the shared message templates in Google Docs.</span></li><li><span lang="ko">네이버 예약의 자동 확정을 수동 확정으로 전환하자고 선제적으로 제안했습니다.</span><span lang="en">Proposed switching Naver bookings from auto- to manual confirmation in advance.</span></li></ul></li>
+          <ul><li><span lang="ko">이름 확인 → 문의 경로 안내 → “1분만 통화 가능하실까요?” → 가장 빠른 상담 시간 제안 순으로 스크립트를 재구성했습니다.</span><span lang="en">Rebuilt the script: confirm name, state the inquiry source, ask for one minute, offer the earliest slot.</span></li><li><span lang="ko">미확정 사유를 오입력·타지점 희망·사정상 거절·허수로 분류해 시트로 관리하고, 허수 비중이 높은 광고를 매니저에게 보고해 광고 운영에 반영했습니다.</span><span lang="en">Tagged misses as wrong number, other branch, declined or fake lead, and reported noisy ads so the ad setup changed.</span></li><li><span lang="ko">매니저와 언어별 상담 가능 시간대를 명확히 하고, 전 조교가 실시간으로 쓰는 구글 문서 메시지 템플릿을 업데이트했습니다.</span><span lang="en">Clarified each language’s hours with the manager and updated the shared message templates in Google Docs.</span></li><li><span lang="ko">제2외국어 스터디 개설 초기, 언어별 상담 가능 시간과 인원이 달라졌지만 네이버 예약은 영어 기준으로 자동 확정되어 중복·초과 예약 위험이 있었습니다. 업무 중 이를 먼저 파악해, 정원이 찬 상태에서 당일 예약이 확정되지 않도록 수동 확정 전환을 제안했습니다.</span><span lang="en">When the new language studies opened, each language had different consultation hours and capacity, yet Naver bookings still auto-confirmed on the English schedule, risking double and over-booking. I spotted this on the job and proposed manual confirmation so same-day bookings would not be confirmed once slots were full.</span></li></ul></li>
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
           <h4><span lang="ko">회신량 2.3배, 확정률 7%로 조교 중 1위</span><span lang="en">2.3× callbacks, 7% booking rate, top among staff</span></h4>
           <ul><li><span lang="ko">회신 1년차 2,241건 → 2년차 5,062건</span><span lang="en">Callbacks: 2,241 in year one → 5,062 in year two</span></li><li><span lang="ko">확정률 5% → 7% (지점 평균 4%)</span><span lang="en">Booking rate 5% → 7% (branch average 4%)</span></li><li><span lang="ko">2026년 상반기 회신 3,393건, 조교 중 최다</span><span lang="en">3,393 callbacks in H1 2026, the most of any assistant</span></li><li><span lang="ko">운영 언어 확대 후에도 중복 예약·혼선 없이 운영</span><span lang="en">No double bookings after the language expansion</span></li></ul>
-          <p class="lesson"><span lang="ko">배운 점: 전환은 첫마디의 신뢰에서 시작되고, 기록된 데이터가 있어야 개선을 설득할 수 있습니다.</span><span lang="en">Lesson: conversion starts with trust in the first words, and recorded data is what makes a fix persuasive.</span></p></li>
+          <p class="lesson"><span lang="ko">배운 점: 주어진 틀 안에서만 일하기보다, 업무 중 발견한 문제를 기록하고 근거를 갖춰 먼저 개선을 제안할 때 더 나은 결과로 이어진다는 것을 배웠습니다.</span><span lang="en">Lesson: rather than working only within the existing setup, recording the problems I notice and proposing fixes backed by evidence leads to better results.</span></p></li>
       </ol>
       </div>
     </div>
@@ -953,7 +1007,7 @@ section{scroll-margin-top:70px}
           <ul><li><span lang="ko">프로그램 구분과 주요 내용 기준으로 정보를 항목별로 구조화했습니다.</span><span lang="en">Structured the content by program type and key details.</span></li><li><span lang="ko">처음 한국에서 익숙한 미리캔버스로 시안을 만들었으나, 미국 상사에게 형식이 어색하고 전달하려는 내용과 맞지 않는다는 피드백을 받았습니다.</span><span lang="en">My first draft in Miricanvas, a Korean tool, felt off to my US manager and did not suit the content.</span></li></ul></li>
         <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
           <h4><span lang="ko">미국에서 많이 쓰는 Visme를 단기간에 익혔습니다</span><span lang="en">Learned Visme, a US standard, quickly</span></h4>
-          <ul><li><span lang="ko">상급자의 피드백을 받아가며 Visme를 빠르게 익혔습니다.</span><span lang="en">Picked up Visme quickly while iterating on my manager’s feedback.</span></li><li><span lang="ko">프로그램 구분, 주요 내용, 디자인, 폰트, 색상을 통일해 시각적으로 편안한 책자를 만들었습니다.</span><span lang="en">Unified program types, key details, layout, fonts and colors into a calm, readable booklet.</span></li><li><span lang="ko">긴 텍스트를 시각 자료로 압축했습니다.</span><span lang="en">Compressed long text into visuals.</span></li></ul></li>
+          <ul><li><span lang="ko">미국에서 많이 쓰는 편집 툴인 Visme를 상급자의 피드백을 받아가며 빠르게 익혔습니다.</span><span lang="en">Picked up Visme, a design tool widely used in the US, quickly while iterating on my manager’s feedback.</span></li><li><span lang="ko">프로그램 구분, 주요 내용, 디자인, 폰트, 색상을 통일해 시각적으로 편안한 책자를 만들었습니다.</span><span lang="en">Unified program types, key details, layout, fonts and colors into a calm, readable booklet.</span></li><li><span lang="ko">긴 텍스트를 시각 자료로 압축했습니다.</span><span lang="en">Compressed long text into visuals.</span></li></ul></li>
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
           <h4><span lang="ko">23쪽·17쪽 브로슈어 2종 완성 · 인턴십 수료</span><span lang="en">Two brochures (23 and 17 pages) · completed</span></h4>
           <ul><li><span lang="ko">미국 내 아시아계 학생 대상 장학금·인턴십·서머 프로그램 정보를 23쪽, 17쪽 분량의 브로슈어 2종으로 제작했습니다.</span><span lang="en">Produced two brochures, 23 and 17 pages, on scholarships, internships and summer programs for Asian-American students.</span></li><li><span lang="ko">교내 LINC+ 사업단 현장직무체험 공고로 지원해 영어 면접을 거쳐 선발되었고, 기간을 마치고 수료했습니다.</span><span lang="en">Selected via my university’s LINC+ program and an English interview, and completed the internship.</span></li></ul>
