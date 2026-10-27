@@ -796,6 +796,17 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 .floor i{background-image:linear-gradient(rgba(138,64,232,.95) 2px,transparent 2px),linear-gradient(90deg,rgba(138,64,232,.95) 2px,transparent 2px);
   filter:drop-shadow(0 0 3px #8A40E8) drop-shadow(0 0 10px rgba(90,30,170,.9))}
 .horizon{background:radial-gradient(ellipse 50% 60% at 50% 100%,rgba(110,45,200,.45),rgba(70,20,140,.2) 50%,transparent 75%)}
+
+/* portfolio banners: curved panel display with drifting photos */
+.pf-banner .wrap{padding-block:36px 340px}
+.curve{position:absolute;left:0;right:0;bottom:24px;height:280px;perspective:1100px;perspective-origin:50% 45%;overflow:hidden;pointer-events:none;
+  -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.curve::after{content:"";position:absolute;left:8%;right:8%;bottom:6px;height:40px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(150,80,230,.28),transparent 70%);filter:blur(8px)}
+.curve .ci{position:absolute;left:50%;top:50%;height:200px;margin:-100px 0 0;border-radius:10px;overflow:hidden;will-change:transform;backface-visibility:hidden;
+  box-shadow:0 0 0 1px rgba(255,255,255,.14),0 0 18px rgba(140,70,220,.35),0 20px 40px -18px rgba(0,0,0,.8)}
+.curve .ci img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(1.05) brightness(.92)}
+.curve .ci::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.16),transparent 35%,transparent 70%,rgba(120,60,200,.18))}
+@media (max-width:760px){.pf-banner .wrap{padding-block:24px 250px}.curve{height:210px;bottom:16px}.curve .ci{height:150px;margin-top:-75px}}
 </style>
 
 </head>
@@ -1102,14 +1113,14 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       </details>
       <details>
         <summary><span class="when">2025.01</span><span class="what"><span lang="ko">삼성생명 금융연수 프로그램 7기 수료</span><span lang="en">Samsung Life Financial Training Program, cohort 7 (completed)</span><small><span lang="ko">2025.01.14 – 01.24 · 삼성생명 SFP지역단 주최</span><span lang="en">Jan 14–24, 2025 · hosted by Samsung Life SFP</span></small></span><span class="plus">+</span></summary>
-        <div class="body"><p><span lang="ko">경제학 전공 지식을 금융 산업 실무 맥락으로 넓히고자 전 과정을 수료했습니다.</span><span lang="en">Completed the full program to extend my economics background into how the finance industry works in practice.</span></p><button class="doc-btn portrait" data-doc="samsung"><img src="../assets/laka/samsung-cert.jpg" alt=""><div><b><span lang="ko">수료증 보기</span><span lang="en">View certificate</span></b><span><span lang="ko">삼성생명 금융연수 프로그램 7기 · 2025.01.24</span><span lang="en">Samsung Life Financial Training Program · Jan 24, 2025</span></span></div></button></div>
+        <div class="body"><p><span lang="ko">경제학 전공 지식을 금융 산업 실무 맥락으로 넓히고자 전 과정을 수료했습니다.</span><span lang="en">Completed the full program to extend my economics background into how the finance industry works in practice.</span></p><div class="tl-photos"><img src="../assets/laka/samsung-badge.jpg" alt="Wearing the Samsung Life financial training program badge" data-zoom></div><button class="doc-btn portrait" data-doc="samsung"><img src="../assets/laka/samsung-cert.jpg" alt=""><div><b><span lang="ko">수료증 보기</span><span lang="en">View certificate</span></b><span><span lang="ko">삼성생명 금융연수 프로그램 7기 · 2025.01.24</span><span lang="en">Samsung Life Financial Training Program · Jan 24, 2025</span></span></div></button></div>
       </details>
     </div>
   </div>
 </section>
 
 <div class="pf-banner" id="portfolio" style="scroll-margin-top:60px">
-  <div class="floor" aria-hidden="true"><i></i></div><div class="horizon" aria-hidden="true"></div>
+  <div class="curve" data-set="culcom" aria-hidden="true"></div>
   <div class="wrap">
     <div class="no">01</div>
     <div>
@@ -1284,7 +1295,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 </section>
 
 <div class="pf-banner" id="portfolio2" style="scroll-margin-top:60px">
-  <div class="floor" aria-hidden="true"><i></i></div><div class="horizon" aria-hidden="true"></div>
+  <div class="curve" data-set="educan" aria-hidden="true"></div>
   <div class="wrap">
     <div class="no">02</div>
     <div>
@@ -1732,6 +1743,45 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     });
     ol.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')clear()});
   });
+
+  /* curved panel display: photos drift around a concave screen */
+  (function(){
+    const SETS={
+      culcom:[['../assets/coco.jpg',.75],['../assets/laka/study.jpg',1.333],['../assets/party-live.jpg',1.778],['../assets/laka/coco-laptop.jpg',1.333],['../assets/christmas.jpg',.649],['../assets/dreamhouse-poster.jpg',.707],['../assets/casino-poster.jpg',.647]],
+      educan:[['../assets/brochure/p-01.jpg',.772],['../assets/brochure/p-02.jpg',.772],['../assets/certificate.jpg',1.293],['../assets/ebook/p-01.jpg',.772],['../assets/brochure/p-05.jpg',.772],['../assets/ebook/p-03.jpg',.772],['../assets/brochure/p-10.jpg',.772]]
+    };
+    document.querySelectorAll('.curve').forEach(box=>{
+      const src=SETS[box.dataset.set]; if(!src) return;
+      let items=[],total=0,R=1,H=200,run=false,off=0,last=0;
+      const GAP=22;
+      function build(){
+        box.innerHTML='';items=[];total=0;
+        H=parseFloat(getComputedStyle(document.documentElement).fontSize)&&box.clientHeight>230?200:150;
+        R=Math.max(box.clientWidth*.72,320);
+        const need=2*R*1.05+400;
+        let list=[];while(total<need||list.length<src.length){for(const it of src){list.push(it);total+=H*it[1]+GAP}}
+        let pos=0;
+        list.forEach(([u,ar])=>{const w=H*ar;const d=document.createElement('div');d.className='ci';d.style.width=w+'px';
+          const im=new Image();im.src=u;im.alt='';im.loading='lazy';d.appendChild(im);box.appendChild(d);items.push({el:d,w,base:pos+w/2});pos+=w+GAP});
+        total=pos;
+      }
+      function place(){
+        for(const it of items){
+          let sArc=((it.base-off)%total+total)%total; if(sArc>total/2) sArc-=total;
+          const th=sArc/R;
+          if(Math.abs(th)>1.15){it.el.style.visibility='hidden';continue}
+          it.el.style.visibility='visible';
+          const X=R*Math.sin(th),Z=R*(1-Math.cos(th));
+          it.el.style.transform=`translate(-50%,0) translate3d(${X.toFixed(1)}px,0,${Z.toFixed(1)}px) rotateY(${(-th*57.2958).toFixed(2)}deg)`;
+        }
+      }
+      function frame(t){if(!run)return;const dt=last?Math.min(t-last,60):16;last=t;off+=dt*.045;place();requestAnimationFrame(frame)}
+      build();place();
+      addEventListener('resize',()=>{build();place()});
+      if(reduce) return;
+      new IntersectionObserver(es=>{run=es[0].isIntersecting;if(run){last=0;requestAnimationFrame(frame)}}).observe(box);
+    });
+  })();
 
   setLang(lang);
 })();
