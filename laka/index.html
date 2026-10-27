@@ -711,6 +711,36 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 .neon-ring.silver::before{background:linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--ang),rgba(167,171,178,.28) 0 40%,#9AA0A8 58%,#E4E6EA 72%,#FFFFFF 75%,#E4E6EA 78%,#9AA0A8 90%,rgba(167,171,178,.28) 100%) border-box}
 .neon-ring.silver::after{background:conic-gradient(from var(--ang),transparent 0 42%,rgba(170,176,186,.75) 62%,rgba(240,242,246,.9) 75%,rgba(170,176,186,.75) 88%,transparent 98%);opacity:.75}
 .neon-ring.silver::before,.neon-ring.silver::after{animation-duration:6s;animation-direction:reverse}
+
+/* aura finder: recipe prints out as a glowing paper receipt */
+.holo-out{align-items:start}
+.printer{position:relative;min-width:0}
+.pr-status{display:block;text-align:center;font:700 10px var(--body);letter-spacing:.2em;color:#F0A3B5;margin-bottom:6px;text-shadow:0 0 8px rgba(240,163,181,.6)}
+.holo.proc .pr-status{animation:blink .5s steps(2) infinite}
+.slot{position:relative;z-index:3;display:block;height:12px;margin:0 -6px;border-radius:7px;
+  background:linear-gradient(180deg,#3A1220,#0A0306 60%,#2A0C16);box-shadow:0 0 0 1px rgba(232,166,182,.35),0 0 14px rgba(232,120,150,.45),inset 0 2px 3px rgba(0,0,0,.8)}
+.feed{position:relative;margin-top:-5px;padding:0 4px 18px;clip-path:inset(0 -40px -40px -40px);
+  filter:drop-shadow(0 0 6px rgba(240,140,170,.55)) drop-shadow(0 0 18px rgba(142,36,64,.65))}
+.holo-out .feed .recipe{position:relative;z-index:1;background:#F8F3F0;color:#24161A;border:0;border-radius:0;padding:16px 16px 22px;
+  -webkit-backdrop-filter:none;backdrop-filter:none;font-family:"Courier New",ui-monospace,monospace;
+  -webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 8px) no-repeat,conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/14px 8px repeat-x;
+          mask:linear-gradient(#000 0 0) top/100% calc(100% - 8px) no-repeat,conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/14px 8px repeat-x;
+  animation:print 1.15s cubic-bezier(.25,.8,.25,1) both}
+@keyframes print{from{transform:translateY(-102%)}to{transform:none}}
+.holo.proc .feed .recipe{animation:none;transform:translateY(-102%);transition:transform .35s ease-in}
+.feed .r-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;padding-bottom:8px;margin-bottom:8px;border-bottom:1px dashed rgba(36,22,26,.35);font-size:10.5px;letter-spacing:.08em;color:#6F5E61}
+.feed .r-head b{color:#24161A;letter-spacing:.16em}
+.feed .recipe .r-no{color:#6F5E61;letter-spacing:.14em;font-family:inherit}
+.feed .recipe .r-name{color:#8E2440;text-shadow:none;font-size:25px;margin:2px 0 10px}
+.feed .r-lines{font-size:12.5px}
+.feed .r-lines dt{color:#8E2440;font-family:inherit}
+.feed .r-lines dd{color:#24161A}
+.feed .r-tip{color:#4A3A3E;border-top:1px dashed rgba(36,22,26,.35);font-size:12px}
+.feed .r-foot{margin-top:12px;padding-top:10px;border-top:1px dashed rgba(36,22,26,.35);display:grid;justify-items:center;gap:4px}
+.feed .r-bar{width:70%;height:26px;background:repeating-linear-gradient(90deg,#24161A 0 2px,transparent 2px 4px,#24161A 4px 5px,transparent 5px 8px,#24161A 8px 11px,transparent 11px 13px)}
+.feed .r-foot small{font-size:9.5px;letter-spacing:.24em;color:#6F5E61}
+.holo.proc .recipe .r-name,.holo.proc .recipe .r-lines,.holo.proc .recipe .r-tip{opacity:1;filter:none}
+@media (prefers-reduced-motion:reduce){.holo-out .feed .recipe{animation:none}}
 </style>
 
 </head>
@@ -884,11 +914,19 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
           <div class="holo-qs" id="finder-qs"></div>
           <div class="holo-out" aria-live="polite">
             <div class="orb" aria-hidden="true"><div class="tunnel" id="tunnel"></div><span class="ring"></span><span class="core" id="orb-core"></span></div>
-            <div class="recipe">
-              <span class="r-no" id="r-no">RECIPE #000</span>
-              <strong class="r-name" id="r-name">—</strong>
-              <dl class="r-lines" id="r-lines"></dl>
-              <p class="r-tip" id="r-tip"></p>
+            <div class="printer">
+              <span class="pr-status" id="pr-status">READY TO PRINT</span>
+              <span class="slot" aria-hidden="true"></span>
+              <div class="feed">
+                <div class="recipe">
+                  <div class="r-head"><b>MY AURA RECEIPT</b><span id="r-date"></span></div>
+                  <span class="r-no" id="r-no">RECIPE #000</span>
+                  <strong class="r-name" id="r-name">—</strong>
+                  <dl class="r-lines" id="r-lines"></dl>
+                  <p class="r-tip" id="r-tip"></p>
+                  <div class="r-foot"><span class="r-bar" aria-hidden="true"></span><small>BUILD YOUR OWN AURA</small></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1588,8 +1626,12 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     let pt=null;
     function pulse(){
       if(reduce) return;
-      finder.classList.add('proc');document.getElementById('r-no').textContent=lang==='ko'?'ANALYZING YOUR AURA…':'ANALYZING YOUR AURA…';
-      clearTimeout(pt);pt=setTimeout(()=>{finder.classList.remove('proc');render()},950);
+      const ps=document.getElementById('pr-status');
+      finder.classList.add('proc');ps.textContent='ANALYZING YOUR AURA…';
+      clearTimeout(pt);pt=setTimeout(()=>{finder.classList.remove('proc');render();reprint();ps.textContent='PRINTING…';setTimeout(()=>{ps.textContent='PRINTED ✓'},1100)},950);
+    }
+    function reprint(){
+      const r=finder.querySelector('.recipe');r.style.animation='none';void r.offsetWidth;r.style.animation='';
     }
     function render(){
       box.querySelectorAll('.q').forEach(g=>g.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.v===st[g.dataset.k])));
@@ -1604,6 +1646,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       let h=0;for(const c of JSON.stringify(st))h=(h*31+c.charCodeAt(0))%997;
       document.getElementById('r-no').textContent='RECIPE #'+String(h).padStart(3,'0');
       document.getElementById('r-name').textContent=nm;
+      {const d=new Date();document.getElementById('r-date').textContent=d.getFullYear()+'.'+String(d.getMonth()+1).padStart(2,'0')+'.'+String(d.getDate()).padStart(2,'0')+' · SEOUL';}
       const intTxt={sheer:{ko:'시어하게',en:'sheer'},medium:{ko:'미디엄으로',en:'at medium'},vivid:{ko:'선명하게',en:'vivid'}}[st.int][L];
       const rows=[];
       if(st.look!=='one') rows.push(['Base',L==='ko'?`${base[st.season].ko} 틴트를 얇게`:`A thin layer of ${base[st.season].en} tint`]);
