@@ -741,6 +741,13 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 .feed .r-foot small{font-size:9.5px;letter-spacing:.24em;color:#6F5E61}
 .holo.proc .recipe .r-name,.holo.proc .recipe .r-lines,.holo.proc .recipe .r-tip{opacity:1;filter:none}
 @media (prefers-reduced-motion:reduce){.holo-out .feed .recipe{animation:none}}
+
+/* aura finder: center the tunnel + orb above the printed receipt */
+.holo-out{grid-template-columns:1fr;justify-items:center;gap:6px;padding:26px 18px 18px;
+  background:radial-gradient(circle at 50% 110px,rgba(142,36,64,.45),rgba(10,2,6,.65) 55%),rgba(10,2,6,.4)}
+.holo-out .orb{margin:6px auto 22px}
+.holo-out .printer{width:100%;max-width:340px}
+@media (max-width:480px){.holo-out{padding-inline:12px}}
 </style>
 
 </head>
