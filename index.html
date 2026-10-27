@@ -57,37 +57,52 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
 .lang button[aria-pressed="true"]{background:var(--yellow);color:var(--on-yellow)}
 @media (max-width:720px){.links{display:none}}
 
-/* intro scene */
-.scene{position:relative;height:clamp(540px,84vh,820px);overflow:hidden;background:#1E1A16;color:#fff}
-.scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform,opacity}
-.shot-forest{transform-origin:50% 55%;animation:forestIn 3.6s ease-in-out .2s both}
-.shot-sony{transform-origin:50.5% 50%;opacity:0;animation:sonyIn 3s ease-out 1.8s forwards}
-@keyframes forestIn{from{transform:scale(1.06) translateX(2%)}to{transform:scale(1.11) translateX(-2%)}}
-@keyframes sonyIn{0%{opacity:0;transform:scale(1.1)}40%{opacity:1}100%{opacity:1;transform:scale(1.3)}}
-.scene .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,.0) 35%,rgba(20,16,12,.72) 100%),linear-gradient(90deg,rgba(20,16,12,.45),rgba(20,16,12,0) 55%)}
-.scene .wrap{position:relative;height:100%;display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;padding-block:40px}
-.scene .copy{opacity:0;transform:translateY(16px);animation:rise .8s ease 3.4s forwards;max-width:620px}
+/* intro scene: top-down city traffic with a data-themed preview, then Sony's photo over the dimmed, blurred video */
+.scene{position:relative;min-height:clamp(600px,88vh,860px);overflow:hidden;background:#141210;color:#fff;display:flex}
+.scene video.city{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:filter 1.6s ease,opacity 1.6s ease,transform 2.4s ease}
+.scene.reveal video.city{filter:brightness(.38) saturate(.85) blur(6px);opacity:.75;transform:scale(1.04)}
+.scene .shade{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(20,18,16,.25),rgba(20,18,16,.6));transition:opacity 1.6s ease}
+.scene.reveal .shade{background:linear-gradient(90deg,rgba(20,18,16,.7),rgba(20,18,16,.25) 60%,rgba(20,18,16,.45))}
+.preview{position:absolute;inset:0;z-index:2;display:grid;place-content:center;text-align:center;padding:24px max(16px,env(safe-area-inset-left,0px));pointer-events:none;transition:opacity .9s ease;text-shadow:0 2px 24px rgba(0,0,0,.6)}
+.preview p{margin:0;opacity:0;transform:translateY(12px);filter:blur(6px)}
+.preview .l1,.preview .l2{font-family:var(--display);font-weight:800;font-size:clamp(40px,7.4vw,104px);line-height:1.02;letter-spacing:-.035em}
+.preview .l2{color:#FFE500}
+.preview .l3{font-size:clamp(16px,1.9vw,23px);font-weight:500;line-height:1.6;margin-top:30px;color:rgba(255,255,255,.92)}
+.preview .mark{font:700 clamp(12px,1.2vw,15px) var(--body);letter-spacing:.32em;text-transform:uppercase;margin-top:26px;color:#FFE500}
+.scene.pre .preview p{animation:rise 1s cubic-bezier(.2,.7,.2,1) forwards}
+.scene.pre .preview .l2{animation-delay:1.1s}
+.scene.pre .preview .l3{animation-delay:2.4s}
+.scene.pre .preview .mark{animation-delay:3.6s}
+.scene.reveal .preview{opacity:0}
+.scene .wrap{position:relative;z-index:3;width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:48px;padding-block:72px 64px}
+.scene .copy{max-width:620px;opacity:0;transform:translateY(16px);filter:blur(8px)}
+.scene.reveal .copy{animation:rise 1s cubic-bezier(.2,.7,.2,1) .5s forwards}
+.hero-photo{position:relative;margin:0;width:min(360px,34vw);opacity:0;transform:translateY(24px) scale(.97);transition:opacity 1s ease .2s,transform 1.2s cubic-bezier(.2,.7,.2,1) .2s}
+.scene.reveal .hero-photo{opacity:1;transform:none}
+.hero-photo .ph{width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:22px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8);border:1px solid rgba(255,255,255,.18);background:#1E1A16}
+.hero-photo .ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:51% 50%;transform:scale(1.6);transform-origin:51% 60%}
 .scene .eyebrow{display:inline-block;background:var(--yellow);color:var(--on-yellow);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:6px}
 .scene h1{font-size:clamp(38px,6vw,72px);font-weight:800;letter-spacing:-.03em;margin-top:14px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
 .scene h1 em{font-style:normal;color:var(--yellow)}
 .scene .loc{margin-top:10px;font-size:13px;opacity:.85}
-@keyframes rise{to{opacity:1;transform:none}}
 .replay{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:16px;z-index:2;border:1px solid rgba(255,255,255,.5);background:rgba(20,16,12,.35);color:#fff;border-radius:99px;font:600 12px var(--body);padding:6px 12px;cursor:pointer;backdrop-filter:blur(6px)}
 
-.tag{width:240px;border-radius:18px;background:var(--yellow);box-shadow:0 26px 50px -24px rgba(0,0,0,.7);transform:rotate(6deg);cursor:grab;user-select:none;touch-action:none;overflow:hidden;opacity:0;animation:stick .7s cubic-bezier(.3,1.5,.5,1) 3.6s forwards}
+.tag{position:absolute;left:-64px;bottom:-34px;width:190px;border-radius:18px;background:var(--yellow);box-shadow:0 26px 50px -24px rgba(0,0,0,.7);transform:rotate(-6deg);cursor:grab;user-select:none;touch-action:none;overflow:hidden;opacity:0}
+.scene.reveal .tag{animation:stick .8s cubic-bezier(.3,1.5,.5,1) 1.1s forwards}
 .tag:active{cursor:grabbing}
-@keyframes stick{from{opacity:0;transform:rotate(18deg) scale(1.25)}to{opacity:1;transform:rotate(6deg) scale(1)}}
+@keyframes stick{from{opacity:0;transform:rotate(-18deg) scale(1.25)}to{opacity:1;transform:rotate(-6deg) scale(1)}}
 .tag .top{color:var(--on-yellow);text-align:center;padding:14px 12px 8px}
-.tag .hello{font-family:var(--display);font-weight:800;font-size:36px;letter-spacing:.02em;line-height:1}
+.tag .hello{font-family:var(--display);font-weight:800;font-size:30px;letter-spacing:.02em;line-height:1}
 .tag .mn{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.06em;margin-top:2px}
 .tag .white{background:#fff;margin:0 10px;border-radius:6px;padding:10px 8px 6px;text-align:center}
-.tag .name{font-family:var(--hand);font-size:64px;line-height:.95;color:#1E1A16}
+.tag .name{font-family:var(--hand);font-size:52px;line-height:.95;color:#1E1A16}
 .tag .sub{font-family:var(--hand);font-size:20px;color:#6B6158}
 .tag .foot{height:16px}
 @media (max-width:760px){
-  .scene .wrap{grid-template-columns:1fr;align-content:end}
-  .tag{position:absolute;top:58px;right:max(16px,env(safe-area-inset-right,0px));width:150px}
-  .tag .hello{font-size:24px}.tag .name{font-size:42px}.tag .sub{font-size:15px}
+  .scene .wrap{grid-template-columns:1fr;gap:40px;padding-block:56px 48px}
+  .hero-photo{order:-1;justify-self:center;width:min(260px,70vw)}
+  .tag{left:auto;right:-28px;bottom:-24px;width:140px}
+  .tag .hello{font-size:22px}.tag .name{font-size:38px}.tag .sub{font-size:15px}
 }
 
 /* lede + stats */
@@ -237,10 +252,9 @@ section{scroll-margin-top:70px}
 
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important}
-  .shot-forest{animation:none;opacity:0}
-  .shot-sony,.scene .copy,.tag{animation:none;opacity:1;transform:none;filter:none}
-  .shot-sony{transform:scale(1.38)}
-  .tag{transform:rotate(6deg)}
+  .preview{display:none}
+  .scene .copy,.scene .tag,.scene.reveal .copy,.scene.reveal .tag,.hero-photo{animation:none;opacity:1;transform:none;filter:none}
+  .tag,.scene.reveal .tag{transform:rotate(-6deg)}
 }
 /* contents */
 .toc{background:#1E1A16;color:#FFFFFF}
@@ -335,14 +349,7 @@ section{scroll-margin-top:70px}
 .tl-photos img{width:150px;aspect-ratio:3/4;object-fit:cover;border-radius:12px;cursor:zoom-in;max-width:100%}
 .party-info{margin-top:22px;display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
 @media (max-width:860px){.party-info{grid-template-columns:1fr}}
-/* intro webgl */
-.scene canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.scene.gl img{visibility:hidden;animation:none!important}
-.scene .copy{filter:blur(10px)}
 @keyframes rise{to{opacity:1;transform:none;filter:blur(0)}}
-.scene.gl .copy,.scene.gl .tag{animation:none;opacity:0}
-.scene.gl.reveal .copy{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) forwards}
-.scene.gl.reveal .tag{animation:stick .8s cubic-bezier(.3,1.5,.5,1) .35s forwards}
 
 /* flipbook */
 .deliver{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);align-items:start}
@@ -527,9 +534,14 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 </nav>
 
 <header class="scene" id="top">
-  <img class="shot-forest" src="assets/seoul-forest.jpg" alt="Seoul Forest lawn under a blue autumn sky">
-  <img class="shot-sony" src="assets/sony.jpg" alt="Sony Jeong standing in Seoul Forest">
+  <video class="city" id="city" src="assets/city-data.mp4" poster="assets/city-data.jpg" muted loop playsinline autoplay preload="auto" aria-hidden="true"></video>
   <div class="shade"></div>
+  <div class="preview" id="preview">
+    <p class="l1">Data is everywhere.</p>
+    <p class="l2">Clarity isn’t.</p>
+    <p class="l3">I find the story behind the numbers,<br>turn insights into action,<br>and make every touchpoint clearer.</p>
+    <p class="mark">Observe. Understand. Improve.</p>
+  </div>
   <button class="replay" id="replay"><span lang="ko">↺ 다시 보기</span><span lang="en">↺ Replay</span></button>
   <div class="wrap">
     <div class="copy">
@@ -541,11 +553,14 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       </h1>
       <p class="loc">Currently based in Seoul, Korea</p>
     </div>
-    <div class="tag" id="tag" tabindex="0" aria-label="Name tag: Hello, my name is Sony">
-      <div class="top"><div class="hello">HELLO</div><div class="mn">my name is</div></div>
-      <div class="white"><div class="name">Sony</div><div class="sub">정수현</div></div>
-      <div class="foot"></div>
-    </div>
+    <figure class="hero-photo">
+      <div class="ph"><img src="assets/sony.jpg" alt="Sony Jeong in Seoul Forest"></div>
+      <div class="tag" id="tag" tabindex="0" aria-label="Name tag: Hello, my name is Sony">
+        <div class="top"><div class="hello">HELLO</div><div class="mn">my name is</div></div>
+        <div class="white"><div class="name">Sony</div><div class="sub">정수현</div></div>
+        <div class="foot"></div>
+      </div>
+    </figure>
   </div>
 </header>
 
@@ -1012,95 +1027,20 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
   }
   bKo.onclick=()=>setLang('ko'); bEn.onclick=()=>setLang('en');
 
-  /* cinematic intro: WebGL zoom with radial motion blur */
-  const scene=document.querySelector('.scene');
-  let glReplay=null;
-  (function(){
-    if(reduce) return;
-    const cv=document.createElement('canvas');
-    const gl=cv.getContext('webgl',{premultipliedAlpha:false,antialias:false})||cv.getContext('experimental-webgl');
-    if(!gl) return;
-    const vs=`attribute vec2 p;varying vec2 v;void main(){v=p*.5+.5;gl_Position=vec4(p,0.,1.);}`;
-    const fs=`precision mediump float;
-      uniform sampler2D A,B;uniform vec2 R;uniform float rA,rB,t,idle;uniform vec2 m;varying vec2 v;
-      vec2 kfit(float r){float a=R.x/R.y;return a>r?vec2(1.,r/a):vec2(a/r,1.);}
-      float eio(float x){x=clamp(x,0.,1.);return x*x*(3.-2.*x);}
-      vec3 soft(sampler2D tx,vec2 tc,float r){
-        if(r<.0003) return texture2D(tx,tc).rgb;
-        vec3 acc=texture2D(tx,tc).rgb;
-        for(int i=0;i<12;i++){float a=float(i)*.5236;acc+=texture2D(tx,tc+vec2(cos(a),sin(a))*r).rgb;}
-        return acc/13.;
-      }
-      void main(){
-        /* shot A: slow, steady drift across Seoul Forest */
-        float x=eio(t/.70);
-        float sA=1.06+.05*x;
-        vec2 kA=kfit(rA); vec2 hA=.5*kA/sA;
-        vec2 cA=vec2(mix(.5-.035,.5+.035,x),.46);
-        cA=clamp(cA,hA,1.-hA);
-        vec2 tA=cA+((v-.5)*kA)/sA;
-        /* shot B: gentle push-in on Sony */
-        float y=eio((t-.42)/.58);
-        float sB=mix(1.10,1.30,y)+idle;
-        vec2 kB=kfit(rB); vec2 hB=.5*kB/sB;
-        vec2 cB=clamp(vec2(.505+m.x*.008,.50+m.y*.006),hB,1.-hB);
-        vec2 tB=cB+((v-.5)*kB)/sB;
-        /* soft focus on the background once she is in view */
-        float f=eio((t-.60)/.40);
-        vec2 sp=(v-vec2(.5,.46))*vec2(R.x/R.y,1.)*vec2(1.,.62);
-        float bg=smoothstep(.18,.52,length(sp));
-        vec3 a=texture2D(A,tA).rgb;
-        vec3 b=soft(B,tB,(.0035*bg*f)/sB);
-        float mixF=eio((t-.40)/.30);
-        vec3 col=mix(a,b,mixF);
-        float vg=smoothstep(1.2,.35,length((v-.5)*vec2(1.,.9))*1.25);
-        col*=mix(.80,1.,vg);
-        gl_FragColor=vec4(col,1.);
-      }`;
-    function sh(type,src){const o=gl.createShader(type);gl.shaderSource(o,src);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(o));return o}
-    let prog;
-    try{prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,vs));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(prog);if(!gl.getProgramParameter(prog,gl.LINK_STATUS))return;}catch(e){return}
-    gl.useProgram(prog);
-    const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
-    const loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-    const U=n=>gl.getUniformLocation(prog,n);
-    const imgs=[document.querySelector('.shot-forest'),document.querySelector('.shot-sony')];
-    function tex(img,unit){const tx=gl.createTexture();gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,tx);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);
-      gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,img);
-      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
-      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);}
-    const ready=Promise.all(imgs.map(i=>i.complete&&i.naturalWidth?Promise.resolve():new Promise((r,j)=>{i.onload=r;i.onerror=j})));
-    ready.then(()=>{
-      try{tex(imgs[0],0);tex(imgs[1],1);}catch(e){return}
-      gl.uniform1i(U('A'),0);gl.uniform1i(U('B'),1);
-      gl.uniform1f(U('rA'),imgs[0].naturalWidth/imgs[0].naturalHeight);gl.uniform1f(U('rB'),imgs[1].naturalWidth/imgs[1].naturalHeight);
-      scene.insertBefore(cv,scene.querySelector('.shade'));scene.classList.add('gl');
-      const DUR=4200;let t0=performance.now(),revealed=false,mx=0,my=0,tx=0,ty=0,visible=true;
-      function size(){const d=Math.min(devicePixelRatio||1,2);const w=Math.round(cv.clientWidth*d),h=Math.round(cv.clientHeight*d);if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h;gl.viewport(0,0,w,h);gl.uniform2f(U('R'),w,h)}}
-      scene.addEventListener('pointermove',e=>{const r=scene.getBoundingClientRect();tx=(e.clientX-r.left)/r.width-.5;ty=.5-(e.clientY-r.top)/r.height});
-      scene.addEventListener('pointerleave',()=>{tx=0;ty=0});
-      new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible)requestAnimationFrame(frame)}).observe(scene);
-      function frame(now){
-        if(!visible) return;
-        size();
-        const t=Math.max(0,(now-t0)/DUR);
-        if(t>.72&&!revealed){revealed=true;scene.classList.add('reveal')}
-        mx+=(tx-mx)*.05;my+=(ty-my)*.05;
-        const idle=t>1?.015*Math.sin((now-t0-DUR)/2600):0;
-        gl.uniform1f(U('t'),Math.min(t,1));gl.uniform1f(U('idle'),idle);gl.uniform2f(U('m'),mx,my);
-        gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
-        requestAnimationFrame(frame);
-      }
-      requestAnimationFrame(frame);
-      glReplay=()=>{t0=performance.now();revealed=false;scene.classList.remove('reveal');void scene.offsetWidth};
-    }).catch(()=>{});
-  })();
-
-  /* replay intro */
-  document.getElementById('replay').onclick=()=>{
-    if(glReplay){glReplay();return}
-    document.querySelectorAll('.shot-forest,.shot-sony,.scene .copy,.tag').forEach(el=>{el.style.animation='none';el.style.transform='';void el.offsetWidth;el.style.animation=''});
-  };
+  /* intro: city traffic video with the preview lines, then Sony's photo over the dimmed video */
+  const scene=document.querySelector('.scene'), city=document.getElementById('city');
+  let rt=null;
+  const show=()=>{clearTimeout(rt);scene.classList.add('reveal')};
+  function intro(){
+    clearTimeout(rt); document.getElementById('tag').removeAttribute('style'); scene.classList.remove('reveal','pre'); void scene.offsetWidth;
+    if(reduce){scene.classList.add('reveal');try{city.pause()}catch(e){}return}
+    try{city.currentTime=0;const pr=city.play();if(pr&&pr.catch)pr.catch(()=>{})}catch(e){}
+    scene.classList.add('pre');
+    rt=setTimeout(show,6600);
+  }
+  scene.addEventListener('click',e=>{if(!scene.classList.contains('reveal')&&!e.target.closest('.replay'))show()});
+  document.getElementById('replay').onclick=intro;
+  intro();
 
   /* name tag wiggle */
   const tag=document.getElementById('tag');
@@ -1109,9 +1049,9 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
   tag.addEventListener('pointermove',e=>{
     if(!drag||reduce) return;
     const dx=e.clientX-drag.x, dy=e.clientY-drag.y;
-    tag.style.transform=`translate(${dx*.25}px,${dy*.25}px) rotate(${6+dx*.08}deg) rotateY(${dx*.15}deg) rotateX(${-dy*.15}deg)`;
+    tag.style.transform=`translate(${dx*.25}px,${dy*.25}px) rotate(${-6+dx*.08}deg) rotateY(${dx*.15}deg) rotateX(${-dy*.15}deg)`;
   });
-  const release=()=>{if(!drag)return;drag=null;tag.style.transition='transform .6s cubic-bezier(.3,1.6,.5,1)';tag.style.transform='rotate(6deg)'};
+  const release=()=>{if(!drag)return;drag=null;tag.style.transition='transform .6s cubic-bezier(.3,1.6,.5,1)';tag.style.transform='rotate(-6deg)'};
   tag.addEventListener('pointerup',release);tag.addEventListener('pointercancel',release);
 
   /* counters */
