@@ -480,21 +480,68 @@ section{scroll-margin-top:70px}
 .byoa-head .place{color:var(--metal);margin-bottom:6px;position:relative}
 .byoa-head h3{position:relative;font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:clamp(30px,4vw,44px);letter-spacing:.02em}
 .byoa-head p{position:relative;margin-top:4px;font-size:15px;color:rgba(255,255,255,.82)}
-.byoa-body{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;padding:28px 30px 30px;align-items:start}
-.byoa-why .k{display:block;font:700 12px var(--body);letter-spacing:.06em;color:var(--brown);margin-bottom:8px}
-.byoa-why p{font-size:15.5px;line-height:1.8;color:color-mix(in srgb,var(--ink) 82%,var(--bg))}
-.byoa-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.byoa-steps li{background:var(--bg-2);border-radius:14px;padding:16px;display:grid;gap:4px}
-.byoa-steps li:last-child{background:var(--yellow);color:var(--on-yellow)}
-.byoa-steps b{font:800 12px var(--display);color:var(--yellow);font-variant-numeric:tabular-nums}
-.byoa-steps li:last-child b{color:rgba(255,255,255,.8)}
-.byoa-steps h4{margin:0;font-family:var(--display);font-size:17px}
-.byoa-steps p{font-size:13.5px;color:var(--muted)}
-.byoa-steps li:last-child p{color:rgba(255,255,255,.85)}
-@media (max-width:860px){.byoa-body{grid-template-columns:1fr}}
+.byoa-body{padding:26px 30px 6px}
+.byoa-why{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.byoa-why li{border-top:2px solid var(--silver);padding-top:12px}
+.byoa-why .k{display:block;font:700 12px var(--body);letter-spacing:.06em;color:var(--brown);margin-bottom:6px}
+.byoa-why p{font-size:14.5px;line-height:1.7;color:var(--muted)}
+.byoa-why p b{color:var(--ink);font-weight:600}
+@media (max-width:860px){.byoa-why{grid-template-columns:1fr}}
 @media (max-width:480px){.byoa-head,.byoa-body{padding-inline:20px}}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .byoa-steps b{color:var(--rose)}}
-:root[data-theme="dark"] .byoa-steps b{color:var(--rose)}
+
+/* aura finder: holographic touch guide (wine / deep purple / silver) */
+.holo{--w:#B0102C;--p:#5B2A78;--s:#DCDDE2;position:relative;margin:22px 30px 0;border-radius:20px;overflow:hidden;color:#F4EEF6;
+  background:radial-gradient(120% 90% at 0% 0%,rgba(176,16,44,.35),transparent 55%),radial-gradient(110% 90% at 100% 100%,rgba(91,42,120,.45),transparent 60%),linear-gradient(160deg,#160812,#0B0410);
+  box-shadow:inset 0 0 0 1px rgba(220,221,226,.18),0 0 40px -10px rgba(176,16,44,.5);padding:22px 24px 24px}
+.holo-grid{position:absolute;inset:0;pointer-events:none;opacity:.35;background-image:linear-gradient(rgba(220,221,226,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(220,221,226,.08) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse at center,#000 40%,transparent 85%)}
+.holo-scan{position:absolute;left:0;right:0;height:120px;top:-120px;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(220,221,226,.07),transparent);animation:scan 6s linear infinite}
+@keyframes scan{to{transform:translateY(900px)}}
+.hc{position:absolute;width:18px;height:18px;border:1.5px solid rgba(220,221,226,.7);pointer-events:none}
+.hc.tl{left:10px;top:10px;border-right:0;border-bottom:0}.hc.tr{right:10px;top:10px;border-left:0;border-bottom:0}
+.hc.bl{left:10px;bottom:10px;border-right:0;border-top:0}.hc.br{right:10px;bottom:10px;border-left:0;border-top:0}
+.holo-top{position:relative;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;align-items:baseline;margin-bottom:16px}
+.holo-tag{font:700 12px var(--body);letter-spacing:.22em;color:var(--s);text-shadow:0 0 12px rgba(220,221,226,.5)}
+.holo-note{font-size:11.5px;color:rgba(244,238,246,.55)}
+.holo-main{position:relative;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:22px;align-items:start}
+.holo-qs{display:grid;gap:14px}
+.q .q-t{display:flex;gap:8px;align-items:baseline;font:700 12.5px var(--body);color:var(--s);margin-bottom:7px}
+.q .q-t b{font:800 11px var(--display);color:#F2B3BC;letter-spacing:.06em}
+.q .opts{display:flex;flex-wrap:wrap;gap:7px}
+.chip{position:relative;overflow:hidden;font:600 13px var(--body);color:#F4EEF6;padding:7px 13px;border-radius:99px;cursor:pointer;
+  background:rgba(220,221,226,.06);border:1px solid rgba(220,221,226,.22);backdrop-filter:blur(6px);transition:background-color .2s,border-color .2s,box-shadow .25s,transform .15s}
+.chip:hover{border-color:rgba(220,221,226,.5)}
+.chip:active{transform:scale(.96)}
+.chip[aria-pressed="true"]{background:linear-gradient(135deg,rgba(176,16,44,.75),rgba(91,42,120,.75));border-color:rgba(242,179,188,.8);box-shadow:0 0 0 1px rgba(242,179,188,.35),0 0 18px rgba(176,16,44,.55)}
+.chip .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:0;box-shadow:0 0 6px currentColor}
+.chip .rip{position:absolute;border-radius:50%;transform:scale(0);background:rgba(242,179,188,.45);animation:rip .6s ease-out forwards;pointer-events:none}
+@keyframes rip{to{transform:scale(4);opacity:0}}
+.holo-out{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:16px;border-radius:16px;background:rgba(220,221,226,.05);border:1px solid rgba(220,221,226,.16);position:sticky;top:90px}
+.orb{position:relative;width:104px;height:104px}
+.orb .ring{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(220,221,226,.9),rgba(176,16,44,.8),rgba(91,42,120,.9),rgba(220,221,226,.9));-webkit-mask:radial-gradient(circle,transparent 61%,#000 62%);mask:radial-gradient(circle,transparent 61%,#000 62%);animation:spin 8s linear infinite;filter:drop-shadow(0 0 8px rgba(176,16,44,.6))}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orb .core{position:absolute;inset:14px;border-radius:50%;background:var(--mix,#8A2A3A);box-shadow:inset -10px -12px 20px rgba(0,0,0,.35),inset 8px 8px 14px rgba(255,255,255,.25),0 0 26px var(--mix,#8A2A3A);transition:background-color .5s,box-shadow .5s}
+.orb .core::after{content:"";position:absolute;left:22%;top:16%;width:26%;height:18%;border-radius:50%;background:rgba(255,255,255,.55);filter:blur(2px);opacity:var(--gl,.25);transition:opacity .4s}
+.recipe .r-no{display:block;font:700 10.5px var(--body);letter-spacing:.2em;color:rgba(220,221,226,.7)}
+.recipe .r-name{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:26px;line-height:1.1;margin:2px 0 8px;color:#fff;text-shadow:0 0 14px rgba(176,16,44,.6)}
+.r-lines{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:13px}
+.r-lines dt{font:700 10.5px var(--body);letter-spacing:.12em;color:#F2B3BC;padding-top:2px;text-transform:uppercase}
+.r-lines dd{margin:0;color:#F4EEF6}
+.r-tip{margin-top:10px;padding-top:10px;border-top:1px dashed rgba(220,221,226,.25);font-size:12.5px;line-height:1.6;color:rgba(244,238,246,.8)}
+.r-tip:empty{display:none}
+@media (max-width:860px){.holo{margin-inline:20px}.holo-main{grid-template-columns:1fr}.holo-out{position:relative;top:0}}
+@media (max-width:480px){.holo{padding:20px 16px}.holo-out{grid-template-columns:1fr;justify-items:center;text-align:center}.r-lines{text-align:left}}
+@media (prefers-reduced-motion:reduce){.holo-scan,.orb .ring{animation:none}.chip .rip{display:none}}
+
+/* experience ideas */
+.byoa-ideas{padding:26px 30px 30px}
+.ideas-title .place{margin-bottom:12px}
+.idea-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.idea-card{border:1px solid var(--line);border-radius:16px;padding:18px;background:color-mix(in srgb,var(--yellow) 4%,var(--card));display:flex;flex-direction:column;gap:6px}
+.idea-card .i-no{font:800 11px var(--display);color:var(--rose);letter-spacing:.08em}
+.idea-card h4{margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:23px;line-height:1.1}
+.idea-card .i-lead{font-size:14.5px;font-weight:600;color:var(--ink);line-height:1.5}
+.idea-card p{font-size:13.5px;color:var(--muted);line-height:1.7}
+@media (max-width:860px){.idea-grid{grid-template-columns:1fr}.byoa-ideas{padding-inline:20px}}
 
 /* party game flow */
 .gameflow{margin-top:28px;padding:28px 30px}
@@ -550,6 +597,9 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 .star .flow-chips span span{display:inline-flex;align-items:center;font-size:13px;line-height:1.4;padding:4px 10px;border-radius:99px;background:var(--bg-2);border:1px solid var(--line);color:var(--ink)}
 .star .flow-chips span span+span::before{content:"→";margin-right:6px;color:var(--yellow)}
 .star .fix{display:block;margin-top:6px;color:var(--ink);font-weight:600}
+#party .star ul.labeled{color:var(--muted)}
+.star ul.labeled b.lead{color:var(--ink);font-weight:600}
+.star ul.labeled .sub{display:block;margin-top:6px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .star .flow-chips span span+span::before{color:var(--rose)}}
 :root[data-theme="dark"] .star .flow-chips span span+span::before{color:var(--rose)}
 
@@ -707,10 +757,10 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       </figure>
       <div>
         <blockquote class="slogan"><p>Beauty has no limits.<br>It’s for everyone.</p><cite>@laka.official · 2025.07</cite></blockquote>
-        <p class="why-lede"><span lang="ko">라카 플래그십 스토어를 방문했을 때, 두 가지가 특히 인상 깊었습니다.</span><span lang="en">Two things stood out when I visited the LAKA flagship store.</span></p>
+        <p class="why-lede"><span lang="ko"><b>라카 플래그십 스토어는 넓은 컬러 스펙트럼을 고객이 고르기 쉬운 구조로 보여 주는 공간</b>이었습니다. 깊고 세련된 브랜드 무드 안에서 특히 두 가지가 인상 깊었습니다.</span><span lang="en"><b>The LAKA flagship store presents a wide color spectrum in a way customers can easily navigate.</b> Within its deep, refined brand mood, two things stood out.</span></p>
         <ol class="aura">
-          <li><b>01</b><div><h4><span lang="ko">고혹적이고 시크한 매장 분위기</span><span lang="en">An alluring, chic store atmosphere</span></h4><p><span lang="ko">타 브랜드 매장과 확연히 다른 고혹적이고 시크한 공간이 라카만의 브랜드 무드를 선명하게 전달했습니다.</span><span lang="en">A space distinctly more alluring and chic than other brands’ stores conveyed LAKA’s mood clearly.</span></p></div></li>
-          <li><b>02</b><div><h4><span lang="ko">퍼스널 컬러별로 구성된 압도적인 틴트 선택지</span><span lang="en">An overwhelming range of tints, organized by personal color</span></h4><p><span lang="ko">퍼스널 컬러별로 나뉜 수많은 틴트 덕분에 고르는 재미와 안심이 있었고, 레이어링과 믹솔로지 바를 통해 나만의 조합까지 찾을 수 있었습니다.</span><span lang="en">So many tints, grouped by personal color, made choosing both fun and reassuring, and layering and the mixology bar let me go further to my own combination.</span></p></div></li>
+          <li><b>01</b><div><h4><span lang="ko">시즌 × 텍스처로 설계된 틴트 진열</span><span lang="en">Tints displayed by season × texture</span></h4><p><span lang="ko">방문한 뷰티 플래그십 스토어 중 유일하게 틴트를 봄·여름·가을·겨울 시즌 섹션과 텍스처 라인별로 나누어 진열해, 고객이 자신에게 맞는 제품을 직관적으로 찾을 수 있었습니다.</span><span lang="en">It was the only beauty flagship I visited that arranged tints by Spring, Summer, Autumn and Winter sections and by texture line, so customers could find their match intuitively.</span></p></div></li>
+          <li><b>02</b><div><h4><span lang="ko">구매 고객 대상 믹솔로지 바 이벤트</span><span lang="en">A mixology bar event for shoppers</span></h4><p><span lang="ko">3만 원 이상 구매 시 믹솔로지 바에서 미니 틴트를 직접 만들 수 있어, 구매 이후의 시간까지 브랜드 경험으로 이어지고 있었습니다.</span><span lang="en">Purchases of ₩30,000 or more unlock the mixology bar, where shoppers make a mini tint themselves, extending the brand experience beyond checkout.</span></p></div></li>
         </ol>
       </div>
     </div>
@@ -719,19 +769,45 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       <div class="byoa-head">
         <span class="place"><span lang="ko">제안</span><span lang="en">Proposal</span></span>
         <h3>Build Your Own Aura</h3>
-        <p><span lang="ko">톤과 레이어링에 따라 달라지는 나만의 아우라를 찾아가는 체험</span><span lang="en">An experience for finding one’s own aura as tone and layering change</span></p>
+        <p><span lang="ko">넓은 컬러 스펙트럼이라는 라카의 강점을 활용해, 추구미에 맞는 나만의 립 조합을 찾는 체험과 동선을 기획하는 데 기여하고 싶습니다.</span><span lang="en">I want to help design experiences and in-store journeys that use LAKA’s wide color spectrum to help customers find a lip combination that fits the look they want.</span></p>
       </div>
       <div class="byoa-body">
-        <div class="byoa-why">
-          <span class="k"><span lang="ko">고객으로서 느낀 점</span><span lang="en">What I noticed as a customer</span></span>
-          <p><span lang="ko">선택지가 많아 고르는 재미가 있지만, 테스트할 때마다 입술에 착색이 더해져 오히려 고르기 어려워지기도 합니다. 특히 뉴트럴·베이스 립은 어떤 퍼스널 컬러의 사람이 바르느냐에 따라 분위기가 달라지고, 수많은 선택지 중 무엇을 레이어링하느냐에 따라 결과가 크게 바뀝니다.</span><span lang="en">The wide choice is fun, but every swatch adds stain to the lips, which can make choosing harder. Neutral and base lips in particular look different depending on who wears them, and the result changes greatly with what you layer on top.</span></p>
+        <ul class="byoa-why">
+          <li><span class="k"><span lang="ko">선택 기준</span><span lang="en">Choosing</span></span><p><span lang="ko"><b>선택지가 넓은 만큼, 니즈에 맞춰 고를 수 있는 가이드가 필요합니다.</b></span><span lang="en"><b>With so much choice, customers need a guide that starts from their needs.</b></span></p></li>
+          <li><span class="k"><span lang="ko">테스트</span><span lang="en">Testing</span></span><p><span lang="ko"><b>테스트할수록 입술에 착색이 더해져</b> 컬러 간 비교가 어려워집니다.</span><span lang="en"><b>Every swatch adds stain to the lips</b>, making shades harder to compare.</span></p></li>
+          <li><span class="k"><span lang="ko">경계 톤</span><span lang="en">In-between tones</span></span><p><span lang="ko">같은 시즌이라도 여름 쿨 라이트와 봄 웜 라이트에 걸친 고객처럼, <b>채도·쉐이드·발색 강도에 따라 어울리는 컬러가 다를 수 있습니다.</b></span><span lang="en">Even within one season, such as customers between Summer Cool Light and Spring Warm Light, <b>the right color can change with saturation, shade and intensity.</b></span></p></li>
+        </ul>
+      </div>
+
+      <div class="holo" id="finder">
+        <div class="holo-grid" aria-hidden="true"></div>
+        <div class="holo-scan" aria-hidden="true"></div>
+        <span class="hc tl" aria-hidden="true"></span><span class="hc tr" aria-hidden="true"></span><span class="hc bl" aria-hidden="true"></span><span class="hc br" aria-hidden="true"></span>
+        <div class="holo-top">
+          <span class="holo-tag">AURA FINDER · LIP GUIDE</span>
+          <span class="holo-note"><span lang="ko">체험 흐름을 보여주는 데모 · 실제 제품 추천이 아닙니다</span><span lang="en">Demo of the guide flow · not actual product recommendations</span></span>
         </div>
-        <ol class="byoa-steps">
-          <li><b>01</b><h4><span lang="ko">톤 찾기</span><span lang="en">Find your tone</span></h4><p><span lang="ko">퍼스널 컬러 확인</span><span lang="en">Check personal color</span></p></li>
-          <li><b>02</b><h4><span lang="ko">베이스 고르기</span><span lang="en">Pick a base</span></h4><p><span lang="ko">톤별로 달라지는 뉴트럴·베이스 립 비교</span><span lang="en">Compare neutral and base lips by tone</span></p></li>
-          <li><b>03</b><h4><span lang="ko">레이어링</span><span lang="en">Layer</span></h4><p><span lang="ko">어울리는 컬러 조합 찾기</span><span lang="en">Find combinations that suit you</span></p></li>
-          <li><b>04</b><h4>My Aura</h4><p><span lang="ko">나만의 조합 완성</span><span lang="en">Complete your own combination</span></p></li>
-        </ol>
+        <div class="holo-main">
+          <div class="holo-qs" id="finder-qs"></div>
+          <div class="holo-out" aria-live="polite">
+            <div class="orb" aria-hidden="true"><span class="ring"></span><span class="core" id="orb-core"></span></div>
+            <div class="recipe">
+              <span class="r-no" id="r-no">RECIPE #000</span>
+              <strong class="r-name" id="r-name">—</strong>
+              <dl class="r-lines" id="r-lines"></dl>
+              <p class="r-tip" id="r-tip"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="byoa-ideas">
+        <div class="ideas-title"><span class="place"><span lang="ko">체험 · 동선 아이디어</span><span lang="en">Experience and flow ideas</span></span></div>
+        <div class="idea-grid">
+          <article class="idea-card"><span class="i-no">01</span><h4>Aura Printing</h4><p class="i-lead"><span lang="ko">진단 결과를 영수증형 ‘아우라 처방전’으로 출력</span><span lang="en">Print the result as an “Aura Prescription” receipt</span></p><p><span lang="ko">베이스·포인트·피니시 레시피와 한 줄 문구를 감열 영수증에 담아, 미니 쇼핑백과 함께 찍는 인증샷으로 SNS 공유를 유도합니다.</span><span lang="en">A thermal receipt carrying the base, point and finish recipe plus a short line, made to be photographed with the mini shopping bag and shared on social.</span></p></article>
+          <article class="idea-card"><span class="i-no">02</span><h4>Layering Flight</h4><p class="i-lead"><span lang="ko">와인 테이스팅처럼 추천 조합 3가지를 순서대로 비교</span><span lang="en">Compare three recommended combos like a wine tasting flight</span></p><p><span lang="ko">추천 조합을 트레이에 담아 손등·스와치 카드에서 먼저 비교하고, 최종 후보만 입술에 테스트해 착색 부담을 줄입니다. 라카의 와인 무드를 경험으로 연결합니다.</span><span lang="en">Combos on a tray are compared on the hand or swatch cards first, and only the final pick is tried on the lips, reducing stain build-up and echoing LAKA’s wine mood.</span></p></article>
+          <article class="idea-card"><span class="i-no">03</span><h4>Crossover Bridge</h4><p class="i-lead"><span lang="ko">시즌 섹션 사이, 경계 톤 고객을 위한 큐레이션</span><span lang="en">Curated picks between season sections for in-between tones</span></p><p><span lang="ko">여름 쿨 라이트와 봄 웜 라이트처럼 두 시즌에 걸친 고객을 위해 채도를 낮춘 뉴트럴 셀렉션을 시즌 섹션 사이에 배치해, 시즌 진열의 강점은 살리면서 선택의 폭을 넓힙니다.</span><span lang="en">Low-saturation neutral picks placed between season sections for customers who sit across two seasons, keeping the strength of seasonal displays while widening choice.</span></p></article>
+        </div>
       </div>
     </div>
   </div>
@@ -947,17 +1023,17 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     <ol class="star">
         <li><span class="st"><b>01</b><span lang="ko">상황</span><span lang="en">Situation</span></span>
           <h4><span lang="ko">아는 사람끼리만 대화가 오가, 교류에 한계가 있었습니다</span><span lang="en">Guests mostly talked with people they already knew</span></h4>
-          <ul><li><span lang="ko">기존 파티는 식음료와 스몰토크 위주로 진행되어, 대화가 기존에 알던 사람들 사이에서만 오가는 등 새로운 교류로 이어지는 데 한계가 있었습니다.</span><span lang="en">Past parties centered on food, drinks and small talk, so conversation stayed among people who already knew each other and rarely led to new connections.</span></li><li><span lang="ko">기존 포스터는 범용 템플릿의 틀 안에서 제작되어 특색이 부족했고, 컬컴 행사라는 점을 인상적으로 전달하지 못했습니다.</span><span lang="en">Posters were built on generic templates, lacked character, and did not make it clear this was a Culcom event.</span></li></ul></li>
+          <ul class="labeled"><li><span class="lb"><span lang="ko">참여 구조</span><span lang="en">Format</span></span><b class="lead"><span lang="ko">식음료·스몰토크 위주의 진행</span><span lang="en">Food, drinks and small talk</span></b> <span lang="ko">기존에 알던 사람들 사이에서만 대화가 오가, 새로운 교류로 이어지기 어려웠습니다.</span><span lang="en">Conversation stayed among people who already knew each other and rarely led to new connections.</span></li><li><span class="lb"><span lang="ko">홍보물</span><span lang="en">Promos</span></span><b class="lead"><span lang="ko">범용 템플릿 기반의 포스터</span><span lang="en">Generic template posters</span></b> <span lang="ko">특색이 부족해 컬컴 행사라는 점이 인상적으로 전달되지 않았습니다.</span><span lang="en">They lacked character and did not make it clear this was a Culcom event.</span></li></ul></li>
         <li><span class="st"><b>02</b><span lang="ko">기획</span><span lang="en">Plan</span></span>
           <h4><span lang="ko">게스트 커넥트 미션으로 네트워킹을 활성화했습니다</span><span lang="en">Activated networking with the Guest Connect Mission</span></h4>
-          <ul><li><span lang="ko">조교 업무 범위 밖이었지만 매니저에게 직접 제안해 기획 권한을 위임받았습니다.</span><span lang="en">It was outside my role, so I proposed it to the manager and was given ownership.</span></li><li><span lang="ko">같은 그림의 짝꿍을 찾아 스태프에게 인증한 뒤 사격·링 던지기·푸즈볼 게임을 통과하면 경품 추첨 응모권을 받도록 설계했습니다. 많이 참여할수록 당첨 확률이 높아져 게임 참여율과 교류를 함께 높일 수 있었습니다.</span><span lang="en">Guests who found their matching partner and had it verified by staff and cleared a shooting, ring-toss or foosball game earned a lucky-draw entry; more play meant better odds, lifting participation and interaction together.</span></li><li><span lang="ko">네트워킹 빙고판과 3인 참여형 캐롤 영어 가사 잇기 게임을 더해 참여 방법과 게임 종류를 넓혔습니다.</span><span lang="en">Added networking bingo and a three-person English carol lyric relay to widen how guests could take part.</span></li></ul></li>
+          <ul class="labeled"><li><span class="lb"><span lang="ko">기획 권한</span><span lang="en">Ownership</span></span><b class="lead"><span lang="ko">업무 범위 밖이었지만 직접 제안</span><span lang="en">Proposed it though outside my role</span></b> <span lang="ko">매니저에게 기획안을 제안해 행사 기획 권한을 위임받았습니다.</span><span lang="en">I pitched it to the manager and was given ownership of event planning.</span></li><li><span class="lb"><span lang="ko">미션 설계</span><span lang="en">Mission</span></span><b class="lead"><span lang="ko">짝 찾기에서 응모권까지 이어지는 참여 흐름</span><span lang="en">A flow from finding a match to earning an entry</span></b><span class="flow-chips"><span lang="ko"><span>같은 그림 짝 찾기</span><span>스태프 인증</span><span>사격·링 던지기·푸즈볼</span><span>경품 응모권</span></span><span lang="en"><span>Find your match</span><span>Staff check</span><span>Shooting · ring toss · foosball</span><span>Lucky-draw entry</span></span></span><span class="sub"><span lang="ko">많이 참여할수록 당첨 확률이 높아져, 참여율과 교류가 함께 늘도록 설계했습니다.</span><span lang="en">More play meant better odds, so participation and interaction grew together.</span></span></li><li><span class="lb"><span lang="ko">참여 확대</span><span lang="en">Variety</span></span><b class="lead"><span lang="ko">네트워킹 빙고판 · 3인 캐롤 영어 가사 잇기</span><span lang="en">Networking bingo · three-person English carol lyric relay</span></b> <span lang="ko">게임의 종류와 참여 방법을 넓혔습니다.</span><span lang="en">widened the kinds of games and ways to join.</span></li></ul></li>
         <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
           <h4><span lang="ko">반응을 반영해 회차마다 게임과 홍보물을 발전시켰습니다</span><span lang="en">Improved the games and promos every round</span></h4>
-          <ul><li><span lang="ko">짝 그림 찾기의 반응이 좋아 회차마다 게임 종류를 늘렸습니다.</span><span lang="en">Picture matching went over well, so I added more games each round.</span></li><li><span lang="ko">이벤트 인기로 선착순 조기 마감되던 미니게임을, 같은 그림의 게임 참여권을 여러 장 준비한 재참여형으로 바꿔 더 많은 게스트가 새로운 파트너와 교류하도록 했습니다.</span><span lang="en">As the event grew popular, first-come mini-games filled up early; I made them replayable with several copies of each card so more guests could meet new partners.</span></li><li><span lang="ko">범용 템플릿 대신 직접 촬영한 지점 사진과 지점 고양이 ‘코코’를 마스코트로 활용해 컬컴만의 홍보물 시리즈를 제작했습니다.</span><span lang="en">Replaced generic templates with my own branch photos and Coco the branch cat as mascot, creating a promo series that was clearly Culcom’s.</span></li><li><span lang="ko">예산·정산 시트와 AI로 작성한 스태프 시간표로 대규모 인원을 혼선 없이 운영했습니다.</span><span lang="en">Ran large crowds smoothly with a budget and settlement sheet and an AI-assisted staff rota.</span></li></ul>
+          <ul class="labeled"><li><span class="lb"><span lang="ko">게임 확장</span><span lang="en">Games</span></span><b class="lead"><span lang="ko">짝 그림 찾기 호응에 따라 회차마다 게임 추가</span><span lang="en">Added games each round after picture matching took off</span></b></li><li><span class="lb"><span lang="ko">재참여형</span><span lang="en">Replayable</span></span><b class="lead"><span lang="ko">선착순 조기 마감 → 재참여형 전환</span><span lang="en">First-come early sellouts → replayable</span></b> <span lang="ko">같은 그림의 게임 참여권을 여러 장 준비해, 더 많은 게스트가 새로운 파트너와 반복 참여하도록 했습니다.</span><span lang="en">Several copies of each pass let more guests replay with new partners.</span></li><li><span class="lb"><span lang="ko">홍보물</span><span lang="en">Promos</span></span><b class="lead"><span lang="ko">직접 촬영한 지점 사진과 마스코트 ‘코코’로 시리즈화</span><span lang="en">A series with my own branch photos and Coco the mascot</span></b> <span lang="ko">범용 템플릿을 대신해 컬컴만의 홍보물을 만들었습니다.</span><span lang="en">replacing generic templates with promos that were clearly Culcom’s.</span></li><li><span class="lb"><span lang="ko">운영 관리</span><span lang="en">Operations</span></span><b class="lead"><span lang="ko">예산·정산 시트와 AI 스태프 시간표</span><span lang="en">Budget sheets and an AI-assisted staff rota</span></b> <span lang="ko">대규모 인원도 혼선 없이 운영했습니다.</span><span lang="en">kept large crowds running smoothly.</span></li></ul>
           <button class="doc-btn portrait" data-doc="staff"><img src="../assets/staff/p-1.jpg" alt=""><div><b><span lang="ko">스태프 근무표 · 업무 매뉴얼</span><span lang="en">Staff rota and role manual</span></b><span><span lang="ko">국·영문 4쪽 · 직접 작성</span><span lang="en">Korean/English · 4 pages</span></span></div></button></li>
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
           <h4><span lang="ko">참여 인원 66.7% 증가</span><span lang="en">Turnout up 66.7%</span></h4>
-          <ul><li><span lang="ko">1회차 90명 → 3회차 150명</span><span lang="en">90 guests at the first party → 150 at the third</span></li><li><span lang="ko">4회 모두 흑자 운영</span><span lang="en">All four events ran in the black</span></li><li><span lang="ko">홍보 영상 2편이 지점 인스타그램 조회수 1·2위 (2,312회·1,630회)</span><span lang="en">Two promo videos were the branch account’s top two (2,312 and 1,630 views)</span></li></ul></li>
+          <ul class="labeled"><li><span class="lb"><span lang="ko">참여 인원</span><span lang="en">Turnout</span></span><b class="lead"><span lang="ko">1회차 90명 → 3회차 150명</span><span lang="en">90 guests → 150 by the third party</span></b></li><li><span class="lb"><span lang="ko">운영 성과</span><span lang="en">Finance</span></span><b class="lead"><span lang="ko">4회 모두 흑자 운영</span><span lang="en">All four events ran in the black</span></b></li><li><span class="lb"><span lang="ko">콘텐츠</span><span lang="en">Content</span></span><b class="lead"><span lang="ko">홍보 영상 2편, 지점 인스타그램 조회수 1·2위</span><span lang="en">Two promo videos, the branch account’s top two</span></b> <span lang="ko">(2,312회 · 1,630회)</span><span lang="en">(2,312 and 1,630 views)</span></li></ul></li>
       </ol>
   </div>
 </section>
@@ -1128,7 +1204,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     lang=l; html.classList.toggle('en',l==='en'); html.lang=l;
     bKo.setAttribute('aria-pressed',l==='ko'); bEn.setAttribute('aria-pressed',l==='en');
     try{localStorage.setItem('sony-lang',l)}catch(e){}
-    renderScript(); renderRounds(); renderVoices(); chart(mode); if(typeof renderDeliver==="function") renderDeliver(false);
+    renderScript(); renderRounds(); renderVoices(); if(window.renderFinder) window.renderFinder(); chart(mode); if(typeof renderDeliver==="function") renderDeliver(false);
   }
   bKo.onclick=()=>setLang('ko'); bEn.onclick=()=>setLang('en');
 
@@ -1364,6 +1440,79 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
   function closeDoc(){if(!vw)return;vw.remove();vw=null;document.body.style.overflow=''}
   addEventListener('keydown',e=>{if(!vw)return;if(e.key==='Escape')closeDoc();if(e.key==='ArrowRight'){vI=Math.min(vDoc.pages.length-1,vI+1);vShow()}if(e.key==='ArrowLeft'){vI=Math.max(0,vI-1);vShow()}});
   document.querySelectorAll('[data-doc]').forEach(b=>b.addEventListener('click',()=>openDoc(b.dataset.doc)));
+
+  /* aura finder */
+  (function(){
+    const box=document.getElementById('finder-qs'); if(!box) return;
+    const Q=[
+      {k:'look',ko:'원하는 연출',en:'Desired look',o:[
+        ['one',{ko:'립 원포인트 룩',en:'Lip as the focal point'}],['daily',{ko:'데일리 내추럴',en:'Everyday natural'}],
+        ['office',{ko:'오피스 · 포멀',en:'Office · formal'}],['evening',{ko:'이브닝 · 무드',en:'Evening · mood'}]]},
+      {k:'season',ko:'퍼스널 컬러',en:'Personal color',o:[
+        ['spring',{ko:'봄 웜',en:'Spring warm'}],['summer',{ko:'여름 쿨',en:'Summer cool'}],['autumn',{ko:'가을 웜',en:'Autumn warm'}],
+        ['winter',{ko:'겨울 쿨',en:'Winter cool'}],['unsure',{ko:'잘 모르겠어요',en:'Not sure'}]]},
+      {k:'shade',ko:'쉐이드 계열',en:'Shade family',o:[
+        ['coral',{ko:'코랄',en:'Coral'},'#E8735E'],['pink',{ko:'핑크',en:'Pink'},'#E07A9A'],['orange',{ko:'오렌지',en:'Orange'},'#E8823C'],
+        ['rose',{ko:'로즈 · 뉴트럴',en:'Rose · neutral'},'#B9727A'],['berry',{ko:'레드 · 베리',en:'Red · berry'},'#A3203C']]},
+      {k:'finish',ko:'피니시',en:'Finish',o:[
+        ['matte',{ko:'매트',en:'Matte'}],['velvet',{ko:'벨벳',en:'Velvet'}],['gloss',{ko:'글로시',en:'Glossy'}]]},
+      {k:'int',ko:'발색 강도',en:'Color intensity',o:[
+        ['sheer',{ko:'시어 (은은하게)',en:'Sheer'}],['medium',{ko:'미디엄',en:'Medium'}],['vivid',{ko:'비비드 (선명하게)',en:'Vivid'}]]}
+    ];
+    const st={look:'one',season:'summer',shade:'rose',finish:'velvet',int:'medium'};
+    const shadeHex={coral:'#E8735E',pink:'#E07A9A',orange:'#E8823C',rose:'#B9727A',berry:'#A3203C'};
+    const name={coral:['Petal','Sunset'],pink:['Bloom','Blush'],orange:['Ember','Glow'],rose:['Muse','Dusk'],berry:['Night','Velvet Wine']};
+    const fin={matte:'Matte',velvet:'Velvet',gloss:'Glass'};
+    const under={spring:{ko:'맑은 웜',en:'clear warm'},summer:{ko:'소프트 쿨',en:'soft cool'},autumn:{ko:'딥 웜',en:'deep warm'},winter:{ko:'선명한 쿨',en:'bright cool'},unsure:{ko:'뉴트럴',en:'neutral'}};
+    const base={spring:{ko:'피치 베이지 시어',en:'peach-beige sheer'},summer:{ko:'쿨 로즈 베이지',en:'cool rose-beige'},autumn:{ko:'브릭 베이지',en:'brick-beige'},winter:{ko:'플럼 베이지',en:'plum-beige'},unsure:{ko:'MLBB 뉴트럴 베이지',en:'MLBB neutral beige'}};
+    const shadeName={coral:{ko:'코랄',en:'coral'},pink:{ko:'핑크',en:'pink'},orange:{ko:'오렌지',en:'orange'},rose:{ko:'로즈',en:'rose'},berry:{ko:'베리 레드',en:'berry red'}};
+    const finName={matte:{ko:'매트',en:'matte'},velvet:{ko:'벨벳',en:'velvet'},gloss:{ko:'글로시',en:'glossy'}};
+    const mixHex=(a,b,t)=>{const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));const x=p(a),y=p(b);return '#'+x.map((v,i)=>Math.round(v+(y[i]-v)*t).toString(16).padStart(2,'0')).join('')};
+    function chipEl(q,val,lab,hex){
+      const b=document.createElement('button');b.type='button';b.className='chip';b.dataset.v=val;
+      b.innerHTML=(hex?`<i class="dot" style="background:${hex};color:${hex}"></i>`:'')+`<span lang="ko">${lab.ko}</span><span lang="en">${lab.en}</span>`;
+      b.addEventListener('click',e=>{
+        st[q.k]=val;render();
+        if(!reduce){const r=b.getBoundingClientRect(),d=document.createElement('span');d.className='rip';const sz=Math.max(r.width,r.height);
+          d.style.cssText=`width:${sz}px;height:${sz}px;left:${(e.clientX||r.left+r.width/2)-r.left-sz/2}px;top:${(e.clientY||r.top+r.height/2)-r.top-sz/2}px`;b.appendChild(d);setTimeout(()=>d.remove(),650)}
+      });
+      return b;
+    }
+    Q.forEach((q,i)=>{
+      const g=document.createElement('div');g.className='q';g.dataset.k=q.k;
+      g.innerHTML=`<div class="q-t"><b>0${i+1}</b><span lang="ko">${q.ko}</span><span lang="en">${q.en}</span></div><div class="opts" role="group" aria-label="${q.en}"></div>`;
+      const o=g.querySelector('.opts');q.o.forEach(([v,lab,hex])=>o.appendChild(chipEl(q,v,lab,hex)));box.appendChild(g);
+    });
+    window.renderFinder=render;
+    function render(){
+      box.querySelectorAll('.q').forEach(g=>g.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.v===st[g.dataset.k])));
+      const L=lang, warm=st.season==='spring'||st.season==='autumn', cool=st.season==='summer'||st.season==='winter';
+      let hex=shadeHex[st.shade];
+      if(st.season==='autumn'||st.season==='winter'||st.look==='evening') hex=mixHex(hex,'#2A0A14',.28);
+      if(st.int==='sheer') hex=mixHex(hex,'#F3D9D6',.42); else if(st.int==='vivid') hex=mixHex(hex,'#C0102E',.18);
+      if(st.look==='office') hex=mixHex(hex,'#9A7A7A',.25);
+      const core=document.getElementById('orb-core'); core.parentNode.style.setProperty('--mix',hex);
+      core.style.setProperty('--gl',st.finish==='gloss'?.9:st.finish==='velvet'?.35:.08);
+      const nm=`${fin[st.finish]} ${name[st.shade][st.int==='vivid'||st.look==='evening'?1:0]}`;
+      let h=0;for(const c of JSON.stringify(st))h=(h*31+c.charCodeAt(0))%997;
+      document.getElementById('r-no').textContent='RECIPE #'+String(h).padStart(3,'0');
+      document.getElementById('r-name').textContent=nm;
+      const intTxt={sheer:{ko:'시어하게',en:'sheer'},medium:{ko:'미디엄으로',en:'at medium'},vivid:{ko:'선명하게',en:'vivid'}}[st.int][L];
+      const rows=[];
+      if(st.look!=='one') rows.push(['Base',L==='ko'?`${base[st.season].ko} 틴트를 얇게`:`A thin layer of ${base[st.season].en} tint`]);
+      rows.push(['Point',L==='ko'?`${under[st.season].ko} ${shadeName[st.shade].ko} ${finName[st.finish].ko} · ${intTxt}`:`${under[st.season].en} ${shadeName[st.shade].en}, ${finName[st.finish].en}, ${intTxt}`]);
+      rows.push(['Finish',({gloss:{ko:'투명 글로스로 윤기 더하기',en:'Clear gloss on top'},velvet:{ko:'손끝으로 경계를 블러 처리',en:'Blur the edges with a fingertip'},matte:{ko:'매트 단독으로 깔끔하게 마무리',en:'Finish clean, matte only'}})[st.finish][L]]);
+      if(st.look==='one') rows.unshift(['Look',L==='ko'?'다른 메이크업은 최소화, 립에 집중':'Keep the rest minimal, focus on the lip']);
+      document.getElementById('r-lines').innerHTML=rows.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join('');
+      const cross=(cool&&(st.shade==='coral'||st.shade==='orange'))||(warm&&(st.shade==='pink'||st.shade==='berry'));
+      let tip;
+      if(cross) tip=L==='ko'?'시즌과 다른 계열을 고르셨다면, 채도를 한 단계 낮춘 뉴트럴 톤으로 시작해 보세요. 두 시즌에 걸친 경계 톤 고객에게 안전한 출발점입니다.':'If you chose a family outside your season, start with a lower-saturation neutral version. It is a safe starting point for in-between tones.';
+      else if(st.season==='unsure') tip=L==='ko'?'퍼스널 컬러를 모르셔도 괜찮습니다. 채도가 낮은 로즈·뉴트럴 계열부터 테스트하면 실패 확률을 줄일 수 있습니다.':'No need to know your season. Starting with low-saturation rose or neutral shades lowers the risk of a miss.';
+      else tip=L==='ko'?'같은 시즌이라도 발색 강도에 따라 인상이 달라집니다. 시어 → 미디엄 순으로 레이어링하며 농도를 조절해 보세요.':'Even within a season, intensity changes the impression. Build from sheer to medium by layering.';
+      document.getElementById('r-tip').textContent=tip;
+    }
+    render();
+  })();
 
   /* case steps: tap or hover to focus one phase */
   document.querySelectorAll('.star').forEach(ol=>{
