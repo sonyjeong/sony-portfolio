@@ -807,6 +807,21 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 .curve .ci img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(1.05) brightness(.92)}
 .curve .ci::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.16),transparent 35%,transparent 70%,rgba(120,60,200,.18))}
 @media (max-width:760px){.pf-banner .wrap{padding-block:24px 250px}.curve{height:210px;bottom:16px}.curve .ci{height:150px;margin-top:-75px}}
+
+/* culcom intro: logo + readable text, no duplicate photo */
+.pf-intro .wrap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px 36px;align-items:center;padding-block:40px 0}
+.pf-intro .logo{width:170px;padding:18px 16px;border-radius:16px}
+.pi-body p{margin:0;font-size:16px;color:var(--muted);line-height:1.7}
+.pi-body .pi-lead{font-size:clamp(19px,2vw,23px);color:var(--ink);margin-bottom:6px;line-height:1.45}
+.pi-body .pi-lead b{font-weight:700}
+.pi-roles{list-style:none;margin:14px 0 0;padding:0}
+.pi-roles li{font-size:15px;color:var(--ink);line-height:1.6}
+.pi-roles li>span:first-child{display:inline-block;font:700 11.5px var(--body);color:#fff;background:var(--yellow);border-radius:5px;padding:1px 8px;margin-right:10px;vertical-align:1px}
+.pf-intro .facts{grid-column:1/-1;margin-top:12px}
+.pf-intro .facts b{font-size:clamp(22px,2.4vw,30px)}
+.pf-intro .facts span{font-size:14px}
+.pf-intro .facts b span,.facts b span{font-size:inherit;color:inherit}
+@media (max-width:760px){.pf-intro .wrap{grid-template-columns:1fr}.pf-intro .logo{width:140px}}
 </style>
 
 </head>
@@ -1133,18 +1148,18 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 </div>
 <section class="pf-intro">
   <div class="wrap">
-    <figure>
-      <img src="../assets/coco.jpg" alt="Coco, the Culcom Sinchon branch cat" data-zoom>
-      <figcaption><span lang="ko">지점 고양이 ‘코코’ · 홍보물 시리즈 마스코트</span><span lang="en">Coco, the branch cat and mascot of our promo series</span></figcaption>
-    </figure>
-    <div>
-      <img class="logo" src="../assets/culcom-logo.png" alt="Culcom">
-      <p><span lang="ko">컬컴은 평생교육원 소속의 영어회화 스터디로, 전국 40~50개 지점을 운영합니다. 1호점인 신촌점에서 조교로 일하며 신규 고객 문의 응대와 상담 예약, 멤버 관리, 고객 행사 기획·운영을 담당했습니다.</span><span lang="en">Culcom is an English conversation study program under a lifelong-education institute, with 40–50 branches nationwide. At Sinchon, the first branch, I worked as an assistant, handling new-customer inquiries and booking, member care, and customer events.</span></p>
-      <div class="facts">
-        <div><b>2024.08 – 2026</b><span><span lang="ko">근무 기간 · 주 4일</span><span lang="en">Tenure · 4 days a week</span></span></div>
-        <div><b>~80</b><span><span lang="ko">세션당 최대 응대 인원</span><span lang="en">Members hosted per session</span></span></div>
-        <div><b><span lang="ko">1호점</span><span lang="en">No. 1</span></b><span><span lang="ko">전국 40~50개 지점 중 첫 지점</span><span lang="en">First of 40–50 branches</span></span></div>
-      </div>
+    <img class="logo" src="../assets/culcom-logo.png" alt="Culcom">
+    <div class="pi-body">
+      <p class="pi-lead"><span lang="ko"><b>국내 최대 영어회화 스터디 체인, 컬컴의 1호점</b></span><span lang="en"><b>The first branch of Culcom, Korea’s largest English conversation study chain</b></span></p>
+      <p><span lang="ko">평생교육원 소속의 영어회화 스터디로, 전국 40~50개 지점을 운영합니다.</span><span lang="en">An English conversation study program under a lifelong-education institute, with 40–50 branches nationwide.</span></p>
+      <ul class="pi-roles">
+        <li><span><span lang="ko">담당 업무</span><span lang="en">Role</span></span><span lang="ko">신규 고객 문의 응대 · 상담 예약 · 멤버 관리 · 고객 행사 기획·운영</span><span lang="en">New-customer inquiries · booking · member care · customer events</span></li>
+      </ul>
+    </div>
+    <div class="facts">
+      <div><b>2024.08 – 2026</b><span><span lang="ko">근무 기간 · 주 4일</span><span lang="en">Tenure · 4 days a week</span></span></div>
+      <div><b>~80</b><span><span lang="ko">세션당 최대 응대 인원</span><span lang="en">Members hosted per session</span></span></div>
+      <div><b><span lang="ko">1호점</span><span lang="en">No. 1</span></b><span><span lang="ko">전국 40~50개 지점 중 첫 지점</span><span lang="en">First of 40–50 branches</span></span></div>
     </div>
   </div>
 </section>
