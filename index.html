@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="고객이 다시 찾는 경험을 만드는 마케터 정수현(Sony Jeong)의 포트폴리오">
+<meta name="description" content="정수현(Sony Jeong)의 포트폴리오: 고객 접점 운영·데이터 기록·행사 기획 경험">
 <meta name="theme-color" content="#FFE500">
 <meta property="og:title" content="Sony Jeong Portfolio">
-<meta property="og:description" content="고객이 다시 찾는 경험을 만드는 마케터, 정수현">
+<meta property="og:description" content="정수현(Sony Jeong) 포트폴리오">
 <title>Sony Jeong Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans+KR:wght@400;500;700&family=Nanum+Pen+Script&display=swap">
@@ -416,6 +416,87 @@ section{scroll-margin-top:70px}
 .ab-list p{font-size:15px;color:var(--muted);line-height:1.7}
 .ab-close{margin-top:22px;font-family:var(--display);font-weight:700;font-size:clamp(17px,2vw,21px);max-width:40em}
 @media (max-width:760px){.ab-list{grid-template-columns:1fr}.ab-list li,.ab-list li:nth-child(even){padding:20px 0;border-left:0}}
+
+/* ===== ported from the LAKA edition, tuned to the KakaoBank palette ===== */
+/* party game flow */
+.gameflow{margin-top:28px;padding:28px 30px}
+.gameflow h3{font-size:21px}
+.gameflow .desc{margin-top:6px}
+.gf-steps{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.gf-steps li{position:relative;background:var(--bg-2);border-radius:14px;padding:16px;display:grid;gap:4px;align-content:start}
+.gf-steps li:last-child{background:var(--yellow);color:var(--on-yellow)}
+.gf-steps b{font:800 12px var(--display);color:var(--brown);font-variant-numeric:tabular-nums}
+.gf-steps li:last-child b{color:rgba(30,26,22,.7)}
+.gf-steps h4{margin:0;font-family:var(--display);font-size:16.5px;line-height:1.35}
+.gf-steps p{font-size:13.5px;color:var(--muted);line-height:1.6}
+.gf-steps li:last-child p{color:rgba(30,26,22,.78)}
+.gf-loop{display:flex;gap:10px;align-items:center;margin-top:12px;padding:12px 16px;border:1.5px dashed var(--brown);border-radius:12px;font-size:14.5px}
+.gf-loop i{font-style:normal;font-size:18px;color:var(--brown)}
+.gf-loop b{display:inline-block;margin-right:8px;font-weight:700}
+.gameflow .place{margin-bottom:6px}
+.gf-more{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.gf-more .k{display:block;font:700 12px var(--body);letter-spacing:.06em;color:var(--brown);margin-bottom:10px}
+.themes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.themes li{border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;font-size:13.5px;line-height:1.4}
+.themes li b{display:block;font:700 11px var(--body);color:var(--muted);letter-spacing:.04em;margin-bottom:2px}
+.extra-games{display:flex;flex-wrap:wrap;gap:8px}
+.extra-games span{background:var(--bg-2);border-radius:10px;padding:8px 12px;font-size:14px}
+.party-info.solo{grid-template-columns:minmax(0,560px)}
+@media (max-width:860px){.gf-steps{grid-template-columns:1fr 1fr}.gf-more{grid-template-columns:1fr}}
+@media (max-width:480px){.gameflow{padding:22px 20px}.themes{grid-template-columns:1fr 1fr}}
+
+/* readable case steps: 2x2 grid, labeled bullets */
+.star{grid-template-columns:repeat(2,minmax(0,1fr))}
+.star>li{padding:28px 32px 30px;gap:12px;border-left:0}
+.star>li:nth-child(even){border-left:1px solid var(--line)}
+.star>li:nth-child(n+3){border-top:1px solid var(--line)}
+.star .st{font-size:13px}
+.star .st b{font-size:12px;padding:2px 8px}
+.star h4{font-size:20px;line-height:1.4}
+.star ul{font-size:15.5px;line-height:1.75;gap:10px;color:color-mix(in srgb,var(--ink) 80%,var(--bg));max-width:34em}
+.star .lesson{font-size:15px;font-weight:600;line-height:1.65;padding-top:14px}
+.star .doc-btn{max-width:420px}
+@media (max-width:760px){.star{grid-template-columns:1fr}.star>li{padding:22px 20px}.star>li:nth-child(even){border-left:0}.star>li+li{border-top:1px solid var(--line)}.star h4{font-size:18px}.star ul{font-size:15px}}
+.star ul.labeled{list-style:none;padding-left:0;gap:14px}
+.star ul.labeled li{padding-left:0}
+.star .lb{display:inline-block;font:700 11.5px var(--body);letter-spacing:.02em;border-radius:5px;padding:1px 8px;margin-right:8px;vertical-align:1px}
+.star .flow-chips{display:block;margin-top:8px}
+html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[lang="en"]{display:flex;flex-wrap:wrap;gap:6px}
+.star .flow-chips span span{display:inline-flex;align-items:center;font-size:13px;line-height:1.4;padding:4px 10px;border-radius:99px;background:var(--bg-2);border:1px solid var(--line);color:var(--ink)}
+.star .flow-chips span span+span::before{content:"→";margin-right:6px;color:var(--brown)}
+.star .fix{display:block;margin-top:6px;color:var(--ink);font-weight:600}
+.star ul.lp{color:var(--muted)}
+.star ul.labeled b.lead{color:var(--ink);font-weight:600}
+.star ul.labeled .sub{display:block;margin-top:6px}
+
+/* case steps: phase colors + tap/hover focus (warm gray, mustard, brown, Kakao yellow) */
+.star>li{--ph:#A39C92;position:relative;background:color-mix(in srgb,var(--ph) 8%,var(--card));transition:opacity .25s ease,background-color .25s ease,box-shadow .25s ease;cursor:pointer}
+.star>li:nth-child(2){--ph:#D9B44A}
+.star>li:nth-child(3){--ph:#B98A5E}
+.star>li:nth-child(4){--ph:#FFD60A}
+.star>li::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ph)}
+.star>li:last-child{background:color-mix(in srgb,var(--ph) 12%,var(--card))}
+.star .st{color:color-mix(in srgb,var(--ph) 45%,var(--ink))}
+.star .st b,.star>li:last-child .st b{background:var(--ph);color:#1E1A16}
+.star ul li::marker{color:var(--ph)}
+.star .lb{background:var(--ph);color:#1E1A16}
+.star.focusing>li:not(.on){opacity:.4}
+.star>li.on{background:color-mix(in srgb,var(--ph) 18%,var(--card));box-shadow:inset 0 0 0 1.5px var(--ph)}
+@media (prefers-reduced-motion:reduce){.star>li{transition:none}}
+
+/* skills: neon light border sweeping around the panels */
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes ring{to{--ang:360deg}}
+.neon-ring{position:relative;isolation:isolate;background:transparent;border-color:transparent}
+.neon-ring::before,.neon-ring::after{content:"";position:absolute;border-radius:inherit;pointer-events:none;animation:ring 4.5s linear infinite}
+.neon-ring::before{inset:-1px;z-index:-1;border:2px solid transparent;
+  background:linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--ang),color-mix(in srgb,var(--yellow) 22%,transparent) 0 40%,#F2C200 58%,#FFEB70 70%,#FFFFFF 75%,#FFEB70 80%,#F2C200 90%,color-mix(in srgb,var(--yellow) 22%,transparent) 100%) border-box}
+.neon-ring::after{inset:-4px;z-index:-2;filter:blur(12px);opacity:.85;
+  background:conic-gradient(from var(--ang),transparent 0 42%,rgba(255,214,10,.9) 62%,rgba(255,240,140,1) 75%,rgba(255,214,10,.9) 88%,transparent 98%)}
+.neon-ring.silver::before{background:linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--ang),color-mix(in srgb,var(--brown) 18%,transparent) 0 40%,#C9A57A 58%,#F1DEC3 72%,#FFFFFF 75%,#F1DEC3 78%,#C9A57A 90%,color-mix(in srgb,var(--brown) 18%,transparent) 100%) border-box}
+.neon-ring.silver::after{background:conic-gradient(from var(--ang),transparent 0 42%,rgba(201,165,122,.7) 62%,rgba(241,222,195,.9) 75%,rgba(201,165,122,.7) 88%,transparent 98%);opacity:.7}
+.neon-ring.silver::before,.neon-ring.silver::after{animation-duration:6.5s;animation-direction:reverse}
+@media (prefers-reduced-motion:reduce){.neon-ring::before,.neon-ring::after{animation:none}}
 /* thanks */
 .thanks{padding-block:96px 120px;text-align:center}
 .thanks .big{font-family:var(--display);font-weight:800;font-size:clamp(64px,13vw,168px);letter-spacing:-.045em;line-height:.9}
@@ -505,7 +586,7 @@ section{scroll-margin-top:70px}
     <div class="stat"><div class="n" data-count="7303">7,303</div><div class="l"><span lang="ko">2년간 누적 콜백</span><span lang="en">callbacks in two years</span></div></div>
     <div class="stat"><div class="n"><span data-count="7">7</span><small>%</small></div><div class="l"><span lang="ko">조교 중 최고 상담 확정률</span><span lang="en">top booking rate among staff</span></div></div>
     <div class="stat"><div class="n" data-count="430">430</div><div class="l"><span lang="ko">파티 4회 누적 게스트</span><span lang="en">guests across four parties</span></div></div>
-    <div class="stat"><div class="n" data-count="2312">2,312</div><div class="l"><span lang="ko">지점 인스타그램 최고 조회수 영상</span><span lang="en">views, the branch's top Instagram video</span></div></div>
+    <div class="stat"><div class="n" data-count="2312">2,312</div><div class="l"><span lang="ko">직접 제작한 지점 SNS 콘텐츠 최고 조회수</span><span lang="en">views, top branch SNS content I made</span></div></div>
   </div>
 </div>
 <div class="about"><div class="wrap">
@@ -574,31 +655,33 @@ section{scroll-margin-top:70px}
     <div class="sec-head">
       <div>
         <span class="place num-place"><b>03</b>Skills</span>
-        <h2><span lang="ko">고객 커뮤니케이션 · 콘텐츠 · 데이터 관리</span><span lang="en">Customer communication, content and data</span></h2>
+        <h2><span lang="ko">고객 커뮤니케이션 · 데이터 기록 · 운영 관리</span><span lang="en">Customer communication, data tracking and operations</span></h2>
       </div>
     </div>
     <div class="skills">
-      <div class="panel">
+      <div class="panel neon-ring silver">
         <h3><span lang="ko">어학 · 자격</span><span lang="en">Languages · Certificates</span></h3>
         <div class="cert">
           <div><b>985</b><span>TOEIC</span></div>
           <div><b>AL</b><span>OPIc</span></div>
           <div><b>SQLD</b><span><span lang="ko">취득</span><span lang="en">Certified</span></span></div>
-                  </div>
+        </div>
+        <p class="desc" style="margin-top:16px"><span lang="ko">미국 메릴랜드에서 출생해 약 11년간 거주했고, 미국 스타트업 비대면 인턴으로 현지 상사와 함께 일했습니다. 영어권 고객과 파트너를 대하는 일이 낯설지 않습니다.</span><span lang="en">Born in Maryland, I lived in the US for about 11 years and later worked remotely for a US startup under a US-based manager. Working with English-speaking customers and partners feels natural to me.</span></p>
       </div>
-      <div class="panel">
+      <div class="panel neon-ring">
         <h3><span lang="ko">실무 역량</span><span lang="en">On-the-job skills</span></h3>
         <div class="strength">
-          <div><b><span lang="ko">고객 응대 · 상담 전환</span><span lang="en">Customer follow-up · conversion</span></b><span><span lang="ko">회신 7,303건 · 확정률 7%</span><span lang="en">7,303 callbacks · 7% booked</span></span></div>
-          <div><b><span lang="ko">고객 행사 기획 · 운영</span><span lang="en">Customer event planning</span></b><span><span lang="ko">4회 · 누적 430명</span><span lang="en">4 events · 430 guests</span></span></div>
-          <div><b><span lang="ko">콘텐츠 마케팅</span><span lang="en">Content marketing</span></b><span><span lang="ko">지점 SNS 조회수 1·2위</span><span lang="en">Branch's top 2 videos</span></span></div>
-          <div><b><span lang="ko">데이터 기록 · 관리</span><span lang="en">Data tracking</span></b><span><span lang="ko">미확정 사유 분류 · 예산 시트</span><span lang="en">Drop-off tagging · budget sheet</span></span></div>
+          <div><b><span lang="ko">고객 커뮤니케이션</span><span lang="en">Customer communication</span></b><span><span lang="ko">회신 7,303건 · 확정률 7%</span><span lang="en">7,303 callbacks · 7% booked</span></span></div>
+          <div><b><span lang="ko">성과 기록 · 정리</span><span lang="en">Tracking results</span></b><span><span lang="ko">예산·정산 시트 · 사유 분류</span><span lang="en">Budget sheets · drop-off tagging</span></span></div>
+          <div><b><span lang="ko">오프라인 이벤트 기획 · 운영</span><span lang="en">Offline event planning</span></b><span><span lang="ko">4회 · 누적 430명</span><span lang="en">4 events · 430 guests</span></span></div>
+          <div><b><span lang="ko">SNS 콘텐츠 제작</span><span lang="en">Social content</span></b><span><span lang="ko">지점 인스타그램 조회수 1·2위</span><span lang="en">Branch's top 2 videos</span></span></div>
+          <div><b><span lang="ko">글로벌 콘텐츠 제작</span><span lang="en">Global content</span></b><span><span lang="ko">미국 스타트업 영문 브로슈어 2종</span><span lang="en">2 English brochures for a US startup</span></span></div>
         </div>
       </div>
-      <div class="panel wide">
-        <h3><span lang="ko">쓰는 도구</span><span lang="en">Tools I use</span></h3>
+      <div class="panel wide neon-ring silver">
+        <h3><span lang="ko">콘텐츠 제작 · 업무 도구</span><span lang="en">Content and work tools</span></h3>
         <div class="pills" style="margin-top:14px">
-          <span>Google Sheets</span><span>Google Docs</span><span>Google Calendar</span><span>Canva</span><span>ChatGPT</span><span>Gemini</span><span>Claude</span><span>Notion</span><span>Visme</span><span>SQL</span>
+          <span>Canva</span><span>Visme</span><span>Instagram</span><span>ChatGPT</span><span>Gemini</span><span>Claude</span><span>Notion</span><span>Google Sheets</span><span>Google Docs</span><span>SQL</span>
         </div>
       </div>
     </div>
@@ -627,21 +710,22 @@ section{scroll-margin-top:70px}
       </details>
       <details>
         <summary><span class="when">2022.01 – 02</span><span class="what"><span lang="ko">Educanspire 마케팅 인턴 (미국, 비대면)</span><span lang="en">Marketing Intern, Educanspire (US, remote)</span><small><span lang="ko">포트폴리오 02</span><span lang="en">Portfolio 02</span></small></span><span class="plus">+</span></summary>
-        <p class="body"><span lang="ko">교내 LINC+ 사업단 현장직무체험 공고로 지원해 미국 스타트업의 마케팅 자료를 제작했습니다.</span><span lang="en">Applied through my university's LINC+ field-experience program and made marketing materials for a US startup.</span><br><a class="go" href="#portfolio2"><span lang="ko">포트폴리오에서 자세히 보기 →</span><span lang="en">See the portfolio →</span></a></p>
+        <p class="body"><span lang="ko">교내 LINC+ 사업단 현장직무체험 공고로 지원해 미국 스타트업에서 미국 내 학생 대상 영문 마케팅 자료를 제작했습니다.</span><span lang="en">Applied through my university's LINC+ field-experience program and made English marketing materials for students in the US.</span><br><a class="go" href="#portfolio2"><span lang="ko">포트폴리오에서 자세히 보기 →</span><span lang="en">See the portfolio →</span></a></p>
       </details>
       <details open>
-        <summary><span class="when">2024.08 – 2026</span><span class="what"><span lang="ko">컬컴 신촌점 조교 (최장기 근무)</span><span lang="en">Assistant, Culcom Sinchon (longest-serving)</span><small><span lang="ko">포트폴리오 01</span><span lang="en">Portfolio 01</span></small></span><span class="plus">+</span></summary>
+        <summary><span class="when">2024.08 – 2026</span><span class="what"><span lang="ko">컬컴 신촌점 조교</span><span lang="en">Assistant, Culcom Sinchon</span><small><span lang="ko">포트폴리오 01</span><span lang="en">Portfolio 01</span></small></span><span class="plus">+</span></summary>
         <p class="body"><span lang="ko">국내 최대 영어회화 스터디 체인의 1호점에서 근무했습니다. 세션당 최대 80명을 응대하고, 리더가 비는 날엔 초급부터 레벨 4 프리토킹까지 직접 진행했습니다.</span><span lang="en">Worked at the first branch of Korea's largest English conversation chain. Hosted up to 80 members per session and led tables from beginner to level-4 free talk when leaders were out.</span><br><a class="go" href="#portfolio"><span lang="ko">포트폴리오에서 자세히 보기 →</span><span lang="en">See the portfolio →</span></a></p>
       </details>
       <details>
-        <summary><span class="when">2025</span><span class="what"><span lang="ko">삼성금융아카데미 7기 수료</span><span lang="en">Samsung Finance Academy, cohort 7 (completed)</span><small><span lang="ko">금융 산업 이해를 위한 교육 과정</span><span lang="en">Training program on the finance industry</span></small></span><span class="plus">+</span></summary>
-        <p class="body"><span lang="ko">경제학 전공 지식을 금융 산업 실무 맥락으로 넓히고자 교육 과정을 수료했습니다.</span><span lang="en">Completed the program to extend my economics background into how the finance industry works in practice.</span></p>
+        <summary><span class="when">2025.01</span><span class="what"><span lang="ko">삼성생명 금융연수 프로그램 7기 수료</span><span lang="en">Samsung Life Financial Training Program, cohort 7 (completed)</span><small><span lang="ko">2025.01.14 – 01.24 · 삼성생명 SFP지역단 주최</span><span lang="en">Jan 14–24, 2025 · hosted by Samsung Life SFP</span></small></span><span class="plus">+</span></summary>
+        <div class="body"><p><span lang="ko">경제학 전공 지식을 금융 산업 실무 맥락으로 넓히고자 전 과정을 수료했습니다.</span><span lang="en">Completed the full program to extend my economics background into how the finance industry works in practice.</span></p><button class="doc-btn portrait" data-doc="samsung"><img src="assets/laka/samsung-cert.jpg" alt=""><div><b><span lang="ko">수료증 보기</span><span lang="en">View certificate</span></b><span><span lang="ko">삼성생명 금융연수 프로그램 7기 · 2025.01.24</span><span lang="en">Samsung Life Financial Training Program · Jan 24, 2025</span></span></div></button></div>
       </details>
     </div>
   </div>
 </section>
 
 <div class="pf-banner" id="portfolio" style="scroll-margin-top:60px">
+  
   <div class="wrap">
     <div class="no">01</div>
     <div>
@@ -660,7 +744,7 @@ section{scroll-margin-top:70px}
     </figure>
     <div>
       <img class="logo" src="assets/culcom-logo.png" alt="Culcom">
-      <p><span lang="ko">컬컴은 평생교육원 소속의 영어회화 스터디로, 전국 40~50개 지점을 운영합니다. 1호점인 신촌점에서 최장기 근무 조교로 일하며 신규 고객 문의 응대와 상담 예약, 멤버 관리, 고객 행사 기획·운영을 담당했습니다.</span><span lang="en">Culcom is an English conversation study program under a lifelong-education institute, with 40–50 branches nationwide. At Sinchon, the first branch, I was the longest-serving assistant, handling new-customer inquiries and booking, member care, and customer events.</span></p>
+      <p><span lang="ko">컬컴은 평생교육원 소속의 영어회화 스터디로, 전국 40~50개 지점을 운영합니다. 1호점인 신촌점에서 조교로 일하며 신규 고객 문의 응대와 상담 예약, 멤버 관리, 고객 행사 기획·운영을 담당했습니다.</span><span lang="en">Culcom is an English conversation study program under a lifelong-education institute, with 40–50 branches nationwide. At Sinchon, the first branch, I worked as an assistant, handling new-customer inquiries and booking, member care, and customer events.</span></p>
       <div class="facts">
         <div><b>2024.08 – 2026</b><span><span lang="ko">근무 기간 · 주 4일</span><span lang="en">Tenure · 4 days a week</span></span></div>
         <div><b>~80</b><span><span lang="ko">세션당 최대 응대 인원</span><span lang="en">Members hosted per session</span></span></div>
@@ -674,8 +758,8 @@ section{scroll-margin-top:70px}
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <span class="place">Portfolio 01-A · Callbacks</span>
-        <h2><span lang="ko">회신 프로세스 개선으로 상담 전환율을 높이다</span><span lang="en">Raising conversion by redesigning the callback process</span></h2>
+        <span class="place">Portfolio 01-A · First impression</span>
+        <h2><span lang="ko">첫인상을 다시 설계해 상담 전환을 높이다</span><span lang="en">Redesigning the first impression to lift conversion</span></h2>
       </div>
       <p class="meta"><span lang="ko">문의자 콜백 · 상담 예약 · 스크립트 개선</span><span lang="en">Inquiry callbacks · booking · script redesign</span></p>
     </div>
@@ -698,7 +782,7 @@ section{scroll-margin-top:70px}
 
       <div class="panel">
         <h3><span lang="ko">고객 신뢰를 위한 응대 스크립트 재설계</span><span lang="en">Redesigning the call script for trust</span></h3>
-        <p class="desc"><span lang="ko">첫 통화에서 광고 전화로 오인해 통화를 종료하는 고객이 많았습니다. 신뢰·속도·효율을 기준으로 응대 순서를 재설계했습니다.</span><span lang="en">Many people hung up thinking it was a sales call. I reordered the opening around trust, speed and efficiency.</span></p>
+        <p class="desc"><span lang="ko">첫 통화를 광고 전화로 오인해 끊는 고객이 많았습니다. 신뢰·속도·효율을 기준으로 응대 순서를 4단계로 재설계했습니다. 화살표를 눌러 단계별로 확인해 보세요.</span><span lang="en">Many people hung up thinking it was a sales call. I reordered the opening around trust, speed and efficiency.</span></p>
         <div class="phone" id="phone" aria-live="polite"></div>
         <div class="steps-ctrl">
           <button class="mini" id="s-prev" aria-label="Previous">←</button>
@@ -711,17 +795,17 @@ section{scroll-margin-top:70px}
       <ol class="star">
         <li><span class="st"><b>01</b><span lang="ko">상황</span><span lang="en">Situation</span></span>
           <h4><span lang="ko">첫 통화에서 고객이 이탈했습니다</span><span lang="en">First calls were losing customers</span></h4>
-          <ul><li><span lang="ko">외국인 문의와 광고 허수 유입이 많아 상담 전환이 낮은 지점이었습니다.</span><span lang="en">The branch drew many international inquiries and fake ad leads, so conversion was low.</span></li><li><span lang="ko">첫 통화를 광고 전화로 오인해 끊는 고객이 많았습니다.</span><span lang="en">Many customers hung up, mistaking the first call for a sales call.</span></li><li><span lang="ko">2025년 11월 일본어·중국어 스터디가 추가되며 예약 일정이 복잡해졌습니다.</span><span lang="en">In Nov 2025 Japanese and Chinese studies were added, complicating scheduling.</span></li></ul></li>
+          <ul class="labeled lp"><li><span class="lb"><span lang="ko">유입 환경</span><span lang="en">Inflow</span></span><b class="lead"><span lang="ko">외국인 문의·광고 허수 유입이 많은 지점</span><span lang="en">Many international inquiries and fake ad leads</span></b> <span lang="ko">상담 전환이 낮은 환경이었습니다.</span><span lang="en">kept conversion low.</span></li><li><span class="lb"><span lang="ko">첫 통화</span><span lang="en">First call</span></span><b class="lead"><span lang="ko">광고 전화로 오인해 끊는 고객</span><span lang="en">Customers hung up, thinking it was a sales call</span></b> <span lang="ko">첫 통화에서 이탈이 많았습니다.</span><span lang="en">so many dropped off on the first call.</span></li><li><span class="lb"><span lang="ko">운영 변화</span><span lang="en">Change</span></span><b class="lead"><span lang="ko">2025년 11월 일본어·중국어 스터디 추가</span><span lang="en">Japanese and Chinese studies added in Nov 2025</span></b> <span lang="ko">예약 일정이 복잡해졌습니다.</span><span lang="en">which made scheduling more complex.</span></li></ul></li>
         <li><span class="st"><b>02</b><span lang="ko">기획</span><span lang="en">Plan</span></span>
           <h4><span lang="ko">신뢰·속도·효율 기준으로 응대 흐름을 재설계했습니다</span><span lang="en">Redesigned the flow for trust, speed and efficiency</span></h4>
-          <ul><li><span lang="ko">통화 첫마디부터 신뢰를 줄 수 있도록 통화 순서를 바꿨습니다.</span><span lang="en">Reordered the call to earn trust from the very first words.</span></li><li><span lang="ko">유효 문의에 집중하기 위해 미확정 사유를 기록하고 원인을 찾기로 했습니다.</span><span lang="en">Decided to log every non-booking reason to find root causes.</span></li><li><span lang="ko">언어 확대 전 예약 구조의 위험 요소를 먼저 점검했습니다.</span><span lang="en">Checked the booking setup for risks before new languages launched.</span></li></ul></li>
+          <ul class="labeled lp"><li><span class="lb"><span lang="ko">첫인상</span><span lang="en">Impression</span></span><b class="lead"><span lang="ko">첫마디부터 신뢰를 주는 통화 순서</span><span lang="en">A call order that earns trust from the first words</span></b></li><li><span class="lb"><span lang="ko">데이터</span><span lang="en">Data</span></span><b class="lead"><span lang="ko">미확정 사유를 기록해 원인 파악</span><span lang="en">Log every non-booking reason to find the cause</span></b> <span lang="ko">유효 문의에 집중하기 위한 기준을 세웠습니다.</span><span lang="en">to focus on genuine inquiries.</span></li><li><span class="lb"><span lang="ko">예약</span><span lang="en">Booking</span></span><b class="lead"><span lang="ko">언어 확대 전 예약 구조의 위험 요소 사전 점검</span><span lang="en">Check booking risks before new languages launched</span></b></li></ul></li>
         <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
           <h4><span lang="ko">스크립트·데이터·예약 구조를 직접 개선했습니다</span><span lang="en">Fixed the script, the data and the booking flow</span></h4>
-          <ul><li><span lang="ko">이름 확인 → 문의 경로 안내 → “1분만 통화 가능하실까요?” → 가장 빠른 상담 시간 제안 순으로 스크립트를 재구성했습니다.</span><span lang="en">Rebuilt the script: confirm name, state the inquiry source, ask for one minute, offer the earliest slot.</span></li><li><span lang="ko">미확정 사유를 오입력·타지점 희망·사정상 거절·허수로 분류해 시트로 관리하고, 허수 비중이 높은 광고를 매니저에게 보고해 광고 운영에 반영했습니다.</span><span lang="en">Tagged misses as wrong number, other branch, declined or fake lead, and reported noisy ads so the ad setup changed.</span></li><li><span lang="ko">매니저와 언어별 상담 가능 시간대를 명확히 하고, 전 조교가 실시간으로 쓰는 구글 문서 메시지 템플릿을 업데이트했습니다.</span><span lang="en">Clarified each language’s hours with the manager and updated the shared message templates in Google Docs.</span></li><li><span lang="ko">네이버 예약의 자동 확정을 수동 확정으로 전환하자고 선제적으로 제안했습니다.</span><span lang="en">Proposed switching Naver bookings from auto- to manual confirmation in advance.</span></li></ul></li>
+          <ul class="labeled"><li><span class="lb"><span lang="ko">스크립트</span><span lang="en">Script</span></span><span lang="ko">첫마디부터 광고 전화가 아님을 알 수 있도록 통화 순서를 재구성했습니다.</span><span lang="en">Reordered the call so customers could tell from the first words it was not a sales call.</span><span class="flow-chips"><span lang="ko"><span>이름 확인</span><span>문의 경로 안내</span><span>1분 통화 양해</span><span>가장 빠른 상담 시간 제안</span></span><span lang="en"><span>Confirm name</span><span>State inquiry source</span><span>Ask for one minute</span><span>Offer earliest slot</span></span></span></li><li><span class="lb"><span lang="ko">데이터</span><span lang="en">Data</span></span><span lang="ko">미확정 사유를 <b>오입력 · 타지점 희망 · 사정상 거절 · 허수</b> 4가지로 분류해 시트에 기록했고, 허수 비중이 높은 광고를 매니저에게 공유해 광고 효율 개선에 반영되었습니다.</span><span lang="en">Logged every non-booking as <b>wrong number · other branch · declined · fake lead</b>, and shared ads with many fake leads with the manager, which fed into improving ad efficiency.</span></li><li><span class="lb"><span lang="ko">템플릿</span><span lang="en">Templates</span></span><span lang="ko">언어별 상담 가능 시간대를 매니저와 정리하고, 전 조교가 함께 쓰는 구글 문서 메시지 템플릿을 업데이트했습니다.</span><span lang="en">Clarified each language’s consultation hours with the manager and updated the Google Docs message templates all assistants share.</span></li><li><span class="lb"><span lang="ko">예약</span><span lang="en">Booking</span></span><span lang="ko">제2외국어 스터디 개설 초기, 언어별 상담 시간·정원은 달라졌지만 네이버 예약은 영어 기준으로 자동 확정되어 중복·초과 예약 위험이 있었습니다.</span><span lang="en">When new language studies opened, consultation hours and capacity differed by language, but Naver still auto-confirmed bookings on the English schedule, risking double and over-booking.</span><span class="fix"><span lang="ko">→ 업무 중 먼저 파악해, 정원이 찬 뒤 당일 예약이 확정되지 않도록 수동 확정 전환을 제안했습니다.</span><span lang="en">→ I spotted it on the job and proposed manual confirmation so same-day bookings would not be confirmed once slots were full.</span></span></li></ul></li>
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
           <h4><span lang="ko">회신량 2.3배, 확정률 7%로 조교 중 1위</span><span lang="en">2.3× callbacks, 7% booking rate, top among staff</span></h4>
-          <ul><li><span lang="ko">회신 1년차 2,241건 → 2년차 5,062건</span><span lang="en">Callbacks: 2,241 in year one → 5,062 in year two</span></li><li><span lang="ko">확정률 5% → 7% (지점 평균 4%)</span><span lang="en">Booking rate 5% → 7% (branch average 4%)</span></li><li><span lang="ko">2026년 상반기 회신 3,393건, 조교 중 최다</span><span lang="en">3,393 callbacks in H1 2026, the most of any assistant</span></li><li><span lang="ko">운영 언어 확대 후에도 중복 예약·혼선 없이 운영</span><span lang="en">No double bookings after the language expansion</span></li></ul>
-          <p class="lesson"><span lang="ko">배운 점: 전환은 첫마디의 신뢰에서 시작되고, 기록된 데이터가 있어야 개선을 설득할 수 있습니다.</span><span lang="en">Lesson: conversion starts with trust in the first words, and recorded data is what makes a fix persuasive.</span></p></li>
+          <ul class="labeled lp"><li><span class="lb"><span lang="ko">회신량</span><span lang="en">Callbacks</span></span><b class="lead"><span lang="ko">1년차 2,241건 → 2년차 5,062건</span><span lang="en">2,241 in year one → 5,062 in year two</span></b> <span lang="ko">(2.3배)</span><span lang="en">(2.3×)</span></li><li><span class="lb"><span lang="ko">확정률</span><span lang="en">Booking rate</span></span><b class="lead"><span lang="ko">5% → 7%</span><span lang="en">5% → 7%</span></b> <span lang="ko">지점 평균 4%</span><span lang="en">branch average 4%</span></li><li><span class="lb"><span lang="ko">상반기 성과</span><span lang="en">H1 2026</span></span><b class="lead"><span lang="ko">회신 3,393건, 조교 중 최다</span><span lang="en">3,393 callbacks, the most of any assistant</span></b></li><li><span class="lb"><span lang="ko">운영 안정</span><span lang="en">Stability</span></span><b class="lead"><span lang="ko">언어 확대 후에도 중복 예약·혼선 없음</span><span lang="en">No double bookings after the language expansion</span></b></li></ul>
+          <p class="lesson"><span lang="ko">배운 점: 주어진 틀 안에서만 일하기보다, 업무 중 발견한 문제를 기록하고 근거를 갖춰 먼저 개선을 제안할 때 더 나은 결과로 이어진다는 것을 배웠습니다.</span><span lang="en">Lesson: rather than working only within the existing setup, recording the problems I notice and proposing fixes backed by evidence leads to better results.</span></p></li>
       </ol>
       </div>
     </div>
@@ -732,12 +816,12 @@ section{scroll-margin-top:70px}
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <span class="place">Portfolio 01-B · Parties</span>
-        <h2><span lang="ko">참여 장벽을 낮춘 고객 행사 기획</span><span lang="en">Customer events that lower the barrier to join</span></h2>
+        <span class="place">Portfolio 01-B · Offline events</span>
+        <h2><span lang="ko">참가자 간 교류를 설계한 오프라인 행사 기획</span><span lang="en">Offline events designed for real interaction</span></h2>
       </div>
-      <p class="meta"><span lang="ko">기획 · 가격 설계 · 홍보물 제작 · 현장 운영</span><span lang="en">Planning · pricing · promo design · running the night</span></p>
+      <p class="meta"><span lang="ko">기획 · 가격 설계 · SNS 홍보물 제작 · 현장 운영 · 성과 정리</span><span lang="en">Planning · pricing · social promos · running the night · results</span></p>
     </div>
-    <p class="case-lead"><span lang="ko"><b>고객 행사 4회를 직접 기획·운영해 참여 인원을 66.7% 늘리고 신규 회원 유입까지 이끌었습니다.</b></span><span lang="en"><b>I planned and ran four customer events, growing turnout 66.7% and bringing in new members.</b></span></p>
+    <p class="case-lead"><span lang="ko"><b>고객 행사 4회를 직접 기획·운영해 1회차 90명에서 3회차 150명으로 참여 인원을 66.7% 늘렸습니다.</b></span><span lang="en"><b>I planned and ran four customer events, growing turnout 66.7%, from 90 guests at the first to 150 at the third.</b></span></p>
 
     <p class="growth"><span lang="ko">1회차 90명 → 3회차 150명</span><span lang="en">Party 1: 90 → Party 3: 150 guests</span><b>+66.7%</b></p>
     <div class="party-grid" id="rounds"></div>
@@ -761,40 +845,62 @@ section{scroll-margin-top:70px}
       </figure>
     </div>
 
-    <div class="party-info">
+    <div class="panel gameflow">
+      <span class="place">Guest Connect Mission</span>
+      <h3><span lang="ko">게스트 커넥트 미션으로 처음 만난 게스트를 잇다</span><span lang="en">Connecting first-time guests through the Guest Connect Mission</span></h3>
+      <p class="desc"><span lang="ko">아는 사람끼리만 대화하던 분위기를 바꾸기 위해, 처음 만난 게스트와 짝을 이뤄 미션을 수행하도록 설계했습니다. 많이 참여할수록 당첨 확률이 높아져 참여율과 교류가 함께 늘었습니다.</span><span lang="en">To move beyond guests talking only with people they already knew, I had them pair up with someone new to complete missions. More play meant better odds, so participation and interaction rose together.</span></p>
+      <ol class="gf-steps">
+        <li><b>01</b><h4><span lang="ko">게임 참여권 받기</span><span lang="en">Get a game pass</span></h4><p><span lang="ko">입장 시 회차 테마 그림이 담긴 게임 참여권 배부</span><span lang="en">A game pass with the round’s theme picture, handed out at entry</span></p></li>
+        <li><b>02</b><h4><span lang="ko">같은 그림의 짝꿍 찾기</span><span lang="en">Find your match</span></h4><p><span lang="ko">같은 그림을 가진 참가자와 팀 구성</span><span lang="en">Team up with the guest holding the same card</span></p></li>
+        <li><b>03</b><h4><span lang="ko">인증 후 미니게임 참여</span><span lang="en">Verify, then play</span></h4><p><span lang="ko">스태프에게 같은 그림 짝을 인증한 뒤 사격·링 던지기·푸즈볼 도전</span><span lang="en">Show your match to staff, then try shooting, ring toss or foosball</span></p></li>
+        <li><b>04</b><h4><span lang="ko">경품 추첨 응모권</span><span lang="en">Lucky-draw entry</span></h4><p><span lang="ko">게임을 통과하면 응모권 지급</span><span lang="en">Pass the game, earn an entry</span></p></li>
+      </ol>
+      <p class="gf-loop"><i>↻</i><span><span lang="ko"><b>선착순 마감 → 재참여형</b> 이벤트 인기로 미니게임이 선착순으로 조기 마감되던 구조를, 같은 그림의 게임 참여권을 여러 장 준비한 재참여형으로 바꿔 더 많은 게스트가 반복 참여하며 새로운 파트너와 교류하도록 했습니다.</span><span lang="en"><b>First-come → replayable</b> As the event grew popular, mini-games kept filling up early on a first-come basis. With several copies of each card, I made them replayable so more guests could join again and meet new partners.</span></span></p>
+      <div class="gf-more">
+        <div>
+          <span class="k"><span lang="ko">회차별 짝 그림 테마</span><span lang="en">Card theme by round</span></span>
+          <ol class="themes">
+            <li><b><span lang="ko">1회차</span><span lang="en">Party 1</span></b><span lang="ko">기본 이모지</span><span lang="en">Emoji</span></li>
+            <li><b><span lang="ko">2회차</span><span lang="en">Party 2</span></b><span lang="ko">바비 인형</span><span lang="en">Barbie dolls</span></li>
+            <li><b><span lang="ko">3회차</span><span lang="en">Party 3</span></b><span lang="ko">크리스마스 작품 캐릭터</span><span lang="en">Christmas characters</span></li>
+            <li><b><span lang="ko">4회차</span><span lang="en">Party 4</span></b><span lang="ko">트럼프 카드</span><span lang="en">Playing cards</span></li>
+          </ol>
+        </div>
+        <div>
+          <span class="k"><span lang="ko">이외에 함께 운영한 게임</span><span lang="en">Other games we also ran</span></span>
+          <div class="extra-games"><span><span lang="ko">네트워킹 빙고판</span><span lang="en">Networking bingo</span></span><span><span lang="ko">3인 참여형 캐롤 영어 가사 잇기</span><span lang="en">Three-person English carol lyric relay</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="party-info solo">
       <div class="ticket">
         <div><div class="t-k">RSVP</div><div class="t-v">₩12,000</div></div>
         <div><div class="t-k">Walk-in</div><div class="t-v">₩15,000</div></div>
-        <p class="t-c"><span lang="ko">타 지점 평균가(약 2만 원) 대비 대학가 상권 특성을 반영해 가격을 낮췄습니다. 수익보다 신규 고객의 참여 장벽을 낮추는 데 목표를 두었으며, 무제한 음료와 럭키드로우를 포함한 구성으로 4회 모두 흑자 운영했습니다.</span><span lang="en">Priced below the roughly ₩20,000 other branches charged, to fit a student neighborhood. The goal was a lower barrier for new customers rather than margin; with unlimited drinks and a lucky draw included, all four events ran in the black.</span></p>
-      </div>
-      <div>
-        <div class="game"><b><span lang="ko">짝 그림 찾기</span><span lang="en">Picture match</span></b><span><span lang="ko">같은 그림을 가진 참가자끼리 팀 구성</span><span lang="en">Guests form teams by matching cards</span></span></div>
-        <div class="game"><b><span lang="ko">소셜 게임</span><span lang="en">Social game</span></b><span><span lang="ko">간식을 매개로 명함 교환을 유도한 네트워킹</span><span lang="en">Snacks as a prompt to exchange name cards</span></span></div>
-        <div class="game"><b><span lang="ko">슈팅 · 빙고</span><span lang="en">Shooting · Bingo</span></b><span><span lang="ko">자율 참여형 게임과 경품</span><span lang="en">Drop-in games with prizes</span></span></div>
-        <div class="game"><b><span lang="ko">럭키드로우</span><span lang="en">Lucky draw</span></b><span><span lang="ko">스태프와 대화 시 응모권 지급 · 당첨자 6명</span><span lang="en">Entries for chatting with staff · 6 winners</span></span></div>
+        <p class="t-c"><span lang="ko">타 지점 평균가(약 2만 원) 대비 대학가 상권 특성을 반영해 가격을 낮췄습니다. 수익보다 참여 장벽을 낮추는 데 목표를 두었으며, 무제한 음료와 럭키드로우를 포함한 구성으로 4회 모두 흑자 운영했습니다.</span><span lang="en">Priced below the roughly ₩20,000 other branches charged, to fit a student neighborhood. The goal was a lower barrier to join rather than margin; with unlimited drinks and a lucky draw included, all four events ran in the black.</span></p>
       </div>
     </div>
 
     <ol class="star">
         <li><span class="st"><b>01</b><span lang="ko">상황</span><span lang="en">Situation</span></span>
-          <h4><span lang="ko">파티가 회식과 다르지 않았습니다</span><span lang="en">Parties felt like staff dinners</span></h4>
-          <ul><li><span lang="ko">지점 파티가 주기적으로 열렸지만 참여도가 낮고 신규 고객 유입으로 이어지지 않았습니다.</span><span lang="en">Branch parties ran regularly but drew few people and no new customers.</span></li><li><span lang="ko">국내 최대 영어회화 스터디 체인임에도 홍보와 정보 전달이 약했습니다.</span><span lang="en">Despite being Korea’s largest chain of its kind, promotion was weak.</span></li></ul></li>
+          <h4><span lang="ko">아는 사람끼리만 대화가 오가, 교류에 한계가 있었습니다</span><span lang="en">Guests mostly talked with people they already knew</span></h4>
+          <ul class="labeled lp"><li><span class="lb"><span lang="ko">참여 구조</span><span lang="en">Format</span></span><b class="lead"><span lang="ko">식음료·스몰토크 위주의 진행</span><span lang="en">Food, drinks and small talk</span></b> <span lang="ko">기존에 알던 사람들 사이에서만 대화가 오가, 새로운 교류로 이어지기 어려웠습니다.</span><span lang="en">Conversation stayed among people who already knew each other and rarely led to new connections.</span></li><li><span class="lb"><span lang="ko">홍보물</span><span lang="en">Promos</span></span><b class="lead"><span lang="ko">범용 템플릿 기반의 포스터</span><span lang="en">Generic template posters</span></b> <span lang="ko">특색이 부족해 컬컴 행사라는 점이 인상적으로 전달되지 않았습니다.</span><span lang="en">They lacked character and did not make it clear this was a Culcom event.</span></li></ul></li>
         <li><span class="st"><b>02</b><span lang="ko">기획</span><span lang="en">Plan</span></span>
-          <h4><span lang="ko">영어를 ‘공부’가 아닌 ‘연결’의 경험으로</span><span lang="en">English as connection, not homework</span></h4>
-          <ul><li><span lang="ko">조교 업무 범위 밖이었지만 매니저에게 직접 제안해 기획 권한을 위임받았습니다.</span><span lang="en">Outside my role, so I pitched it to the manager and was given ownership.</span></li><li><span lang="ko">대학가 상권을 고려해 타 지점 평균(약 2만 원)보다 낮은 RSVP 12,000원·현장 15,000원으로 참여 장벽을 낮췄습니다.</span><span lang="en">Priced RSVP ₩12,000 and walk-in ₩15,000, below the ~₩20,000 at other branches, for a student area.</span></li><li><span lang="ko">낯선 사람도 쉽게 어울리는 자율 참여형 게임을 설계했습니다.</span><span lang="en">Designed drop-in games so strangers could mix easily.</span></li></ul></li>
+          <h4><span lang="ko">게스트 커넥트 미션으로 네트워킹을 활성화했습니다</span><span lang="en">Activated networking with the Guest Connect Mission</span></h4>
+          <ul class="labeled lp"><li><span class="lb"><span lang="ko">기획 권한</span><span lang="en">Ownership</span></span><b class="lead"><span lang="ko">업무 범위 밖이었지만 직접 제안</span><span lang="en">Proposed it though outside my role</span></b> <span lang="ko">매니저에게 기획안을 제안해 행사 기획 권한을 위임받았습니다.</span><span lang="en">I pitched it to the manager and was given ownership of event planning.</span></li><li><span class="lb"><span lang="ko">미션 설계</span><span lang="en">Mission</span></span><b class="lead"><span lang="ko">짝 찾기에서 응모권까지 이어지는 참여 흐름</span><span lang="en">A flow from finding a match to earning an entry</span></b><span class="flow-chips"><span lang="ko"><span>같은 그림 짝 찾기</span><span>스태프 인증</span><span>사격·링 던지기·푸즈볼</span><span>경품 응모권</span></span><span lang="en"><span>Find your match</span><span>Staff check</span><span>Shooting · ring toss · foosball</span><span>Lucky-draw entry</span></span></span><span class="sub"><span lang="ko">많이 참여할수록 당첨 확률이 높아져, 참여율과 교류가 함께 늘도록 설계했습니다.</span><span lang="en">More play meant better odds, so participation and interaction grew together.</span></span></li><li><span class="lb"><span lang="ko">참여 확대</span><span lang="en">Variety</span></span><b class="lead"><span lang="ko">네트워킹 빙고판 · 3인 캐롤 영어 가사 잇기</span><span lang="en">Networking bingo · three-person English carol lyric relay</span></b> <span lang="ko">게임의 종류와 참여 방법을 넓혔습니다.</span><span lang="en">widened the kinds of games and ways to join.</span></li></ul></li>
         <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
-          <h4><span lang="ko">홍보부터 현장 운영까지 공동 호스트와 전담했습니다</span><span lang="en">Ran it end to end with a co-host</span></h4>
-          <ul><li><span lang="ko">생성형 AI, 직접 촬영한 지점·고양이 사진, Canva, 인스타그램 도구로 홍보물을 제작하고, 지점 고양이 ‘코코’를 마스코트로 시리즈를 통일했습니다.</span><span lang="en">Made promos with generative AI, my own branch photos, Canva and Instagram tools, with Coco the branch cat as mascot.</span></li><li><span lang="ko">예산·정산 시트로 품목별 비용과 구매 여부를 관리했습니다.</span><span lang="en">Tracked every item and cost in a budget and settlement sheet.</span></li><li><span lang="ko">대규모 인원 속 혼선을 막기 위해 AI를 활용해 효율적이고 유동적인 스태프 시간표를 짜고 업무를 세분화했습니다.</span><span lang="en">Used AI to build a flexible staff rota and break down roles to prevent confusion with large crowds.</span></li></ul>
+          <h4><span lang="ko">반응을 반영해 회차마다 게임과 홍보물을 발전시켰습니다</span><span lang="en">Improved the games and promos every round</span></h4>
+          <ul class="labeled lp"><li><span class="lb"><span lang="ko">게임 확장</span><span lang="en">Games</span></span><b class="lead"><span lang="ko">짝 그림 찾기 호응에 따라 회차마다 게임 추가</span><span lang="en">Added games each round after picture matching took off</span></b></li><li><span class="lb"><span lang="ko">재참여형</span><span lang="en">Replayable</span></span><b class="lead"><span lang="ko">선착순 조기 마감 → 재참여형 전환</span><span lang="en">First-come early sellouts → replayable</span></b> <span lang="ko">같은 그림의 게임 참여권을 여러 장 준비해, 더 많은 게스트가 새로운 파트너와 반복 참여하도록 했습니다.</span><span lang="en">Several copies of each pass let more guests replay with new partners.</span></li><li><span class="lb"><span lang="ko">홍보물</span><span lang="en">Promos</span></span><b class="lead"><span lang="ko">직접 촬영한 지점 사진과 마스코트 ‘코코’로 시리즈화</span><span lang="en">A series with my own branch photos and Coco the mascot</span></b> <span lang="ko">범용 템플릿을 대신해 컬컴만의 홍보물을 만들었습니다.</span><span lang="en">replacing generic templates with promos that were clearly Culcom’s.</span></li><li><span class="lb"><span lang="ko">운영 관리</span><span lang="en">Operations</span></span><b class="lead"><span lang="ko">예산·정산 시트와 AI 스태프 시간표</span><span lang="en">Budget sheets and an AI-assisted staff rota</span></b> <span lang="ko">대규모 인원도 혼선 없이 운영했습니다.</span><span lang="en">kept large crowds running smoothly.</span></li></ul>
           <button class="doc-btn portrait" data-doc="staff"><img src="assets/staff/p-1.jpg" alt=""><div><b><span lang="ko">스태프 근무표 · 업무 매뉴얼</span><span lang="en">Staff rota and role manual</span></b><span><span lang="ko">국·영문 4쪽 · 직접 작성</span><span lang="en">Korean/English · 4 pages</span></span></div></button></li>
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
-          <h4><span lang="ko">참여 인원 66.7% 증가, 신규 회원 유입</span><span lang="en">Turnout +66.7%, new members joined</span></h4>
-          <ul><li><span lang="ko">첫 회 90명 → 3회차 150명</span><span lang="en">90 guests at the first party → 150 at the third</span></li><li><span lang="ko">회원이 데려온 지인이 재방문해 등록하는 등 신규 회원 유입</span><span lang="en">Friends brought by members came back and signed up</span></li><li><span lang="ko">4회 모두 흑자 운영</span><span lang="en">All four events ran in the black</span></li><li><span lang="ko">홍보 영상 2개가 지점 인스타그램 조회수 1·2위 (2,312회·1,630회)</span><span lang="en">Two promo videos were the branch account’s top two (2,312 and 1,630 views)</span></li></ul>
-          <p class="lesson"><span lang="ko">배운 점: 참여 장벽을 낮추는 설계가 신규 고객 유입으로 이어진다는 것을 숫자로 확인했습니다.</span><span lang="en">Lesson: lowering the barrier to join is what brings in new customers, and the numbers showed it.</span></p></li>
+          <h4><span lang="ko">참여 인원 66.7% 증가</span><span lang="en">Turnout up 66.7%</span></h4>
+          <ul class="labeled lp"><li><span class="lb"><span lang="ko">참여 인원</span><span lang="en">Turnout</span></span><b class="lead"><span lang="ko">1회차 90명 → 3회차 150명</span><span lang="en">90 guests → 150 by the third party</span></b></li><li><span class="lb"><span lang="ko">운영 성과</span><span lang="en">Finance</span></span><b class="lead"><span lang="ko">4회 모두 흑자 운영</span><span lang="en">All four events ran in the black</span></b></li><li><span class="lb"><span lang="ko">콘텐츠</span><span lang="en">Content</span></span><b class="lead"><span lang="ko">홍보 영상 2편, 지점 인스타그램 조회수 1·2위</span><span lang="en">Two promo videos, the branch account’s top two</span></b> <span lang="ko">(2,312회 · 1,630회)</span><span lang="en">(2,312 and 1,630 views)</span></li></ul></li>
       </ol>
   </div>
 </section>
 
 <div class="pf-banner" id="portfolio2" style="scroll-margin-top:60px">
+  
   <div class="wrap">
     <div class="no">02</div>
     <div>
@@ -810,24 +916,24 @@ section{scroll-margin-top:70px}
     <div class="sec-head">
       <div>
         <span class="place">Portfolio 02 · Educanspire</span>
-        <h2><span lang="ko">분산된 해외 기회 정보를 읽기 쉬운 자료로</span><span lang="en">Turning scattered opportunity info into reader-friendly materials</span></h2>
+        <h2><span lang="ko">흩어진 정보를 구조화해 읽히는 자료로</span><span lang="en">Structuring scattered information into readable materials</span></h2>
       </div>
-      <p class="meta"><span lang="ko">Visme · 브로슈어 2종</span><span lang="en">Visme · two brochures</span></p>
+      <p class="meta"><span lang="ko">미국 독자 대상 · Visme · 영문 브로슈어 2종</span><span lang="en">US readers · Visme · two English brochures</span></p>
     </div>
     <p class="case-lead"><span lang="ko"><b>텍스트로 빼곡한 원자료를 항목별로 구조화하고 시각 자료로 압축해, 23쪽·17쪽 분량의 브로슈어 2종을 제작했습니다.</b></span><span lang="en"><b>I restructured a text-heavy dataset and compressed it into visuals, producing two brochures of 23 and 17 pages.</b></span></p>
     <ol class="star">
         <li><span class="st"><b>01</b><span lang="ko">상황</span><span lang="en">Situation</span></span>
           <h4><span lang="ko">정보는 많았지만 읽히지 않았습니다</span><span lang="en">Plenty of information, hard to read</span></h4>
-          <ul><li><span lang="ko">원자료는 수많은 프로그램 정보가 텍스트로 빼곡한 구글 시트였고, 항목도 흩어져 있었습니다.</span><span lang="en">The source was a Google Sheet packed with text on many programs, with scattered fields.</span></li><li><span lang="ko">그대로 전달하면 학생이 자신에게 맞는 정보를 찾는 데만 오랜 시간이 걸리는 구조였습니다.</span><span lang="en">As is, students would spend a long time just finding what fit them.</span></li></ul></li>
+          <ul class="labeled lp"><li><span class="lb"><span lang="ko">원자료</span><span lang="en">Source</span></span><b class="lead"><span lang="ko">텍스트로 빼곡한 구글 시트</span><span lang="en">A text-heavy Google Sheet</span></b> <span lang="ko">수많은 프로그램 정보의 항목이 흩어져 있었습니다.</span><span lang="en">with fields for many programs scattered throughout.</span></li><li><span class="lb"><span lang="ko">독자 관점</span><span lang="en">Reader</span></span><b class="lead"><span lang="ko">원하는 정보를 찾기까지 오래 걸리는 구조</span><span lang="en">Slow to find what you need</span></b> <span lang="ko">학생이 자신에게 맞는 정보를 찾기 어려웠습니다.</span><span lang="en">students struggled to find what fit them.</span></li></ul></li>
         <li><span class="st"><b>02</b><span lang="ko">기획</span><span lang="en">Plan</span></span>
           <h4><span lang="ko">독자와 문화에 맞는 형식으로 바꾸기로 했습니다</span><span lang="en">Choose a format that fits the reader</span></h4>
-          <ul><li><span lang="ko">프로그램 구분과 주요 내용 기준으로 정보를 항목별로 구조화했습니다.</span><span lang="en">Structured the content by program type and key details.</span></li><li><span lang="ko">처음 한국에서 익숙한 미리캔버스로 시안을 만들었으나, 미국 상사에게 형식이 어색하고 전달하려는 내용과 맞지 않는다는 피드백을 받았습니다.</span><span lang="en">My first draft in Miricanvas, a Korean tool, felt off to my US manager and did not suit the content.</span></li></ul></li>
+          <ul class="labeled lp"><li><span class="lb"><span lang="ko">구조화</span><span lang="en">Structure</span></span><b class="lead"><span lang="ko">프로그램 유형·주요 내용 기준으로 재분류</span><span lang="en">Regrouped by program type and key details</span></b></li><li><span class="lb"><span lang="ko">피드백</span><span lang="en">Feedback</span></span><b class="lead"><span lang="ko">첫 시안이 미국 독자에게 어색하다는 의견</span><span lang="en">First draft felt off to US readers</span></b> <span lang="ko">한국에서 익숙한 미리캔버스 시안이 형식과 내용에 맞지 않는다는 피드백을 받았습니다.</span><span lang="en">my Miricanvas draft did not suit the format or content, my US manager said.</span></li></ul></li>
         <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
           <h4><span lang="ko">미국에서 많이 쓰는 Visme를 단기간에 익혔습니다</span><span lang="en">Learned Visme, a US standard, quickly</span></h4>
-          <ul><li><span lang="ko">상급자의 피드백을 받아가며 Visme를 빠르게 익혔습니다.</span><span lang="en">Picked up Visme quickly while iterating on my manager’s feedback.</span></li><li><span lang="ko">프로그램 구분, 주요 내용, 디자인, 폰트, 색상을 통일해 시각적으로 편안한 책자를 만들었습니다.</span><span lang="en">Unified program types, key details, layout, fonts and colors into a calm, readable booklet.</span></li><li><span lang="ko">긴 텍스트를 시각 자료로 압축했습니다.</span><span lang="en">Compressed long text into visuals.</span></li></ul></li>
+          <ul class="labeled lp"><li><span class="lb"><span lang="ko">툴 전환</span><span lang="en">Tool</span></span><b class="lead"><span lang="ko">미국에서 많이 쓰는 편집 툴 Visme를 단기간에 습득</span><span lang="en">Learned Visme, widely used in the US, quickly</span></b> <span lang="ko">상급자의 피드백을 반영하며 익혔습니다.</span><span lang="en">while iterating on my manager’s feedback.</span></li><li><span class="lb"><span lang="ko">디자인 통일</span><span lang="en">Consistency</span></span><b class="lead"><span lang="ko">프로그램 구분·디자인·폰트·색상 통일</span><span lang="en">Unified program types, layout, fonts and colors</span></b> <span lang="ko">시각적으로 편안한 책자를 만들었습니다.</span><span lang="en">for a calm, readable booklet.</span></li><li><span class="lb"><span lang="ko">시각화</span><span lang="en">Visuals</span></span><b class="lead"><span lang="ko">긴 텍스트를 시각 자료로 압축</span><span lang="en">Compressed long text into visuals</span></b></li></ul></li>
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
           <h4><span lang="ko">23쪽·17쪽 브로슈어 2종 완성 · 인턴십 수료</span><span lang="en">Two brochures (23 and 17 pages) · completed</span></h4>
-          <ul><li><span lang="ko">미국 내 아시아계 학생 대상 장학금·인턴십·서머 프로그램 정보를 23쪽, 17쪽 분량의 브로슈어 2종으로 제작했습니다.</span><span lang="en">Produced two brochures, 23 and 17 pages, on scholarships, internships and summer programs for Asian-American students.</span></li><li><span lang="ko">교내 LINC+ 사업단 현장직무체험 공고로 지원해 영어 면접을 거쳐 선발되었고, 기간을 마치고 수료했습니다.</span><span lang="en">Selected via my university’s LINC+ program and an English interview, and completed the internship.</span></li></ul>
+          <ul class="labeled lp"><li><span class="lb"><span lang="ko">결과물</span><span lang="en">Deliverables</span></span><b class="lead"><span lang="ko">23쪽·17쪽 영문 브로슈어 2종</span><span lang="en">Two English brochures, 23 and 17 pages</span></b> <span lang="ko">미국 내 아시아계 학생 대상 장학금·인턴십·서머 프로그램 안내</span><span lang="en">on scholarships, internships and summer programs for Asian-American students</span></li><li><span class="lb"><span lang="ko">수료</span><span lang="en">Completion</span></span><b class="lead"><span lang="ko">LINC+ 현장직무체험 선발 · 인턴십 수료</span><span lang="en">Selected via LINC+ · internship completed</span></b> <span lang="ko">영어 면접을 거쳐 선발되었습니다.</span><span lang="en">after an English interview.</span></li></ul>
           <p class="lesson"><span lang="ko">배운 점: 같은 정보라도 독자의 관점과 문화에 맞는 형식이어야 제대로 전달됩니다.</span><span lang="en">Lesson: the same information only lands when its format fits the reader’s point of view and culture.</span></p></li>
       </ol>
 
@@ -865,7 +971,6 @@ section{scroll-margin-top:70px}
   <div class="wrap">
     <div>
       <span class="place num-place" style="color:#4A3426"><b style="background:#1E1A16;color:#FFE500">06</b>Contact</span>
-      <h2><span lang="ko">항상 밝게<br>인사드리겠습니다.</span><span lang="en">I'll always greet you<br>with a smile.</span></h2>
       <div class="mail">
         <code id="email">sonyjsunny@gmail.com</code>
         <button class="copy" data-copy="email"><span lang="ko">이메일 복사</span><span lang="en">Copy email</span></button>
@@ -1143,7 +1248,8 @@ section{scroll-margin-top:70px}
     ebook:{title:'2022 Global Opportunities · Brochure 2',pages:Array.from({length:17},(_,i)=>`assets/ebook/p-${pad(i+1,2)}.jpg`)},
     deck:{title:'Global Marketing Competition · Pitch deck',pages:Array.from({length:18},(_,i)=>`assets/deck/s-${pad(i+1,2)}.jpg`)},
     staff:{title:'Christmas Party · Staff rota & manual',pages:Array.from({length:4},(_,i)=>`assets/staff/p-${i+1}.jpg`)},
-    cert:{title:'EducanSpire · Certificate of completion',pages:['assets/certificate.jpg']}
+    cert:{title:'EducanSpire · Certificate of completion',pages:['assets/certificate.jpg']},
+    samsung:{title:'Samsung Life Financial Training Program · Certificate',pages:['assets/laka/samsung-cert.jpg']}
   };
 
   /* flipbook */
@@ -1213,6 +1319,20 @@ section{scroll-margin-top:70px}
   function closeDoc(){if(!vw)return;vw.remove();vw=null;document.body.style.overflow=''}
   addEventListener('keydown',e=>{if(!vw)return;if(e.key==='Escape')closeDoc();if(e.key==='ArrowRight'){vI=Math.min(vDoc.pages.length-1,vI+1);vShow()}if(e.key==='ArrowLeft'){vI=Math.max(0,vI-1);vShow()}});
   document.querySelectorAll('[data-doc]').forEach(b=>b.addEventListener('click',()=>openDoc(b.dataset.doc)));
+
+  /* case steps: tap or hover to focus one phase */
+  document.querySelectorAll('.star').forEach(ol=>{
+    const items=[...ol.children];
+    const focus=li=>{ol.classList.add('focusing');items.forEach(x=>x.classList.toggle('on',x===li))};
+    const clear=()=>{ol.classList.remove('focusing');items.forEach(x=>x.classList.remove('on'))};
+    items.forEach(li=>{
+      li.setAttribute('tabindex','0');
+      li.addEventListener('click',e=>{if(e.target.closest('button,a'))return;li.classList.contains('on')?clear():focus(li)});
+      li.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();li.classList.contains('on')?clear():focus(li)}});
+      li.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')focus(li)});
+    });
+    ol.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')clear()});
+  });
 
   setLang(lang);
 })();
