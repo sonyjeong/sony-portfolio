@@ -632,6 +632,60 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 @keyframes aura-sheen{to{background-position:0 0,0 0}}
 .edu .panel.main .yr,.edu .panel.main .desc,.edu .panel.main .big small,.pf-banner p,.pf-banner .when,.voice.y small{color:rgba(255,236,241,.82)}
 @media (prefers-reduced-motion:reduce){.pf-banner,.contact,.edu .panel.main,.voice.y,.gf-steps li:last-child,.fill.hot,.growth{animation:none}}
+
+/* portfolio dividers: V-shaped burgundy neon, no box */
+.pf-banner{position:relative;overflow:hidden;border:0;box-shadow:none;animation:none;-webkit-backdrop-filter:none;backdrop-filter:none;
+  background:radial-gradient(ellipse 60% 120% at 50% 50%,#0E0306 0%,#2A0712 45%,#5A1128 100%)}
+.pf-banner .wrap{position:relative;z-index:2;padding-block:72px}
+.pf-banner::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(10,2,5,.82) 0%,rgba(10,2,5,.55) 38%,rgba(10,2,5,.15) 62%,rgba(10,2,5,.45) 100%)}
+.neon{position:absolute;inset:0;z-index:0;pointer-events:none}
+.neon i{position:absolute;width:calc(50% - 26px);height:calc(50% - 5px);
+  --ln:transparent 0 74px,rgba(160,32,66,.30) 78px,rgba(232,120,150,.85) 81px,#FFE3EA 82px,rgba(232,120,150,.85) 83px,rgba(160,32,66,.30) 86px,transparent 90px 120px;
+  filter:drop-shadow(0 0 6px rgba(200,40,80,.85)) drop-shadow(0 0 18px rgba(142,36,64,.7));animation:4.5s linear infinite}
+.neon .tl{left:0;top:0;background:repeating-linear-gradient(45deg,var(--ln));animation-name:nv-r}
+.neon .bl{left:0;bottom:0;background:repeating-linear-gradient(135deg,var(--ln));animation-name:nv-r}
+.neon .tr{right:0;top:0;background:repeating-linear-gradient(135deg,var(--ln));animation-name:nv-l}
+.neon .br{right:0;bottom:0;background:repeating-linear-gradient(45deg,var(--ln));animation-name:nv-l}
+@keyframes nv-r{to{background-position:169.7px 0}}
+@keyframes nv-l{to{background-position:-169.7px 0}}
+@media (prefers-reduced-motion:reduce){.neon i{animation:none}}
+
+/* aura finder: hex tunnel pulling inward */
+.holo-out{overflow:hidden;background:radial-gradient(circle at 70px 50%,rgba(142,36,64,.35),rgba(10,2,6,.6) 60%),rgba(10,2,6,.4)}
+.orb{width:140px;height:140px}
+.tunnel{position:absolute;inset:-75%;pointer-events:none;z-index:0}
+.tunnel::before{content:"";position:absolute;inset:0;border-radius:50%;
+  background:repeating-conic-gradient(from 0deg,rgba(232,166,182,.32) 0 .5deg,transparent .5deg 30deg);
+  -webkit-mask:radial-gradient(circle,transparent 18%,#000 30%,transparent 70%);mask:radial-gradient(circle,transparent 18%,#000 30%,transparent 70%);animation:spin 24s linear infinite}
+.tunnel .hx{position:absolute;inset:0;opacity:0;animation:suck 3.6s cubic-bezier(.5,0,.85,.4) infinite}
+.tunnel .hx:nth-child(even){--r:30deg}
+.tunnel svg{width:100%;height:100%;overflow:visible}
+.tunnel polygon{fill:none;stroke:#F0A3B5;stroke-width:1.3;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 3px #D0405F) drop-shadow(0 0 8px rgba(142,36,64,.9))}
+@keyframes suck{0%{transform:scale(1.2) rotate(var(--r,0deg));opacity:0}15%{opacity:.9}85%{opacity:.6}100%{transform:scale(.08) rotate(calc(var(--r,0deg) + 30deg));opacity:0}}
+.orb .ring,.orb .core{z-index:1}
+.holo.proc .tunnel .hx{animation-duration:.8s}
+.holo.proc .tunnel::before{animation-duration:3s}
+.holo.proc .orb .core{transform:scale(.82);filter:brightness(1.3)}
+.orb .core{transition:background-color .5s,box-shadow .5s,transform .4s,filter .4s}
+.holo .recipe{transition:opacity .3s,filter .3s}
+.holo.proc .recipe .r-name,.holo.proc .recipe .r-lines,.holo.proc .recipe .r-tip{opacity:.2;filter:blur(3px)}
+.holo.proc .r-no{color:#F0A3B5;animation:blink .5s steps(2) infinite}
+@keyframes blink{50%{opacity:.4}}
+@media (prefers-reduced-motion:reduce){.tunnel .hx,.tunnel::before{animation:none}.tunnel .hx:nth-child(-n+3){opacity:.5}.tunnel .hx:nth-child(2){transform:scale(.6)}.tunnel .hx:nth-child(3){transform:scale(.3)}}
+
+/* finder: keep recipe readable over the tunnel */
+.holo-out .recipe{position:relative;z-index:2;background:rgba(14,4,8,.82);border:1px solid rgba(232,166,182,.14);border-radius:12px;padding:12px 14px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+
+/* skills: rotating neon light around the panel */
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+.neon-ring{position:relative;isolation:isolate;background:transparent;border:0}
+.neon-ring::before,.neon-ring::after{content:"";position:absolute;border-radius:inherit;pointer-events:none;animation:ring 4s linear infinite}
+.neon-ring::before{inset:0;z-index:-1;border:2px solid transparent;
+  background:linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--ang),rgba(142,36,64,.45) 0 40%,#C2385A 58%,#FFB3C4 72%,#FFF5F7 75%,#FFB3C4 78%,#C2385A 90%,rgba(142,36,64,.45) 100%) border-box}
+.neon-ring::after{inset:-3px;z-index:-2;filter:blur(12px);opacity:1;
+  background:conic-gradient(from var(--ang),transparent 0 42%,rgba(194,56,90,.95) 62%,rgba(255,179,196,1) 75%,rgba(194,56,90,.95) 88%,transparent 98%)}
+@keyframes ring{to{--ang:360deg}}
+@media (prefers-reduced-motion:reduce){.neon-ring::before,.neon-ring::after{animation:none}}
 </style>
 
 </head>
@@ -804,7 +858,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
         <div class="holo-main">
           <div class="holo-qs" id="finder-qs"></div>
           <div class="holo-out" aria-live="polite">
-            <div class="orb" aria-hidden="true"><span class="ring"></span><span class="core" id="orb-core"></span></div>
+            <div class="orb" aria-hidden="true"><div class="tunnel" id="tunnel"></div><span class="ring"></span><span class="core" id="orb-core"></span></div>
             <div class="recipe">
               <span class="r-no" id="r-no">RECIPE #000</span>
               <strong class="r-name" id="r-name">—</strong>
@@ -880,7 +934,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
         </div>
         <p class="desc" style="margin-top:16px"><span lang="ko">미국 메릴랜드에서 출생해 약 11년간 거주했고, 미국 스타트업 비대면 인턴으로 현지 상사와 함께 일했습니다. 영어권 고객과 파트너를 대하는 일이 낯설지 않습니다.</span><span lang="en">Born in Maryland, I lived in the US for about 11 years and later worked remotely for a US startup under a US-based manager. Working with English-speaking customers and partners feels natural to me.</span></p>
       </div>
-      <div class="panel">
+      <div class="panel neon-ring">
         <h3><span lang="ko">실무 역량</span><span lang="en">On-the-job skills</span></h3>
         <div class="strength">
           <div><b><span lang="ko">오프라인 이벤트 기획 · 운영</span><span lang="en">Offline event planning</span></b><span><span lang="ko">4회 · 누적 430명</span><span lang="en">4 events · 430 guests</span></span></div>
@@ -937,6 +991,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 </section>
 
 <div class="pf-banner" id="portfolio" style="scroll-margin-top:60px">
+  <div class="neon" aria-hidden="true"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></div>
   <div class="wrap">
     <div class="no">01</div>
     <div>
@@ -1111,6 +1166,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 </section>
 
 <div class="pf-banner" id="portfolio2" style="scroll-margin-top:60px">
+  <div class="neon" aria-hidden="true"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></div>
   <div class="wrap">
     <div class="no">02</div>
     <div>
@@ -1486,7 +1542,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       const b=document.createElement('button');b.type='button';b.className='chip';b.dataset.v=val;
       b.innerHTML=(hex?`<i class="dot" style="background:${hex};color:${hex}"></i>`:'')+`<span lang="ko">${lab.ko}</span><span lang="en">${lab.en}</span>`;
       b.addEventListener('click',e=>{
-        st[q.k]=val;render();
+        st[q.k]=val;render();pulse();
         if(!reduce){const r=b.getBoundingClientRect(),d=document.createElement('span');d.className='rip';const sz=Math.max(r.width,r.height);
           d.style.cssText=`width:${sz}px;height:${sz}px;left:${(e.clientX||r.left+r.width/2)-r.left-sz/2}px;top:${(e.clientY||r.top+r.height/2)-r.top-sz/2}px`;b.appendChild(d);setTimeout(()=>d.remove(),650)}
       });
@@ -1498,6 +1554,17 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       const o=g.querySelector('.opts');q.o.forEach(([v,lab,hex])=>o.appendChild(chipEl(q,v,lab,hex)));box.appendChild(g);
     });
     window.renderFinder=render;
+    const finder=document.getElementById('finder'), tun=document.getElementById('tunnel');
+    if(tun){
+      const hex='<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet"><polygon points="50,3 91,26.5 91,73.5 50,97 9,73.5 9,26.5"/></svg>';
+      for(let i=0;i<8;i++){const w=document.createElement('div');w.className='hx';w.style.animationDelay=(-i*0.45)+'s';w.innerHTML=hex;tun.appendChild(w)}
+    }
+    let pt=null;
+    function pulse(){
+      if(reduce) return;
+      finder.classList.add('proc');document.getElementById('r-no').textContent=lang==='ko'?'ANALYZING YOUR AURA…':'ANALYZING YOUR AURA…';
+      clearTimeout(pt);pt=setTimeout(()=>{finder.classList.remove('proc');render()},950);
+    }
     function render(){
       box.querySelectorAll('.q').forEach(g=>g.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.v===st[g.dataset.k])));
       const L=lang, warm=st.season==='spring'||st.season==='autumn', cool=st.season==='summer'||st.season==='winter';
