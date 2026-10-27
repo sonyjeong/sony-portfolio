@@ -759,6 +759,27 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 .scene h1 em,.preview .l3 b{background:linear-gradient(175deg,#F1E4FF 0%,#C79BFF 30%,#9A4FEA 60%,#6A22B8 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 10px rgba(150,70,240,.45))}
 .preview .l3 b{text-shadow:none}
 .feed .r-lines dt,.feed .recipe .r-name{color:#8E2440}
+
+/* steel titles + numbers: glossy silver, glow, drawn neon underline */
+:root{--steel:linear-gradient(180deg,#FFFFFF 0%,#EEF1F5 34%,#A9B2BD 52%,#F5F7FA 68%,#8B95A1 100%);
+  --steel-sweep:linear-gradient(100deg,#8D96A1 0%,#E9ECF0 30%,#FFFFFF 42%,#AEB6C0 55%,#EEF1F4 75%,#7F8893 100%)}
+.sec-head h2,.ab-title,.pf-banner h2,.scene h1,.byoa-head h3,.ideas-head h3{background:var(--steel);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;
+  filter:drop-shadow(0 0 1px rgba(255,255,255,.35)) drop-shadow(0 0 14px rgba(200,210,224,.28))}
+.scene h1 .a{background:none;-webkit-background-clip:border-box;background-clip:border-box}
+.stat .n,.pf-banner .no,.edu .big,.cert b,.round .ppl,.pages,.ticket .t-v{background:var(--steel-sweep);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 12px rgba(210,220,235,.35));animation:steel-sweep 5.5s ease-in-out infinite}
+@keyframes steel-sweep{0%,100%{background-position:100% 0}50%{background-position:0 0}}
+.edu .big small,.round .ppl span,.pages small{-webkit-text-fill-color:currentColor;color:var(--muted)}
+.sec-head h2,.ab-title,.pf-banner h2{position:relative;width:fit-content;max-width:100%;padding-bottom:14px}
+.sec-head h2::after,.ab-title::after,.pf-banner h2::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,rgba(170,178,190,.15),#F4F6F9 45%,#C9CFD7 70%,rgba(170,178,190,.15));
+  box-shadow:0 0 6px rgba(240,244,250,.8),0 0 16px rgba(190,200,215,.55);transform:scaleX(0);transform-origin:left;transition:transform 1.3s cubic-bezier(.65,0,.25,1)}
+.sec-head h2::before,.ab-title::before,.pf-banner h2::before{content:"";position:absolute;left:0;bottom:-2px;width:90px;height:6px;border-radius:6px;opacity:0;pointer-events:none;
+  background:radial-gradient(closest-side,#FFFFFF,rgba(255,255,255,.6) 40%,transparent);filter:blur(.5px)}
+.sec-head h2.drawn::after,.ab-title.drawn::after,.pf-banner h2.drawn::after{transform:scaleX(1)}
+.sec-head h2.drawn::before,.ab-title.drawn::before,.pf-banner h2.drawn::before{animation:streak 3.6s ease-in-out 1.3s infinite}
+@keyframes streak{0%{left:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:calc(100% - 90px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.stat .n,.pf-banner .no,.edu .big,.cert b,.round .ppl,.pages,.ticket .t-v{animation:none}.sec-head h2.drawn::before,.ab-title.drawn::before,.pf-banner h2.drawn::before{animation:none}.sec-head h2::after,.ab-title::after,.pf-banner h2::after{transition:none}}
 </style>
 
 </head>
@@ -1695,6 +1716,14 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     });
     ol.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')clear()});
   });
+
+  /* draw steel underline when titles enter view */
+  (function(){
+    const els=document.querySelectorAll('.sec-head h2,.ab-title,.pf-banner h2');
+    if(reduce||!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('drawn'));return}
+    const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('drawn');io.unobserve(en.target)}}),{threshold:.6});
+    els.forEach(e=>io.observe(e));
+  })();
 
   setLang(lang);
 })();
