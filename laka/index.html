@@ -686,6 +686,31 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
   background:conic-gradient(from var(--ang),transparent 0 42%,rgba(194,56,90,.95) 62%,rgba(255,179,196,1) 75%,rgba(194,56,90,.95) 88%,transparent 98%)}
 @keyframes ring{to{--ang:360deg}}
 @media (prefers-reduced-motion:reduce){.neon-ring::before,.neon-ring::after{animation:none}}
+
+/* portfolio titles: no box, big type over a moving neon grid floor */
+.pf-banner{background:transparent!important;box-shadow:none!important;animation:none!important;overflow:hidden;margin-top:110px}
+.pf-banner::after{display:none}
+.pf-banner .wrap{padding-block:36px 190px;grid-template-columns:auto 1fr auto;align-items:end}
+.pf-banner .no{font-size:clamp(96px,15vw,200px);background:linear-gradient(180deg,#FFFFFF 30%,#E8A6B6 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 22px rgba(176,60,140,.45))}
+.pf-banner h2{font-size:clamp(40px,6.4vw,84px);line-height:1.02;letter-spacing:-.03em;text-shadow:0 0 30px rgba(176,60,140,.35)}
+.pf-banner p{font-size:clamp(15px,1.5vw,18px);color:rgba(255,236,241,.85);margin-top:10px}
+.pf-banner .when{font-size:15px;color:rgba(255,236,241,.85)}
+.floor{position:absolute;left:0;right:0;bottom:0;height:190px;perspective:240px;perspective-origin:50% 0;overflow:hidden;
+  -webkit-mask:linear-gradient(180deg,transparent 0%,#000 30%);mask:linear-gradient(180deg,transparent 0%,#000 30%)}
+.floor i{position:absolute;left:-60%;right:-60%;top:0;height:900px;transform-origin:50% 0;transform:rotateX(72deg);
+  background-image:linear-gradient(rgba(214,92,170,.95) 2px,transparent 2px),linear-gradient(90deg,rgba(214,92,170,.95) 2px,transparent 2px);
+  background-size:90px 90px;background-position:50% 0;animation:floor-run 1.8s linear infinite;
+  filter:drop-shadow(0 0 3px #D35CC0) drop-shadow(0 0 10px rgba(142,36,64,.9))}
+@keyframes floor-run{to{background-position:50% 90px}}
+.horizon{position:absolute;left:0;right:0;bottom:150px;height:80px;pointer-events:none;
+  background:radial-gradient(ellipse 50% 60% at 50% 100%,rgba(176,60,150,.45),rgba(142,36,64,.18) 50%,transparent 75%)}
+@media (max-width:760px){.pf-banner .wrap{grid-template-columns:1fr;gap:6px;padding-block:24px 150px}.floor{height:150px}.horizon{bottom:110px}}
+@media (prefers-reduced-motion:reduce){.floor i{animation:none}}
+
+/* silver neon ring variant */
+.neon-ring.silver::before{background:linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--ang),rgba(167,171,178,.28) 0 40%,#9AA0A8 58%,#E4E6EA 72%,#FFFFFF 75%,#E4E6EA 78%,#9AA0A8 90%,rgba(167,171,178,.28) 100%) border-box}
+.neon-ring.silver::after{background:conic-gradient(from var(--ang),transparent 0 42%,rgba(170,176,186,.75) 62%,rgba(240,242,246,.9) 75%,rgba(170,176,186,.75) 88%,transparent 98%);opacity:.75}
+.neon-ring.silver::before,.neon-ring.silver::after{animation-duration:6s;animation-direction:reverse}
 </style>
 
 </head>
@@ -925,7 +950,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       </div>
     </div>
     <div class="skills">
-      <div class="panel">
+      <div class="panel neon-ring silver">
         <h3><span lang="ko">어학 · 자격</span><span lang="en">Languages · Certificates</span></h3>
         <div class="cert">
           <div><b>985</b><span>TOEIC</span></div>
@@ -944,7 +969,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
           <div><b><span lang="ko">고객 커뮤니케이션</span><span lang="en">Customer communication</span></b><span><span lang="ko">회신 7,303건 · 확정률 7%</span><span lang="en">7,303 callbacks · 7% booked</span></span></div>
         </div>
       </div>
-      <div class="panel wide">
+      <div class="panel wide neon-ring silver">
         <h3><span lang="ko">콘텐츠 제작 · 업무 도구</span><span lang="en">Content and work tools</span></h3>
         <div class="pills" style="margin-top:14px">
           <span>Canva</span><span>Visme</span><span>Instagram</span><span>ChatGPT</span><span>Gemini</span><span>Claude</span><span>Notion</span><span>Google Sheets</span><span>Google Docs</span><span>SQL</span>
@@ -991,7 +1016,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 </section>
 
 <div class="pf-banner" id="portfolio" style="scroll-margin-top:60px">
-  <div class="neon" aria-hidden="true"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></div>
+  <div class="floor" aria-hidden="true"><i></i></div><div class="horizon" aria-hidden="true"></div>
   <div class="wrap">
     <div class="no">01</div>
     <div>
@@ -1166,7 +1191,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 </section>
 
 <div class="pf-banner" id="portfolio2" style="scroll-margin-top:60px">
-  <div class="neon" aria-hidden="true"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></div>
+  <div class="floor" aria-hidden="true"><i></i></div><div class="horizon" aria-hidden="true"></div>
   <div class="wrap">
     <div class="no">02</div>
     <div>
