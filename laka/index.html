@@ -552,6 +552,21 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 .star .fix{display:block;margin-top:6px;color:var(--ink);font-weight:600}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .star .flow-chips span span+span::before{color:var(--rose)}}
 :root[data-theme="dark"] .star .flow-chips span span+span::before{color:var(--rose)}
+
+/* case steps: phase colors + focus */
+.star>li{--ph:#A7ABB2;position:relative;background:color-mix(in srgb,var(--ph) 7%,var(--card));transition:opacity .25s ease,background-color .25s ease,box-shadow .25s ease;cursor:pointer}
+.star>li:nth-child(2){--ph:#A77BC0}
+.star>li:nth-child(3){--ph:#C8915F}
+.star>li:nth-child(4){--ph:#E2425E}
+.star>li::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ph)}
+.star>li:last-child{background:color-mix(in srgb,var(--ph) 9%,var(--card))}
+.star .st{color:var(--ph)}
+.star .st b,.star>li:last-child .st b{background:var(--ph);color:#140E10}
+.star ul li::marker{color:var(--ph)}
+.star .lb{background:var(--ph);color:#140E10}
+.star.focusing>li:not(.on){opacity:.38}
+.star>li.on{background:color-mix(in srgb,var(--ph) 16%,var(--card));box-shadow:inset 0 0 0 1.5px var(--ph)}
+@media (prefers-reduced-motion:reduce){.star>li{transition:none}}
 </style>
 
 </head>
@@ -898,12 +913,12 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       <h3><span lang="ko">게스트 커넥트 미션으로 처음 만난 게스트를 잇다</span><span lang="en">Connecting first-time guests through the Guest Connect Mission</span></h3>
       <p class="desc"><span lang="ko">아는 사람끼리만 대화하던 분위기를 바꾸기 위해, 처음 만난 게스트와 짝을 이뤄 미션을 수행하도록 설계했습니다. 많이 참여할수록 당첨 확률이 높아져 참여율과 교류가 함께 늘었습니다.</span><span lang="en">To move beyond guests talking only with people they already knew, I had them pair up with someone new to complete missions. More play meant better odds, so participation and interaction rose together.</span></p>
       <ol class="gf-steps">
-        <li><b>01</b><h4><span lang="ko">짝 그림 카드 받기</span><span lang="en">Get a picture card</span></h4><p><span lang="ko">입장 시 회차 테마에 맞춘 그림 카드 지급</span><span lang="en">Theme cards handed out at entry</span></p></li>
+        <li><b>01</b><h4><span lang="ko">게임 참여권 받기</span><span lang="en">Get a game pass</span></h4><p><span lang="ko">입장 시 회차 테마 그림이 담긴 게임 참여권 배부</span><span lang="en">A game pass with the round’s theme picture, handed out at entry</span></p></li>
         <li><b>02</b><h4><span lang="ko">같은 그림의 짝꿍 찾기</span><span lang="en">Find your match</span></h4><p><span lang="ko">같은 그림을 가진 참가자와 팀 구성</span><span lang="en">Team up with the guest holding the same card</span></p></li>
-        <li><b>03</b><h4><span lang="ko">사격 · 링 던지기</span><span lang="en">Shooting · ring toss</span></h4><p><span lang="ko">짝꿍과 함께 미니게임 도전</span><span lang="en">Take on a mini-game together</span></p></li>
+        <li><b>03</b><h4><span lang="ko">인증 후 미니게임 참여</span><span lang="en">Verify, then play</span></h4><p><span lang="ko">스태프에게 같은 그림 짝을 인증한 뒤 사격·링 던지기·푸즈볼 도전</span><span lang="en">Show your match to staff, then try shooting, ring toss or foosball</span></p></li>
         <li><b>04</b><h4><span lang="ko">경품 추첨 응모권</span><span lang="en">Lucky-draw entry</span></h4><p><span lang="ko">게임을 통과하면 응모권 지급</span><span lang="en">Pass the game, earn an entry</span></p></li>
       </ol>
-      <p class="gf-loop"><i>↻</i><span><span lang="ko"><b>선착순 마감 → 재참여형</b> 이벤트 인기로 미니게임이 선착순으로 조기 마감되던 구조를, 같은 그림 카드를 여러 장 준비한 재참여형으로 바꿔 더 많은 게스트가 반복 참여하며 새로운 파트너와 교류하도록 했습니다.</span><span lang="en"><b>First-come → replayable</b> As the event grew popular, mini-games kept filling up early on a first-come basis. With several copies of each card, I made them replayable so more guests could join again and meet new partners.</span></span></p>
+      <p class="gf-loop"><i>↻</i><span><span lang="ko"><b>선착순 마감 → 재참여형</b> 이벤트 인기로 미니게임이 선착순으로 조기 마감되던 구조를, 같은 그림의 게임 참여권을 여러 장 준비한 재참여형으로 바꿔 더 많은 게스트가 반복 참여하며 새로운 파트너와 교류하도록 했습니다.</span><span lang="en"><b>First-come → replayable</b> As the event grew popular, mini-games kept filling up early on a first-come basis. With several copies of each card, I made them replayable so more guests could join again and meet new partners.</span></span></p>
       <div class="gf-more">
         <div>
           <span class="k"><span lang="ko">회차별 짝 그림 테마</span><span lang="en">Card theme by round</span></span>
@@ -915,8 +930,8 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
           </ol>
         </div>
         <div>
-          <span class="k"><span lang="ko">함께 운영한 게임</span><span lang="en">Other games</span></span>
-          <div class="extra-games"><span><span lang="ko">네트워킹 빙고판</span><span lang="en">Networking bingo</span></span><span><span lang="ko">3인 참여형 캐롤 가사 잇기</span><span lang="en">Three-person carol lyric relay</span></span></div>
+          <span class="k"><span lang="ko">이외에 함께 운영한 게임</span><span lang="en">Other games we also ran</span></span>
+          <div class="extra-games"><span><span lang="ko">네트워킹 빙고판</span><span lang="en">Networking bingo</span></span><span><span lang="ko">3인 참여형 캐롤 영어 가사 잇기</span><span lang="en">Three-person English carol lyric relay</span></span></div>
         </div>
       </div>
     </div>
@@ -935,10 +950,10 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
           <ul><li><span lang="ko">기존 파티는 식음료와 스몰토크 위주로 진행되어, 대화가 기존에 알던 사람들 사이에서만 오가는 등 새로운 교류로 이어지는 데 한계가 있었습니다.</span><span lang="en">Past parties centered on food, drinks and small talk, so conversation stayed among people who already knew each other and rarely led to new connections.</span></li><li><span lang="ko">기존 포스터는 범용 템플릿의 틀 안에서 제작되어 특색이 부족했고, 컬컴 행사라는 점을 인상적으로 전달하지 못했습니다.</span><span lang="en">Posters were built on generic templates, lacked character, and did not make it clear this was a Culcom event.</span></li></ul></li>
         <li><span class="st"><b>02</b><span lang="ko">기획</span><span lang="en">Plan</span></span>
           <h4><span lang="ko">게스트 커넥트 미션으로 네트워킹을 활성화했습니다</span><span lang="en">Activated networking with the Guest Connect Mission</span></h4>
-          <ul><li><span lang="ko">조교 업무 범위 밖이었지만 매니저에게 직접 제안해 기획 권한을 위임받았습니다.</span><span lang="en">It was outside my role, so I proposed it to the manager and was given ownership.</span></li><li><span lang="ko">같은 그림의 짝꿍을 찾아 사격·링 던지기 게임을 통과하면 경품 추첨 응모권을 받도록 설계했습니다. 많이 참여할수록 당첨 확률이 높아져 게임 참여율과 교류를 함께 높일 수 있었습니다.</span><span lang="en">Guests who found their matching partner and cleared a shooting or ring-toss game earned a lucky-draw entry; more play meant better odds, lifting participation and interaction together.</span></li><li><span lang="ko">네트워킹 빙고판과 3인 참여형 캐롤 가사 잇기 게임을 더해 참여 방법과 게임 종류를 넓혔습니다.</span><span lang="en">Added networking bingo and a three-person carol lyric relay to widen how guests could take part.</span></li></ul></li>
+          <ul><li><span lang="ko">조교 업무 범위 밖이었지만 매니저에게 직접 제안해 기획 권한을 위임받았습니다.</span><span lang="en">It was outside my role, so I proposed it to the manager and was given ownership.</span></li><li><span lang="ko">같은 그림의 짝꿍을 찾아 스태프에게 인증한 뒤 사격·링 던지기·푸즈볼 게임을 통과하면 경품 추첨 응모권을 받도록 설계했습니다. 많이 참여할수록 당첨 확률이 높아져 게임 참여율과 교류를 함께 높일 수 있었습니다.</span><span lang="en">Guests who found their matching partner and had it verified by staff and cleared a shooting, ring-toss or foosball game earned a lucky-draw entry; more play meant better odds, lifting participation and interaction together.</span></li><li><span lang="ko">네트워킹 빙고판과 3인 참여형 캐롤 영어 가사 잇기 게임을 더해 참여 방법과 게임 종류를 넓혔습니다.</span><span lang="en">Added networking bingo and a three-person English carol lyric relay to widen how guests could take part.</span></li></ul></li>
         <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
           <h4><span lang="ko">반응을 반영해 회차마다 게임과 홍보물을 발전시켰습니다</span><span lang="en">Improved the games and promos every round</span></h4>
-          <ul><li><span lang="ko">짝 그림 찾기의 반응이 좋아 회차마다 게임 종류를 늘렸습니다.</span><span lang="en">Picture matching went over well, so I added more games each round.</span></li><li><span lang="ko">이벤트 인기로 선착순 조기 마감되던 미니게임을, 같은 그림 카드를 여러 장 준비한 재참여형으로 바꿔 더 많은 게스트가 새로운 파트너와 교류하도록 했습니다.</span><span lang="en">As the event grew popular, first-come mini-games filled up early; I made them replayable with several copies of each card so more guests could meet new partners.</span></li><li><span lang="ko">범용 템플릿 대신 직접 촬영한 지점 사진과 지점 고양이 ‘코코’를 마스코트로 활용해 컬컴만의 홍보물 시리즈를 제작했습니다.</span><span lang="en">Replaced generic templates with my own branch photos and Coco the branch cat as mascot, creating a promo series that was clearly Culcom’s.</span></li><li><span lang="ko">예산·정산 시트와 AI로 작성한 스태프 시간표로 대규모 인원을 혼선 없이 운영했습니다.</span><span lang="en">Ran large crowds smoothly with a budget and settlement sheet and an AI-assisted staff rota.</span></li></ul>
+          <ul><li><span lang="ko">짝 그림 찾기의 반응이 좋아 회차마다 게임 종류를 늘렸습니다.</span><span lang="en">Picture matching went over well, so I added more games each round.</span></li><li><span lang="ko">이벤트 인기로 선착순 조기 마감되던 미니게임을, 같은 그림의 게임 참여권을 여러 장 준비한 재참여형으로 바꿔 더 많은 게스트가 새로운 파트너와 교류하도록 했습니다.</span><span lang="en">As the event grew popular, first-come mini-games filled up early; I made them replayable with several copies of each card so more guests could meet new partners.</span></li><li><span lang="ko">범용 템플릿 대신 직접 촬영한 지점 사진과 지점 고양이 ‘코코’를 마스코트로 활용해 컬컴만의 홍보물 시리즈를 제작했습니다.</span><span lang="en">Replaced generic templates with my own branch photos and Coco the branch cat as mascot, creating a promo series that was clearly Culcom’s.</span></li><li><span lang="ko">예산·정산 시트와 AI로 작성한 스태프 시간표로 대규모 인원을 혼선 없이 운영했습니다.</span><span lang="en">Ran large crowds smoothly with a budget and settlement sheet and an AI-assisted staff rota.</span></li></ul>
           <button class="doc-btn portrait" data-doc="staff"><img src="../assets/staff/p-1.jpg" alt=""><div><b><span lang="ko">스태프 근무표 · 업무 매뉴얼</span><span lang="en">Staff rota and role manual</span></b><span><span lang="ko">국·영문 4쪽 · 직접 작성</span><span lang="en">Korean/English · 4 pages</span></span></div></button></li>
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
           <h4><span lang="ko">참여 인원 66.7% 증가</span><span lang="en">Turnout up 66.7%</span></h4>
@@ -1349,6 +1364,20 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
   function closeDoc(){if(!vw)return;vw.remove();vw=null;document.body.style.overflow=''}
   addEventListener('keydown',e=>{if(!vw)return;if(e.key==='Escape')closeDoc();if(e.key==='ArrowRight'){vI=Math.min(vDoc.pages.length-1,vI+1);vShow()}if(e.key==='ArrowLeft'){vI=Math.max(0,vI-1);vShow()}});
   document.querySelectorAll('[data-doc]').forEach(b=>b.addEventListener('click',()=>openDoc(b.dataset.doc)));
+
+  /* case steps: tap or hover to focus one phase */
+  document.querySelectorAll('.star').forEach(ol=>{
+    const items=[...ol.children];
+    const focus=li=>{ol.classList.add('focusing');items.forEach(x=>x.classList.toggle('on',x===li))};
+    const clear=()=>{ol.classList.remove('focusing');items.forEach(x=>x.classList.remove('on'))};
+    items.forEach(li=>{
+      li.setAttribute('tabindex','0');
+      li.addEventListener('click',e=>{if(e.target.closest('button,a'))return;li.classList.contains('on')?clear():focus(li)});
+      li.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();li.classList.contains('on')?clear():focus(li)}});
+      li.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')focus(li)});
+    });
+    ol.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')clear()});
+  });
 
   setLang(lang);
 })();
