@@ -748,6 +748,12 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 .holo-out .orb{margin:6px auto 22px}
 .holo-out .printer{width:100%;max-width:340px}
 @media (max-width:480px){.holo-out{padding-inline:12px}}
+
+/* intro preview: "Everyone shines their own way." in neon purple */
+.preview .l2{color:#F6E6FF;text-shadow:0 0 4px #fff,0 0 10px #D18BFF,0 0 22px #B44BFF,0 0 42px #9B2EF0,0 0 80px rgba(155,46,240,.6)}
+.scene.pre .preview .l2{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) 1.3s forwards,neon-flicker 4s linear 2.6s infinite}
+@keyframes neon-flicker{0%,18%,22%,25%,53%,57%,100%{opacity:1}20%,24%,55%{opacity:.55}}
+@media (prefers-reduced-motion:reduce){.scene.pre .preview .l2{animation:rise 1.1s 1.3s forwards}}
 </style>
 
 </head>
