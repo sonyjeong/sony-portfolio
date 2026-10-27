@@ -27,10 +27,10 @@ img,video{max-width:100%}
   --hand:"Nanum Pen Script","Segoe Print",cursive;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#140E10; --bg-2:#1D1416; --card:#22181B; --ink:#F6EEEF; --muted:#B9A9AC; --line:#382A2E;
+  --bg:#120709; --bg-2:#2E0F1A; --card:#3A1220; --ink:#F7EEF0; --muted:#D2B9BF; --line:rgba(232,166,182,.16);
   --yellow:#8E2440; --yellow-soft:#3A1220; --brown:#D3A986; --on-yellow:#FFFFFF; --silver:#8E929A; --deep:#160305; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#140E10; --bg-2:#1D1416; --card:#22181B; --ink:#F6EEEF; --muted:#B9A9AC; --line:#382A2E;
+  --bg:#120709; --bg-2:#2E0F1A; --card:#3A1220; --ink:#F7EEF0; --muted:#D2B9BF; --line:rgba(232,166,182,.16);
   --yellow:#8E2440; --yellow-soft:#3A1220; --brown:#D3A986; --on-yellow:#FFFFFF; --silver:#8E929A; --deep:#160305; color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -616,6 +616,12 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 .star.focusing>li:not(.on){opacity:.38}
 .star>li.on{background:color-mix(in srgb,var(--ph) 16%,var(--card));box-shadow:inset 0 0 0 1.5px var(--ph)}
 @media (prefers-reduced-motion:reduce){.star>li{transition:none}}
+
+/* velvet / silk boxes: deep burgundy base with a soft satin sheen */
+:root{--satin:linear-gradient(128deg,rgba(255,255,255,.00) 0%,rgba(232,166,182,.10) 30%,rgba(255,255,255,.02) 46%,rgba(232,166,182,.07) 62%,rgba(0,0,0,.22) 100%)}
+.panel,.round,.voice:not(.y),.idea-card,.ticket,.book-wrap,.cert-card,.doc-btn,.byoa,.star>li,.tl details,.kit .kv,.facts div,.holo-out{background-image:var(--satin)}
+.panel,.round,.idea-card,.byoa,.star,.book-wrap{box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 18px 40px -28px rgba(0,0,0,.8)}
+.voice.y{background:linear-gradient(125deg,#4E0F1F 0%,#7A1E33 30%,#A4445C 48%,#8E2440 62%,#5E1426 100%);border-color:transparent}
 </style>
 
 </head>
