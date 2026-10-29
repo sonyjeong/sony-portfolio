@@ -504,6 +504,59 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 .neon-ring.silver::after{background:conic-gradient(from var(--ang),transparent 0 42%,rgba(201,165,122,.7) 62%,rgba(241,222,195,.9) 75%,rgba(201,165,122,.7) 88%,transparent 98%);opacity:.7}
 .neon-ring.silver::before,.neon-ring.silver::after{animation-duration:6.5s;animation-direction:reverse}
 @media (prefers-reduced-motion:reduce){.neon-ring::before,.neon-ring::after{animation:none}}
+
+/* result-cell visuals */
+.star>li:last-child{display:flex;flex-direction:column}
+.viz{margin-top:auto;padding-top:18px}
+/* phone */
+.viz-phone{display:flex;justify-content:center}
+.ph-f{position:relative;width:200px;border:6px solid var(--ink);border-radius:30px;background:var(--card);padding:26px 14px 16px;box-shadow:0 18px 40px -24px rgba(0,0,0,.45)}
+.ph-notch{position:absolute;top:6px;left:50%;transform:translateX(-50%);width:60px;height:8px;border-radius:99px;background:var(--ink)}
+.ph-toast{display:flex;align-items:center;gap:8px;background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:11.5px;font-weight:600;line-height:1.3;animation:toast 3.6s ease-in-out infinite}
+.ph-toast i{flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:#FFD60A;color:#1E1A16;font-style:normal;font-weight:800;font-size:12px}
+@keyframes toast{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.ph-k{margin-top:14px;font:700 10px var(--body);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.ph-chart{display:flex;align-items:flex-end;gap:14px;height:96px;margin-top:6px;padding:0 10px;border-bottom:1px solid var(--line)}
+.ph-chart .b{flex:1;height:var(--h);background:var(--line);border-radius:8px 8px 0 0;position:relative;display:flex;justify-content:center}
+.ph-chart .b.hot{background:#FFD60A}
+.ph-chart .b b{position:absolute;top:-17px;font:800 11px var(--display);font-variant-numeric:tabular-nums;color:var(--ink)}
+.ph-chart .b em{position:absolute;bottom:-18px;font:600 10px var(--body);font-style:normal;color:var(--muted)}
+.ph-rate{margin-top:26px;display:flex;align-items:baseline;gap:8px}
+.ph-rate b{font:800 24px var(--display);color:var(--ink)}
+.ph-rate span{font-size:11px;color:var(--muted);line-height:1.3}
+/* brochure before/after */
+.viz-doc{display:flex;align-items:center;justify-content:center;gap:12px;position:relative}
+.d-sheet,.d-book{position:relative;width:96px;aspect-ratio:3/4;border-radius:8px;border:1px solid var(--line);background:var(--card);padding:22px 10px 10px;display:flex;flex-direction:column;gap:5px}
+.d-cap{position:absolute;top:6px;left:8px;font:700 9.5px var(--body);letter-spacing:.04em;color:var(--muted)}
+.d-sheet i{display:block;height:4px;border-radius:2px;background:var(--line)}
+.d-sheet i:nth-child(odd){width:86%}.d-sheet i:nth-child(3n){width:64%}
+.d-arrow{font:800 20px var(--display);color:var(--brown)}
+.d-book{box-shadow:0 12px 26px -16px rgba(0,0,0,.4);z-index:2;transition:transform .35s ease}
+.d-book .d-hero{height:30%;border-radius:5px;background:#FFD60A}
+.d-book .d-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;flex:1}
+.d-book .d-grid i{border-radius:4px;background:color-mix(in srgb,var(--brown) 22%,var(--card))}
+.d-book .d-line{height:4px;width:70%;border-radius:2px;background:var(--line)}
+.d-book.back{position:absolute;right:calc(50% - 150px);transform:translate(14px,-8px) rotate(6deg);z-index:1;opacity:.75}
+.d-book.back .d-cap{color:var(--ink)}
+.viz-doc:hover .d-book:not(.back){transform:translateY(-4px) rotate(-3deg)}
+.viz-doc:hover .d-book.back{transform:translate(26px,-12px) rotate(10deg)}
+@media (max-width:420px){.d-book.back{display:none}}
+/* party: matching cards */
+.vz-cap{font:600 12.5px var(--body);color:var(--muted);margin-bottom:10px}
+.mcards{display:grid;grid-template-columns:repeat(4,minmax(0,64px));gap:8px}
+.mc{border:0;padding:0;background:none;cursor:pointer;aspect-ratio:3/4;perspective:400px;border-radius:10px}
+.mc-in{position:relative;display:block;width:100%;height:100%;transition:transform .45s cubic-bezier(.3,1.3,.5,1);transform-style:preserve-3d}
+.mc.on .mc-in,.mc.done .mc-in{transform:rotateY(180deg)}
+.mc-back,.mc-front{position:absolute;inset:0;border-radius:10px;display:grid;place-items:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.mc-back{background:#1E1A16;border:1px solid var(--line);color:#FFD60A;font:800 20px var(--display)}
+.mc-front{background:var(--card);border:1.5px solid var(--line);transform:rotateY(180deg)}
+.mc-front svg{width:60%;fill:#FFD60A;stroke:#1E1A16;stroke-width:1.2}
+.mc.done .mc-front{border-color:#FFD60A;box-shadow:0 0 0 2px #FFD60A inset}
+.mc:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.vz-out{margin-top:10px;font-size:13px;color:var(--ink)}
+.vz-out b{display:inline-block;min-width:22px;text-align:center;background:#FFD60A;color:#1E1A16;border-radius:6px;padding:0 6px;font:800 13px var(--display);transition:transform .25s}
+.vz-out b.pop{transform:scale(1.35)}
+@media (prefers-reduced-motion:reduce){.ph-toast{animation:none}.mc-in,.d-book{transition:none}}
 /* thanks */
 .thanks{padding-block:96px 120px;text-align:center}
 .thanks .big{font-family:var(--display);font-weight:800;font-size:clamp(64px,13vw,168px);letter-spacing:-.045em;line-height:.9}
@@ -681,7 +734,6 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
           <div><b>AL</b><span>OPIc</span></div>
           <div><b>SQLD</b><span><span lang="ko">취득</span><span lang="en">Certified</span></span></div>
         </div>
-        <p class="desc" style="margin-top:16px"><span lang="ko">미국 메릴랜드에서 출생해 약 11년간 거주했고, 미국 스타트업 비대면 인턴으로 현지 상사와 함께 일했습니다. 영어권 고객과 파트너를 대하는 일이 낯설지 않습니다.</span><span lang="en">Born in Maryland, I lived in the US for about 11 years and later worked remotely for a US startup under a US-based manager. Working with English-speaking customers and partners feels natural to me.</span></p>
       </div>
       <div class="panel neon-ring">
         <h3><span lang="ko">실무 역량</span><span lang="en">On-the-job skills</span></h3>
@@ -696,7 +748,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       <div class="panel wide neon-ring silver">
         <h3><span lang="ko">콘텐츠 제작 · 업무 도구</span><span lang="en">Content and work tools</span></h3>
         <div class="pills" style="margin-top:14px">
-          <span>Canva</span><span>Visme</span><span>Instagram</span><span>ChatGPT</span><span>Gemini</span><span>Claude</span><span>Notion</span><span>Google Sheets</span><span>Google Docs</span><span>SQL</span>
+          <span>Canva</span><span>Visme</span><span>Instagram</span><span>ChatGPT</span><span>Gemini</span><span>Claude</span><span>Notion</span><span>Google Sheets</span><span>Google Docs</span>
         </div>
       </div>
     </div>
@@ -820,7 +872,15 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
           <h4><span lang="ko">회신량 2.3배, 확정률 7%로 조교 중 1위</span><span lang="en">2.3× callbacks, 7% booking rate, top among staff</span></h4>
           <ul class="labeled lp"><li><span class="lb"><span lang="ko">회신량</span><span lang="en">Callbacks</span></span><b class="lead"><span lang="ko">1년차 2,241건 → 2년차 5,062건</span><span lang="en">2,241 in year one → 5,062 in year two</span></b> <span lang="ko">(2.3배)</span><span lang="en">(2.3×)</span></li><li><span class="lb"><span lang="ko">확정률</span><span lang="en">Booking rate</span></span><b class="lead"><span lang="ko">5% → 7%</span><span lang="en">5% → 7%</span></b> <span lang="ko">지점 평균 4%</span><span lang="en">branch average 4%</span></li><li><span class="lb"><span lang="ko">상반기 성과</span><span lang="en">H1 2026</span></span><b class="lead"><span lang="ko">회신 3,393건, 조교 중 최다</span><span lang="en">3,393 callbacks, the most of any assistant</span></b></li><li><span class="lb"><span lang="ko">운영 안정</span><span lang="en">Stability</span></span><b class="lead"><span lang="ko">언어 확대 후에도 중복 예약·혼선 없음</span><span lang="en">No double bookings after the language expansion</span></b></li></ul>
-          <p class="lesson"><span lang="ko">배운 점: 주어진 틀 안에서만 일하기보다, 업무 중 발견한 문제를 기록하고 근거를 갖춰 먼저 개선을 제안할 때 더 나은 결과로 이어진다는 것을 배웠습니다.</span><span lang="en">Lesson: rather than working only within the existing setup, recording the problems I notice and proposing fixes backed by evidence leads to better results.</span></p></li>
+          <div class="viz viz-phone" aria-hidden="true">
+            <div class="ph-f">
+              <div class="ph-notch"></div>
+              <div class="ph-toast"><i>✓</i><span><span lang="ko">상담 예약이 확정되었습니다</span><span lang="en">Consultation booked</span></span></div>
+              <div class="ph-k"><span lang="ko">회신 건수</span><span lang="en">Callbacks</span></div>
+              <div class="ph-chart"><div class="b" style="--h:44%"><b>2,241</b><em><span lang="ko">1년차</span><span lang="en">Y1</span></em></div><div class="b hot" style="--h:100%"><b>5,062</b><em><span lang="ko">2년차</span><span lang="en">Y2</span></em></div></div>
+              <div class="ph-rate"><b>7%</b><span><span lang="ko">확정률 · 지점 평균 4%</span><span lang="en">booking rate · branch avg 4%</span></span></div>
+            </div>
+          </div></li>
       </ol>
       </div>
     </div>
@@ -909,7 +969,12 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
           <button class="doc-btn portrait" data-doc="staff"><img src="assets/staff/p-1.jpg" alt=""><div><b><span lang="ko">스태프 근무표 · 업무 매뉴얼</span><span lang="en">Staff rota and role manual</span></b><span><span lang="ko">국·영문 4쪽 · 직접 작성</span><span lang="en">Korean/English · 4 pages</span></span></div></button></li>
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
           <h4><span lang="ko">참여 인원 66.7% 증가</span><span lang="en">Turnout up 66.7%</span></h4>
-          <ul class="labeled lp"><li><span class="lb"><span lang="ko">참여 인원</span><span lang="en">Turnout</span></span><b class="lead"><span lang="ko">1회차 90명 → 3회차 150명</span><span lang="en">90 guests → 150 by the third party</span></b></li><li><span class="lb"><span lang="ko">운영 성과</span><span lang="en">Finance</span></span><b class="lead"><span lang="ko">4회 모두 흑자 운영</span><span lang="en">All four events ran in the black</span></b></li><li><span class="lb"><span lang="ko">콘텐츠</span><span lang="en">Content</span></span><b class="lead"><span lang="ko">홍보 영상 2편, 지점 인스타그램 조회수 1·2위</span><span lang="en">Two promo videos, the branch account’s top two</span></b> <span lang="ko">(2,312회 · 1,630회)</span><span lang="en">(2,312 and 1,630 views)</span></li></ul></li>
+          <ul class="labeled lp"><li><span class="lb"><span lang="ko">참여 인원</span><span lang="en">Turnout</span></span><b class="lead"><span lang="ko">1회차 90명 → 3회차 150명</span><span lang="en">90 guests → 150 by the third party</span></b></li><li><span class="lb"><span lang="ko">운영 성과</span><span lang="en">Finance</span></span><b class="lead"><span lang="ko">4회 모두 흑자 운영</span><span lang="en">All four events ran in the black</span></b></li><li><span class="lb"><span lang="ko">콘텐츠</span><span lang="en">Content</span></span><b class="lead"><span lang="ko">홍보 영상 2편, 지점 인스타그램 조회수 1·2위</span><span lang="en">Two promo videos, the branch account’s top two</span></b> <span lang="ko">(2,312회 · 1,630회)</span><span lang="en">(2,312 and 1,630 views)</span></li></ul>
+          <div class="viz viz-match">
+            <p class="vz-cap"><span lang="ko">직접 해보기 · 같은 그림 카드 2장을 찾아보세요</span><span lang="en">Try it · find the two matching cards</span></p>
+            <div class="mcards" id="mcards"><button class="mc" data-k="heart" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span></span></button><button class="mc" data-k="star" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></span></span></button><button class="mc" data-k="heart" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span></span></button><button class="mc" data-k="star" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></span></span></button></div>
+            <p class="vz-out" id="mc-out" aria-live="polite"><span lang="ko">응모권</span><span lang="en">Entries</span> <b id="mc-n">0</b></p>
+          </div></li>
       </ol>
   </div>
 </section>
@@ -949,7 +1014,12 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
           <h4><span lang="ko">23쪽·17쪽 브로슈어 2종 완성 · 인턴십 수료</span><span lang="en">Two brochures (23 and 17 pages) · completed</span></h4>
           <ul class="labeled lp"><li><span class="lb"><span lang="ko">결과물</span><span lang="en">Deliverables</span></span><b class="lead"><span lang="ko">23쪽·17쪽 영문 브로슈어 2종</span><span lang="en">Two English brochures, 23 and 17 pages</span></b> <span lang="ko">미국 내 아시아계 학생 대상 장학금·인턴십·서머 프로그램 안내</span><span lang="en">on scholarships, internships and summer programs for Asian-American students</span></li><li><span class="lb"><span lang="ko">수료</span><span lang="en">Completion</span></span><b class="lead"><span lang="ko">LINC+ 현장직무체험 선발 · 인턴십 수료</span><span lang="en">Selected via LINC+ · internship completed</span></b> <span lang="ko">영어 면접을 거쳐 선발되었습니다.</span><span lang="en">after an English interview.</span></li></ul>
-          <p class="lesson"><span lang="ko">배운 점: 같은 정보라도 독자의 관점과 문화에 맞는 형식이어야 제대로 전달됩니다.</span><span lang="en">Lesson: the same information only lands when its format fits the reader’s point of view and culture.</span></p></li>
+          <div class="viz viz-doc" aria-hidden="true">
+            <div class="d-sheet"><span class="d-cap"><span lang="ko">원자료</span><span lang="en">Source sheet</span></span><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <span class="d-arrow">→</span>
+            <div class="d-book"><span class="d-cap"><span lang="ko">브로슈어 2종</span><span lang="en">2 brochures</span></span><div class="d-hero"></div><div class="d-grid"><i></i><i></i><i></i><i></i></div><div class="d-line"></div></div>
+            <div class="d-book back"><span class="d-cap"></span><div class="d-hero"></div><div class="d-grid"><i></i><i></i><i></i><i></i></div><div class="d-line"></div></div>
+          </div></li>
       </ol>
 
     <div class="deliver">
@@ -1273,6 +1343,30 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     });
     ol.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')clear()});
   });
+
+  /* party mini game: flip two cards, a match earns an entry */
+  (function(){
+    const wrap=document.getElementById('mcards'); if(!wrap) return;
+    const out=document.getElementById('mc-n');
+    let cards=[...wrap.children], open=[], n=0, lock=false;
+    const shuffle=()=>{cards.sort(()=>Math.random()-.5).forEach(c=>wrap.appendChild(c))};
+    shuffle();
+    cards.forEach(c=>c.addEventListener('click',()=>{
+      if(lock||c.classList.contains('on')||c.classList.contains('done')) return;
+      c.classList.add('on'); open.push(c);
+      if(open.length<2) return;
+      lock=true;
+      const [a,b]=open;
+      if(a.dataset.k===b.dataset.k){
+        setTimeout(()=>{a.classList.add('done');b.classList.add('done');a.classList.remove('on');b.classList.remove('on');open=[];lock=false;
+          n++;out.textContent=n;out.classList.add('pop');setTimeout(()=>out.classList.remove('pop'),250);
+          if(cards.every(x=>x.classList.contains('done'))) setTimeout(()=>{cards.forEach(x=>x.classList.remove('done'));shuffle()},1400);
+        },450);
+      }else{
+        setTimeout(()=>{a.classList.remove('on');b.classList.remove('on');open=[];lock=false},800);
+      }
+    }));
+  })();
 
   setLang(lang);
 })();
