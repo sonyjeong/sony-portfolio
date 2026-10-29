@@ -553,7 +553,12 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 .mc-front svg{width:60%;fill:#FFD60A;stroke:#1E1A16;stroke-width:1.2}
 .mc.done .mc-front{border-color:#FFD60A;box-shadow:0 0 0 2px #FFD60A inset}
 .mc:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
-.vz-out{margin-top:10px;font-size:13px;color:var(--ink)}
+.vz-out{margin-top:10px;font-size:13px;color:var(--ink);line-height:1.5}
+.mgame{display:flex;align-items:center;gap:10px;margin-top:10px;max-width:300px}
+.mg-track{position:relative;flex:1;height:14px;border-radius:99px;background:var(--bg-2);border:1px solid var(--line);overflow:hidden}
+.mg-zone{position:absolute;left:42%;width:16%;top:0;bottom:0;background:color-mix(in srgb,#FFD60A 55%,transparent)}
+.mg-dot{position:absolute;top:1px;left:0;width:10px;height:10px;border-radius:50%;background:#1E1A16;box-shadow:0 0 0 2px #FFD60A}
+.mg-btn{border:0;border-radius:10px;background:#FFD60A;color:#1E1A16;font:800 13px var(--body);padding:8px 14px;cursor:pointer}
 .vz-out b{display:inline-block;min-width:22px;text-align:center;background:#FFD60A;color:#1E1A16;border-radius:6px;padding:0 6px;font:800 13px var(--display);transition:transform .25s}
 .vz-out b.pop{transform:scale(1.35)}
 @media (prefers-reduced-motion:reduce){.ph-toast{animation:none}.mc-in,.d-book{transition:none}}
@@ -868,7 +873,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
           <ul class="labeled lp"><li><span class="lb"><span lang="ko">첫인상</span><span lang="en">Impression</span></span><b class="lead"><span lang="ko">첫마디부터 신뢰를 주는 통화 순서</span><span lang="en">A call order that earns trust from the first words</span></b></li><li><span class="lb"><span lang="ko">데이터</span><span lang="en">Data</span></span><b class="lead"><span lang="ko">미확정 사유를 기록해 원인 파악</span><span lang="en">Log every non-booking reason to find the cause</span></b> <span lang="ko">유효 문의에 집중하기 위한 기준을 세웠습니다.</span><span lang="en">to focus on genuine inquiries.</span></li><li><span class="lb"><span lang="ko">예약</span><span lang="en">Booking</span></span><b class="lead"><span lang="ko">언어 확대 전 예약 구조의 위험 요소 사전 점검</span><span lang="en">Check booking risks before new languages launched</span></b></li></ul></li>
         <li><span class="st"><b>03</b><span lang="ko">실행</span><span lang="en">Action</span></span>
           <h4><span lang="ko">스크립트·데이터·예약 구조를 직접 개선했습니다</span><span lang="en">Fixed the script, the data and the booking flow</span></h4>
-          <ul class="labeled"><li><span class="lb"><span lang="ko">스크립트</span><span lang="en">Script</span></span><span lang="ko">첫마디부터 광고 전화가 아님을 알 수 있도록 통화 순서를 재구성했습니다.</span><span lang="en">Reordered the call so customers could tell from the first words it was not a sales call.</span><span class="flow-chips"><span lang="ko"><span>이름 확인</span><span>문의 경로 안내</span><span>1분 통화 양해</span><span>가장 빠른 상담 시간 제안</span></span><span lang="en"><span>Confirm name</span><span>State inquiry source</span><span>Ask for one minute</span><span>Offer earliest slot</span></span></span></li><li><span class="lb"><span lang="ko">데이터</span><span lang="en">Data</span></span><span lang="ko">미확정 사유를 <b>오입력 · 타지점 희망 · 사정상 거절 · 허수</b> 4가지로 분류해 시트에 기록했고, 허수 비중이 높은 광고를 매니저에게 공유해 광고 효율 개선에 반영되었습니다.</span><span lang="en">Logged every non-booking as <b>wrong number · other branch · declined · fake lead</b>, and shared ads with many fake leads with the manager, which fed into improving ad efficiency.</span></li><li><span class="lb"><span lang="ko">템플릿</span><span lang="en">Templates</span></span><span lang="ko">언어별 상담 가능 시간대를 매니저와 정리하고, 전 조교가 함께 쓰는 구글 문서 메시지 템플릿을 업데이트했습니다.</span><span lang="en">Clarified each language’s consultation hours with the manager and updated the Google Docs message templates all assistants share.</span></li><li><span class="lb"><span lang="ko">예약</span><span lang="en">Booking</span></span><span lang="ko">제2외국어 스터디 개설 초기, 언어별 상담 시간·정원은 달라졌지만 네이버 예약은 영어 기준으로 자동 확정되어 중복·초과 예약 위험이 있었습니다.</span><span lang="en">When new language studies opened, consultation hours and capacity differed by language, but Naver still auto-confirmed bookings on the English schedule, risking double and over-booking.</span><span class="fix"><span lang="ko">→ 업무 중 먼저 파악해, 정원이 찬 뒤 당일 예약이 확정되지 않도록 수동 확정 전환을 제안했습니다.</span><span lang="en">→ I spotted it on the job and proposed manual confirmation so same-day bookings would not be confirmed once slots were full.</span></span></li></ul></li>
+          <ul class="labeled"><li><span class="lb"><span lang="ko">스크립트</span><span lang="en">Script</span></span><span lang="ko">첫마디부터 광고 전화가 아님을 알 수 있도록 통화 순서를 재구성했습니다.</span><span lang="en">Reordered the call so customers could tell from the first words it was not a sales call.</span><span class="flow-chips"><span lang="ko"><span>이름 확인</span><span>문의 경로 안내</span><span>1분 통화 양해</span><span>가장 빠른 상담 시간 제안</span></span><span lang="en"><span>Confirm name</span><span>State inquiry source</span><span>Ask for one minute</span><span>Offer earliest slot</span></span></span></li><li><span class="lb"><span lang="ko">데이터</span><span lang="en">Data</span></span><span lang="ko">미확정 사유를 <b>타지점 희망 · 사정상 거절 · 허수</b> 3가지로 분류해 시트에 기록했고, 허수 비중이 높은 광고를 매니저에게 공유해 광고 효율 개선에 반영되었습니다.</span><span lang="en">Logged every non-booking as <b>other branch · declined · fake lead</b>, and shared ads with many fake leads with the manager, which fed into improving ad efficiency.</span></li><li><span class="lb"><span lang="ko">템플릿</span><span lang="en">Templates</span></span><span lang="ko">언어별 상담 가능 시간대를 매니저와 정리하고, 전 조교가 함께 쓰는 구글 문서 메시지 템플릿을 업데이트했습니다.</span><span lang="en">Clarified each language’s consultation hours with the manager and updated the Google Docs message templates all assistants share.</span></li><li><span class="lb"><span lang="ko">예약</span><span lang="en">Booking</span></span><span lang="ko">제2외국어 스터디 개설 초기, 언어별 상담 시간·정원은 달라졌지만 네이버 예약은 영어 기준으로 자동 확정되어 중복·초과 예약 위험이 있었습니다.</span><span lang="en">When new language studies opened, consultation hours and capacity differed by language, but Naver still auto-confirmed bookings on the English schedule, risking double and over-booking.</span><span class="fix"><span lang="ko">→ 업무 중 먼저 파악해, 정원이 찬 뒤 당일 예약이 확정되지 않도록 수동 확정 전환을 제안했습니다.</span><span lang="en">→ I spotted it on the job and proposed manual confirmation so same-day bookings would not be confirmed once slots were full.</span></span></li></ul></li>
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
           <h4><span lang="ko">회신량 2.3배, 확정률 7%로 조교 중 1위</span><span lang="en">2.3× callbacks, 7% booking rate, top among staff</span></h4>
           <ul class="labeled lp"><li><span class="lb"><span lang="ko">회신량</span><span lang="en">Callbacks</span></span><b class="lead"><span lang="ko">1년차 2,241건 → 2년차 5,062건</span><span lang="en">2,241 in year one → 5,062 in year two</span></b> <span lang="ko">(2.3배)</span><span lang="en">(2.3×)</span></li><li><span class="lb"><span lang="ko">확정률</span><span lang="en">Booking rate</span></span><b class="lead"><span lang="ko">5% → 7%</span><span lang="en">5% → 7%</span></b> <span lang="ko">지점 평균 4%</span><span lang="en">branch average 4%</span></li><li><span class="lb"><span lang="ko">상반기 성과</span><span lang="en">H1 2026</span></span><b class="lead"><span lang="ko">회신 3,393건, 조교 중 최다</span><span lang="en">3,393 callbacks, the most of any assistant</span></b></li><li><span class="lb"><span lang="ko">운영 안정</span><span lang="en">Stability</span></span><b class="lead"><span lang="ko">언어 확대 후에도 중복 예약·혼선 없음</span><span lang="en">No double bookings after the language expansion</span></b></li></ul>
@@ -971,9 +976,13 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
           <h4><span lang="ko">참여 인원 66.7% 증가</span><span lang="en">Turnout up 66.7%</span></h4>
           <ul class="labeled lp"><li><span class="lb"><span lang="ko">참여 인원</span><span lang="en">Turnout</span></span><b class="lead"><span lang="ko">1회차 90명 → 3회차 150명</span><span lang="en">90 guests → 150 by the third party</span></b></li><li><span class="lb"><span lang="ko">운영 성과</span><span lang="en">Finance</span></span><b class="lead"><span lang="ko">4회 모두 흑자 운영</span><span lang="en">All four events ran in the black</span></b></li><li><span class="lb"><span lang="ko">콘텐츠</span><span lang="en">Content</span></span><b class="lead"><span lang="ko">홍보 영상 2편, 지점 인스타그램 조회수 1·2위</span><span lang="en">Two promo videos, the branch account’s top two</span></b> <span lang="ko">(2,312회 · 1,630회)</span><span lang="en">(2,312 and 1,630 views)</span></li></ul>
           <div class="viz viz-match">
-            <p class="vz-cap"><span lang="ko">직접 해보기 · 같은 그림 카드 2장을 찾아보세요</span><span lang="en">Try it · find the two matching cards</span></p>
+            <p class="vz-cap" id="mc-cap"><span lang="ko">① 같은 그림을 가진 상대를 찾아보세요</span><span lang="en">① Find the guest with the same picture</span></p>
             <div class="mcards" id="mcards"><button class="mc" data-k="heart" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span></span></button><button class="mc" data-k="star" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></span></span></button><button class="mc" data-k="heart" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span></span></button><button class="mc" data-k="star" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></span></span></button></div>
-            <p class="vz-out" id="mc-out" aria-live="polite"><span lang="ko">응모권</span><span lang="en">Entries</span> <b id="mc-n">0</b></p>
+            <div class="mgame" id="mgame" hidden>
+              <div class="mg-track"><span class="mg-zone"></span><span class="mg-dot" id="mg-dot"></span></div>
+              <button class="mg-btn" id="mg-btn"><span lang="ko">쏘기!</span><span lang="en">Shoot!</span></button>
+            </div>
+            <p class="vz-out" aria-live="polite"><span id="mc-msg"><span lang="ko">짝을 찾으면 미니게임에 도전할 수 있어요</span><span lang="en">Find your partner to unlock the mini game</span></span> · <span lang="ko">응모권</span><span lang="en">Entries</span> <b id="mc-n">0</b></p>
           </div></li>
       </ol>
   </div>
@@ -1344,27 +1353,46 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     ol.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')clear()});
   });
 
-  /* party mini game: flip two cards, a match earns an entry */
+  /* party mini game: find the guest with the same picture, then clear a mini game to earn an entry */
   (function(){
     const wrap=document.getElementById('mcards'); if(!wrap) return;
-    const out=document.getElementById('mc-n');
-    let cards=[...wrap.children], open=[], n=0, lock=false;
+    const out=document.getElementById('mc-n'), msg=document.getElementById('mc-msg'), cap=document.getElementById('mc-cap');
+    const game=document.getElementById('mgame'), dot=document.getElementById('mg-dot'), btn=document.getElementById('mg-btn');
+    const T={find:['① 같은 그림을 가진 상대를 찾아보세요','① Find the guest with the same picture'],
+      shoot:['② 짝을 찾았어요! 미니게임을 통과해야 응모권을 받아요','② Partner found! Clear the mini game to earn an entry'],
+      hint:['노란 구간에 맞춰 쏘세요','Shoot when the dot is in the yellow zone'],
+      win:['통과! 응모권 1장 획득 · 참여할수록 당첨 확률이 올라가요','Cleared! One entry earned · more play, better odds'],
+      miss:['아쉬워요, 다시 도전해 보세요','So close, try again'],
+      wait:['짝을 찾으면 미니게임에 도전할 수 있어요','Find your partner to unlock the mini game']};
+    const say=(el,k)=>{el.innerHTML='<span lang="ko">'+T[k][0]+'</span><span lang="en">'+T[k][1]+'</span>'};
+    let cards=[...wrap.children], open=[], n=0, lock=false, raf=null, t0=0, pos=0, pair=null;
     const shuffle=()=>{cards.sort(()=>Math.random()-.5).forEach(c=>wrap.appendChild(c))};
     shuffle();
+    function run(now){
+      if(!t0) t0=now;
+      pos=(Math.sin((now-t0)/380)+1)/2;
+      dot.style.left=`calc(${(pos*100).toFixed(2)}% - ${(pos*10).toFixed(2)}px)`;
+      raf=requestAnimationFrame(run);
+    }
+    function startGame(){game.hidden=false;say(cap,'shoot');say(msg,'hint');t0=0;if(!reduce)raf=requestAnimationFrame(run);else{pos=.5;dot.style.left='calc(50% - 5px)'}}
+    function stopGame(){cancelAnimationFrame(raf);game.hidden=true}
+    btn.addEventListener('click',()=>{
+      if(pos>.42&&pos<.58){
+        stopGame(); n++; out.textContent=n; out.classList.add('pop'); setTimeout(()=>out.classList.remove('pop'),250);
+        say(msg,'win'); pair.forEach(c=>c.classList.add('done'));
+        setTimeout(()=>{
+          if(cards.every(c=>c.classList.contains('done'))){cards.forEach(c=>c.classList.remove('done','on'));shuffle()}
+          say(cap,'find'); lock=false; pair=null;
+        },1200);
+      }else{ say(msg,'miss'); }
+    });
     cards.forEach(c=>c.addEventListener('click',()=>{
       if(lock||c.classList.contains('on')||c.classList.contains('done')) return;
       c.classList.add('on'); open.push(c);
       if(open.length<2) return;
-      lock=true;
-      const [a,b]=open;
-      if(a.dataset.k===b.dataset.k){
-        setTimeout(()=>{a.classList.add('done');b.classList.add('done');a.classList.remove('on');b.classList.remove('on');open=[];lock=false;
-          n++;out.textContent=n;out.classList.add('pop');setTimeout(()=>out.classList.remove('pop'),250);
-          if(cards.every(x=>x.classList.contains('done'))) setTimeout(()=>{cards.forEach(x=>x.classList.remove('done'));shuffle()},1400);
-        },450);
-      }else{
-        setTimeout(()=>{a.classList.remove('on');b.classList.remove('on');open=[];lock=false},800);
-      }
+      lock=true; const [a,b]=open; open=[];
+      if(a.dataset.k===b.dataset.k){ pair=[a,b]; setTimeout(startGame,350); }
+      else setTimeout(()=>{a.classList.remove('on');b.classList.remove('on');lock=false},800);
     }));
   })();
 
