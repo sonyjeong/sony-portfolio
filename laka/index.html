@@ -281,13 +281,13 @@ section{scroll-margin-top:70px}
 .toc{background:var(--deep);color:#FFFFFF}
 .toc .wrap{padding-block:56px 60px;display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start}
 .toc h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--metal);font-family:var(--body);font-weight:700;padding-top:12px}
-.toc ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,auto);grid-auto-flow:column;gap:0 48px}
 .toc a{display:flex;gap:14px;align-items:baseline;text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.14);transition:color .2s,padding-left .2s}
 .toc a:hover{color:var(--rose);padding-left:6px}
 .toc .num{color:var(--rose);font:700 13px var(--body);font-variant-numeric:tabular-nums;min-width:22px}
 .toc .t{font-family:var(--display);font-weight:800;font-size:clamp(22px,2.8vw,32px);letter-spacing:-.01em;line-height:1.1}
 .toc .k{margin-left:auto;font-size:13px;color:rgba(255,255,255,.55)}
-@media (max-width:760px){.toc .wrap{grid-template-columns:1fr;gap:12px}.toc ol{grid-template-columns:1fr}}
+@media (max-width:760px){.toc .wrap{grid-template-columns:1fr;gap:12px}.toc ol{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}}
 
 .num-place{display:inline-flex;gap:8px;align-items:center}
 .num-place b{background:var(--yellow);color:var(--on-yellow);border-radius:6px;padding:1px 7px;font-size:12px}
@@ -890,12 +890,12 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     <h2>Contents</h2>
     <ol>
       <li><a href="#intro"><span class="num">01</span><span class="t">Introduction</span><span class="k">소개</span></a></li>
-      <li><a href="#journey"><span class="num">05</span><span class="t">Experience</span><span class="k">경험</span></a></li>
       <li><a href="#why"><span class="num">02</span><span class="t">Why LAKA</span><span class="k">고객으로 본 라카</span></a></li>
-      <li><a href="#portfolio"><span class="num">06</span><span class="t">Portfolio</span><span class="k">포트폴리오</span></a></li>
       <li><a href="#education"><span class="num">03</span><span class="t">Education</span><span class="k">교육</span></a></li>
-      <li><a href="#contact"><span class="num">07</span><span class="t">Contact</span><span class="k">연락처</span></a></li>
       <li><a href="#skills"><span class="num">04</span><span class="t">Skills</span><span class="k">스킬</span></a></li>
+      <li><a href="#journey"><span class="num">05</span><span class="t">Experience</span><span class="k">경험</span></a></li>
+      <li><a href="#portfolio"><span class="num">06</span><span class="t">Portfolio</span><span class="k">포트폴리오</span></a></li>
+      <li><a href="#contact"><span class="num">07</span><span class="t">Contact</span><span class="k">연락처</span></a></li>
       <li><a href="#thanks"><span class="num">08</span><span class="t">Thank you</span><span class="k">감사 인사</span></a></li>
     </ol>
   </div>
@@ -1117,8 +1117,8 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     </div>
     <div class="tl">
       <details>
-        <summary><span class="when">2018.02</span><span class="what"><span lang="ko">평창동계올림픽 통역 봉사</span><span lang="en">PyeongChang 2018 Olympics, volunteer interpreter</span><small><span lang="ko">강릉역 영어 안내</span><span lang="en">English help desk at Gangneung Station</span></small></span><span class="plus">+</span></summary>
-        <div class="body"><p><span lang="ko">강원도 자원봉사자로 강릉역에 배치되어 해외 방문객에게 영어로 교통 및 길 안내를 제공했습니다.</span><span lang="en">As a Gangwon-do volunteer stationed at Gangneung Station, I helped international visitors with transit and directions in English.</span></p>
+        <summary><span class="when">2018.02</span><span class="what"><span lang="ko">평창동계올림픽 영어 통역 및 안내 봉사</span><span lang="en">PyeongChang 2018 Olympics, English interpreting and guide volunteer</span><small><span lang="ko">강릉역 배치</span><span lang="en">Stationed at Gangneung Station</span></small></span><span class="plus">+</span></summary>
+        <div class="body"><p><span lang="ko">강원도 자원봉사자로 강릉역에 배치되어 해외 방문객에게 영어 통역 및 안내를 제공했습니다.</span><span lang="en">As a Gangwon-do volunteer stationed at Gangneung Station, I provided English interpreting and guidance to international visitors.</span></p>
           <div class="tl-photos"><img src="../assets/pyeongchang-volunteer.jpg" alt="Volunteering at Gangneung Station" data-zoom><img src="../assets/pyeongchang-badge.jpg" alt="PyeongChang 2018 English volunteer badge" data-zoom></div></div>
       </details>
       <details>
@@ -1135,8 +1135,8 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
         <p class="body"><span lang="ko">국내 최대 영어회화 스터디 체인의 1호점에서 근무했습니다. 세션당 최대 80명을 응대하고, 리더가 비는 날엔 초급부터 레벨 4 프리토킹까지 직접 진행했습니다.</span><span lang="en">Worked at the first branch of Korea's largest English conversation chain. Hosted up to 80 members per session and led tables from beginner to level-4 free talk when leaders were out.</span><br><a class="go" href="#portfolio"><span lang="ko">포트폴리오에서 자세히 보기 →</span><span lang="en">See the portfolio →</span></a></p>
       </details>
       <details>
-        <summary><span class="when">2025.01</span><span class="what"><span lang="ko">삼성생명 금융연수 프로그램 7기 수료</span><span lang="en">Samsung Life Financial Training Program, cohort 7 (completed)</span><small><span lang="ko">2025.01.14 – 01.24 · 삼성생명 SFP지역단 주최</span><span lang="en">Jan 14–24, 2025 · hosted by Samsung Life SFP</span></small></span><span class="plus">+</span></summary>
-        <div class="body"><p><span lang="ko">경제학 전공 지식을 금융 산업 실무 맥락으로 넓히고자 전 과정을 수료했습니다.</span><span lang="en">Completed the full program to extend my economics background into how the finance industry works in practice.</span></p><div class="tl-photos"><img src="../assets/laka/samsung-badge.jpg" alt="Wearing the Samsung Life financial training program badge" data-zoom></div><button class="doc-btn portrait" data-doc="samsung"><img src="../assets/laka/samsung-cert.jpg" alt=""><div><b><span lang="ko">수료증 보기</span><span lang="en">View certificate</span></b><span><span lang="ko">삼성생명 금융연수 프로그램 7기 · 2025.01.24</span><span lang="en">Samsung Life Financial Training Program · Jan 24, 2025</span></span></div></button></div>
+        <summary><span class="when">2025.01</span><span class="what"><span lang="ko">삼성금융아카데미 7기 수료</span><span lang="en">Samsung Finance Academy, cohort 7 (completed)</span><small><span lang="ko">2025.01.14 – 01.24</span><span lang="en">Jan 14–24, 2025</span></small></span><span class="plus">+</span></summary>
+        <div class="body"><p><span lang="ko">경제학 전공 지식을 금융 산업 실무 맥락으로 넓히고자 전 과정을 수료했습니다.</span><span lang="en">Completed the full program to extend my economics background into how the finance industry works in practice.</span></p><div class="tl-photos"><img src="../assets/laka/samsung-badge.jpg" alt="Wearing the Samsung Finance Academy badge" data-zoom></div><button class="doc-btn portrait" data-doc="samsung"><img src="../assets/laka/samsung-cert.jpg" alt=""><div><b><span lang="ko">수료증 보기</span><span lang="en">View certificate</span></b><span><span lang="ko">삼성금융아카데미 7기 · 2025.01.24</span><span lang="en">Samsung Finance Academy · Jan 24, 2025</span></span></div></button></div>
       </details>
     </div>
   </div>
@@ -1593,7 +1593,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     deck:{title:'Global Marketing Competition · Pitch deck',pages:Array.from({length:18},(_,i)=>`../assets/deck/s-${pad(i+1,2)}.jpg`)},
     staff:{title:'Christmas Party · Staff rota & manual',pages:Array.from({length:4},(_,i)=>`../assets/staff/p-${i+1}.jpg`)},
     cert:{title:'EducanSpire · Certificate of completion',pages:['../assets/certificate.jpg']},
-    samsung:{title:'Samsung Life Financial Training Program · Certificate',pages:['../assets/laka/samsung-cert.jpg']}
+    samsung:{title:'Samsung Finance Academy · Certificate',pages:['../assets/laka/samsung-cert.jpg']}
   };
 
   /* flipbook */
