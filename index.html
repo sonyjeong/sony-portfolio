@@ -562,6 +562,26 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 .vz-out b{display:inline-block;min-width:22px;text-align:center;background:#FFD60A;color:#1E1A16;border-radius:6px;padding:0 6px;font:800 13px var(--display);transition:transform .25s}
 .vz-out b.pop{transform:scale(1.35)}
 @media (prefers-reduced-motion:reduce){.ph-toast{animation:none}.mc-in,.d-book{transition:none}}
+
+/* game flow icons */
+.gf-steps li{padding-top:14px}
+.gf-ic{display:block;width:44px;height:44px;margin-bottom:6px}
+.gf-ic svg{width:100%;height:100%;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gf-ic .f{fill:#FFD60A;stroke:#1E1A16;stroke-width:2}
+.gf-ic .d{stroke:#1E1A16;stroke-width:2;stroke-dasharray:3 3}
+.gf-ic .s{stroke:#1E1A16;stroke-width:2.4}
+.gf-ic .s2{stroke:var(--ink);stroke-width:2.4}
+.gf-ic .k{fill:#1E1A16}
+.gf-ic .w{fill:#FFFFFF;stroke:#1E1A16;stroke-width:2}
+.gf-ic .wl{stroke:#FFD60A;stroke-width:2.4}
+.gf-ic .g{fill:color-mix(in srgb,var(--brown) 30%,var(--card));stroke:#1E1A16;stroke-width:2}
+.gf-ic .g2{fill:color-mix(in srgb,#FFD60A 55%,var(--card));stroke:#1E1A16;stroke-width:2}
+.gf-steps li:not(:last-child) .gf-ic .s,.gf-steps li:not(:last-child) .gf-ic .d{stroke:var(--ink)}
+.gf-steps li:not(:last-child) .gf-ic .k{fill:var(--ink)}
+.gf-steps li:last-child .gf-ic .s2,.gf-steps li:last-child .gf-ic .s{stroke:#1E1A16}
+.gf-steps li:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);font:800 14px var(--display);color:var(--brown);z-index:1}
+@media (max-width:860px){.gf-steps li:nth-child(2)::after{display:none}}
+.gf-try{margin-top:16px;padding:16px 18px;border-radius:14px;border:1.5px dashed var(--line);background:var(--bg-2)}
 /* thanks */
 .thanks{padding-block:96px 120px;text-align:center}
 .thanks .big{font-family:var(--display);font-weight:800;font-size:clamp(64px,13vw,168px);letter-spacing:-.045em;line-height:.9}
@@ -664,10 +684,10 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 </div>
 <div class="about"><div class="wrap">
     <ol class="ab-list">
-      <li><span class="ab-n">01</span><h3><span lang="ko">사람마다 다른 선택을 존중하는 것에서 시작합니다</span><span lang="en">It starts with respecting that people choose differently</span></h3><p><span lang="ko">사람마다 중요하게 여기는 가치가 다르기에, 같은 서비스도 받아들이는 이유가 다릅니다. 이 차이를 바꾸려 하기보다 있는 그대로 이해하는 것이 마케팅의 출발점이라고 생각합니다. 선택은 고객의 몫이지만, 그 선택에 필요한 정보를 어떻게 전달하느냐는 우리의 몫입니다.</span><span lang="en">People value different things, so they accept the same service for different reasons. I believe marketing starts by understanding those differences rather than trying to change them. The choice belongs to the customer; how we present the information behind it is our job.</span></p></li>
-      <li><span class="ab-n">02</span><h3><span lang="ko">가진 강점을 발견하고, 고객의 언어로 전달합니다</span><span lang="en">I find real strengths and say them in the customer’s words</span></h3><p><span lang="ko">브랜드도 사람처럼 모든 면에서 완벽할 수는 없지만, 고객에게 줄 수 있는 분명한 가치는 있습니다. 그중 고객에게 실제로 의미 있는 강점을 찾아 가장 이해하기 쉬운 메시지로 전달할 때, 단순한 인지를 넘어 신뢰가 만들어진다고 생각합니다.</span><span lang="en">Like people, brands are never perfect, yet each has value it can clearly offer. When we find the strengths that truly matter to customers and say them in the simplest terms, awareness turns into trust.</span></p></li>
-      <li><span class="ab-n">03</span><h3><span lang="ko">맡은 역할에서 한 걸음 더 나아갑니다</span><span lang="en">I go one step beyond my role</span></h3><p><span lang="ko">좋은 결과는 한 사람의 아이디어가 아니라, 각자의 역할을 다하면서 지금 필요한 일을 함께 고민하는 팀에서 나옵니다. 고객의 반응과 데이터, 동료의 의견을 살펴 부족한 부분을 찾고, 필요한 일을 스스로 실행하겠습니다.</span><span lang="en">Good results come from a team where everyone does their part and also asks what is needed now. I will watch customer reactions, data and colleagues’ input, spot the gaps, and act on them myself.</span></p></li>
-      <li><span class="ab-n">04</span><h3><span lang="ko">제가 만들고 싶은 신뢰</span><span lang="en">The trust I want to build</span></h3><p><span lang="ko">카카오뱅크에서도 고객이 무엇을 원하는지 세심하게 관찰하고, 우리가 가진 가치를 고객이 이해하고 신뢰할 수 있는 언어와 경험으로 연결하겠습니다.</span><span lang="en">At KakaoBank, I will watch closely for what customers want and connect our value to language and experiences they can understand and trust.</span></p></li>
+      <li><span class="ab-n">01</span><h3><span lang="ko">사람마다 다른 선택을 존중하는 것에서 시작합니다</span><span lang="en">It starts with respecting that people choose differently</span></h3><p><span lang="ko">사람마다 중요하게 여기는 가치가 다르다는 것을 먼저 이해합니다. 선택은 고객이 하되, 판단에 필요한 정보는 정확하고 알기 쉽게 전달하겠습니다.</span><span lang="en">I first understand that people value different things. The choice is theirs; I make the information behind it accurate and easy to follow.</span></p></li>
+      <li><span class="ab-n">02</span><h3><span lang="ko">가진 강점을 발견하고, 고객의 언어로 전달합니다</span><span lang="en">I find real strengths and say them in the customer’s words</span></h3><p><span lang="ko">고객에게 실제로 의미 있는 강점을 찾아, 가장 이해하기 쉬운 메시지로 전달합니다.</span><span lang="en">I find the strengths that truly matter to customers and say them in the simplest terms.</span></p></li>
+      <li><span class="ab-n">03</span><h3><span lang="ko">맡은 역할에서 한 걸음 더 나아갑니다</span><span lang="en">I go one step beyond my role</span></h3><p><span lang="ko">고객 반응과 데이터, 동료의 의견을 살펴 부족한 부분을 찾고, 필요한 일을 먼저 실행합니다.</span><span lang="en">I watch customer reactions, data and colleagues’ input, spot the gaps, and act on them first.</span></p></li>
+      <li><span class="ab-n">04</span><h3><span lang="ko">제가 만들고 싶은 신뢰</span><span lang="en">The trust I want to build</span></h3><p><span lang="ko">카카오뱅크의 가치를 고객이 이해하고 신뢰할 수 있는 언어와 경험으로 연결하겠습니다.</span><span lang="en">I will connect KakaoBank’s value to language and experiences customers can understand and trust.</span></p></li>
     </ol>
     <p class="ab-close"><span lang="ko">고객을 설득하는 마케팅보다, 고객이 스스로 믿을 이유를 발견하게 하는 마케팅을 지향합니다.</span><span lang="en">Rather than persuading customers, I aim for marketing that lets them find their own reason to trust.</span></p>
   </div></div>
@@ -930,11 +950,20 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       <h3><span lang="ko">게스트 커넥트 미션으로 처음 만난 게스트를 잇다</span><span lang="en">Connecting first-time guests through the Guest Connect Mission</span></h3>
       <p class="desc"><span lang="ko">아는 사람끼리만 대화하던 분위기를 바꾸기 위해, 처음 만난 게스트와 짝을 이뤄 미션을 수행하도록 설계했습니다. 많이 참여할수록 당첨 확률이 높아져 참여율과 교류가 함께 늘었습니다.</span><span lang="en">To move beyond guests talking only with people they already knew, I had them pair up with someone new to complete missions. More play meant better odds, so participation and interaction rose together.</span></p>
       <ol class="gf-steps">
-        <li><b>01</b><h4><span lang="ko">게임 참여권 받기</span><span lang="en">Get a game pass</span></h4><p><span lang="ko">입장 시 회차 테마 그림이 담긴 게임 참여권 배부</span><span lang="en">A game pass with the round’s theme picture, handed out at entry</span></p></li>
-        <li><b>02</b><h4><span lang="ko">같은 그림의 짝꿍 찾기</span><span lang="en">Find your match</span></h4><p><span lang="ko">같은 그림을 가진 참가자와 팀 구성</span><span lang="en">Team up with the guest holding the same card</span></p></li>
-        <li><b>03</b><h4><span lang="ko">인증 후 미니게임 참여</span><span lang="en">Verify, then play</span></h4><p><span lang="ko">스태프에게 같은 그림 짝을 인증한 뒤 사격·링 던지기·푸즈볼 도전</span><span lang="en">Show your match to staff, then try shooting, ring toss or foosball</span></p></li>
-        <li><b>04</b><h4><span lang="ko">경품 추첨 응모권</span><span lang="en">Lucky-draw entry</span></h4><p><span lang="ko">게임을 통과하면 응모권 지급</span><span lang="en">Pass the game, earn an entry</span></p></li>
+        <li><span class="gf-ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M6 15a3 3 0 0 1 3-3h30a3 3 0 0 1 3 3v4a5 5 0 0 0 0 10v4a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3v-4a5 5 0 0 0 0-10z" class="f"/><path d="M30 13v22" class="d"/><path d="M15 21h9M15 27h6" class="s"/></svg></span><b>01</b><h4><span lang="ko">입장권 & 게임 종이 배부</span><span lang="en">Entry pass & game card</span></h4><p><span lang="ko">입장 시 회차 테마 그림이 담긴 게임 종이를 받습니다</span><span lang="en">Each guest gets a card with the round’s theme picture</span></p></li>
+        <li><span class="gf-ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="13" cy="12" r="5" class="s2"/><path d="M5 30c0-5 4-8 8-8s8 3 8 8" class="s2"/><circle cx="35" cy="12" r="5" class="s2"/><path d="M27 30c0-5 4-8 8-8s8 3 8 8" class="s2"/><rect x="8" y="33" width="10" height="12" rx="2" class="f"/><rect x="30" y="33" width="10" height="12" rx="2" class="f"/><path d="M13 36.5l1 2 2 .3-1.5 1.4.4 2-1.9-1-1.9 1 .4-2-1.5-1.4 2-.3zM35 36.5l1 2 2 .3-1.5 1.4.4 2-1.9-1-1.9 1 .4-2-1.5-1.4 2-.3z" class="k"/><path d="M20 39h8" class="d"/></svg></span><b>02</b><h4><span lang="ko">같은 그림 가진 사람 찾기</span><span lang="en">Find your match</span></h4><p><span lang="ko">파티장 안에서 같은 그림을 가진 상대를 찾습니다</span><span lang="en">Find the guest holding the same picture</span></p></li>
+        <li><span class="gf-ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="18" cy="26" r="13" class="f"/><circle cx="18" cy="26" r="8" class="w"/><circle cx="18" cy="26" r="3" class="k"/><path d="M18 26l20-16" class="s"/><circle cx="38" cy="36" r="7" class="k"/><path d="M34.5 36l2.5 2.5 4.5-5" class="wl"/></svg></span><b>03</b><h4><span lang="ko">스태프 인증 후 게임 참여</span><span lang="en">Verify, then play</span></h4><p><span lang="ko">짝을 스태프에게 인증하고 사격·링 던지기·푸즈볼에 도전합니다</span><span lang="en">Show your match to staff, then try shooting, ring toss or foosball</span></p></li>
+        <li><span class="gf-ic" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="6" y="30" width="8" height="12" rx="2" class="g"/><rect x="18" y="22" width="8" height="20" rx="2" class="g2"/><rect x="30" y="12" width="8" height="30" rx="2" class="f"/><path d="M8 22l12-8 7 5 13-11" class="s"/><path d="M34 8h6v6" class="s"/></svg></span><b>04</b><h4><span lang="ko">많이 참여할수록 당첨 확률 UP</span><span lang="en">More play, better odds</span></h4><p><span lang="ko">게임을 통과할 때마다 응모권을 받아 당첨 확률이 올라갑니다</span><span lang="en">Every cleared game earns an entry, raising your odds</span></p></li>
       </ol>
+      <div class="viz viz-match gf-try">
+            <p class="vz-cap" id="mc-cap"><span lang="ko">직접 해보기 · 같은 그림을 가진 상대를 찾아보세요</span><span lang="en">Try it · find the guest with the same picture</span></p>
+            <div class="mcards" id="mcards"><button class="mc" data-k="heart" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span></span></button><button class="mc" data-k="star" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></span></span></button><button class="mc" data-k="heart" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span></span></button><button class="mc" data-k="star" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></span></span></button></div>
+            <div class="mgame" id="mgame" hidden>
+              <div class="mg-track"><span class="mg-zone"></span><span class="mg-dot" id="mg-dot"></span></div>
+              <button class="mg-btn" id="mg-btn"><span lang="ko">쏘기!</span><span lang="en">Shoot!</span></button>
+            </div>
+            <p class="vz-out" aria-live="polite"><span id="mc-msg"><span lang="ko">짝을 찾으면 미니게임에 도전할 수 있어요</span><span lang="en">Find your partner to unlock the mini game</span></span> · <span lang="ko">응모권</span><span lang="en">Entries</span> <b id="mc-n">0</b></p>
+          </div>
       <p class="gf-loop"><i>↻</i><span><span lang="ko"><b>선착순 마감 → 재참여형</b> 이벤트 인기로 미니게임이 선착순으로 조기 마감되던 구조를, 같은 그림의 게임 참여권을 여러 장 준비한 재참여형으로 바꿔 더 많은 게스트가 반복 참여하며 새로운 파트너와 교류하도록 했습니다.</span><span lang="en"><b>First-come → replayable</b> As the event grew popular, mini-games kept filling up early on a first-come basis. With several copies of each card, I made them replayable so more guests could join again and meet new partners.</span></span></p>
       <div class="gf-more">
         <div>
@@ -974,16 +1003,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
           <button class="doc-btn portrait" data-doc="staff"><img src="assets/staff/p-1.jpg" alt=""><div><b><span lang="ko">스태프 근무표 · 업무 매뉴얼</span><span lang="en">Staff rota and role manual</span></b><span><span lang="ko">국·영문 4쪽 · 직접 작성</span><span lang="en">Korean/English · 4 pages</span></span></div></button></li>
         <li><span class="st"><b>04</b><span lang="ko">결과</span><span lang="en">Result</span></span>
           <h4><span lang="ko">참여 인원 66.7% 증가</span><span lang="en">Turnout up 66.7%</span></h4>
-          <ul class="labeled lp"><li><span class="lb"><span lang="ko">참여 인원</span><span lang="en">Turnout</span></span><b class="lead"><span lang="ko">1회차 90명 → 3회차 150명</span><span lang="en">90 guests → 150 by the third party</span></b></li><li><span class="lb"><span lang="ko">운영 성과</span><span lang="en">Finance</span></span><b class="lead"><span lang="ko">4회 모두 흑자 운영</span><span lang="en">All four events ran in the black</span></b></li><li><span class="lb"><span lang="ko">콘텐츠</span><span lang="en">Content</span></span><b class="lead"><span lang="ko">홍보 영상 2편, 지점 인스타그램 조회수 1·2위</span><span lang="en">Two promo videos, the branch account’s top two</span></b> <span lang="ko">(2,312회 · 1,630회)</span><span lang="en">(2,312 and 1,630 views)</span></li></ul>
-          <div class="viz viz-match">
-            <p class="vz-cap" id="mc-cap"><span lang="ko">① 같은 그림을 가진 상대를 찾아보세요</span><span lang="en">① Find the guest with the same picture</span></p>
-            <div class="mcards" id="mcards"><button class="mc" data-k="heart" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span></span></button><button class="mc" data-k="star" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></span></span></button><button class="mc" data-k="heart" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span></span></button><button class="mc" data-k="star" aria-label="card"><span class="mc-in"><span class="mc-back">?</span><span class="mc-front"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></span></span></button></div>
-            <div class="mgame" id="mgame" hidden>
-              <div class="mg-track"><span class="mg-zone"></span><span class="mg-dot" id="mg-dot"></span></div>
-              <button class="mg-btn" id="mg-btn"><span lang="ko">쏘기!</span><span lang="en">Shoot!</span></button>
-            </div>
-            <p class="vz-out" aria-live="polite"><span id="mc-msg"><span lang="ko">짝을 찾으면 미니게임에 도전할 수 있어요</span><span lang="en">Find your partner to unlock the mini game</span></span> · <span lang="ko">응모권</span><span lang="en">Entries</span> <b id="mc-n">0</b></p>
-          </div></li>
+          <ul class="labeled lp"><li><span class="lb"><span lang="ko">참여 인원</span><span lang="en">Turnout</span></span><b class="lead"><span lang="ko">1회차 90명 → 3회차 150명</span><span lang="en">90 guests → 150 by the third party</span></b></li><li><span class="lb"><span lang="ko">운영 성과</span><span lang="en">Finance</span></span><b class="lead"><span lang="ko">4회 모두 흑자 운영</span><span lang="en">All four events ran in the black</span></b></li><li><span class="lb"><span lang="ko">콘텐츠</span><span lang="en">Content</span></span><b class="lead"><span lang="ko">홍보 영상 2편, 지점 인스타그램 조회수 1·2위</span><span lang="en">Two promo videos, the branch account’s top two</span></b> <span lang="ko">(2,312회 · 1,630회)</span><span lang="en">(2,312 and 1,630 views)</span></li></ul></li>
       </ol>
   </div>
 </section>
