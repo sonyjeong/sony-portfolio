@@ -288,6 +288,9 @@ section{scroll-margin-top:70px}
 .cert div{background:var(--bg-2);border-radius:14px;padding:14px;text-align:center}
 .cert b{display:block;font-family:var(--display);font-weight:800;font-size:28px;line-height:1.1}
 .cert span{font-size:12px;color:var(--muted)}
+.cert .cert-tile{display:block;width:100%;border:1px solid transparent;font:inherit;color:inherit;background:var(--bg-2);border-radius:14px;padding:14px 10px 12px;text-align:center;cursor:pointer;transition:transform .15s,border-color .15s}
+.cert .cert-tile:hover{transform:translateY(-2px);border-color:var(--line)}
+.cert .cert-tile em{display:table;margin:6px auto 0;font:600 11px var(--body);font-style:normal;color:var(--ink);border-bottom:1.5px solid var(--yellow)}
 .strength{display:grid;gap:10px;margin-top:16px}
 .strength div{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .strength b{font-family:var(--display);font-size:17px}
@@ -755,9 +758,9 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       <div class="panel neon-ring silver">
         <h3><span lang="ko">어학 · 자격</span><span lang="en">Languages · Certificates</span></h3>
         <div class="cert">
-          <div><b>985</b><span>TOEIC</span></div>
-          <div><b>AL</b><span>OPIc</span></div>
-          <div><b>SQLD</b><span><span lang="ko">취득</span><span lang="en">Certified</span></span></div>
+          <button class="cert-tile" data-doc="toeic"><b>985</b><span>TOEIC</span><em><span lang="ko">성적표 보기</span><span lang="en">View</span></em></button>
+          <button class="cert-tile" data-doc="opic"><b>AL</b><span>OPIc</span><em><span lang="ko">인증서 보기</span><span lang="en">View</span></em></button>
+          <button class="cert-tile" data-doc="sqld"><b>SQLD</b><span><span lang="ko">취득</span><span lang="en">Certified</span></span><em><span lang="ko">자격증 보기</span><span lang="en">View</span></em></button>
         </div>
       </div>
       <div class="panel neon-ring">
@@ -1288,6 +1291,9 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     deck:{title:'Global Marketing Competition · Pitch deck',pages:Array.from({length:18},(_,i)=>`assets/deck/s-${pad(i+1,2)}.jpg`)},
     staff:{title:'Christmas Party · Staff rota & manual',pages:Array.from({length:4},(_,i)=>`assets/staff/p-${i+1}.jpg`)},
     cert:{title:'EducanSpire · Certificate of completion',pages:['assets/certificate.jpg']},
+    toeic:{title:'TOEIC · Official Score Certificate',pages:['assets/certs/toeic.jpg']},
+    opic:{title:'OPIc English · AL',pages:['assets/certs/opic.jpg']},
+    sqld:{title:'SQLD · SQL Developer',pages:['assets/certs/sqld.jpg']},
     samsung:{title:'Samsung Finance Academy · Certificate',pages:['assets/laka/samsung-cert.jpg']}
   };
 
