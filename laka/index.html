@@ -986,6 +986,66 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
   .sill{height:118px}.tt{transform:translateX(-50%) scale(.78);transform-origin:50% 100%;bottom:14px}.sleeves i{width:56px;height:56px;margin-left:-20px}
   .sns-card{grid-template-columns:1fr;justify-items:center;padding:16px}.sns-card canvas{width:min(220px,58vw)}}
 @media (prefers-reduced-motion:reduce){.rec,.eq i,.gcm-live i{animation:none}}
+
+/* Color Record v2: story line, printer, guide */
+.crec-story{margin:-4px 0 16px;font-size:13.5px;line-height:1.65;color:rgba(244,238,246,.82)}
+.crec-story b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:22px;font-weight:700;color:#fff;margin-bottom:2px;text-shadow:0 0 18px rgba(208,64,95,.6)}
+.crec-stage{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:18px;align-items:start}
+.crec-printer{position:relative;padding-top:4px}
+.pr-body{position:relative;z-index:2;display:flex;align-items:center;gap:8px;padding:12px 14px;border-radius:14px 14px 8px 8px;
+  background:linear-gradient(180deg,#2c2328,#120d10);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),inset 0 -2px 0 rgba(0,0,0,.6),0 10px 22px rgba(0,0,0,.55)}
+.pr-led{width:7px;height:7px;border-radius:50%;background:#3BD07A;box-shadow:0 0 8px #3BD07A;flex:none}
+.crec-printer.printing .pr-led{background:#FF6F8E;box-shadow:0 0 10px #FF6F8E;animation:blink .45s steps(2) infinite}
+.pr-body b{flex:1;font:700 9.5px var(--body);letter-spacing:.22em;color:#DCDDE2}
+.crec .pr-status{display:inline;margin:0;font:700 9px var(--body);letter-spacing:.12em;color:#F2B3BC;text-shadow:0 0 8px rgba(242,140,170,.6)}
+.crec-printer .slot{margin:-4px 8px 0}
+.crec .feed{margin:-5px 10px 0;padding:0 2px 16px}
+.crec .feed .recipe{position:relative;z-index:1;background:#F8F3F0;color:#24161A;padding:14px 14px 20px;font-family:"Courier New",ui-monospace,monospace;font-size:11.5px;
+  -webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 8px) no-repeat,conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/14px 8px repeat-x;
+          mask:linear-gradient(#000 0 0) top/100% calc(100% - 8px) no-repeat,conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/14px 8px repeat-x}
+.crec .feed .recipe.go{animation:print 1.15s cubic-bezier(.25,.8,.25,1) both}
+.crec .feed .recipe.out{transform:translateY(-102%);transition:transform .3s ease-in}
+.crec .recipe .r-no{display:block;text-align:center;color:#6F5E61;letter-spacing:.14em;font-size:10px}
+.crec .recipe .r-name{display:block;text-align:center;font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:24px;line-height:1.05;margin:2px 0 2px;color:#8E2440}
+.crec .recipe .r-sub{display:block;text-align:center;font-size:10.5px;color:#6F5E61;margin-bottom:8px}
+.crec .r-lines{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:0;font-size:11.5px}
+.crec .r-lines dt{font-weight:700;letter-spacing:.1em;color:#8E2440;font-size:10px;padding-top:1px}
+.crec .r-lines dd{margin:0;color:#24161A}
+.crec .r-lines i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:-1px;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.crec .r-story{margin-top:10px;padding-top:9px;border-top:1px dashed rgba(36,22,26,.35);font-style:italic;font-size:11.5px;line-height:1.55;color:#4A3A3E;text-align:center}
+.crec .r-foot{margin-top:10px;padding-top:9px;border-top:1px dashed rgba(36,22,26,.35);display:grid;justify-items:center;gap:4px}
+.crec .r-bar{width:70%;height:22px;background:repeating-linear-gradient(90deg,#24161A 0 2px,transparent 2px 4px,#24161A 4px 5px,transparent 5px 8px,#24161A 8px 11px,transparent 11px 13px)}
+.crec .r-foot small{font-size:9px;letter-spacing:.22em;color:#6F5E61}
+.crec .r-head{display:flex;flex-direction:column;align-items:center;gap:2px;padding-bottom:8px;margin-bottom:8px;border-bottom:1px dashed rgba(36,22,26,.35);font-size:9.5px;letter-spacing:.08em;color:#6F5E61;text-align:center}
+.crec .r-head b{color:#24161A;letter-spacing:.16em;font-size:11px}
+.crec-ctrl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin-top:20px}
+.cc-col{display:grid;gap:15px;align-content:start}
+.crate{grid-template-columns:repeat(auto-fill,minmax(72px,1fr))}
+.sl span{font-size:10.5px}
+.sl span small{display:block;font-size:9.5px;opacity:.85;font-weight:600}
+.crec-guide{margin-top:20px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px}
+.cg-card{border-radius:14px;padding:16px 18px;background:rgba(220,221,226,.05);border:1px solid rgba(220,221,226,.14)}
+.cg-card h4{margin:0 0 10px;font:700 14.5px var(--body);color:#fff;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline}
+.cg-card h4 small{font:700 10px var(--body);letter-spacing:.18em;color:#F2B3BC}
+.cg-steps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.cg-steps li{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;font-size:13px;line-height:1.6;color:rgba(244,238,246,.85)}
+.cg-steps .dot{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:800 10px var(--display);color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.25),0 0 14px -2px var(--d,#8E2440);background:var(--d,#5B2A78)}
+.cg-steps b{color:#fff;font-weight:700;margin-right:4px}
+.cg-steps em{display:block;font-style:normal;font:700 9.5px var(--body);letter-spacing:.18em;color:#F2B3BC}
+.cg-fix{display:grid;gap:8px;align-content:start}
+.cg-fix .fx{display:flex;gap:12px;align-items:center}
+.cg-fix .fx i{flex:none;width:34px;height:52px;border-radius:8px 8px 6px 6px;background:linear-gradient(180deg,#F4EEF6 0 22%,rgba(244,238,246,.25) 22% 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35),0 0 16px rgba(220,221,226,.25)}
+.cg-fix p{margin:0;font-size:12.5px;line-height:1.6;color:rgba(244,238,246,.8)}
+.cg-combos{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.cg-combos button{display:inline-flex;align-items:center;gap:6px;font:600 11.5px var(--body);color:#F4EEF6;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:99px;padding:5px 10px 5px 6px;cursor:pointer}
+.cg-combos button:hover{border-color:rgba(242,179,188,.7)}
+.cg-combos button[aria-pressed="true"]{border-color:#F2B3BC;background:rgba(142,36,64,.45)}
+.cg-combos em{display:inline-flex}
+.cg-combos em i{width:12px;height:12px;border-radius:50%;box-shadow:0 0 0 1.5px #1a0c12}
+.cg-combos em i+i{margin-left:-4px}
+.crec-sns{margin-top:14px}
+@media (max-width:980px){.crec-stage{grid-template-columns:1fr}.crec-printer{max-width:320px;width:100%;margin:0 auto}}
+@media (max-width:760px){.crec-ctrl,.crec-guide{grid-template-columns:1fr}}
 </style>
 
 </head>
@@ -1150,9 +1210,10 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       <div class="crec" id="crec" data-season="autumn">
         <div class="crec-top">
           <span class="crec-tag">LAKA COLOR RECORD<em><span lang="ko">데모 기획</span><span lang="en">Demo concept</span></em></span>
-          <span class="crec-note"><span lang="ko">계절을 고르면 창밖 풍경이, LP를 갈아 끼우면 립 컬러가 바뀝니다 · 실제 제품 추천이 아닌 체험 기획 데모입니다</span><span lang="en">Pick a season to change the view; swap the LP to change the lip color · a concept demo, not product advice</span></span>
+          <span class="crec-note"><span lang="ko">라카 맥시 글레이어 틴트 20컬러와 공식 시즌 차트를 참고한 체험 기획 데모 · 실제 진단이 아닙니다</span><span lang="en">Built on LAKA’s Maxi Glayer Tint 20 shades and official season chart · a concept demo, not a diagnosis</span></span>
         </div>
-        <div class="crec-main">
+        <p class="crec-story"><b>Every Shade, Every Story</b><span lang="ko">창밖의 계절과 오늘의 추구미를 고르면 나에게 맞는 LP 컬러가 재생되고, 나만의 아우라가 영수증으로 출력됩니다. 발견한 아우라는 스토리 카드로 공유할 수 있습니다.</span><span lang="en">Pick the season outside and today’s mood: your LP color starts playing and your aura prints as a receipt, ready to share as a story card.</span></p>
+        <div class="crec-stage">
           <div class="crec-scene">
             <div class="win">
               <canvas id="crec-sky" aria-label="Window view at dusk"></canvas>
@@ -1169,7 +1230,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
               <span class="sill-glow" aria-hidden="true"></span>
               <div class="tt" aria-hidden="true">
                 <div class="tt-deck">
-                  <div class="rec-slide"><div class="rec"><span class="rec-label"><b>LAKA</b><small>COLOR RECORD</small></span></div></div>
+                  <div class="rec-slide"><div class="rec"><span class="rec-label"><b>LAKA</b><small id="rec-lbl">COLOR RECORD</small></span></div></div>
                   <span class="rec-sheen"></span>
                   <span class="tt-arm"><i></i></span>
                   <span class="tt-knob"></span>
@@ -1179,15 +1240,24 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
               <div class="sleeves" id="crec-sleeves" aria-hidden="true"></div>
             </div>
           </div>
-          <div class="crec-ctrl">
-            <div class="q"><div class="q-t"><b>01</b><span lang="ko">계절 무드 · 창밖 풍경</span><span lang="en">Season mood · window view</span></div><div class="opts" id="crec-season" role="group" aria-label="Season"></div></div>
-            <div class="q"><div class="q-t"><b>02</b><span lang="ko">LP 갈아 끼우기 · 립 컬러</span><span lang="en">Swap the LP · lip color</span></div><div class="crate" id="crec-crate" role="group" aria-label="Records"></div></div>
-            <div class="q"><div class="q-t"><b>03</b><span lang="ko">피니시</span><span lang="en">Finish</span></div><div class="opts" id="crec-fin" role="group" aria-label="Finish"></div></div>
-            <div class="q"><div class="q-t"><b>04</b><span lang="ko">발색 강도</span><span lang="en">Intensity</span></div><div class="opts" id="crec-int" role="group" aria-label="Intensity"></div></div>
-            <p class="crec-tip" id="crec-tip"></p>
-            <button type="button" class="crec-sns" id="crec-sns"><b><span lang="ko">📸 SNS 인증샷 만들기</span><span lang="en">📸 Make my story card</span></b><small><span lang="ko">고른 LP 컬러를 스토리 카드로 인증하는 이벤트 기획</span><span lang="en">An event idea: share your LP color as a story card</span></small></button>
+          <div class="crec-printer" id="crec-printer">
+            <div class="pr-body"><span class="pr-led" aria-hidden="true"></span><b>AURA PRINTER</b><span class="pr-status" id="pr-status">READY</span></div>
+            <span class="slot" aria-hidden="true"></span>
+            <div class="feed"><div class="recipe" id="aura-rcpt" aria-live="polite"></div></div>
           </div>
         </div>
+        <div class="crec-ctrl">
+          <div class="cc-col">
+            <div class="q"><div class="q-t"><b>01</b><span lang="ko">계절 무드 · 창밖 풍경</span><span lang="en">Season mood · window view</span></div><div class="opts" id="crec-season" role="group" aria-label="Season"></div></div>
+            <div class="q"><div class="q-t"><b>02</b><span lang="ko">오늘의 추구미</span><span lang="en">Today’s look</span></div><div class="opts" id="crec-mood" role="group" aria-label="Look"></div></div>
+          </div>
+          <div class="cc-col">
+            <div class="q"><div class="q-t"><b>03</b><span lang="ko">LP 갈아 끼우기 · 시즌 컬러</span><span lang="en">Swap the LP · season shades</span></div><div class="crate" id="crec-crate" role="group" aria-label="Shades"></div></div>
+            <div class="q"><div class="q-t"><b>04</b><span lang="ko">발색 강도 · 레이어 횟수</span><span lang="en">Intensity · layers</span></div><div class="opts" id="crec-int" role="group" aria-label="Intensity"></div></div>
+          </div>
+        </div>
+        <div class="crec-guide" id="crec-guide"></div>
+        <button type="button" class="crec-sns" id="crec-sns"><b><span lang="ko">📸 나의 아우라 공유하기</span><span lang="en">📸 Share my aura</span></b><small><span lang="ko">발견한 아우라를 스토리 카드로 저장해 #EveryShadeEveryStory 로 나의 이야기를 들려주는 SNS 인증 기획</span><span lang="en">Save your aura as a story card and tell your story with #EveryShadeEveryStory</span></small></button>
       </div>
 
       <div class="byoa-ideas">
@@ -1196,7 +1266,7 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
           <article class="idea-card"><span class="i-no">01</span><h4>Color Record Booth</h4><p class="i-lead"><span lang="ko">계절 무드를 고르고 LP를 갈아 끼우며 립 컬러 탐색</span><span lang="en">Choose a season mood, swap LPs to explore lip colors</span></p><p><span lang="ko">올리브영 페스타 LA의 Color Record Bar에서 착안해, 성수 플래그십의 시즌 진열을 창밖 풍경과 LP 컬러로 옮겼습니다. 화면에서 먼저 비교하고 최종 후보만 입술에 테스트해 착색 부담을 줄입니다.</span><span lang="en">Inspired by the Color Record Bar at OLIVE YOUNG FESTA LA, it turns the Seongsu flagship’s seasonal display into a window view and LP colors. Compare on screen first and try only the final pick on the lips.</span></p></article>
           <article class="idea-card"><span class="i-no">02</span><h4>Layering Swap</h4><p class="i-lead"><span lang="ko">베이스·포인트 컬러를 바꿔 끼우며 레이어링 조합 비교</span><span lang="en">Swap base and point shades to compare layering combos</span></p><p><span lang="ko">추천 조합을 트레이에 담아 손등·스와치 카드에서 먼저 비교하고, 최종 후보만 입술에 테스트해 착색 부담을 줄입니다. 라카의 와인 무드를 경험으로 연결합니다.</span><span lang="en">Combos on a tray are compared on the hand or swatch cards first, and only the final pick is tried on the lips, reducing stain build-up and echoing LAKA’s wine mood.</span></p></article>
           <article class="idea-card"><span class="i-no">03</span><h4>Cross-Tone Guidance</h4><p class="i-lead"><span lang="ko">시즌 섹션 사이, 경계 톤 고객을 위한 큐레이션</span><span lang="en">Curated picks between season sections for in-between tones</span></p><p><span lang="ko">여름 쿨 라이트와 봄 웜 라이트처럼 두 시즌에 걸친 고객을 위해 채도를 낮춘 뉴트럴 셀렉션을 시즌 섹션 사이에 배치해, 시즌 진열의 강점은 살리면서 선택의 폭을 넓힙니다.</span><span lang="en">Low-saturation neutral picks placed between season sections for customers who sit across two seasons, keeping the strength of seasonal displays while widening choice.</span></p></article>
-          <article class="idea-card"><span class="i-no">04</span><h4>My LP Story</h4><p class="i-lead"><span lang="ko">고른 LP 컬러를 스토리 카드로 인증하는 SNS 이벤트</span><span lang="en">A social event: share your LP color as a story card</span></p><p><span lang="ko">체험 결과를 9:16 스토리 카드로 저장해 해시태그와 함께 올리면 현장에서 미니 틴트를 증정합니다. 인증 게시물의 컬러별 선택 수를 모아 다음 시즌 진열과 수량 준비에 활용합니다.</span><span lang="en">Guests save a 9:16 story card of their result and post it with the hashtag to get a mini tint on site. Counts by color from the posts feed into next season’s display and stock planning.</span></p></article>
+          <article class="idea-card"><span class="i-no">04</span><h4>Every Shade, Every Story</h4><p class="i-lead"><span lang="ko">발견한 아우라를 스토리 카드로 공유하는 SNS 인증</span><span lang="en">Share the aura you found as a story card</span></p><p><span lang="ko">계절·추구미·LP 컬러가 담긴 9:16 스토리 카드를 #EveryShadeEveryStory와 함께 올려, 각자의 컬러에 담긴 이야기를 공유하도록 합니다. 인증 게시물의 컬러별 선택 수는 다음 시즌 진열과 컬러 기획에 참고합니다.</span><span lang="en">Guests post a 9:16 story card with their season, look and LP color under #EveryShadeEveryStory, sharing the story behind their shade. Counts by color inform next season’s display and color planning.</span></p></article>
         </div>
       </div>
     </div>
@@ -1286,20 +1356,6 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       <p class="meta"><span lang="ko">항목을 눌러 자세히 보기</span><span lang="en">Tap a row to open it</span></p>
     </div>
     <div class="tl">
-      <details>
-        <summary><span class="when">2018.02</span><span class="what"><span lang="ko">평창동계올림픽 영어 통역 및 안내 봉사</span><span lang="en">PyeongChang 2018 Olympics, English interpreting and guide volunteer</span><small><span lang="ko">강릉역 배치</span><span lang="en">Stationed at Gangneung Station</span></small></span><span class="plus">+</span></summary>
-        <div class="body"><p><span lang="ko">강원도 자원봉사자로 강릉역에 배치되어 해외 방문객에게 영어 통역 및 안내를 제공했습니다.</span><span lang="en">As a Gangwon-do volunteer stationed at Gangneung Station, I provided English interpreting and guidance to international visitors.</span></p>
-          <div class="tl-photos"><img src="../assets/pyeongchang-volunteer.jpg" alt="Volunteering at Gangneung Station" data-zoom><img src="../assets/pyeongchang-badge.jpg" alt="PyeongChang 2018 English volunteer badge" data-zoom></div></div>
-      </details>
-      <details>
-        <summary><span class="when">2021</span><span class="what"><span lang="ko">교내 글로벌마케팅대회 최우수상</span><span lang="en">Global Marketing Competition, 1st place</span><span class="chip">1st</span><small><span lang="ko">악취저감장치의 해외 진출국 제안</span><span lang="en">Picking an export market for an odor-control device</span></small></span><span class="plus">+</span></summary>
-        <p class="body" style="padding-bottom:8px"><span lang="ko">지역별 환경 모니터링 시장 규모로 북미 시장을 좁히고, 토론토 하수처리장 악취 민원 증가와 수질 관리 공백을 근거로 캐나다를 선정했습니다. 가족회사 담당자와 소통해 제품을 파악하고, 제품소개 → 브랜드 → STP·4P → 시장 선정 → 기대효과 순으로 발표를 설계했습니다.</span><span lang="en">I narrowed by environmental-monitoring market size to North America, then chose Canada on rising odor complaints at Toronto treatment plants and gaps in water management. I learned the product from the partner company and structured the pitch: product, brand, STP and 4P, market choice, impact.</span></p>
-        <div class="body" style="padding-top:0"><button class="doc-btn" data-doc="deck"><img src="../assets/deck/s-01.jpg" alt=""><div><b><span lang="ko">발표 자료 보기</span><span lang="en">View the pitch deck</span></b><span><span lang="ko">도원엔바이로 글로벌 마케팅 전략 · 18장</span><span lang="en">Global marketing strategy · 18 slides</span></span></div></button><button class="doc-btn portrait" data-doc="award"><img src="../assets/certs/award.jpg" alt=""><div><b><span lang="ko">상장 보기</span><span lang="en">View award</span></b><span><span lang="ko">2021 글로벌 마케터 경진대회 최우수상</span><span lang="en">1st place · 2021 Global Marketer Competition</span></span></div></button></div>
-      </details>
-      <details>
-        <summary><span class="when">2022.01 – 02</span><span class="what"><span lang="ko">Educanspire 마케팅 인턴 (미국, 비대면)</span><span lang="en">Marketing Intern, Educanspire (US, remote)</span><small><span lang="ko">포트폴리오 02</span><span lang="en">Portfolio 02</span></small></span><span class="plus">+</span></summary>
-        <p class="body"><span lang="ko">교내 LINC+ 사업단 현장직무체험 공고로 지원해 미국 스타트업에서 미국 내 학생 대상 영문 마케팅 자료를 제작했습니다.</span><span lang="en">Applied through my university's LINC+ field-experience program and made English marketing materials for students in the US.</span><br><a class="go" href="#portfolio2"><span lang="ko">포트폴리오에서 자세히 보기 →</span><span lang="en">See the portfolio →</span></a></p>
-      </details>
       <details open>
         <summary><span class="when">2024.08 – <span lang="ko">현재</span><span lang="en">Present</span></span><span class="what"><span lang="ko">컬컴 신촌점 조교</span><span lang="en">Assistant, Culcom Sinchon</span><small><span lang="ko">포트폴리오 01</span><span lang="en">Portfolio 01</span></small></span><span class="plus">+</span></summary>
         <p class="body"><span lang="ko">국내 최대 영어회화 스터디 체인의 1호점에서 근무했습니다. 세션당 최대 80명을 응대하고, 리더가 비는 날엔 초급부터 레벨 4 프리토킹까지 직접 진행했습니다.</span><span lang="en">Worked at the first branch of Korea's largest English conversation chain. Hosted up to 80 members per session and led tables from beginner to level-4 free talk when leaders were out.</span><br><a class="go" href="#portfolio"><span lang="ko">포트폴리오에서 자세히 보기 →</span><span lang="en">See the portfolio →</span></a></p>
@@ -1307,6 +1363,20 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       <details>
         <summary><span class="when">2025.01</span><span class="what"><span lang="ko">삼성금융아카데미 7기 수료</span><span lang="en">Samsung Finance Academy, cohort 7 (completed)</span><small><span lang="ko">2025.01.14 – 01.24</span><span lang="en">Jan 14–24, 2025</span></small></span><span class="plus">+</span></summary>
         <div class="body"><p><span lang="ko">경제학 전공 지식을 금융 산업 실무 맥락으로 넓히고자 전 과정을 수료했습니다.</span><span lang="en">Completed the full program to extend my economics background into how the finance industry works in practice.</span></p><div class="tl-photos"><img src="../assets/laka/samsung-badge.jpg" alt="Wearing the Samsung Finance Academy badge" data-zoom></div><button class="doc-btn portrait" data-doc="samsung"><img src="../assets/laka/samsung-cert.jpg" alt=""><div><b><span lang="ko">수료증 보기</span><span lang="en">View certificate</span></b><span><span lang="ko">삼성금융아카데미 7기 · 2025.01.24</span><span lang="en">Samsung Finance Academy · Jan 24, 2025</span></span></div></button></div>
+      </details>
+      <details>
+        <summary><span class="when">2022.01 – 02</span><span class="what"><span lang="ko">Educanspire 마케팅 인턴 (미국, 비대면)</span><span lang="en">Marketing Intern, Educanspire (US, remote)</span><small><span lang="ko">포트폴리오 02</span><span lang="en">Portfolio 02</span></small></span><span class="plus">+</span></summary>
+        <p class="body"><span lang="ko">교내 LINC+ 사업단 현장직무체험 공고로 지원해 미국 스타트업에서 미국 내 학생 대상 영문 마케팅 자료를 제작했습니다.</span><span lang="en">Applied through my university's LINC+ field-experience program and made English marketing materials for students in the US.</span><br><a class="go" href="#portfolio2"><span lang="ko">포트폴리오에서 자세히 보기 →</span><span lang="en">See the portfolio →</span></a></p>
+      </details>
+      <details>
+        <summary><span class="when">2021</span><span class="what"><span lang="ko">교내 글로벌마케팅대회 최우수상</span><span lang="en">Global Marketing Competition, 1st place</span><span class="chip">1st</span><small><span lang="ko">악취저감장치의 해외 진출국 제안</span><span lang="en">Picking an export market for an odor-control device</span></small></span><span class="plus">+</span></summary>
+        <p class="body" style="padding-bottom:8px"><span lang="ko">지역별 환경 모니터링 시장 규모로 북미 시장을 좁히고, 토론토 하수처리장 악취 민원 증가와 수질 관리 공백을 근거로 캐나다를 선정했습니다. 가족회사 담당자와 소통해 제품을 파악하고, 제품소개 → 브랜드 → STP·4P → 시장 선정 → 기대효과 순으로 발표를 설계했습니다.</span><span lang="en">I narrowed by environmental-monitoring market size to North America, then chose Canada on rising odor complaints at Toronto treatment plants and gaps in water management. I learned the product from the partner company and structured the pitch: product, brand, STP and 4P, market choice, impact.</span></p>
+        <div class="body" style="padding-top:0"><button class="doc-btn" data-doc="deck"><img src="../assets/deck/s-01.jpg" alt=""><div><b><span lang="ko">발표 자료 보기</span><span lang="en">View the pitch deck</span></b><span><span lang="ko">도원엔바이로 글로벌 마케팅 전략 · 18장</span><span lang="en">Global marketing strategy · 18 slides</span></span></div></button><button class="doc-btn portrait" data-doc="award"><img src="../assets/certs/award.jpg" alt=""><div><b><span lang="ko">상장 보기</span><span lang="en">View award</span></b><span><span lang="ko">2021 글로벌 마케터 경진대회 최우수상</span><span lang="en">1st place · 2021 Global Marketer Competition</span></span></div></button></div>
+      </details>
+      <details>
+        <summary><span class="when">2018.02</span><span class="what"><span lang="ko">평창동계올림픽 영어 통역 및 안내 봉사</span><span lang="en">PyeongChang 2018 Olympics, English interpreting and guide volunteer</span><small><span lang="ko">강릉역 배치</span><span lang="en">Stationed at Gangneung Station</span></small></span><span class="plus">+</span></summary>
+        <div class="body"><p><span lang="ko">강원도 자원봉사자로 강릉역에 배치되어 해외 방문객에게 영어 통역 및 안내를 제공했습니다.</span><span lang="en">As a Gangwon-do volunteer stationed at Gangneung Station, I provided English interpreting and guidance to international visitors.</span></p>
+          <div class="tl-photos"><img src="../assets/pyeongchang-volunteer.jpg" alt="Volunteering at Gangneung Station" data-zoom><img src="../assets/pyeongchang-badge.jpg" alt="PyeongChang 2018 English volunteer badge" data-zoom></div></div>
       </details>
     </div>
   </div>
@@ -1854,67 +1924,131 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     const root=document.getElementById('crec'); if(!root) return;
     const scene=root.querySelector('.crec-scene'), cv=document.getElementById('crec-sky'), ctx=cv.getContext('2d');
     const T=(ko,en)=>lang==='ko'?ko:en;
+    /* LAKA Maxi Glayer Tint · official shade names, descriptions and season chart */
+    const SH={
+      601:['린넨','Linen','#E0A084','누디 베이지','nude beige'],602:['버니','Bunny','#DD8576','피치 베이지','peach beige'],
+      603:['비비','Bibi','#DF86A2','청초한 라이트 핑크','light pink'],604:['미스티','Misty','#D89A9F','소프트한 페일 타로','pale taro'],
+      605:['스킨','Skin','#CD9677','우아한 누디 베이지','elegant nude beige'],606:['미닝','Meaning','#CA7C72','베이지 코랄','beige coral'],
+      607:['카야','Kaya','#BC7365','베이크드 베이지','baked beige'],608:['위스퍼','Whisper','#D36985','청아한 쿨 로즈','clear cool rose'],
+      609:['클래시','Classy','#C57291','뮤티드 그레이프','muted grape'],610:['대쉬','Dash','#DB5082','쿨 브라이트 핑크','cool bright pink'],
+      611:['온리','Only','#D44966','물기 어린 레드','juicy red'],612:['컨투어','Contour','#AE6060','코랄 브라운','coral brown'],
+      613:['피크','Peak','#BD5A54','뉴트럴 피그','neutral fig'],614:['레이디','Lady','#BC4D6D','딥한 쿨 로즈','deep cool rose'],
+      615:['스킵','Skip','#C0494D','MLBB 레드','MLBB red'],616:['메이플','Maple','#B65748','오렌지 브라운','orange brown'],
+      617:['그레인','Grain','#A84F57','세피아 로즈','sepia rose'],618:['체이스','Chase','#A54441','카페인 레드','caffeine red'],
+      619:['포징','Posing','#993F49','로지 브릭','rosy brick'],620:['템포','Tempo','#982C53','플럼 레드','plum red']};
     const S={
-      spring:{ko:'봄',en:'Spring',ic:'🌸',mood:['벚꽃 노을','Blossom dusk'],sky:['#1b1030','#4b2449','#c26a80'],sun:'#f5a08c',
-        crate:[['Peach Fizz','#F08A6E'],['Coral Petal','#E46F5C'],['Pink Bloom','#E07F9C'],['Apricot Haze','#E39A72']],
-        tip:['봄 웜은 맑은 코랄·피치가 중심입니다. 시어하게 시작해 미디엄으로 레이어링해 보세요.','Spring warm centers on clear coral and peach. Start sheer, then layer to medium.']},
-      summer:{ko:'여름',en:'Summer',ic:'🌧️',mood:['여름 소나기','Summer rain'],sky:['#0d1326','#2b2547','#a05e4c'],sun:'#e8925e',
-        crate:[['Rose Mist','#D88AA0'],['Cool Pink','#CF5E86'],['Lilac Mauve','#B07A9E'],['Watermelon','#E35A6C']],
-        tip:['여름 쿨은 회색빛이 살짝 도는 로즈·모브가 잘 어울립니다. 글로시로 맑은 윤기를 더해 보세요.','Summer cool suits rose and mauve with a soft grey cast. Add clear shine with a glossy finish.']},
-      autumn:{ko:'가을',en:'Autumn',ic:'🍁',mood:['단풍 노을','Maple dusk'],sky:['#170c18','#4b1e25','#cf6a2e'],sun:'#f3a452',
-        crate:[['Brick Rose','#A9483F'],['Chili Brown','#8E3B2C'],['Cinnamon','#A66958'],['Burnt Coral','#C25A3B']],
-        tip:['가을 웜은 브릭·브라운 톤이 중심입니다. 벨벳 피니시로 깊이를 더해 보세요.','Autumn warm centers on brick and brown. Add depth with a velvet finish.']},
-      winter:{ko:'겨울',en:'Winter',ic:'❄️',mood:['첫눈 내리는 밤','First-snow night'],sky:['#0a1024','#242a4a','#86709c'],sun:'#cfa3cc',
-        crate:[['Velvet Wine','#7C1F36'],['Plum Night','#6C2B4C'],['Cherry Red','#B0223B'],['Frost Berry','#922F58']],
-        tip:['겨울 쿨은 선명한 와인·베리가 중심입니다. 비비드로 립 원포인트 룩을 완성해 보세요.','Winter cool centers on vivid wine and berry. Go vivid for a lip-focused look.']}
+      spring:{ko:'봄 웜',en:'Spring warm',ic:'🌸',mood:['벚꽃 노을','Blossom dusk'],sky:['#1b1030','#4b2449','#c26a80'],sun:'#f5a08c',sh:[601,602,605,606,613],
+        story:['벚꽃이 흩날리는 노을 아래','Under a blossom-scattered dusk'],
+        combo:{daily:[602,606],lovely:[601,602],pure:[0,601],business:[605,606],chic:[605,613],evening:[606,613]}},
+      summer:{ko:'여름 쿨',en:'Summer cool',ic:'🌧️',mood:['여름 소나기','Summer rain'],sky:['#0d1326','#2b2547','#a05e4c'],sun:'#e8925e',sh:[603,604,608,610,611],
+        story:['소나기가 그친 여름 저녁','On a summer evening after the rain'],
+        combo:{daily:[604,608],lovely:[603,610],pure:[0,603],business:[0,608],chic:[604,611],evening:[608,611]}},
+      autumn:{ko:'가을 웜',en:'Autumn warm',ic:'🍁',mood:['단풍 노을','Maple dusk'],sky:['#170c18','#4b1e25','#cf6a2e'],sun:'#f3a452',sh:[607,612,615,616,618,619],
+        story:['단풍이 물드는 노을빛 창가에서','By a window glowing with autumn dusk'],
+        combo:{daily:[607,612],lovely:[607,616],pure:[0,607],business:[612,615],chic:[616,618],evening:[615,619]}},
+      winter:{ko:'겨울 쿨',en:'Winter cool',ic:'❄️',mood:['첫눈 내리는 밤','First-snow night'],sky:['#0a1024','#242a4a','#86709c'],sun:'#cfa3cc',sh:[609,614,617,620],
+        story:['첫눈이 내리는 밤','On the night of the first snow'],
+        combo:{daily:[609,617],lovely:[609,614],pure:[0,609],business:[617,614],chic:[617,620],evening:[614,620]}}
     };
-    const FIN={matte:['매트','Matte',.07],velvet:['벨벳','Velvet',.28],gloss:['글로시','Glossy',.62]};
-    const INT={sheer:['시어','Sheer'],medium:['미디엄','Medium'],vivid:['비비드','Vivid']};
-    const st={season:'autumn',pick:0,fin:'velvet',int:'medium'};
+    const MOOD={
+      daily:['데일리','Daily','매일의 나를 가장 편안하게','I wear my everyday self with ease',
+        '베이스를 입술 전체에 얇게 펴 바르고, 포인트는 입술 안쪽에만 톡톡 올린 뒤 손끝으로 경계를 풀어 줍니다.','Sheer base all over, tap the point on the inner lip, blur the edge with a fingertip.'],
+      lovely:['러블리','Lovely','설레는 마음을 입술에 담아','I carry a little flutter on my lips',
+        '포인트를 입술 중앙에 바르고 바깥으로 그라데이션한 뒤, 가운데에만 한 번 더 올려 도톰한 광택을 살립니다.','Point at the center, gradient outward, then one more dab in the middle for a plump shine.'],
+      pure:['청순','Pure','맑은 그대로의 나를','I let my clear, natural self show',
+        '한 가지 컬러만 입술 전체에 얇게 채워, 물기 어린 광택만 남기듯 마무리합니다.','One shade, one thin layer over the whole lip, leaving just a dewy shine.'],
+      business:['비즈니스','Business','또렷한 자신감으로 하루를','I meet the day with quiet confidence',
+        '입술 라인까지 깔끔하게 채워 단정한 윤곽을 만들고, 포인트는 중앙에 얇게 더해 혈색을 정돈합니다.','Fill neatly to the lip line for a clean shape, then a thin point at the center.'],
+      chic:['시크','Chic','흔들림 없는 나만의 무드로','I keep to a mood that is all mine',
+        '베이스를 바른 뒤 포인트로 라인을 또렷하게 채우고, 안쪽으로 블렌딩해 음영을 줍니다.','After the base, define the line with the point and blend inward for depth.'],
+      evening:['이브닝','Evening','깊어진 컬러로 오늘을 마무리하며','I close the day in a deeper shade',
+        '베이스 위에 포인트를 두 번 이상 겹쳐 깊이를 더하고, 글레이어 광택으로 입체감을 완성합니다.','Layer the point twice or more over the base and finish with glossy depth.']};
+    const INT={sheer:['시어 · 1회','Sheer · 1 layer',1],medium:['미디엄 · 2회','Medium · 2 layers',2],vivid:['비비드 · 3회','Vivid · 3 layers',3]};
+    const st={season:'autumn',mood:'evening',base:615,point:619,int:'medium'};
     const rgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
     const hexOf=a=>'#'+a.map(v=>Math.round(Math.max(0,Math.min(255,v))).toString(16).padStart(2,'0')).join('');
     const mix=(a,b,t)=>{const x=rgb(a),y=rgb(b);return hexOf(x.map((v,i)=>v+(y[i]-v)*t))};
-    function lip(){let h=S[st.season].crate[st.pick][1];if(st.int==='sheer')h=mix(h,'#F3D9D6',.4);else if(st.int==='vivid')h=mix(h,'#B5102F',.2);return h}
+    const nm=c=>c?`#${c} ${T(SH[c][0],SH[c][1])}`:'—';
+    function lip(){let h=SH[st.point][2];if(st.int==='sheer')h=mix(h,'#F3D9D6',.35);else if(st.int==='vivid')h=mix(h,'#6A0F2A',.14);return h}
 
     /* controls */
-    const seasonBox=document.getElementById('crec-season'),crate=document.getElementById('crec-crate'),finBox=document.getElementById('crec-fin'),intBox=document.getElementById('crec-int'),sleeves=document.getElementById('crec-sleeves');
-    function chip(box,key,val,ko,en){const b=document.createElement('button');b.type='button';b.className='chip';b.dataset.v=val;b.innerHTML=`<span lang="ko">${ko}</span><span lang="en">${en}</span>`;
-      b.addEventListener('click',()=>{if(st[key]===val)return;if(key==='season'){swap(()=>{st.season=val;setSeason()})}else{st[key]=val;apply()}});box.appendChild(b)}
-    Object.entries(S).forEach(([k,v])=>chip(seasonBox,'season',k,`${v.ic} ${v.ko}`,`${v.ic} ${v.en}`));
-    Object.entries(FIN).forEach(([k,v])=>chip(finBox,'fin',k,v[0],v[1]));
-    Object.entries(INT).forEach(([k,v])=>chip(intBox,'int',k,v[0],v[1]));
+    const seasonBox=document.getElementById('crec-season'),moodBox=document.getElementById('crec-mood'),crate=document.getElementById('crec-crate'),intBox=document.getElementById('crec-int'),sleeves=document.getElementById('crec-sleeves'),guide=document.getElementById('crec-guide');
+    function chip(box,val,ko,en,fn){const b=document.createElement('button');b.type='button';b.className='chip';b.dataset.v=val;b.innerHTML=`<span lang="ko">${ko}</span><span lang="en">${en}</span>`;b.addEventListener('click',()=>fn(val));box.appendChild(b)}
+    const setCombo=()=>{const [b,p]=S[st.season].combo[st.mood];st.base=b;st.point=p};
+    Object.entries(S).forEach(([k,v])=>chip(seasonBox,k,`${v.ic} ${v.ko.split(' ')[0]}`,`${v.ic} ${v.en.split(' ')[0]}`,val=>{if(st.season===val)return;swap(()=>{st.season=val;setCombo();setSeason()})}));
+    Object.entries(MOOD).forEach(([k,v])=>chip(moodBox,k,v[0],v[1],val=>{if(st.mood===val||busy)return;const old=st.point;st.mood=val;setCombo();st.point===old?apply(true):swap(()=>{})}));
+    Object.entries(INT).forEach(([k,v])=>chip(intBox,k,v[0],v[1],val=>{st.int=val;apply(true)}));
     function buildCrate(){
-      crate.innerHTML='';sleeves.innerHTML='';
-      S[st.season].crate.forEach(([n,h],i)=>{
-        const b=document.createElement('button');b.type='button';b.className='sl';b.style.setProperty('--sc',h);b.innerHTML=`<span>${n}</span>`;b.setAttribute('aria-label',n);
-        b.addEventListener('click',()=>{if(st.pick===i)return;swap(()=>{st.pick=i})});crate.appendChild(b);
+      crate.innerHTML='';
+      S[st.season].sh.forEach(c=>{
+        const b=document.createElement('button');b.type='button';b.className='sl';b.dataset.c=c;b.style.setProperty('--sc',SH[c][2]);
+        b.innerHTML=`<span>#${c}<small lang="ko">${SH[c][0]}</small><small lang="en">${SH[c][1]}</small></span>`;b.setAttribute('aria-label',`${c} ${SH[c][1]}`);
+        b.addEventListener('click',()=>{if(st.point===c)return;swap(()=>{st.point=c;if(st.base===c)st.base=0})});crate.appendChild(b);
       });
-      [3,1].forEach((i,k)=>{const e=document.createElement('i');e.style.setProperty('--sc',S[st.season].crate[i][1]);e.style.setProperty('--r',k?'4deg':'-7deg');sleeves.appendChild(e)});
     }
     const slide=root.querySelector('.rec-slide');let busy=false;
     function swap(change){
       if(busy) return; busy=true;
-      if(reduce){change();apply();busy=false;return}
+      if(reduce){change();apply(true);busy=false;return}
       root.classList.add('swapping');
       slide.animate([{transform:'none',opacity:1},{transform:'translate(150%,-30%) rotate(50deg)',opacity:0}],{duration:420,easing:'cubic-bezier(.5,0,.8,.4)',fill:'forwards'}).finished.then(()=>{
-        change();apply();
+        change();apply(true);
         return slide.animate([{transform:'translate(-150%,-20%) rotate(-40deg)',opacity:0},{transform:'none',opacity:1}],{duration:560,easing:'cubic-bezier(.2,.7,.3,1)',fill:'forwards'}).finished;
       }).then(()=>{setTimeout(()=>{root.classList.remove('swapping');busy=false},220)});
     }
     function setSeason(){root.dataset.season=st.season;buildCrate();target=S[st.season];spawn()}
-    function apply(){
-      const c=lip(), s=S[st.season];
-      scene.style.setProperty('--c',c);root.dataset.fin=st.fin;scene.style.setProperty('--sh',FIN[st.fin][2]);
-      seasonBox.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===st.season));
-      finBox.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===st.fin));
-      intBox.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===st.int));
-      crate.querySelectorAll('.sl').forEach((b,i)=>b.setAttribute('aria-pressed',i===st.pick));
-      document.getElementById('np-name').textContent=s.crate[st.pick][0];
-      document.getElementById('np-sub').textContent=`${T(s.ko,s.en)} · ${T(s.mood[0],s.mood[1])} · ${T(FIN[st.fin][0],FIN[st.fin][1])} · ${T(INT[st.int][0],INT[st.int][1])}`;
-      document.getElementById('crec-tip').textContent=T(s.tip[0]+' LP는 몇 번을 바꿔 끼워도 입술에 착색이 쌓이지 않으니, 화면에서 먼저 비교하고 최종 후보만 테스트하세요.',s.tip[1]+' Swapping LPs never stains your lips, so compare here first and test only the final pick.');
-      glow=c;
+
+    /* receipt printer */
+    const printer=document.getElementById('crec-printer'),rc=document.getElementById('aura-rcpt'),ps=document.getElementById('pr-status');let pt=0;
+    function receipt(){
+      const s=S[st.season],m=MOOD[st.mood],d=new Date();
+      let h=0;for(const ch of JSON.stringify(st))h=(h*31+ch.charCodeAt(0))%997;
+      const dot=c=>c?`<i style="background:${SH[c][2]}"></i>`:'';
+      rc.innerHTML=`<div class="r-head"><b>MY AURA RECEIPT</b><span>EVERY SHADE, EVERY STORY</span><span>${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')} · SEONGSU</span></div>
+        <span class="r-no">AURA #${String(h).padStart(3,'0')}</span><strong class="r-name">${m[1]} Aura</strong><span class="r-sub">${T(s.ko,s.en)} · ${T(s.mood[0],s.mood[1])}</span>
+        <dl class="r-lines"><dt>LOOK</dt><dd>${T(m[0],m[1])}</dd>${st.base?`<dt>BASE</dt><dd>${dot(st.base)}${nm(st.base)}</dd>`:''}<dt>POINT</dt><dd>${dot(st.point)}${nm(st.point)}</dd>
+        <dt>LAYER</dt><dd>${T(INT[st.int][0],INT[st.int][1])}</dd><dt>FIX</dt><dd>${T('라카 매직 립 픽서','LAKA Magic Lip Fixer')}</dd></dl>
+        <p class="r-story">“${T(s.story[0],s.story[1])}, ${T(m[2],m[3])}.”</p>
+        <div class="r-foot"><span class="r-bar" aria-hidden="true"></span><small>BUILD YOUR OWN AURA</small></div>`;
     }
-    window.renderFinder=apply;
+    function print(animate){
+      if(!animate||reduce){receipt();ps.textContent='PRINTED ✓';return}
+      clearTimeout(pt);printer.classList.add('printing');ps.textContent='READING…';rc.classList.remove('go');rc.classList.add('out');
+      pt=setTimeout(()=>{receipt();rc.classList.remove('out');void rc.offsetWidth;rc.classList.add('go');ps.textContent='PRINTING…';
+        pt=setTimeout(()=>{printer.classList.remove('printing');ps.textContent='PRINTED ✓'},1150)},520);
+    }
+
+    /* layering guide */
+    function renderGuide(){
+      const s=S[st.season],m=MOOD[st.mood],n=INT[st.int][2];
+      const layer=[T('포인트를 한 번만 얇게 올려 맑게 마무리합니다.','One thin pass of the point for a clear finish.'),T('포인트를 두 번 레이어링합니다. 글레이어 틴트는 겹칠수록 발색과 광택이 차오릅니다.','Layer the point twice; Glayer tint builds color and shine with each pass.'),T('포인트를 세 번 겹쳐 선명하게 채웁니다. 입술 중앙부터 쌓으면 뭉침 없이 깊어집니다.','Build the point three times for vivid color, starting from the center.')][n-1];
+      const steps=[];
+      if(st.base) steps.push([st.base,'BASE',`<em>BASE</em><b>${nm(st.base)}</b>${T(SH[st.base][3],SH[st.base][4])} · ${T('입술 전체에 얇게 펴 발라 컬러의 바탕을 만듭니다.','a thin layer all over as the base.')}`]);
+      steps.push([st.point,'POINT',`<em>POINT</em><b>${nm(st.point)}</b>${T(SH[st.point][3],SH[st.point][4])} · ${T(m[4],m[5])}`]);
+      steps.push([st.point,'×'+n,`<em>LAYER</em><b>${T('레이어링','Layering')}</b>${layer}`]);
+      const combos=Object.entries(s.combo).map(([k,[b,p]])=>`<button type="button" data-m="${k}" aria-pressed="${k===st.mood}"><em>${b?`<i style="background:${SH[b][2]}"></i>`:''}<i style="background:${SH[p][2]}"></i></em>${T(MOOD[k][0],MOOD[k][1])} ${b?b+' + ':''}${p}</button>`).join('');
+      guide.innerHTML=`<div class="cg-card"><h4><small>HOW TO WEAR</small>${T(`${m[0]} 아우라 레이어링`,`${m[1]} aura layering`)}</h4>
+          <ol class="cg-steps">${steps.map(([c,k,t],i)=>`<li><span class="dot" style="--d:${SH[c][2]}">${k.startsWith('×')?k:'0'+(i+1)}</span><span>${t}</span></li>`).join('')}</ol></div>
+        <div class="cg-card cg-fix"><h4><small>LONG WEAR</small>${T('라카 매직 립 픽서 추천','LAKA Magic Lip Fixer')}</h4>
+          <div class="fx"><i aria-hidden="true"></i><p>${T('컬러를 모두 바른 뒤 립 픽서를 얇게 덧바르고, 2~3분 동안 입술을 맞대지 않고 말려 주면 컬러가 더 오래 유지됩니다. 광택을 살리고 싶다면 픽서가 마른 뒤 포인트 컬러를 중앙에만 한 번 더 올려 주세요.','After the color, add a thin coat of lip fixer and let it dry 2–3 minutes with lips apart for longer wear. For extra shine, dab the point at the center once the fixer is dry.')}</p></div>
+          <h4 style="margin-top:6px"><small>${T(`${s.ko.split(' ')[0]} 추천 조합`,`${s.en.split(' ')[0]} combos`)}</small></h4><div class="cg-combos">${combos}</div></div>`;
+      guide.querySelectorAll('.cg-combos button').forEach(b=>b.addEventListener('click',()=>moodBox.querySelector(`[data-v="${b.dataset.m}"]`).click()));
+    }
+
+    function apply(animate){
+      const c=lip(), s=S[st.season];
+      scene.style.setProperty('--c',c);scene.style.setProperty('--sh',.6);
+      seasonBox.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===st.season));
+      moodBox.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===st.mood));
+      intBox.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===st.int));
+      crate.querySelectorAll('.sl').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.c===st.point));
+      document.getElementById('np-name').textContent=`#${st.point} ${SH[st.point][1]}`;
+      document.getElementById('np-sub').textContent=`${T(s.ko,s.en)} · ${T(s.mood[0],s.mood[1])} · ${T(MOOD[st.mood][0],MOOD[st.mood][1])}`;
+      document.getElementById('rec-lbl').textContent=`#${st.point} ${SH[st.point][1].toUpperCase()}`;
+      sleeves.innerHTML='';[st.base||s.sh[0],s.sh[s.sh.length-1]].forEach((c2,k)=>{const e=document.createElement('i');e.style.setProperty('--sc',SH[c2][2]);e.style.setProperty('--r',k?'4deg':'-7deg');sleeves.appendChild(e)});
+      glow=c;renderGuide();print(animate);
+    }
+    window.renderFinder=()=>apply(false);
 
     /* window view: dusk sky, city, bokeh, seasonal particles */
     let W=0,H=0,dpr=1,far=[],near=[],bokeh=[],stars=[],branch=null,parts=[],drops=[],pa=0,target=S[st.season],glow='#A9483F';
@@ -1974,40 +2108,40 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(vis&&!raf)raf=requestAnimationFrame(loop)},{rootMargin:'100px'}).observe(cv);
     new ResizeObserver(()=>{resize();draw(performance.now())}).observe(cv);
 
-    /* SNS story card */
+    /* story card for sharing */
     function story(){
-      const c=document.createElement('canvas');c.width=1080;c.height=1920;const g=c.getContext('2d'),col=lip(),s=S[st.season];
+      const c=document.createElement('canvas');c.width=1080;c.height=1920;const g=c.getContext('2d'),col=lip(),s=S[st.season],m=MOOD[st.mood];
       const sw=cv.width,sh=cv.height,sc=Math.max(1080/sw,1920/sh);g.drawImage(cv,(1080-sw*sc)/2,(1920-sh*sc)/2,sw*sc,sh*sc);
-      let gr=g.createLinearGradient(0,0,0,1920);gr.addColorStop(0,'rgba(10,4,8,.55)');gr.addColorStop(.35,'rgba(10,4,8,.1)');gr.addColorStop(.62,'rgba(10,4,8,.55)');gr.addColorStop(1,'rgba(10,4,8,.95)');g.fillStyle=gr;g.fillRect(0,0,1080,1920);
-      g.textAlign='center';g.fillStyle='#F4EEF6';g.font='700 34px "IBM Plex Sans KR",sans-serif';g.letterSpacing='10px';g.fillText('LAKA COLOR RECORD',540,150);g.letterSpacing='0px';
-      g.font='600 26px "IBM Plex Sans KR",sans-serif';g.fillStyle='rgba(244,238,246,.7)';g.fillText(`${T(s.ko,s.en)} · ${T(s.mood[0],s.mood[1])}`,540,200);
-      const cx=540,cy=900,r=330;gr=g.createRadialGradient(cx,cy,r*.6,cx,cy,r*1.5);gr.addColorStop(0,col+'aa');gr.addColorStop(1,col+'00');g.fillStyle=gr;g.fillRect(0,400,1080,1000);
+      let gr=g.createLinearGradient(0,0,0,1920);gr.addColorStop(0,'rgba(10,4,8,.6)');gr.addColorStop(.3,'rgba(10,4,8,.12)');gr.addColorStop(.6,'rgba(10,4,8,.6)');gr.addColorStop(1,'rgba(10,4,8,.96)');g.fillStyle=gr;g.fillRect(0,0,1080,1920);
+      g.textAlign='center';g.fillStyle='#F4EEF6';g.font='700 32px "IBM Plex Sans KR",sans-serif';g.letterSpacing='10px';g.fillText('EVERY SHADE, EVERY STORY',540,140);g.letterSpacing='0px';
+      g.font='600 26px "IBM Plex Sans KR",sans-serif';g.fillStyle='rgba(244,238,246,.72)';g.fillText(`LAKA COLOR RECORD · ${T(s.ko,s.en)} · ${T(s.mood[0],s.mood[1])}`,540,190);
+      const cx=540,cy=820,r=320;gr=g.createRadialGradient(cx,cy,r*.6,cx,cy,r*1.5);gr.addColorStop(0,col+'aa');gr.addColorStop(1,col+'00');g.fillStyle=gr;g.fillRect(0,320,1080,1000);
       g.fillStyle=col;g.beginPath();g.arc(cx,cy,r,0,7);g.fill();
       for(let rr=r*.36;rr<r*.97;rr+=7){g.strokeStyle=`rgba(0,0,0,${.12+.06*Math.sin(rr)})`;g.lineWidth=2;g.beginPath();g.arc(cx,cy,rr,0,7);g.stroke()}
-      g.save();g.globalCompositeOperation='screen';g.globalAlpha=FIN[st.fin][2];const cg=g.createConicGradient?g.createConicGradient(3.6,cx,cy):null;
-      if(cg){cg.addColorStop(0,'rgba(255,255,255,0)');cg.addColorStop(.1,'rgba(255,255,255,.9)');cg.addColorStop(.18,'rgba(255,255,255,0)');cg.addColorStop(.5,'rgba(255,255,255,0)');cg.addColorStop(.6,'rgba(255,255,255,.8)');cg.addColorStop(.68,'rgba(255,255,255,0)');g.fillStyle=cg;g.beginPath();g.arc(cx,cy,r,0,7);g.arc(cx,cy,r*.36,0,7,true);g.fill()}
-      g.restore();
-      g.fillStyle=mix(col,'#F4ECE6',.72);g.beginPath();g.arc(cx,cy,r*.33,0,7);g.fill();g.fillStyle='#2a0d16';g.font='800 46px "Bricolage Grotesque",sans-serif';g.fillText('LAKA',cx,cy-6);g.font='700 18px "IBM Plex Sans KR",sans-serif';g.fillText('COLOR RECORD',cx,cy+30);
+      if(g.createConicGradient){g.save();g.globalCompositeOperation='screen';g.globalAlpha=.6;const cg=g.createConicGradient(3.6,cx,cy);cg.addColorStop(0,'rgba(255,255,255,0)');cg.addColorStop(.1,'rgba(255,255,255,.9)');cg.addColorStop(.18,'rgba(255,255,255,0)');cg.addColorStop(.5,'rgba(255,255,255,0)');cg.addColorStop(.6,'rgba(255,255,255,.8)');cg.addColorStop(.68,'rgba(255,255,255,0)');g.fillStyle=cg;g.beginPath();g.arc(cx,cy,r,0,7);g.arc(cx,cy,r*.36,0,7,true);g.fill();g.restore()}
+      g.fillStyle=mix(col,'#F4ECE6',.72);g.beginPath();g.arc(cx,cy,r*.33,0,7);g.fill();g.fillStyle='#2a0d16';g.font='800 46px "Bricolage Grotesque",sans-serif';g.fillText('LAKA',cx,cy-6);g.font='700 20px "IBM Plex Sans KR",sans-serif';g.fillText(`#${st.point} ${SH[st.point][1].toUpperCase()}`,cx,cy+30);
       g.fillStyle='rgba(0,0,0,.7)';g.beginPath();g.arc(cx,cy,9,0,7);g.fill();
-      g.fillStyle='rgba(244,238,246,.75)';g.font='700 28px "IBM Plex Sans KR",sans-serif';g.letterSpacing='8px';g.fillText('NOW PLAYING',540,1380);g.letterSpacing='0px';
-      g.fillStyle='#fff';g.font='700 108px "Cormorant Garamond",serif';g.fillText(s.crate[st.pick][0],540,1500);
-      g.font='600 32px "IBM Plex Sans KR",sans-serif';g.fillStyle='rgba(244,238,246,.82)';g.fillText(`${T(FIN[st.fin][0],FIN[st.fin][1])} · ${T(INT[st.int][0],INT[st.int][1])}`,540,1562);
-      g.fillStyle='#F2B3BC';g.font='700 38px "IBM Plex Sans KR",sans-serif';g.fillText('#라카컬러레코드  #MyLPStory',540,1700);
-      g.fillStyle='rgba(244,238,246,.5)';g.font='500 24px "IBM Plex Sans KR",sans-serif';g.fillText(T('데모 기획 · 정수현 포트폴리오','Demo concept · Sony Jeong portfolio'),540,1840);
+      g.fillStyle='rgba(244,238,246,.75)';g.font='700 28px "IBM Plex Sans KR",sans-serif';g.letterSpacing='8px';g.fillText('MY AURA',540,1270);g.letterSpacing='0px';
+      g.fillStyle='#fff';g.font='700 112px "Cormorant Garamond",serif';g.fillText(`${m[1]} Aura`,540,1390);
+      g.font='600 34px "IBM Plex Sans KR",sans-serif';g.fillStyle='rgba(244,238,246,.88)';g.fillText(`${st.base?nm(st.base)+'  +  ':''}${nm(st.point)}`,540,1460);
+      g.font='italic 500 34px "Cormorant Garamond",serif';g.fillStyle='rgba(244,238,246,.8)';g.fillText(`“${T(s.story[0],s.story[1])},`,540,1560);g.fillText(`${T(m[2],m[3])}.”`,540,1608);
+      g.fillStyle='#F2B3BC';g.font='700 36px "IBM Plex Sans KR",sans-serif';g.fillText('#EveryShadeEveryStory  #라카컬러레코드',540,1730);
+      g.fillStyle='rgba(244,238,246,.5)';g.font='500 24px "IBM Plex Sans KR",sans-serif';g.fillText(T('데모 기획 · 정수현 포트폴리오','Demo concept · Sony Jeong portfolio'),540,1850);
       return c;
     }
     document.getElementById('crec-sns').addEventListener('click',()=>{
       draw(performance.now());const c=story(),m=document.createElement('div');m.className='sns-modal';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');
-      m.innerHTML=`<div class="sns-card"><div class="cv"></div><div><span class="tagline">${T('SNS 인증 이벤트 · 데모 기획','SOCIAL EVENT · DEMO CONCEPT')}</span><h4>${T('나의 LP 컬러를 인증해 주세요','Share your LP color')}</h4>
-        <ol><li>${T('계절 무드와 LP를 골라 나만의 립 컬러 찾기','Find your lip color by season and LP')}</li><li>${T('스토리 카드 저장 후 #라카컬러레코드와 함께 업로드','Save the story card and post it with #라카컬러레코드')}</li><li>${T('현장 스태프에게 인증하면 미니 틴트 증정','Show it to staff for a mini tint')}</li></ol>
-        <p class="note">${T('인증 게시물의 컬러별 선택 수를 모아 다음 시즌 진열과 수량 준비에 활용합니다.','Counts by color from the posts feed into next season’s display and stock planning.')}</p>
-        <div class="sns-actions"><a download="laka-color-record.png">${T('이미지 저장','Save image')}</a><button type="button">${T('닫기','Close')}</button></div></div></div>`;
+      m.innerHTML=`<div class="sns-card"><div class="cv"></div><div><span class="tagline">${T('SNS 인증 · 데모 기획','SOCIAL SHARING · DEMO CONCEPT')}</span><h4>Every Shade, Every Story</h4>
+        <ol><li>${T('계절과 추구미로 나만의 아우라 발견하기','Discover your aura by season and look')}</li><li>${T('아우라 스토리 카드 저장하기','Save your aura story card')}</li><li>${T('#EveryShadeEveryStory 와 함께 나의 컬러에 담긴 이야기 공유하기','Share the story behind your shade with #EveryShadeEveryStory')}</li></ol>
+        <p class="note">${T('공유된 게시물의 컬러별 선택 수는 다음 시즌 진열과 컬러 기획에 참고합니다.','Counts by color from shared posts inform next season’s display and color planning.')}</p>
+        <div class="sns-actions"><a download="my-aura-story.png">${T('이미지 저장','Save image')}</a><button type="button">${T('닫기','Close')}</button></div></div></div>`;
       m.querySelector('.cv').appendChild(c);m.querySelector('a').href=c.toDataURL('image/png');
       const close=()=>{m.remove();document.body.style.overflow=''};m.querySelector('button').addEventListener('click',close);m.addEventListener('click',e=>{if(e.target===m)close()});
       addEventListener('keydown',function esc(e){if(e.key==='Escape'){close();removeEventListener('keydown',esc)}});
       document.body.appendChild(m);document.body.style.overflow='hidden';
     });
-    buildCrate();apply();resize();draw(0);
+    buildCrate();apply(false);resize();draw(0);
+    new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){o.disconnect();print(true)}},{threshold:.3}).observe(printer);
   })();
 
   /* Guest Connect Mission: step simulation */
