@@ -584,6 +584,70 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
 .gf-steps li:last-child .gf-ic .s2,.gf-steps li:last-child .gf-ic .s{stroke:#1E1A16}
 .gf-steps li:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);font:800 14px var(--display);color:var(--brown);z-index:1}
 @media (max-width:860px){.gf-steps li:nth-child(2)::after{display:none}}
+/* ===== Guest Connect Mission: step simulation ===== */
+.gcm{margin-top:18px;border-radius:16px;overflow:hidden;color:#FFF8E1;border:1px solid rgba(255,229,0,.18);
+  background:radial-gradient(90% 120% at 35% 0%,rgba(255,229,0,.16),transparent 60%),radial-gradient(70% 90% at 100% 100%,rgba(74,52,38,.55),transparent 60%),#17130F}
+.gcm-head{display:flex;align-items:center;gap:12px;padding:12px 16px 0;font:700 11px var(--body);letter-spacing:.16em}
+.gcm-live{display:inline-flex;align-items:center;gap:6px;color:#FFE500}
+.gcm-live i{width:7px;height:7px;border-radius:50%;background:#FF5A6E;box-shadow:0 0 8px #FF5A6E;animation:blink 1.2s steps(2) infinite}
+.gcm-round{flex:1;letter-spacing:.04em;color:rgba(255,248,225,.75);font-weight:600;font-size:12.5px}
+.gcm-replay{font:600 12px var(--body);color:#FFF8E1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:5px 12px;cursor:pointer}
+.gcm-replay:hover{border-color:rgba(255,229,0,.7)}
+.gcm-stage{position:relative;aspect-ratio:16/7.4;min-height:300px;margin:8px 12px 12px}
+.gz{position:absolute;border-radius:14px;border:1px dashed rgba(255,248,225,.2);display:flex;flex-direction:column;align-items:center;gap:1px;padding-top:9px;text-align:center;
+  font-size:11.5px;color:rgba(255,248,225,.55);transition:border-color .35s,background-color .35s,box-shadow .35s}
+.gz b{font:700 10px var(--body);letter-spacing:.16em;color:rgba(255,248,225,.78)}
+.gz.hot{border-style:solid;border-color:rgba(255,229,0,.85);background:rgba(255,229,0,.08);box-shadow:0 0 26px -6px rgba(255,229,0,.55),inset 0 0 20px rgba(255,229,0,.08)}
+.gz.hot b{color:#fff}
+.z-door{left:0;top:4%;width:14%;height:92%}
+.z-floor{left:16%;top:4%;width:46%;height:92%}
+.z-staff{left:64%;top:4%;width:16%;height:44%}
+.z-box{left:64%;top:52%;width:16%;height:44%}
+.z-box strong{font:800 30px/1.1 var(--display);color:#FFE500;margin-top:8px;text-shadow:0 0 14px rgba(255,229,0,.55);font-variant-numeric:tabular-nums;transition:transform .25s}
+.z-box strong.bump{transform:scale(1.3)}
+.z-games{left:82%;top:4%;width:18%;height:92%}
+.gs{position:absolute;left:50%;transform:translate(-50%,-50%);font-style:normal;font-size:22px;display:flex;flex-direction:column;align-items:center;line-height:1;transition:transform .3s}
+.gs em{font-style:normal;font-size:10.5px;color:rgba(255,248,225,.6);margin-top:3px;white-space:nowrap}
+.gs.go{animation:gsb .5s ease 2}
+@keyframes gsb{50%{transform:translate(-50%,-62%) scale(1.25)}}
+.gt{position:absolute;left:7%;top:50%;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;z-index:2;
+  background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.35),transparent 45%),var(--c);box-shadow:0 0 0 2px rgba(0,0,0,.35),0 6px 12px rgba(0,0,0,.45);
+  transition:left 1s cubic-bezier(.45,.05,.3,1),top 1s cubic-bezier(.45,.05,.3,1),box-shadow .3s}
+.gt svg{position:absolute;inset:7px;width:20px;height:20px;fill:rgba(255,255,255,.85)}
+.gt .cd{position:absolute;right:-11px;top:-13px;width:21px;height:27px;border-radius:5px;background:#F8F3F0;display:grid;place-items:center;font-size:12.5px;line-height:1;
+  box-shadow:0 3px 8px rgba(0,0,0,.45);transform:scale(0) rotate(-25deg);transition:transform .45s cubic-bezier(.3,1.7,.5,1)}
+.gt.has .cd{transform:scale(1) rotate(9deg)}
+.gt.flip .cd{animation:cflip .7s ease}
+@keyframes cflip{0%{transform:scale(1) rotate(9deg)}50%{transform:scale(1) rotateY(90deg)}100%{transform:scale(1) rotate(9deg)}}
+.gt.met{box-shadow:0 0 0 2px #FFE500,0 0 20px 5px rgba(255,229,0,.6)}
+.gt .ok{position:absolute;left:-7px;bottom:-5px;width:16px;height:16px;border-radius:50%;background:#2FAE6B;color:#fff;font:800 10px/16px var(--body);text-align:center;transform:scale(0);transition:transform .35s cubic-bezier(.3,1.7,.5,1)}
+.gt.okd .ok{transform:scale(1)}
+.hi{position:absolute;z-index:3;font-size:18px;pointer-events:none;transform:translate(-50%,-50%);animation:hi 1.3s ease forwards}
+@keyframes hi{0%{opacity:0;transform:translate(-50%,-20%) scale(.6)}25%{opacity:1;transform:translate(-50%,-90%) scale(1.1)}100%{opacity:0;transform:translate(-50%,-160%) scale(1)}}
+.tk{position:absolute;z-index:3;width:24px;height:15px;margin:-7px 0 0 -12px;border-radius:3px;background:linear-gradient(135deg,#F6D98A,#D9A441);box-shadow:0 0 12px rgba(246,217,138,.7);
+  transition:left .8s cubic-bezier(.5,0,.3,1),top .8s cubic-bezier(.5,0,.3,1),opacity .3s}
+.tk::after{content:"";position:absolute;inset:3px 7px;border-left:1.5px dashed rgba(90,50,0,.45)}
+.gcm-cap{position:absolute;left:16%;width:46%;bottom:4%;margin:0;text-align:center;font-size:13px;line-height:1.45;color:#fff;padding:7px 10px;border-radius:10px;background:rgba(20,16,12,.7);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.1);z-index:4}
+.gcm-cap b{color:#FFE500;margin-right:6px;font-family:var(--display)}
+.gf-steps li{transition:box-shadow .35s,transform .35s,outline-color .35s;outline:2px solid transparent;outline-offset:2px}
+.gf-steps li.on{outline-color:var(--brown);transform:translateY(-3px);box-shadow:0 10px 24px -10px rgba(255,229,0,.55)}
+.gf-loop{transition:background-color .35s,box-shadow .35s}
+.gf-loop.on{background:color-mix(in srgb,var(--yellow) 14%,transparent);box-shadow:0 0 22px -8px rgba(255,229,0,.6)}
+@media (max-width:559px){.gcm-stage{aspect-ratio:auto;height:430px;margin:8px 8px 70px}
+  .z-door{left:0;top:0;width:100%;height:13%;flex-direction:row;justify-content:flex-end;padding:0 10px;gap:6px;align-items:center}
+  .z-floor{left:0;top:15%;width:100%;height:45%}
+  .z-staff{left:0;top:62%;width:31%;height:38%}
+  .z-games{left:33%;top:62%;width:36%;height:38%}
+  .z-box{left:71%;top:62%;width:29%;height:38%}
+  .gs{flex-direction:row;gap:5px}.gs em{margin:0}
+  .gcm-cap{left:0!important;width:100%!important;bottom:auto;top:calc(100% + 8px)}
+}
+@media (max-width:700px){.gt{width:28px;height:28px;margin:-14px 0 0 -14px}.gt svg{inset:6px;width:16px;height:16px}
+  .gz{font-size:10px}.gz b{font-size:8.5px;letter-spacing:.08em}.gs{font-size:18px}.gs em{font-size:9px}.gcm-cap{left:2%;width:60%;font-size:11.5px}.z-box strong{font-size:22px}}
+
+@keyframes blink{50%{opacity:.4}}
+@media (prefers-reduced-motion:reduce){.gcm-live i{animation:none}}
 .gf-try{margin-top:16px;padding:16px 18px;border-radius:14px;border:1.5px dashed var(--line);background:var(--bg-2)}
 /* thanks */
 .thanks{padding-block:96px 120px;text-align:center}
@@ -952,11 +1016,22 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
       <span class="place">Guest Connect Mission</span>
       <h3><span lang="ko">게스트 커넥트 미션으로 처음 만난 게스트를 잇다</span><span lang="en">Connecting first-time guests through the Guest Connect Mission</span></h3>
       <p class="desc"><span lang="ko">아는 사람끼리만 대화하던 분위기를 바꾸기 위해, 처음 만난 게스트와 짝을 이뤄 미션을 수행하도록 설계했습니다. 많이 참여할수록 당첨 확률이 높아져 참여율과 교류가 함께 늘었습니다.</span><span lang="en">To move beyond guests talking only with people they already knew, I had them pair up with someone new to complete missions. More play meant better odds, so participation and interaction rose together.</span></p>
+      <div class="gcm" id="gcm">
+        <div class="gcm-head"><span class="gcm-live"><i></i>SIMULATION</span><span class="gcm-round" id="gcm-round"></span><button type="button" class="gcm-replay" id="gcm-replay"><span lang="ko">↺ 처음부터</span><span lang="en">↺ Replay</span></button></div>
+        <div class="gcm-stage" id="gcm-stage">
+          <div class="gz z-door" data-z="0"><b>ENTRANCE</b><span><span lang="ko">참여권 배부</span><span lang="en">Game pass</span></span></div>
+          <div class="gz z-floor" data-z="1"><b>PARTY FLOOR</b><span><span lang="ko">같은 그림 짝 찾기</span><span lang="en">Find your match</span></span></div>
+          <div class="gz z-staff" data-z="2"><b>STAFF</b><span><span lang="ko">짝 인증</span><span lang="en">Verify</span></span></div>
+          <div class="gz z-box" data-z="3"><b>LUCKY DRAW</b><strong id="gcm-cnt">0</strong><span><span lang="ko">응모권</span><span lang="en">entries</span></span></div>
+          <div class="gz z-games" data-z="2"><b>MINI GAMES</b><i class="gs" style="top:34%">🎯<em><span lang="ko">사격</span><span lang="en">Shooting</span></em></i><i class="gs" style="top:58%">⭕<em><span lang="ko">링 던지기</span><span lang="en">Ring toss</span></em></i><i class="gs" style="top:82%">⚽<em><span lang="ko">푸즈볼</span><span lang="en">Foosball</span></em></i></div>
+          <p class="gcm-cap" id="gcm-cap" aria-live="polite"></p>
+        </div>
+      </div>
       <ol class="gf-steps">
-        <li><span class="gf-ic" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M6 15a3 3 0 0 1 3-3h30a3 3 0 0 1 3 3v4a5 5 0 0 0 0 10v4a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3v-4a5 5 0 0 0 0-10z" class="f"/><path d="M30 13v22" class="d"/><path d="M15 21h9M15 27h6" class="s"/></svg></span><b>01</b><h4><span lang="ko">입장권 & 게임 종이 배부</span><span lang="en">Entry pass & game card</span></h4><p><span lang="ko">입장 시 회차 테마 그림이 담긴 게임 종이를 받습니다</span><span lang="en">Each guest gets a card with the round’s theme picture</span></p></li>
-        <li><span class="gf-ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="13" cy="12" r="5" class="s2"/><path d="M5 30c0-5 4-8 8-8s8 3 8 8" class="s2"/><circle cx="35" cy="12" r="5" class="s2"/><path d="M27 30c0-5 4-8 8-8s8 3 8 8" class="s2"/><rect x="8" y="33" width="10" height="12" rx="2" class="f"/><rect x="30" y="33" width="10" height="12" rx="2" class="f"/><path d="M13 36.5l1 2 2 .3-1.5 1.4.4 2-1.9-1-1.9 1 .4-2-1.5-1.4 2-.3zM35 36.5l1 2 2 .3-1.5 1.4.4 2-1.9-1-1.9 1 .4-2-1.5-1.4 2-.3z" class="k"/><path d="M20 39h8" class="d"/></svg></span><b>02</b><h4><span lang="ko">같은 그림 가진 사람 찾기</span><span lang="en">Find your match</span></h4><p><span lang="ko">파티장 안에서 같은 그림을 가진 상대를 찾습니다</span><span lang="en">Find the guest holding the same picture</span></p></li>
-        <li><span class="gf-ic" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="18" cy="26" r="13" class="f"/><circle cx="18" cy="26" r="8" class="w"/><circle cx="18" cy="26" r="3" class="k"/><path d="M18 26l20-16" class="s"/><circle cx="38" cy="36" r="7" class="k"/><path d="M34.5 36l2.5 2.5 4.5-5" class="wl"/></svg></span><b>03</b><h4><span lang="ko">스태프 인증 후 게임 참여</span><span lang="en">Verify, then play</span></h4><p><span lang="ko">짝을 스태프에게 인증하고 사격·링 던지기·푸즈볼에 도전합니다</span><span lang="en">Show your match to staff, then try shooting, ring toss or foosball</span></p></li>
-        <li><span class="gf-ic" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="6" y="30" width="8" height="12" rx="2" class="g"/><rect x="18" y="22" width="8" height="20" rx="2" class="g2"/><rect x="30" y="12" width="8" height="30" rx="2" class="f"/><path d="M8 22l12-8 7 5 13-11" class="s"/><path d="M34 8h6v6" class="s"/></svg></span><b>04</b><h4><span lang="ko">많이 참여할수록 당첨 확률 UP</span><span lang="en">More play, better odds</span></h4><p><span lang="ko">게임을 통과할 때마다 응모권을 받아 당첨 확률이 올라갑니다</span><span lang="en">Every cleared game earns an entry, raising your odds</span></p></li>
+        <li><b>01</b><h4><span lang="ko">게임 참여권 받기</span><span lang="en">Get a game pass</span></h4><p><span lang="ko">입장 시 회차 테마 그림이 담긴 게임 참여권 배부</span><span lang="en">A game pass with the round’s theme picture, handed out at entry</span></p></li>
+        <li><b>02</b><h4><span lang="ko">같은 그림의 짝꿍 찾기</span><span lang="en">Find your match</span></h4><p><span lang="ko">같은 그림을 가진 참가자와 팀 구성</span><span lang="en">Team up with the guest holding the same card</span></p></li>
+        <li><b>03</b><h4><span lang="ko">인증 후 미니게임 참여</span><span lang="en">Verify, then play</span></h4><p><span lang="ko">스태프에게 같은 그림 짝을 인증한 뒤 사격·링 던지기·푸즈볼 도전</span><span lang="en">Show your match to staff, then try shooting, ring toss or foosball</span></p></li>
+        <li><b>04</b><h4><span lang="ko">경품 추첨 응모권</span><span lang="en">Lucky-draw entry</span></h4><p><span lang="ko">게임을 통과하면 응모권 지급</span><span lang="en">Pass the game, earn an entry</span></p></li>
       </ol>
       <div class="viz viz-match gf-try">
             <p class="vz-cap" id="mc-cap"><span lang="ko">직접 해보기 · 같은 그림을 가진 상대를 찾아보세요</span><span lang="en">Try it · find the guest with the same picture</span></p>
@@ -1379,6 +1454,71 @@ html:not(.en) .star .flow-chips>span[lang="ko"],html.en .star .flow-chips>span[l
     });
     ol.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse')clear()});
   });
+
+  /* Guest Connect Mission: step simulation */
+  (function(){
+    const stage=document.getElementById('gcm-stage'); if(!stage) return;
+    const steps=[...document.querySelectorAll('.gameflow .gf-steps li')],loopEl=document.querySelector('.gameflow .gf-loop');
+    const cap=document.getElementById('gcm-cap'),cnt=document.getElementById('gcm-cnt'),roundEl=document.getElementById('gcm-round'),zones=[...stage.querySelectorAll('.gz')],games=[...stage.querySelectorAll('.gs')];
+    const T=(ko,en)=>lang==='ko'?ko:en;
+    const COL=['#E0B400','#8C6A4F','#D9822B','#4E8FA8','#C9A227','#6E9A62','#A0785A','#5A6FB0'];
+    const LD={door:i=>[7,16+i*9.5],home:[[23,30],[56,32],[39,47],[22,66],[57,64],[31,78],[48,77],[42,28]],staff:[[69.5,26],[74.5,26]],game:(k,j)=>[j?95:86,[34,58,82][k%3]-5+(k>2?10:0)],meet:[[29,38],[51,38],[29,62],[51,62]],tk:(k,j)=>[j?95:86,[34,58,82][k%3]-12],box:[72,78]};
+    const LM={door:i=>[7+i*12.3,7.5],home:[[14,24],[84,26],[48,34],[16,50],[82,48],[30,56],[66,56],[50,20]],staff:[[10,80],[22,80]],game:(k,j)=>[j?61:41,62+36*[.34,.58,.82][k%3]+(k>2?4.5:0)],meet:[[27,28],[73,28],[27,48],[73,48]],tk:(k,j)=>[j?61:41,62+36*[.34,.58,.82][k%3]-4],box:[85,82]};
+    const L=()=>stage.clientWidth<560?LM:LD;
+    const HOMEp=i=>L().home[i];
+    const ROUNDS=[
+      {ko:'1회차 · 기본 이모지',en:'Party 1 · Emoji',em:['😎','🥳','🤩','😍'],pairs:[[0,4],[1,3],[2,5],[6,7]]},
+      {ko:'2회차 · 바비 인형',en:'Party 2 · Barbie',em:['🎀','💖','👛','👠'],pairs:[[0,6],[1,5],[2,7],[3,4]]},
+      {ko:'3회차 · 크리스마스 캐릭터',en:'Party 3 · Christmas',em:['🎅','⛄','🦌','🎄'],pairs:[[0,1],[2,3],[4,5],[6,7]]},
+      {ko:'4회차 · 트럼프 카드',en:'Party 4 · Playing cards',em:['♠️','♥️','♦️','♣️'],pairs:[[0,5],[1,7],[2,4],[3,6]]}];
+    const svg='<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.5" r="3.6"/><path d="M3 18c.6-4 3.4-6 7-6s6.4 2 7 6z"/></svg>';
+    const G=COL.map(c=>{const e=document.createElement('div');e.className='gt';e.style.setProperty('--c',c);e.innerHTML=svg+'<em class="cd"></em><span class="ok">✓</span>';stage.appendChild(e);return e});
+    const pos=(e,x,y)=>{e.style.left=x+'%';e.style.top=y+'%'};
+    let gen=0,vis=false,tickets=0;
+    const sleep=(ms,my)=>new Promise((res,rej)=>{let t=0;const iv=setInterval(()=>{if(my!==gen){clearInterval(iv);rej('stop');return}if(vis)t+=100;if(t>=ms){clearInterval(iv);res()}},100)});
+    function mark(i,text){steps.forEach((s,k)=>s.classList.toggle('on',k===i));loopEl&&loopEl.classList.toggle('on',i===4);
+      zones.forEach(z=>z.classList.toggle('hot',+z.dataset.z===(i===4?1:i)));cap.innerHTML=`<b>${i===4?'↻':'0'+(i+1)}</b>${text}`}
+    function pop(x,y,ch){const h=document.createElement('span');h.className='hi';h.textContent=ch;h.style.left=x+'%';h.style.top=y+'%';stage.appendChild(h);setTimeout(()=>h.remove(),1400)}
+    function bump(){cnt.textContent=tickets;cnt.classList.add('bump');setTimeout(()=>cnt.classList.remove('bump'),250)}
+    function setCards(r){const R=ROUNDS[r];R.pairs.forEach((p,k)=>p.forEach(i=>{G[i].querySelector('.cd').textContent=R.em[k]}))}
+    async function run(my){
+      tickets=0;bump();
+      G.forEach((e,i)=>{e.className='gt';pos(e,...L().door(i))});
+      for(let r=0;;r=(r+1)%4){
+        const R=ROUNDS[r];roundEl.textContent=T(R.ko,R.en);
+        if(r===0&&tickets===0){
+          mark(0,T('입장하면 회차 테마 그림이 담긴 게임 참여권을 받습니다','Each guest gets a game pass with the round’s theme picture'));setCards(0);
+          for(let i=0;i<8;i++){G[i].classList.add('has');await sleep(220,my);pos(G[i],...HOMEp(i))}
+          await sleep(1500,my);
+        }
+        mark(1,T('같은 그림을 가진 처음 만난 게스트를 찾아 팀을 이룹니다','Guests find the stranger holding the same picture'));
+        R.pairs.forEach(([a,b],k)=>{const [mx,my2]=L().meet[k],d=stage.clientWidth<560?7:2.6;pos(G[a],mx-d,my2);pos(G[b],mx+d,my2)});
+        await sleep(1100,my);
+        R.pairs.forEach(([a,b],k)=>{G[a].classList.add('met');G[b].classList.add('met');const [mx,my2]=L().meet[k];pop(mx,my2-7,'👋')});
+        await sleep(1500,my);
+        mark(2,T('스태프에게 짝을 인증한 뒤 미니게임에 도전합니다','Show the match to staff, then take on a mini-game'));
+        for(let k=0;k<R.pairs.length;k++){const [a,b]=R.pairs[k];pos(G[a],...L().staff[0]);pos(G[b],...L().staff[1]);await sleep(900,my);G[a].classList.add('okd');G[b].classList.add('okd');await sleep(350,my);
+          pos(G[a],...L().game(k,0));pos(G[b],...L().game(k,1));setTimeout(()=>{games[k%3].classList.remove('go');void games[k%3].offsetWidth;games[k%3].classList.add('go')},700);await sleep(500,my)}
+        await sleep(1000,my);
+        mark(3,T('게임을 통과하면 경품 추첨 응모권을 받습니다','Clear the game to earn a lucky-draw entry'));
+        for(let k=0;k<R.pairs.length;k++){for(let j=0;j<2;j++){const tk=document.createElement('span');tk.className='tk';const t0=L().tk(k,j);tk.style.left=t0[0]+'%';tk.style.top=t0[1]+'%';stage.appendChild(tk);
+          requestAnimationFrame(()=>requestAnimationFrame(()=>{tk.style.left=L().box[0]+'%';tk.style.top=L().box[1]+'%'}));setTimeout(()=>{tk.style.opacity=0;tickets++;bump();setTimeout(()=>tk.remove(),300)},850)}await sleep(420,my)}
+        await sleep(1500,my);
+        const N=ROUNDS[(r+1)%4];
+        mark(4,T('같은 그림 카드를 여러 장 준비해, 새 카드로 새로운 파트너와 다시 참여합니다','With several copies of each card, guests replay with new partners'));
+        G.forEach((e,i)=>{e.classList.remove('met','okd');pos(e,...HOMEp(i))});
+        await sleep(1100,my);setCards((r+1)%4);G.forEach(e=>{e.classList.remove('flip');void e.offsetWidth;e.classList.add('flip')});
+        roundEl.textContent=T(N.ko,N.en);
+        await sleep(1700,my);
+      }
+    }
+    function start(){gen++;const my=gen;stage.querySelectorAll('.tk,.hi').forEach(x=>x.remove());run(my).catch(()=>{})}
+    if(reduce){setCards(0);ROUNDS[0].pairs.forEach(([a,b],k)=>{const [mx,my]=L().meet[k];pos(G[a],mx-2.6,my);pos(G[b],mx+2.6,my);G[a].classList.add('has','met');G[b].classList.add('has','met')});
+      roundEl.textContent=T(ROUNDS[0].ko,ROUNDS[0].en);mark(1,T('같은 그림을 가진 처음 만난 게스트를 찾아 팀을 이룹니다','Guests find the stranger holding the same picture'));return}
+    new IntersectionObserver(es=>{vis=es[0].isIntersecting},{threshold:.25}).observe(stage);
+    document.getElementById('gcm-replay').addEventListener('click',start);
+    start();
+  })();
 
   /* party mini game: find the guest with the same picture, then clear a mini game to earn an entry */
   (function(){
