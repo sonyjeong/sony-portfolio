@@ -386,15 +386,14 @@ mark{background:linear-gradient(transparent 62%,rgba(200,169,106,.35) 62%)!impor
 .shade.done .tag2{opacity:1}
 .spray{position:absolute;left:3%;right:3%;top:29%;text-align:center;transform:rotate(-7deg)}
 .sp-in{position:relative;display:inline-block;
-  -webkit-mask-image:linear-gradient(90deg,#000 45%,transparent 52%);mask-image:linear-gradient(90deg,#000 45%,transparent 52%);
-  -webkit-mask-size:260% 100%;mask-size:260% 100%;-webkit-mask-position:100% 0;mask-position:100% 0;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
-.shade.go .sp-in{animation:sprayIn 1.35s cubic-bezier(.45,.05,.4,1) .25s forwards}
+  -webkit-mask-image:linear-gradient(90deg,#000 48%,transparent 52%);mask-image:linear-gradient(90deg,#000 48%,transparent 52%);
+  -webkit-mask-size:200% 100%;mask-size:200% 100%;-webkit-mask-position:calc((1 - var(--rv,0)) * 100%) 0;mask-position:calc((1 - var(--rv,0)) * 100%) 0;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
 @keyframes sprayIn{to{-webkit-mask-position:0 0;mask-position:0 0}}
 .sp-t{display:block;font:400 20.5cqw/1 "Spray","Marker",sans-serif;letter-spacing:-.01em}
-.sp-t.main{position:relative;background:linear-gradient(180deg,#ff6a3d 0%,#e4231b 48%,#b5120f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
-  text-shadow:none}
-.sp-t.sh{position:absolute;left:0;top:0;color:#2a0d0b;transform:translate(.045em,.05em);filter:blur(.4px)}
-.sp-t.hl{position:absolute;left:0;top:0;color:#fff;opacity:.6;-webkit-mask-image:linear-gradient(180deg,#000 0 26%,transparent 34%);mask-image:linear-gradient(180deg,#000 0 26%,transparent 34%);transform:translate(-.02em,-.015em)}
+.sp-t.main{position:relative;background:linear-gradient(100deg,#ff1450 0%,#ff2a2a 30%,#ff5a12 62%,#ffa000 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:url(#grain) drop-shadow(0 0 .04em rgba(255,45,45,.5))}
+.sp-t.sh{position:absolute;left:0;top:0;color:#3a0610;transform:translate(.05em,.055em);filter:url(#grain) blur(.3px)}
+.sp-t.hl{position:absolute;left:0;top:0;color:#fff7e0;opacity:.7;filter:url(#grain);-webkit-mask-image:linear-gradient(180deg,#000 0 26%,transparent 34%);mask-image:linear-gradient(180deg,#000 0 26%,transparent 34%);transform:translate(-.02em,-.015em)}
 .spark{position:absolute;left:var(--x);top:var(--y);font-style:normal;color:#fff;font-size:7cqw;line-height:1;text-shadow:0 0 6px #fff,0 0 14px rgba(255,120,90,.8);transform:scale(0) rotate(-30deg)}
 .spark.s{font-size:4.6cqw}
 .shade.go .spark{animation:pop .5s cubic-bezier(.3,1.8,.5,1) var(--d) forwards}
@@ -402,7 +401,7 @@ mark{background:linear-gradient(transparent 62%,rgba(200,169,106,.35) 62%)!impor
 .can{position:absolute;left:0;top:0;width:10%;opacity:0;pointer-events:none;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35));will-change:transform,opacity}
 .sp-arrow{position:absolute;left:50%;top:55%;width:15%;transform:translateX(-50%) rotate(4deg);overflow:visible;filter:url(#rough)}
 .sp-arrow path{fill:none;stroke:var(--spr);stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:240;stroke-dashoffset:240}
-.shade.go .sp-arrow path{animation:draw .7s ease-out 1.75s forwards}
+.shade.go .sp-arrow path{animation:draw .7s ease-out 2.45s forwards}
 .shade.done .sp-arrow{animation:bob 1.8s ease-in-out infinite}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes bob{50%{transform:translateX(-50%) translateY(8%) rotate(4deg)}}
@@ -471,6 +470,9 @@ mark{background:linear-gradient(transparent 62%,rgba(200,169,106,.35) 62%)!impor
   .bb h3{max-width:58%}.bb p{max-width:58%}
 }
 @media (prefers-reduced-motion:reduce){.holo,.shade.done .sp-arrow{animation:none}}
+
+.shade.done .sp-in{-webkit-mask-image:none;mask-image:none}
+.bb-panel{z-index:2}.pole{z-index:1}
 /* hologram coverflow (contained, never overlaps copy) */
 .holo-row{display:block!important}
 .holo-row .ic-list{grid-template-columns:repeat(3,1fr);gap:18px}
@@ -585,6 +587,8 @@ mark{background:linear-gradient(transparent 60%,rgba(255,216,58,.75) 60%)!import
 <section class="jr" id="journey">
   <div class="jr-stage" id="jstage">
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <filter id="grain" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="7" result="n"/>
+        <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -3.4 2.5" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
       <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
     </svg>
 
@@ -878,22 +882,33 @@ mark{background:linear-gradient(transparent 60%,rgba(255,216,58,.75) 60%)!import
       const cv=$('#sprayfx'), c=cv.getContext('2d'), txt=shade.querySelector('.sp-in'), can=$('#can');
       let t0=0;
       function fit(){const r=shade.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);cv.width=r.width*d;cv.height=r.height*d;c.setTransform(d,0,0,d,0,0)}
+      const DUR=2.1, T0=.3;                                            // spray duration (s)
+      const ease=p=>p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;                 // gentle in-out, no bounce
+      let last=null;
       function run(now){
         if(!t0)t0=now;const t=(now-t0)/1000;
-        const sr=shade.getBoundingClientRect(), tr=txt.getBoundingClientRect();
-        const p=clamp((t-.25)/1.35,0,1), k=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
-        const ex=tr.left-sr.left+tr.width*(.06+.9*k), top=tr.top-sr.top, cw=can.getBoundingClientRect().width||40;
-        const wob=Math.sin(t*22)*tr.height*.18;
-        const cy=top+tr.height*.25+wob;
-        if(t<1.75){can.style.opacity=clamp(t/.25,0,1);can.style.transform=`translate(${(ex+cw*.15).toFixed(1)}px,${(cy-cw*1.5).toFixed(1)}px) rotate(28deg)`}
-        else{const e=clamp((t-1.75)/.5,0,1);can.style.opacity=1-e;can.style.transform=`translate(${(ex+cw*.15+e*sr.width*.4).toFixed(1)}px,${(cy-cw*1.5-e*60).toFixed(1)}px) rotate(${28+e*40}deg)`}
+        const sr=shade.getBoundingClientRect(), tr=txt.getBoundingClientRect(), cw=can.getBoundingClientRect().width||40;
+        const p=clamp((t-T0)/DUR,0,1), k=ease(p);
+        txt.style.setProperty('--rv',(p>=1?1:Math.min(1,.03+.96*k)).toFixed(4));
+        // nozzle travels left→right along a smooth S across the letters
+        const ex=tr.left-sr.left+tr.width*(.02+.96*k);
+        const cy=tr.top-sr.top+tr.height*(.5-.3*Math.sin(k*Math.PI*2));
+        const slope=-.3*Math.cos(k*Math.PI*2)*Math.PI*2*tr.height/(tr.width*.96);
+        const ang=22+Math.atan(slope)*57.3*.6;
+        if(t<T0+DUR){can.style.opacity=clamp(t/.3,0,1);
+          can.style.transform=`translate(${(ex+cw*.05).toFixed(1)}px,${(cy-cw*1.55).toFixed(1)}px) rotate(${ang.toFixed(1)}deg)`}
+        else{const e=ease(clamp((t-T0-DUR)/.6,0,1));can.style.opacity=1-e;
+          can.style.transform=`translate(${(ex+cw*.05+e*sr.width*.35).toFixed(1)}px,${(cy-cw*1.55-e*50).toFixed(1)}px) rotate(${22+e*30}deg)`}
         if(p>0&&p<1){
-          // soft overspray mist + speckles at the nozzle
-          for(let i=0;i<55;i++){const rr=Math.random()*tr.height*.32;const a=Math.random()*6.283;
-            const x=ex+Math.cos(a)*rr*1.2, y=top+tr.height*.5+wob*.6+Math.sin(a)*rr;
-            c.fillStyle=`rgba(${Math.random()<.2?'255,120,70':'228,35,27'},${(.05+Math.random()*.22).toFixed(2)})`;c.beginPath();c.arc(x,y,.3+Math.random()*1.3,0,7);c.fill()}
+          // overspray: gaussian mist around the nozzle, joined to the previous point so it stays continuous
+          const px=last?last[0]:ex, py=last?last[1]:cy;
+          for(let i=0;i<90;i++){const f=Math.random(), x0=px+(ex-px)*f, y0=py+(cy-py)*f;
+            const g=()=>(Math.random()+Math.random()+Math.random()-1.5)/1.5, r=tr.height*.42;
+            const x=x0+g()*r, y=y0+g()*r*.9, hue=k<.35?'255,30,70':k<.7?'255,55,35':'255,120,20';
+            c.fillStyle=`rgba(${hue},${(.04+Math.random()*.2).toFixed(2)})`;c.beginPath();c.arc(x,y,.3+Math.random()*1.4,0,7);c.fill()}
+          last=[ex,cy];
         }
-        if(t<2.3) requestAnimationFrame(run); else {shade.classList.add('done');can.style.opacity=0}
+        if(t<T0+DUR+.7) requestAnimationFrame(run); else {shade.classList.add('done');can.style.opacity=0}
       }
       const start=()=>{fit();shade.classList.add('go');requestAnimationFrame(run)};
       (document.fonts&&document.fonts.load?document.fonts.load('40px Spray'):Promise.resolve()).catch(()=>{}).then(()=>setTimeout(start,250));
