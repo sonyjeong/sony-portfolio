@@ -76,7 +76,7 @@ button{font:inherit;color:inherit}
 /* map */
 .map{position:absolute;inset:0;opacity:var(--mo,0);pointer-events:var(--mp,none);background:radial-gradient(80% 70% at 50% 45%,#16141a,#0b0a0c 80%);perspective:1200px}
 .map-plane{position:absolute;inset:0;transform:rotateX(var(--mrx,55deg)) scale(var(--msc,.4));transform-origin:50% 60%}
-.map svg{position:absolute;left:58%;top:52%;width:min(1100px,84vw);transform:translate(-50%,-50%)}
+.map svg{position:absolute;left:56%;top:52%;width:min(1100px,84vw);transform:translate(-50%,-50%)}
 .map .grid line{stroke:rgba(244,237,227,.06)}
 .map .land{fill:rgba(244,237,227,.06);stroke:rgba(244,237,227,.18);stroke-width:1}
 .map .route{fill:none;stroke:var(--gold);stroke-width:2;stroke-dasharray:6 7;stroke-dashoffset:var(--rd,600)}
@@ -90,11 +90,12 @@ button{font:inherit;color:inherit}
 .pin text{font-family:var(--label);font-weight:600;font-size:13px;letter-spacing:.14em;fill:var(--ink)}
 .pin text.y{font-size:11px;fill:var(--gold);letter-spacing:.2em}
 .pin:hover circle.dot,.pin.on circle.dot{r:11}
+.pin.on .star,.pin:hover .star{transform:scale(1.25)}
 @keyframes ping{0%{transform:scale(.6);opacity:.8}100%{transform:scale(2.4);opacity:0}}
 .map-head{position:absolute;left:6vw;top:13vh;max-width:420px}
 .map-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(36px,4vw,60px);line-height:1}
 .map-head p{margin-top:12px;color:var(--ink-2);font-size:14.5px}
-.map-card{position:absolute;left:6vw;bottom:8vh;width:min(380px,88vw);padding:22px 24px;background:rgba(20,18,22,.82);border:1px solid rgba(212,176,116,.35);backdrop-filter:blur(10px)}
+.map-card{position:absolute;right:5vw;bottom:8vh;width:min(380px,88vw);padding:22px 24px;background:rgba(20,18,22,.82);border:1px solid rgba(212,176,116,.35);backdrop-filter:blur(10px)}
 .map-card .label{display:block}
 .map-card h3{font-family:var(--serif);font-weight:600;font-size:28px;line-height:1.1;margin-top:8px}
 .map-card ul{list-style:none;margin-top:14px}
@@ -273,6 +274,21 @@ button{font:inherit;color:inherit}
 .end a.mail{display:inline-block;margin-top:26px;font-family:var(--label);font-weight:600;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:5px}
 .end footer{margin-top:60px;font-family:var(--label);font-size:10px;letter-spacing:.24em;color:var(--mute);text-transform:uppercase}
 
+
+mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color:var(--ink);padding:0 2px;font-weight:600}
+.ic-list{list-style:none;display:grid;gap:12px}
+.ic-list li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;font-size:15px;color:var(--ink-2);line-height:1.6}
+.ic-list li svg{width:34px;height:34px;padding:7px;border:1px solid rgba(212,176,116,.45);border-radius:50%;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ic-list b{display:block;color:var(--ink);font-weight:600;font-size:15.5px}
+.proof{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.proof button{display:inline-flex;align-items:center;gap:8px;background:rgba(212,176,116,.08);border:1px solid rgba(212,176,116,.4);padding:8px 13px;font-size:12.5px;font-weight:600;cursor:pointer;color:var(--ink)}
+.proof button::before{content:"";width:13px;height:13px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z'/%3E%3Cpath d='M14 3v6h6M9 14l2 2 4-4'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z'/%3E%3Cpath d='M14 3v6h6M9 14l2 2 4-4'/%3E%3C/svg%3E") center/contain no-repeat;color:var(--gold)}
+.proof button:hover{border-color:var(--gold);color:var(--gold)}
+.lb .nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(20,18,22,.7);border:1px solid var(--line);color:var(--ink);width:48px;height:48px;font-size:22px;cursor:pointer}
+.lb .prev{left:2vw}.lb .next{right:2vw}
+.lb .cnt{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:var(--label);font-size:11px;letter-spacing:.2em;color:var(--mute)}
+.acts .pf{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.acts .pf button{background:none;border:1px solid rgba(212,176,116,.4);color:var(--gold);font-size:11.5px;font-weight:600;padding:3px 9px;cursor:pointer}
 /* lightbox */
 .lb{position:fixed;inset:0;z-index:100;background:rgba(6,5,7,.94);display:none;align-items:center;justify-content:center;padding:4vh 4vw;cursor:zoom-out}
 .lb.open{display:flex}
@@ -319,7 +335,6 @@ button{font:inherit;color:inherit}
     <a href="#work" data-tab="2">Credentials</a>
   </nav>
 </header>
-<a class="skip" href="#work" id="skip">Skip to portfolio ↓</a>
 
 <!-- ================= INTRO ================= -->
 <section class="intro" id="intro">
@@ -370,13 +385,6 @@ button{font:inherit;color:inherit}
     <!-- skydive -->
     <div class="sky" id="sky">
       <div class="clouds" id="clouds"><div class="cl cl3"></div><div class="cl cl2"></div><div class="cl cl1"></div></div>
-      <svg class="diver" id="diver" viewBox="0 0 200 160" aria-hidden="true">
-        <path d="M100 52 C92 52 86 60 86 70 L84 104 L116 104 L114 70 C114 60 108 52 100 52 Z" fill="#efe6da"/>
-        <path d="M86 66 L44 40 L38 48 L84 80 Z M114 66 L156 40 L162 48 L116 80 Z" fill="#e2c7b2"/>
-        <path d="M88 102 L66 146 L76 150 L98 108 Z M112 102 L134 146 L124 150 L102 108 Z" fill="#e2c7b2"/>
-        <circle cx="100" cy="40" r="13" fill="#e2c7b2"/>
-        <path d="M86 38 C84 24 96 18 104 20 C116 22 118 34 114 40 C120 30 132 18 150 14 C132 24 124 34 116 44 Z" fill="#141114"/>
-      </svg>
       <div class="sky-copy" id="skyc"><div class="t">Into the life<br>I have <em>lived</em></div></div>
     </div>
 
@@ -388,17 +396,17 @@ button{font:inherit;color:inherit}
             <line x1="0" y1="100" x2="1000" y2="100"/><line x1="0" y1="200" x2="1000" y2="200"/><line x1="0" y1="300" x2="1000" y2="300"/><line x1="0" y1="400" x2="1000" y2="400"/><line x1="0" y1="500" x2="1000" y2="500"/>
             <line x1="125" y1="0" x2="125" y2="600"/><line x1="250" y1="0" x2="250" y2="600"/><line x1="375" y1="0" x2="375" y2="600"/><line x1="500" y1="0" x2="500" y2="600"/><line x1="625" y1="0" x2="625" y2="600"/><line x1="750" y1="0" x2="750" y2="600"/><line x1="875" y1="0" x2="875" y2="600"/>
           </g>
-          <path class="land" d="M40 150 C90 110 190 120 250 150 C300 175 320 230 300 290 C285 335 240 360 210 400 C190 430 150 430 130 400 C100 360 70 330 50 290 C30 250 20 190 40 150 Z"/>
-          <path class="land" d="M690 120 C730 110 770 130 790 160 C805 185 800 210 815 240 C830 270 860 300 850 340 C840 380 800 400 780 440 C765 470 730 470 720 440 C705 400 700 360 690 320 C680 280 660 250 665 210 C668 170 670 130 690 120 Z"/>
-          <text class="geo" x="120" y="470">NORTH AMERICA</text>
-          <text class="geo" x="430" y="300">PACIFIC</text>
-          <text class="geo" x="700" y="500">KOREA</text>
-          <path class="route-glow" d="M200 250 C380 120 620 140 790 210 C770 250 760 285 752 318 C790 350 820 370 842 392"/>
-          <path class="route" id="route" d="M200 250 C380 120 620 140 790 210 C770 250 760 285 752 318 C790 350 820 370 842 392"/>
-          <g class="pin" data-k="0" transform="translate(200 250)"><circle class="ring" r="10"/><circle class="dot" r="8"/><text x="-30" y="-22">MARYLAND</text><text class="y" x="-30" y="-40">2001 – 2012</text></g>
-          <g class="pin" data-k="1" transform="translate(790 210)"><circle class="ring" r="10"/><circle class="dot" r="8"/><text x="20" y="-12">GANGNEUNG</text><text class="y" x="20" y="-30">2012 – 2024</text></g>
-          <g class="pin" data-k="2" transform="translate(752 318)"><circle class="ring" r="10"/><circle class="dot" r="8"/><text x="-112" y="6">SEOUL</text><text class="y" x="-112" y="-12">2024 –</text></g>
-          <g class="pin next" data-k="3" transform="translate(842 392)"><circle class="ring" r="10"/><circle class="dot" r="8"/><text x="20" y="22">L’ORÉAL</text><text class="y" x="20" y="4">2027 · NEXT</text></g>
+          <path class="land" d="M120 120 C150 100 175 110 190 130 C200 150 205 175 220 195 C238 220 262 248 258 288 C254 330 232 360 214 392 C200 418 176 420 168 396 C160 368 166 336 160 306 C154 276 132 258 124 230 C114 196 100 150 120 120 Z"/>
+          <path class="land" d="M600 110 C660 80 760 80 840 105 C900 125 940 160 930 205 C922 240 880 252 860 280 C840 310 830 350 800 380 C770 410 730 420 700 400 C672 380 668 340 650 310 C630 278 600 260 592 220 C584 180 570 130 600 110 Z"/>
+          <text class="geo" x="140" y="460">KOREA</text>
+          <text class="geo" x="420" y="390">PACIFIC OCEAN</text>
+          <text class="geo" x="660" y="460">NORTH AMERICA</text>
+          <path class="route-glow" d="M842 238 C690 70 420 80 248 212 C236 228 220 246 206 268"/>
+          <path class="route" id="route" d="M842 238 C690 70 420 80 248 212 C236 228 220 246 206 268"/>
+          <g class="pin" data-k="0" transform="translate(842 238)"><circle class="ring" r="10"/><circle class="dot" r="8"/><text x="18" y="6">MARYLAND</text><text class="y" x="18" y="-12">2001 – 2012</text></g>
+          <g class="pin" data-k="1" transform="translate(248 212)"><circle class="ring" r="10"/><circle class="dot" r="8"/><text x="20" y="6">GANGNEUNG</text><text class="y" x="20" y="-12">2012 – 2024</text></g>
+          <g class="pin" data-k="2" transform="translate(206 268)"><circle class="ring" r="10"/><circle class="dot" r="8"/><text x="-96" y="6">SEOUL</text><text class="y" x="-96" y="-12">2024 –</text></g>
+          <g class="pin next" data-k="3" transform="translate(226 300)"><circle class="ring" r="10"/><path class="star" d="M0 -11 L3 -3 L11 -3 L5 2 L7 10 L0 5 L-7 10 L-5 2 L-11 -3 L-3 -3 Z" fill="#b3283c" stroke="#0b0a0c" stroke-width="2"/><text x="20" y="22">L’ORÉAL KOREA</text><text class="y" x="20" y="4">SEOUL · 2027 NEXT</text></g>
         </svg>
       </div>
       <div class="map-head"><span class="label">My Journey</span><h2 style="margin-top:10px">The road<br>I’ve walked</h2><p>핀을 눌러 시기별 경험을 확인해 보세요.</p></div>
@@ -438,8 +446,15 @@ button{font:inherit;color:inherit}
       <div class="sp on" data-sp="a">
         <div class="holo-row">
           <div class="holo-copy">
-            <p>업무 범위 밖이었지만 매니저에게 직접 제안해 지점 파티의 기획을 맡았습니다. 범용 템플릿 포스터를 지점 마스코트 ‘코코’와 직접 촬영한 사진으로 <b>회차마다 테마가 다른 시리즈 홍보물</b>로 바꿨습니다.</p>
-            <p>드림하우스 · 크리스마스 · 카지노 파티 포스터를 직접 디자인했고, 인스타그램용으로 움직임을 넣은 애니메이션 포스터도 만들었습니다.</p>
+            <ul class="ic-list">
+              <li><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg><div><b>먼저 제안해 기획을 맡다</b>업무 범위 밖이었지만 매니저에게 직접 제안해 <mark>지점 파티 기획 권한</mark>을 받았습니다.</div></li>
+              <li><svg viewBox="0 0 24 24"><path d="M14 4l6 6-9 9H5v-6z"/><path d="M12 6l6 6"/></svg><div><b>템플릿 대신 시리즈 홍보물</b>마스코트 ‘코코’와 직접 찍은 사진으로 <mark>회차별 테마 포스터</mark>를 디자인했습니다.</div></li>
+              <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg><div><b>SNS용 애니메이션 포스터</b>인스타그램용으로 <mark>움직임을 넣은 포스터</mark>를 만들어 사전 RSVP를 모았습니다.</div></li>
+            </ul>
+            <div class="proof">
+              <button data-gallery="../assets/staff/p-1.jpg|../assets/staff/p-2.jpg|../assets/staff/p-3.jpg|../assets/staff/p-4.jpg">스태프 근무표 · 매뉴얼 4p</button>
+              <button data-zoom-video="../assets/party-live.mp4">파티 현장 영상</button>
+            </div>
             <p class="hint">드래그해서 돌려보고, 카드를 누르면 크게 볼 수 있습니다.</p>
           </div>
           <div class="holo" data-holo>
@@ -506,13 +521,17 @@ button{font:inherit;color:inherit}
       </div>
       <div class="holo-row" style="margin-top:26px">
         <div class="holo-copy">
-          <p>미국 내 아시아계 학생을 위한 장학금 · 인턴십 · 서머 프로그램 정보가 텍스트로 빼곡한 시트에 흩어져 있었습니다. 프로그램 유형과 핵심 정보 기준으로 다시 분류해 <b>원하는 정보를 바로 찾을 수 있는 브로슈어와 이북</b>으로 만들었습니다.</p>
-          <div class="ba">
-            <div><b>Before</b><span>흩어진 텍스트 시트 · 한국식 툴로 만든 첫 시안</span></div>
-            <span class="ar">→</span>
-            <div><b>After</b><span>미국 상사의 피드백으로 Visme를 빠르게 익혀 디자인을 통일한 2종</span></div>
+          <ul class="ic-list">
+            <li><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg><div><b>흩어진 정보를 구조화</b>텍스트로 빼곡한 시트를 <mark>프로그램 유형 · 핵심 정보 기준</mark>으로 다시 분류했습니다.</div></li>
+            <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><div><b>미국 독자에 맞춘 형식</b>미국 상사의 피드백으로 <mark>Visme를 빠르게 익혀</mark> 디자인을 통일했습니다.</div></li>
+            <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><div><b>기한 내 완수 · 수료</b>장학금 · 인턴십 · 서머 프로그램 <mark>브로슈어와 이북 2종</mark>을 완성했습니다.</div></li>
+          </ul>
+          <div class="proof">
+            <button data-gallery="../assets/brochure/p-01.jpg|../assets/brochure/p-02.jpg|../assets/brochure/p-03.jpg|../assets/brochure/p-04.jpg|../assets/brochure/p-05.jpg|../assets/brochure/p-06.jpg|../assets/brochure/p-07.jpg|../assets/brochure/p-08.jpg|../assets/brochure/p-09.jpg|../assets/brochure/p-10.jpg|../assets/brochure/p-11.jpg|../assets/brochure/p-12.jpg|../assets/brochure/p-13.jpg|../assets/brochure/p-14.jpg|../assets/brochure/p-15.jpg|../assets/brochure/p-16.jpg|../assets/brochure/p-17.jpg|../assets/brochure/p-18.jpg|../assets/brochure/p-19.jpg|../assets/brochure/p-20.jpg|../assets/brochure/p-21.jpg|../assets/brochure/p-22.jpg|../assets/brochure/p-23.jpg">브로슈어 전체 23p</button>
+            <button data-gallery="../assets/ebook/p-01.jpg|../assets/ebook/p-02.jpg|../assets/ebook/p-03.jpg|../assets/ebook/p-04.jpg|../assets/ebook/p-05.jpg|../assets/ebook/p-06.jpg|../assets/ebook/p-07.jpg|../assets/ebook/p-08.jpg|../assets/ebook/p-09.jpg|../assets/ebook/p-10.jpg|../assets/ebook/p-11.jpg|../assets/ebook/p-12.jpg|../assets/ebook/p-13.jpg|../assets/ebook/p-14.jpg|../assets/ebook/p-15.jpg|../assets/ebook/p-16.jpg|../assets/ebook/p-17.jpg">이북 전체 17p</button>
+            <button data-zoom="../assets/certificate.jpg">인턴십 수료증</button>
           </div>
-          <p class="hint">모든 과제를 기한 내 완수하고 인턴십을 수료했습니다.</p>
+          <p class="hint">드래그해서 돌려보고, 카드를 누르면 크게 볼 수 있습니다.</p>
         </div>
         <div class="holo" data-holo>
           <div class="ring">
@@ -542,9 +561,9 @@ button{font:inherit;color:inherit}
         </div>
         <div class="acts">
           <span class="label">Activities</span>
-          <div class="a" style="margin-top:10px"><time>2025.01</time><div><h4>삼성금융아카데미 7기 수료</h4><p>경제학 지식을 금융 산업의 실무 맥락으로 확장</p></div><img src="../assets/laka/samsung-badge.jpg" alt="" loading="lazy" data-zoom="../assets/laka/samsung-badge.jpg"></div>
-          <div class="a"><time>2021.12</time><div><h4>교내 글로벌마케팅대회 최우수상 (1위)</h4><p>지역별 시장 규모와 현지 수요를 분석해 해외 진출 전략 제안 · 발표 자료 설계</p></div><img src="../assets/deck/s-01.jpg" alt="" loading="lazy" data-zoom="../assets/deck/s-01.jpg"></div>
-          <div class="a"><time>2018.02</time><div><h4>평창동계올림픽 통역 자원봉사</h4><p>강릉역에서 해외 방문객의 셔틀 · 교통 · 길 안내 문의를 영어로 응대</p></div><img src="../assets/pyeongchang-badge.jpg" alt="" loading="lazy" data-zoom="../assets/pyeongchang-badge.jpg"></div>
+          <div class="a" style="margin-top:10px"><time>2025.01</time><div><h4>삼성금융아카데미 7기 수료</h4><p>경제학 지식을 <mark>금융 산업의 실무 맥락</mark>으로 확장</p><div class="pf"><button data-zoom="../assets/laka/samsung-cert.jpg">수료증</button></div></div><img src="../assets/laka/samsung-badge.jpg" alt="" loading="lazy" data-zoom="../assets/laka/samsung-badge.jpg"></div>
+          <div class="a"><time>2021.12</time><div><h4>교내 글로벌마케팅대회 최우수상 (1위)</h4><p>시장 규모 · 현지 수요를 분석해 <mark>해외 진출 전략</mark> 제안</p><div class="pf"><button data-zoom="../assets/certs/award.jpg">상장</button><button data-gallery="../assets/deck/s-01.jpg|../assets/deck/s-02.jpg|../assets/deck/s-03.jpg|../assets/deck/s-04.jpg|../assets/deck/s-05.jpg|../assets/deck/s-06.jpg|../assets/deck/s-07.jpg|../assets/deck/s-08.jpg|../assets/deck/s-09.jpg|../assets/deck/s-10.jpg|../assets/deck/s-11.jpg|../assets/deck/s-12.jpg|../assets/deck/s-13.jpg|../assets/deck/s-14.jpg|../assets/deck/s-15.jpg|../assets/deck/s-16.jpg|../assets/deck/s-17.jpg|../assets/deck/s-18.jpg">발표 자료 18p</button></div></div><img src="../assets/deck/s-01.jpg" alt="" loading="lazy" data-zoom="../assets/deck/s-01.jpg"></div>
+          <div class="a"><time>2018.02</time><div><h4>평창동계올림픽 통역 자원봉사</h4><p>강릉역에서 <mark>셔틀 · 교통 · 길 안내</mark> 문의를 영어로 응대</p><div class="pf"><button data-zoom="../assets/pyeongchang-badge.jpg">명찰</button><button data-zoom="../assets/pyeongchang-volunteer.jpg">현장 사진</button></div></div><img src="../assets/pyeongchang-badge.jpg" alt="" loading="lazy" data-zoom="../assets/pyeongchang-badge.jpg"></div>
         </div>
       </div>
     </div>
@@ -586,8 +605,6 @@ button{font:inherit;color:inherit}
     const f=seg(p,0.38,0.80);
     const H=innerHeight;
     st.setProperty('--y1',(-f*H*5)+'px'); st.setProperty('--y2',(-f*H*3)+'px'); st.setProperty('--y3',(-f*H*1.6)+'px');
-    st.setProperty('--do',(seg(p,0.40,0.46)*(1-seg(p,0.76,0.82))).toFixed(3));
-    st.setProperty('--dr',(Math.sin(f*9)*8)+'deg'); st.setProperty('--ds',(0.8+f*0.5).toFixed(3));
     st.setProperty('--sc',(seg(p,0.44,0.50)*(1-seg(p,0.62,0.68))).toFixed(3));
     st.setProperty('--clo',(1-seg(p,0.74,0.84)).toFixed(3));
     const m=ease(seg(p,0.74,0.90));
@@ -595,7 +612,6 @@ button{font:inherit;color:inherit}
     st.setProperty('--mrx',((1-m)*58)+'deg'); st.setProperty('--msc',(0.35+m*0.65).toFixed(3));
     st.setProperty('--mp',m>0.95?'auto':'none');
     route.style.strokeDashoffset=(RL*(1-seg(p,0.86,0.96))).toFixed(1);
-    $('#skip').style.opacity=p>0.97?0:1;
   }
   let tk=false; addEventListener('scroll',()=>{if(!tk){requestAnimationFrame(()=>{frame();tk=false});tk=true}},{passive:true});
   addEventListener('resize',frame); frame();
@@ -603,10 +619,10 @@ button{font:inherit;color:inherit}
 
   /* journey pins */
   const STOPS=[
-    {y:'2001 – 2012',t:'Maryland, U.S.',i:[['Born & raised','메릴랜드에서 태어나 약 11년간 성장'],['Culture','영어와 미국 문화를 생활로 익힘']]},
+    {y:'2001 – 2012',t:'Maryland, U.S.',i:[['Born & raised','메릴랜드에서 태어나 약 11년간 성장'],['Culture','영어와 미국 문화를 생활 속에서 익힘']]},
     {y:'2012 – 2024',t:'Gangneung',i:[['2018','평창동계올림픽 통역 자원봉사 · 강릉역'],['2021','교내 글로벌마케팅대회 최우수상'],['2022','Educanspire 마케팅 인턴 (미국, 원격)'],['GPA','강릉원주대 국제통상학과 4.48 / 4.5']]},
     {y:'2024 –',t:'Seoul',i:[['2024','동국대 경제학과 편입 · 2026.08 졸업'],['2024 –','컬컴 신촌점 · 브랜드 이벤트 4회, 7,303건 회신'],['2025','삼성금융아카데미 7기 수료']]},
-    {y:'2027 · Next',t:'L’Oréal Korea',i:[['Goal','고객이 브랜드를 직접 느끼고 머무는 순간을 만드는 마케터']]}];
+    {y:'Seoul · 2027 Next',t:'L’Oréal Korea',i:[['Next','서울에서 이어지는 다음 정류장'],['Goal','고객이 브랜드를 직접 느끼고 머무는 순간을 만들기']]}];
   const card=$('#mcard'), pins=$$('.pin');
   function show(k){const s=STOPS[k];pins.forEach((p,i)=>p.classList.toggle('on',i===k));
     card.innerHTML=`<span class="label">${s.y}</span><h3>${s.t}</h3><ul>${s.i.map(([a,b])=>`<li><b>${a}</b>${b}</li>`).join('')}</ul>`}
@@ -634,12 +650,20 @@ button{font:inherit;color:inherit}
     (function loop(){if(!drag){a+=v;v+= ((reduce?0:0.12)-v)*0.02}ring.style.setProperty('--ry',a+'deg');requestAnimationFrame(loop)})();
   });
 
-  /* lightbox */
-  const lb=$('#lb');
-  function open(src,isV){lb.querySelectorAll('img,video').forEach(n=>n.remove());const el=document.createElement(isV?'video':'img');el.src=src;if(isV){el.controls=true;el.autoplay=true;el.loop=true;el.playsInline=true}lb.appendChild(el);lb.classList.add('open');document.body.style.overflow='hidden'}
-  function close(){lb.classList.remove('open');lb.querySelectorAll('img,video').forEach(n=>n.remove());document.body.style.overflow=''}
-  document.addEventListener('click',e=>{const t=e.target.closest('[data-zoom],[data-zoom-video]');if(t){e.preventDefault();t.dataset.zoomVideo?open(t.dataset.zoomVideo,true):open(t.dataset.zoom,false);return}if(e.target.closest('#lb'))close()});
-  addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+  /* lightbox (single + gallery) */
+  const lb=$('#lb'); let gal=null, gi=0;
+  function clear(){lb.querySelectorAll('img,video,.nav,.cnt').forEach(n=>n.remove())}
+  function open(src,isV){clear();gal=null;const el=document.createElement(isV?'video':'img');el.src=src;if(isV){el.controls=true;el.autoplay=true;el.loop=true;el.playsInline=true}lb.appendChild(el);lb.classList.add('open');document.body.style.overflow='hidden'}
+  function showG(){clear();const im=document.createElement('img');im.src=gal[gi];lb.appendChild(im);
+    const pv=document.createElement('button');pv.className='nav prev';pv.textContent='‹';const nx=document.createElement('button');nx.className='nav next';nx.textContent='›';
+    const c=document.createElement('div');c.className='cnt';c.textContent=(gi+1)+' / '+gal.length;
+    pv.onclick=e=>{e.stopPropagation();gi=(gi-1+gal.length)%gal.length;showG()};nx.onclick=e=>{e.stopPropagation();gi=(gi+1)%gal.length;showG()};
+    im.onclick=e=>{e.stopPropagation();gi=(gi+1)%gal.length;showG()};
+    lb.append(pv,nx,c);lb.classList.add('open');document.body.style.overflow='hidden'}
+  function close(){lb.classList.remove('open');clear();gal=null;document.body.style.overflow=''}
+  document.addEventListener('click',e=>{const g=e.target.closest('[data-gallery]');if(g){e.preventDefault();gal=g.dataset.gallery.split('|');gi=0;showG();return}
+    const t=e.target.closest('[data-zoom],[data-zoom-video]');if(t){e.preventDefault();t.dataset.zoomVideo?open(t.dataset.zoomVideo,true):open(t.dataset.zoom,false);return}if(e.target.closest('#lb'))close()});
+  addEventListener('keydown',e=>{if(e.key==='Escape')close();if(gal&&e.key==='ArrowRight'){gi=(gi+1)%gal.length;showG()}if(gal&&e.key==='ArrowLeft'){gi=(gi-1+gal.length)%gal.length;showG()}});
 
   /* Guest Connect Mission: step simulation */
   (function(){
