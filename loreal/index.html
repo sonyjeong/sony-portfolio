@@ -35,55 +35,47 @@ button{font:inherit;color:inherit}
 .skip{position:fixed;right:4vw;bottom:24px;z-index:60;font-family:var(--label);font-weight:600;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:9px 14px;background:rgba(11,10,12,.5);backdrop-filter:blur(6px);transition:opacity .4s}
 .skip:hover{border-color:var(--gold);color:var(--gold)}
 
-/* ================= INTRO STAGE ================= */
-.intro{height:640vh;position:relative}
-.stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#060507}
-/* cabin */
-.cabin{position:absolute;inset:0;background:
-  radial-gradient(60% 50% at 56% 50%,rgba(255,196,140,.16),transparent 70%),
-  linear-gradient(180deg,#121014 0%,#0a090b 60%,#060507 100%)}
-.cabin::before{content:"";position:absolute;left:0;right:0;top:0;height:16vh;background:linear-gradient(180deg,rgba(255,255,255,.05),transparent);border-bottom:1px solid rgba(255,255,255,.04)}
-.cabin::after{content:"";position:absolute;left:8vw;right:8vw;top:6.5vh;height:2px;background:repeating-linear-gradient(90deg,rgba(255,214,170,.55) 0 10px,transparent 10px 120px);filter:blur(1.5px);opacity:.6}
-.win-wrap{position:absolute;left:58%;top:50%;width:min(24vw,50vh);aspect-ratio:408/728;transform:translate(-50%,-50%) scale(var(--zs,1));will-change:transform;transform-origin:50% 50%}
-.window{position:absolute;inset:0;border-radius:46%/30%;overflow:hidden;
-  box-shadow:0 0 0 12px #2a2529,0 0 0 13px rgba(255,255,255,.06),0 0 0 30px #1d1a1e,0 0 90px 30px rgba(255,170,110,calc(.12 + var(--open,0)*.25)),inset 0 0 40px rgba(0,0,0,.5)}
-.window .wv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-
-.shade{position:absolute;left:0;right:0;top:0;height:100%;transform:translateY(calc(var(--open,0) * -101%));
-  background:linear-gradient(180deg,#d8cfc3,#bfb4a6 92%,#a99d8e);box-shadow:0 4px 10px rgba(0,0,0,.35)}
-.shade::after{content:"";position:absolute;left:38%;right:38%;bottom:7%;height:7px;border-radius:9px;background:#8d8274}
-/* avatar */
-.avatar{position:absolute;left:calc(58% - min(24vw,50vh)*.5 - min(15vw,31vh));bottom:-2vh;height:96vh;width:auto;opacity:var(--ao,1);transform:translateX(calc((1 - var(--ao,1)) * -40px));filter:drop-shadow(14px 0 30px rgba(255,170,110,.22))}
-.avatar .arm{transform-origin:142px 196px;transition:transform .15s linear}
-.intro-copy{position:absolute;left:6vw;top:50%;transform:translateY(-50%);max-width:30vw;opacity:var(--co,1)}
-.intro-copy h1{font-family:var(--serif);font-weight:600;font-size:clamp(46px,5.6vw,92px);line-height:.96;color:var(--ink)}
-.intro-copy h1 em{color:var(--gold);font-style:italic}
-.intro-copy p{margin-top:22px;color:var(--ink-2);font-size:15.5px}
-.cue{position:absolute;left:0;right:0;bottom:4vh;text-align:center;opacity:var(--co,1)}
-.cue .line{width:1px;height:44px;background:linear-gradient(var(--gold),transparent);margin:10px auto 0;animation:drip 2.2s ease-in-out infinite}
-@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-/* sky dive */
-.sky{position:absolute;inset:0;opacity:var(--so,0);background:#0b0a0c;pointer-events:none}
-.fv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-#dive{transform:scale(var(--dz,1.06));}
-#land{opacity:var(--lo,0);transform:scale(var(--lz,1.15))}
-.vig{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 50%,transparent 55%,rgba(0,0,0,.55));pointer-events:none}
-.cl{position:absolute;inset:-20%;background-repeat:repeat;will-change:background-position}
-.cl1{background-image:radial-gradient(closest-side,rgba(255,240,230,.9),rgba(255,240,230,0)),radial-gradient(closest-side,rgba(255,226,210,.8),rgba(255,226,210,0));background-size:520px 300px,380px 240px;background-position:0 var(--y1,0),210px calc(var(--y1,0) + 140px);filter:blur(10px);opacity:.75}
-.cl2{background-image:radial-gradient(closest-side,rgba(255,250,245,.95),rgba(255,250,245,0)),radial-gradient(closest-side,rgba(255,236,222,.9),rgba(255,236,222,0));background-size:900px 520px,700px 420px;background-position:120px var(--y2,0),560px calc(var(--y2,0) + 260px);filter:blur(16px);opacity:.85}
-.cl3{background-image:radial-gradient(closest-side,rgba(255,255,255,.95),rgba(255,255,255,0));background-size:1400px 760px;background-position:-200px var(--y3,0);filter:blur(24px);opacity:.7}
-.clouds{position:absolute;inset:0;opacity:var(--clo,1)}
-.diver{position:absolute;left:50%;top:44%;width:min(16vw,170px);transform:translate(-50%,-50%) rotate(var(--dr,0deg)) scale(var(--ds,1));opacity:var(--do,0);filter:drop-shadow(0 10px 18px rgba(40,10,10,.35))}
-.sky-copy{position:absolute;left:0;right:0;top:16vh;text-align:center;opacity:var(--sc,0)}
-.sky-copy .t{font-family:var(--serif);font-weight:600;font-size:clamp(36px,4.6vw,70px);line-height:1.05;color:#fff;text-shadow:0 2px 30px rgba(60,20,30,.45)}
-.sky-copy .t em{font-style:italic;color:#ffe1b8}
+/* ================= INTRO (cinematic) ================= */
+.intro{position:relative;height:100vh;min-height:560px;overflow:hidden;background:#000}
+.fv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
+.fv.on{opacity:1}
+#v0.push{transform:scale(1.12);transition:opacity .9s ease,transform 5s cubic-bezier(.5,0,.7,1)}
+#dive.on{animation:shake 6s linear}
+@keyframes shake{0%,100%{transform:scale(1.05) translate(0,0)}20%{transform:scale(1.06) translate(-4px,3px)}40%{transform:scale(1.07) translate(3px,-3px)}60%{transform:scale(1.08) translate(-3px,2px)}80%{transform:scale(1.09) translate(4px,-2px)}}
+#land.on{animation:land 5s ease-out forwards}
+@keyframes land{from{transform:scale(1.25)}to{transform:scale(1)}}
+.shade-l{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,6,8,.78) 0%,rgba(8,6,8,.35) 45%,rgba(8,6,8,0) 70%),linear-gradient(0deg,rgba(0,0,0,.45),transparent 30%);pointer-events:none;transition:opacity .8s}
+.intro.playing .shade-l{opacity:.35}
+.flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.flash.go{animation:flash 1s ease}
+@keyframes flash{0%{opacity:0}35%{opacity:1}100%{opacity:0}}
+.hero{position:absolute;left:6vw;top:50%;transform:translateY(-50%);max-width:640px;transition:opacity .6s,transform .6s}
+.intro.playing .hero,.intro.done .hero{opacity:0;transform:translateY(-46%);pointer-events:none}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(52px,7vw,118px);line-height:.94;margin-top:18px;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.hero h1 em{color:var(--gold-2);font-style:italic}
+.hero p{margin-top:18px;font-size:16px;color:#e6ddd2;letter-spacing:.04em}
+.go{margin-top:34px;display:inline-flex;align-items:center;gap:14px;background:rgba(255,255,255,.08);border:1px solid rgba(232,207,159,.7);color:#fff;padding:15px 26px 15px 18px;font-family:var(--label);font-weight:600;font-size:12px;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(8px);transition:background .3s}
+.go:hover{background:rgba(212,176,116,.25)}
+.go .pl{width:34px;height:34px;border-radius:50%;background:var(--gold);position:relative;box-shadow:0 0 0 0 rgba(212,176,116,.6);animation:pulse 2s infinite}
+.go .pl::after{content:"";position:absolute;left:13px;top:10px;border-left:11px solid #111;border-top:7px solid transparent;border-bottom:7px solid transparent}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(212,176,116,.6)}70%{box-shadow:0 0 0 16px rgba(212,176,116,0)}100%{box-shadow:0 0 0 0 rgba(212,176,116,0)}}
+.or{display:block;margin-top:14px;font-size:12.5px;color:#cfc6ba}
+.cine{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%) scale(.96);text-align:center;opacity:0;transition:opacity .7s,transform 1.2s;pointer-events:none}
+.cine.on{opacity:1;transform:translateY(-50%) scale(1)}
+.cine .t{font-family:var(--serif);font-weight:600;font-size:clamp(40px,6vw,96px);line-height:1;color:#fff;text-shadow:0 4px 40px rgba(0,0,0,.45);margin-top:14px}
+.cine .t em{font-style:italic;color:var(--gold-2)}
+.replay{position:absolute;right:4vw;bottom:5vh;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.35);color:#fff;font-family:var(--label);font-weight:600;font-size:11px;letter-spacing:.2em;padding:10px 14px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .5s}
+.intro.done .replay{opacity:1;pointer-events:auto}
+.bar-prog{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--gold)}
 /* map */
-.map{position:absolute;inset:0;opacity:var(--mo,0);pointer-events:var(--mp,none);background:radial-gradient(80% 70% at 50% 45%,#16141a,#0b0a0c 80%);perspective:1200px}
-.map-plane{position:absolute;inset:0;transform:rotateX(var(--mrx,55deg)) scale(var(--msc,.4));transform-origin:50% 60%}
+.map{position:relative;height:100vh;min-height:620px;overflow:hidden;background:radial-gradient(80% 70% at 50% 45%,#16141a,#0b0a0c 80%)}
+.map-plane{position:absolute;inset:0;transform:scale(.92);opacity:0;transition:transform 1.4s cubic-bezier(.2,.7,.2,1),opacity 1s}
+.map.in .map-plane{transform:none;opacity:1}
+.map .route{transition:stroke-dashoffset 2.4s ease .4s}
 .map svg{position:absolute;left:56%;top:52%;width:min(1100px,84vw);transform:translate(-50%,-50%)}
 .map .grid line{stroke:rgba(244,237,227,.06)}
 .map .land{fill:rgba(244,237,227,.06);stroke:rgba(244,237,227,.18);stroke-width:1}
-.map .route{fill:none;stroke:var(--gold);stroke-width:2;stroke-dasharray:6 7;stroke-dashoffset:var(--rd,600)}
+.map .route{fill:none;stroke:var(--gold);stroke-width:2.2}
 .map .route-glow{fill:none;stroke:rgba(212,176,116,.25);stroke-width:8;filter:blur(4px)}
 .map .geo{font-family:var(--label);font-weight:600;font-size:11px;letter-spacing:.3em;fill:rgba(244,237,227,.28)}
 .pin{cursor:pointer}
@@ -293,6 +285,14 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
 .lb .cnt{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-family:var(--label);font-size:11px;letter-spacing:.2em;color:var(--mute)}
 .acts .pf{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
 .acts .pf button{background:none;border:1px solid rgba(212,176,116,.4);color:var(--gold);font-size:11.5px;font-weight:600;padding:3px 9px;cursor:pointer}
+
+/* scroll layout (no tabs) */
+.tabs,.subtabs{display:none!important}
+.pane{display:block!important;animation:none}
+.pane + .pane{margin-top:120px;padding-top:70px;border-top:1px solid var(--line)}
+.sp{display:block!important;margin-top:64px;animation:none}
+.sp::before{content:attr(data-t);display:block;font-family:var(--label);font-weight:600;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.sp .bar .tr i{width:var(--w)}
 /* lightbox */
 .lb{position:fixed;inset:0;z-index:100;background:rgba(6,5,7,.94);display:none;align-items:center;justify-content:center;padding:4vh 4vw;cursor:zoom-out}
 .lb.open{display:flex}
@@ -301,11 +301,9 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
 
 @media (max-width:900px){
   .topbar nav{display:none}
-  .win-wrap{left:56%;width:min(46vw,34vh);top:62%}
-  .avatar{left:-4vw;height:62vh}
-  .intro-copy{left:6vw;right:6vw;top:11vh;transform:none;max-width:none;text-align:center}
-  .intro-copy h1{font-size:clamp(36px,10vw,52px)}
-  .intro-copy p{display:none}
+  .hero{left:6vw;right:6vw;top:auto;bottom:12vh;transform:none}
+  .hero h1{font-size:clamp(44px,12vw,64px)}
+  .shade-l{background:linear-gradient(0deg,rgba(8,6,8,.85) 0%,rgba(8,6,8,.3) 55%,transparent 80%)}
   .map-head{top:10vh;right:6vw}
   .map svg{left:50%;width:118vw;top:46%}
   .map-card{left:4vw;right:4vw;width:auto;bottom:4vh;padding:16px 18px}
@@ -334,68 +332,34 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
   <span class="name">SONY JEONG</span>
   <nav>
     <a href="#journey" data-jump="journey">Journey</a>
-    <a href="#work" data-tab="0">Brand Events</a>
-    <a href="#work" data-tab="1">Global Content</a>
-    <a href="#work" data-tab="2">Credentials</a>
+    <a href="#p01">Brand Events</a>
+    <a href="#p02">Global Content</a>
+    <a href="#p03">Credentials</a>
   </nav>
 </header>
 
-<!-- ================= INTRO ================= -->
+<!-- ================= INTRO (cinematic) ================= -->
 <section class="intro" id="intro">
-  <div class="stage" id="stage">
-    <div class="cabin"></div>
+  <video class="fv on" id="v0" src="img/plane.mp4" poster="img/plane.jpg" muted loop playsinline autoplay preload="auto"></video>
+  <video class="fv" id="dive" src="img/dive.mp4" poster="img/dive.jpg" muted playsinline preload="auto"></video>
+  <video class="fv" id="land" src="img/land.mp4" poster="img/land.jpg" muted playsinline preload="auto"></video>
+  <div class="shade-l"></div>
+  <div class="flash" id="flash"></div>
+  <div class="hero" id="hero">
+    <span class="label">Portfolio · L’Oréal Korea 2027</span>
+    <h1>Open the window<br>to <em>my story</em></h1>
+    <p>정수현 · Soohyun (Sony) Jeong</p>
+    <button class="go" id="go"><span class="pl"></span>Open the window</button>
+    <span class="or">또는 스크롤</span>
+  </div>
+  <div class="cine" id="cine1"><span class="label">Scene 01</span><div class="t">Jumping into<br>the life I have <em>lived</em></div></div>
+  <div class="cine" id="cine2"><span class="label">Scene 02</span><div class="t">Landing in <em>Seoul</em></div></div>
+  <button class="replay" id="replay">↺ Replay intro</button>
+  <div class="bar-prog" id="prog"></div>
+</section>
 
-    <div class="intro-copy" id="icopy">
-      <span class="label">Portfolio · L’Oréal Korea 2027</span>
-      <h1 style="margin-top:18px">Open the window<br>to <em>my story</em></h1>
-      <p>스크롤을 내리면 창문이 열리고, 제가 걸어온 길로 뛰어듭니다.</p>
-    </div>
-
-    <div class="win-wrap" id="ww">
-      <div class="window" id="win">
-        <video class="wv" src="img/window.mp4" poster="img/window.jpg" muted loop playsinline autoplay preload="auto" aria-label="비행기 창밖의 구름"></video>
-        <div class="shade"></div>
-      </div>
-    </div>
-
-    <!-- stylized avatar (not a likeness) -->
-    <svg class="avatar" id="avatar" viewBox="0 0 260 640" aria-hidden="true">
-      <defs>
-        <linearGradient id="sil" x1="0" x2="1"><stop offset="0" stop-color="#0d0b0d"/><stop offset=".72" stop-color="#1a1517"/><stop offset="1" stop-color="#5a3d33"/></linearGradient>
-        <linearGradient id="rimg" x1="0" x2="1"><stop offset=".55" stop-color="rgba(255,186,130,0)"/><stop offset="1" stop-color="rgba(255,186,130,.75)"/></linearGradient>
-      </defs>
-      <g fill="url(#sil)">
-        <path d="M84 84 C70 140 74 220 84 300 L156 300 C164 220 160 140 148 84 Z"/>
-        <ellipse cx="118" cy="104" rx="26" ry="32"/>
-        <path d="M108 132 h20 v34 h-20 z"/>
-        <path d="M90 176 C98 162 110 158 118 158 C128 158 142 162 150 178 L156 214 C150 236 144 250 140 262 C156 330 176 430 184 560 L54 560 C62 430 84 330 98 262 C94 250 88 236 84 214 Z"/>
-        <path d="M88 186 C76 240 72 300 76 356 L88 356 C88 300 94 244 102 196 Z"/>
-        <path d="M96 556 L100 630 L114 630 L116 556 Z M128 556 L134 630 L148 630 L146 556 Z"/>
-        <path d="M92 626 h26 l2 8 h-30 z M130 626 h26 l4 8 h-30 z"/>
-      </g>
-      <path d="M150 178 L156 214 C150 236 144 250 140 262 C156 330 176 430 184 560 L168 560 C162 430 146 330 132 262 Z" fill="url(#rimg)" opacity=".8"/>
-      <path d="M86 92 C82 74 100 62 120 62 C140 62 152 76 150 96 C146 86 136 80 126 84 C114 78 96 82 86 92 Z" fill="#0b090b"/>
-      <path d="M140 84 C146 92 147 110 144 124" stroke="rgba(255,186,130,.6)" stroke-width="2" fill="none"/>
-      <g class="arm" id="arm">
-        <path d="M138 190 C160 184 174 166 180 144 C186 122 190 102 194 84 L206 86 C202 108 198 130 192 154 C184 184 166 206 144 212 Z" fill="url(#sil)"/>
-        <path d="M194 84 L206 86 C202 108 198 130 192 154 C188 168 182 180 174 190" stroke="rgba(255,186,130,.7)" stroke-width="2" fill="none"/>
-        <circle cx="200" cy="79" r="9" fill="#1a1517"/>
-      </g>
-    </svg>
-
-    <div class="cue" id="cue"><span class="label">Scroll to open</span><div class="line"></div></div>
-
-    <!-- skydive -->
-    <div class="sky" id="sky">
-      <video class="fv" id="dive" src="img/dive.mp4" poster="img/dive.jpg" muted playsinline preload="auto"></video>
-      <video class="fv" id="land" src="img/land.mp4" poster="img/land.jpg" muted playsinline preload="auto"></video>
-      <div class="vig"></div>
-      <div class="sky-copy" id="skyc"><div class="t">Jumping into<br>the life I have <em>lived</em></div></div>
-    </div>
-
-    <!-- journey map -->
-    <div class="map" id="journey">
-      <div class="map-plane" id="mplane">
+<section class="map" id="journey">
+  <div class="map-plane">
         <svg viewBox="0 0 1000 600" aria-label="걸어온 길 지도">
           <g class="grid">
             <line x1="0" y1="100" x2="1000" y2="100"/><line x1="0" y1="200" x2="1000" y2="200"/><line x1="0" y1="300" x2="1000" y2="300"/><line x1="0" y1="400" x2="1000" y2="400"/><line x1="0" y1="500" x2="1000" y2="500"/>
@@ -413,12 +377,9 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
           <g class="pin" data-k="2" transform="translate(206 268)"><circle class="ring" r="10"/><circle class="dot" r="8"/><text x="-96" y="6">SEOUL</text><text class="y" x="-96" y="-12">2024 –</text></g>
           <g class="pin next" data-k="3" transform="translate(226 300)"><circle class="ring" r="10"/><path class="star" d="M0 -11 L3 -3 L11 -3 L5 2 L7 10 L0 5 L-7 10 L-5 2 L-11 -3 L-3 -3 Z" fill="#b3283c" stroke="#0b0a0c" stroke-width="2"/><text x="20" y="22">L’ORÉAL KOREA</text><text class="y" x="20" y="4">SEOUL · 2027 NEXT</text></g>
         </svg>
-      </div>
-      <div class="map-head"><span class="label">My Journey</span><h2 style="margin-top:10px">The road<br>I’ve walked</h2><p>핀을 눌러 시기별 경험을 확인해 보세요.</p></div>
-      <div class="map-card" id="mcard" aria-live="polite"></div>
-      
-    </div>
   </div>
+  <div class="map-head"><span class="label">My Journey</span><h2 style="margin-top:10px">The road<br>I’ve walked</h2><p>핀을 눌러 시기별 경험을 확인해 보세요.</p></div>
+  <div class="map-card" id="mcard" aria-live="polite"></div>
 </section>
 
 <!-- ================= WORK ================= -->
@@ -431,7 +392,7 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
     </div>
 
     <!-- 01 -->
-    <div class="pane on" data-pane="0">
+    <div class="pane on" data-pane="0" id="p01">
       <div class="pane-head">
         <div><span class="label">Portfolio 01 · CULCOM Sinchon</span><h2 style="margin-top:10px">Designing nights people <em>stay</em> for</h2><p class="kr">처음 만난 사람도 머물게 만든 브랜드 이벤트와 고객 접점</p></div>
         <div class="meta"><b>Branch Assistant · 이벤트 공동 호스트</b><br>국내 최대 영어회화 스터디 1호점<br>2024.08 – 현재</div>
@@ -448,7 +409,7 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
         <button class="st" aria-selected="false" data-s="c">First-call Script</button>
       </div>
 
-      <div class="sp on" data-sp="a">
+      <div class="sp on" data-sp="a" data-t="01 — A · Designs">
         <div class="holo-row">
           <div class="holo-copy">
             <ul class="ic-list">
@@ -475,7 +436,7 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
         </div>
       </div>
 
-      <div class="sp" data-sp="b">
+      <div class="sp on" data-sp="b" data-t="01 — B · Guest Connect Mission">
         <div class="gameflow">
           <div class="gcm" id="gcm">
             <div class="gcm-head"><span class="gcm-live"><i></i>SIMULATION</span><span class="gcm-round" id="gcm-round"></span><button type="button" class="gcm-replay" id="gcm-replay">↺ 처음부터</button></div>
@@ -498,7 +459,7 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
         </div>
       </div>
 
-      <div class="sp" data-sp="c">
+      <div class="sp on" data-sp="c" data-t="01 — C · First-call Script">
         <div class="duo">
           <ol class="script">
             <li><div><b>이름 확인</b><span>“○○님 되시죠?” 광고 전화가 아님을 첫마디에 전달</span></div></li>
@@ -519,7 +480,7 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
     </div>
 
     <!-- 02 -->
-    <div class="pane" data-pane="1">
+    <div class="pane on" data-pane="1" id="p02">
       <div class="pane-head">
         <div><span class="label">Portfolio 02 · Educanspire (U.S.)</span><h2 style="margin-top:10px">Turning scattered data into a story <em>worth reading</em></h2><p class="kr">흩어진 정보를 미국 독자가 읽는 자료로</p></div>
         <div class="meta"><b>Marketing Intern · Remote</b><br>미국 교육 스타트업 (Tysons, VA)<br>2022.01 – 02</div>
@@ -552,7 +513,7 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
     </div>
 
     <!-- 03 -->
-    <div class="pane" data-pane="2">
+    <div class="pane on" data-pane="2" id="p03"><div class="pane-head" style="margin-bottom:28px"><div><span class="label">03 · Credentials &amp; Activities</span><h2 style="margin-top:10px">Proof, <em>not promises</em></h2></div></div>
       <div class="cred-grid">
         <div class="cred"><b>AL</b><span class="label">OPIc · English</span><span>최고 등급</span><button data-zoom="../assets/certs/opic.jpg">View</button></div>
         <div class="cred"><b>985</b><span class="label">TOEIC</span><span>2024.11</span><button data-zoom="../assets/certs/toeic.jpg">View</button></div>
@@ -593,39 +554,46 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
   const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
   const seg=(p,a,b)=>clamp((p-a)/(b-a),0,1);
   const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
-  const st=$('#stage').style, intro=$('#intro'), ww=$('#ww'), win=$('#win'), arm=$('#arm'), route=$('#route');
-  const RL=route.getTotalLength(); route.style.strokeDasharray=RL;
-  const dive=document.getElementById('dive'), land=document.getElementById('land');
-  function scrub(v,f){ if(!v.duration||isNaN(v.duration)) return; const t=Math.min(v.duration-0.05,f*v.duration); if(Math.abs(v.currentTime-t)>0.03 && !v.seeking) v.currentTime=t; }
-  [dive,land].forEach(v=>{v.addEventListener('loadedmetadata',()=>frame()); v.addEventListener('seeked',()=>{if(v._want!=null){}});});
-  const unlock=()=>{[dive,land].forEach(v=>{const pr=v.play(); if(pr&&pr.then) pr.then(()=>v.pause()).catch(()=>{});}); removeEventListener('touchstart',unlock); removeEventListener('pointerdown',unlock);};
-  addEventListener('touchstart',unlock,{passive:true}); addEventListener('pointerdown',unlock);
-  function frame(){
-    const r=intro.getBoundingClientRect(), total=intro.offsetHeight-innerHeight;
-    const p=clamp(-r.top/total,0,1);
-    const open=ease(seg(p,0.03,0.17));
-    st.setProperty('--open',open.toFixed(3));
-    arm.style.transform=`rotate(${(34-open*44).toFixed(1)}deg)`;
-    st.setProperty('--co',(1-seg(p,0.02,0.10)).toFixed(3));
-    st.setProperty('--ao',(1-seg(p,0.19,0.27)).toFixed(3));
-    const z=ease(seg(p,0.19,0.40));
-    const maxS=Math.max(innerWidth/ww.offsetWidth,innerHeight/ww.offsetHeight)*3;
-    ww.style.setProperty('--zs',reduce?1:(1+z*(maxS-1)).toFixed(3));
-    st.setProperty('--so',seg(p,0.33,0.40).toFixed(3));
-    const fd=seg(p,0.38,0.64), fl=seg(p,0.62,0.86);
-    scrub(dive,fd); scrub(land,fl);
-    st.setProperty('--dz',(1.04+fd*0.08).toFixed(3));
-    st.setProperty('--lo',seg(p,0.60,0.66).toFixed(3));
-    st.setProperty('--lz',(1.18-fl*0.18).toFixed(3));
-    st.setProperty('--sc',(seg(p,0.42,0.47)*(1-seg(p,0.56,0.61))).toFixed(3));
-    const m=ease(seg(p,0.84,0.93));
-    st.setProperty('--mo',m.toFixed(3));
-    st.setProperty('--mrx',((1-m)*58)+'deg'); st.setProperty('--msc',(0.35+m*0.65).toFixed(3));
-    st.setProperty('--mp',m>0.95?'auto':'none');
-    route.style.strokeDashoffset=(RL*(1-seg(p,0.90,0.98))).toFixed(1);
+  const intro=$('#intro'), v0=$('#v0'), dive=$('#dive'), land=$('#land'), flash=$('#flash'), prog=$('#prog');
+  const c1=$('#cine1'), c2=$('#cine2'), route=$('#route'), mapSec=$('#journey');
+  const RL=route.getTotalLength(); route.style.strokeDasharray=RL; route.style.strokeDashoffset=RL;
+  const wait=ms=>new Promise(r=>setTimeout(r,ms));
+  let state='idle';
+  function lock(on){document.documentElement.style.overflow=on?'hidden':'';document.body.style.overflow=on?'hidden':''}
+  function only(v){[v0,dive,land].forEach(x=>x.classList.toggle('on',x===v))}
+  function flashIt(){flash.classList.remove('go');void flash.offsetWidth;flash.classList.add('go')}
+  function progress(ms){prog.style.transition='none';prog.style.width='0';void prog.offsetWidth;prog.style.transition=`width ${ms}ms linear`;prog.style.width='100%'}
+  async function play(){
+    if(state!=='idle'||reduce) return; state='playing';
+    if(scrollY>0) scrollTo({top:0}); lock(true);
+    intro.classList.add('playing'); intro.classList.remove('done'); progress(15500);
+    [dive,land].forEach(v=>{try{v.currentTime=0}catch(e){}});
+    // 1) push through the window
+    v0.loop=false; v0.playbackRate=2.4; v0.classList.add('push'); v0.play().catch(()=>{});
+    await wait(4200);
+    // 2) jump
+    flashIt(); await wait(330);
+    dive.playbackRate=1.15; dive.play().catch(()=>{}); only(dive); v0.classList.remove('push');
+    await wait(700); c1.classList.add('on');
+    await wait(3300); c1.classList.remove('on');
+    await wait(2300);
+    // 3) land in Seoul
+    land.playbackRate=1.5; land.play().catch(()=>{}); only(land);
+    await wait(900); c2.classList.add('on');
+    await wait(2600); c2.classList.remove('on');
+    await wait(1000);
+    // 4) arrive on the map
+    lock(false); state='done'; intro.classList.remove('playing'); intro.classList.add('done');
+    mapSec.scrollIntoView({behavior:'smooth'});
   }
-  let tk=false; addEventListener('scroll',()=>{if(!tk){requestAnimationFrame(()=>{frame();tk=false});tk=true}},{passive:true});
-  addEventListener('resize',frame); frame();
+  function resetIntro(){state='idle';intro.classList.remove('done','playing');only(v0);v0.loop=true;v0.playbackRate=1;v0.currentTime=0;v0.play().catch(()=>{});prog.style.transition='none';prog.style.width='0';scrollTo({top:0,behavior:'smooth'})}
+  $('#go').addEventListener('click',play);
+  $('#replay').addEventListener('click',()=>{resetIntro();setTimeout(play,700)});
+  addEventListener('wheel',e=>{if(state==='idle'&&e.deltaY>0&&scrollY<innerHeight*0.5){e.preventDefault();play()} else if(state==='playing'){e.preventDefault()}},{passive:false});
+  let ty=null; addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});
+  addEventListener('touchmove',e=>{if(state==='playing'){e.preventDefault();return}if(state==='idle'&&ty!==null&&ty-e.touches[0].clientY>24&&scrollY<innerHeight*0.5){e.preventDefault();play()}},{passive:false});
+  addEventListener('keydown',e=>{if(state==='idle'&&['ArrowDown','PageDown',' '].includes(e.key)&&scrollY<10){e.preventDefault();play()}});
+  new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){mapSec.classList.add('in');route.style.strokeDashoffset='0'}}),{threshold:.35}).observe(mapSec);
 
   /* journey pins */
   const STOPS=[
@@ -643,7 +611,7 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
   const tabs=$$('.tab'), panes=$$('.pane');
   function setTab(i){tabs.forEach((t,k)=>t.setAttribute('aria-selected',k===i));panes.forEach((p,k)=>p.classList.toggle('on',k===i));const w=document.getElementById('work');if(Math.abs(w.getBoundingClientRect().top)>40)w.scrollIntoView({behavior:'smooth'});}
   tabs.forEach(t=>t.addEventListener('click',()=>setTab(+t.dataset.p)));
-  $$('[data-tab]').forEach(a=>a.addEventListener('click',()=>setTab(+a.dataset.tab)));
+  
   $$('.st').forEach(b=>b.addEventListener('click',()=>{$$('.st').forEach(x=>x.setAttribute('aria-selected',x===b));$$('.sp').forEach(s=>s.classList.toggle('on',s.dataset.sp===b.dataset.s));if(b.dataset.s==='b'){setTimeout(()=>{const r=document.getElementById('gcm-replay');r&&r.click()},60)}}));
 
   /* hologram rings */
