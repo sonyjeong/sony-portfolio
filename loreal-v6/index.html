@@ -570,7 +570,7 @@ mark{background:linear-gradient(transparent 60%,rgba(255,216,58,.75) 60%)!import
 @media (prefers-reduced-motion:reduce){.echo .row{animation:none}}
 .topbar{transition:background .35s,box-shadow .35s,padding .35s}
 .topbar.solid{background:rgba(243,237,226,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding-top:14px;padding-bottom:14px}
-</style>
+#p01>.stats{grid-template-columns:repeat(3,1fr)}.stats.s2{grid-template-columns:repeat(2,1fr);max-width:720px;margin-top:0}@media (max-width:900px){#p01>.stats{grid-template-columns:1fr 1fr}}</style>
 </head>
 <body>
 
@@ -711,7 +711,6 @@ mark{background:linear-gradient(transparent 60%,rgba(255,216,58,.75) 60%)!import
         <div><b>+66.7<sup>%</sup></b><span>참여 인원 증가 · 90 → 150명</span></div>
         <div><b>430</b><span>이벤트 4회 누적 게스트</span></div>
         <div><b>~50</b><span>회차별 사전 RSVP · 행사 전 비용 충당</span></div>
-        <div><b>7<sup>%</sup></b><span>문의 → 상담 전환율 (5% → 7%)</span></div>
       </div>
       <div class="subtabs" role="tablist">
         <button class="st" aria-selected="true" data-s="a">Designs · Hologram</button>
@@ -770,8 +769,9 @@ mark{background:linear-gradient(transparent 60%,rgba(255,216,58,.75) 60%)!import
         </div>
       </div>
 
-      <div class="sp on" data-sp="c" data-t="01 — C · First-call Script">
-        <div class="duo">
+      <div class="sp on" data-sp="c" data-t="01 — C · 상담 연결 · First-call Script">
+        <div class="stats s2"><div><b>7<sup>%</sup></b><span>문의 → 상담 전환율 (5% → 7%)</span></div><div><b>7,303</b><span>2년간 문의 회신 건수</span></div></div>
+        <div class="duo" style="margin-top:30px">
           <ol class="script">
             <li><div><b>이름 확인</b><span>“○○님 되시죠?” 광고 전화가 아님을 첫마디에 전달</span></div></li>
             <li><div><b>문의 경로 안내</b><span>“영어회화 스터디 컬컴 신촌점입니다”로 신뢰 확보</span></div></li>
@@ -1103,10 +1103,11 @@ void main(){
     const so=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');so.unobserve(x.target)}}),{threshold:.6});
     $$('.streak').forEach(s=>so.observe(s));
     // count-up for stat numbers
-    $$('.stats b,.cred b').forEach(b=>{const n=b.firstChild;if(!n||n.nodeType!==3)return;const m=n.textContent.match(/^([^\d]*)([\d.]+)(.*)$/);if(!m)return;
-      const pre=m[1],end=parseFloat(m[2]),dec=(m[2].split('.')[1]||'').length,post=m[3];
+    $$('.stats b,.cred b').forEach(b=>{const n=b.firstChild;if(!n||n.nodeType!==3)return;const m=n.textContent.match(/^([^\d]*)([\d.,]+)(.*)$/);if(!m)return;
+      const pre=m[1],raw=m[2].replace(/,/g,''),end=parseFloat(raw),dec=(raw.split('.')[1]||'').length,post=m[3],cm=m[2].includes(',');
+      const fmt=v=>cm?Math.round(v).toLocaleString('en-US'):v.toFixed(dec);
       const co=new IntersectionObserver(es=>{if(!es[0].isIntersecting)return;co.disconnect();if(reduce)return;const t0=performance.now();
-        (function step(t){const k=Math.min(1,(t-t0)/1300),e=1-Math.pow(1-k,3);n.textContent=pre+(end*e).toFixed(dec)+post;if(k<1)requestAnimationFrame(step)})(t0)},{threshold:.6});
+        (function step(t){const k=Math.min(1,(t-t0)/1300),e=1-Math.pow(1-k,3);n.textContent=pre+fmt(end*e)+post;if(k<1)requestAnimationFrame(step)})(t0)},{threshold:.6});
       co.observe(b)});
     // viewfinder brackets on each hologram stage
     $$('[data-holo]').forEach(h=>{const v=document.createElement('div');v.className='vf';v.innerHTML='<i></i><i></i><i></i><i></i><b>REC</b>';h.appendChild(v);
