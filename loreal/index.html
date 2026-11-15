@@ -7,7 +7,7 @@
 <meta name="description" content="정수현(Sony Jeong) 포트폴리오 · 브랜드 이벤트 기획과 글로벌 콘텐츠 제작 경험">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@500;600&family=Anton&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root{
@@ -287,6 +287,32 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
 .sp{display:block!important;margin-top:64px;animation:none}
 .sp::before{content:attr(data-t);display:block;font-family:var(--label);font-weight:600;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--red);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
 .sp .bar .tr i{width:var(--w)}
+
+/* aurora + spotlight + display type */
+.work{overflow:hidden}
+.aurora{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.55;mix-blend-mode:screen}
+.work .wrap,.work .end{position:relative;z-index:1}
+.big,.pane-head h2,.map-head h2{font-family:"Anton",var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.98;transform:skewX(-6deg);transform-origin:left;
+  background:linear-gradient(180deg,#fff6e6 0%,#e8cf9f 45%,#b8894f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 24px rgba(212,176,116,.18))}
+.pane-head h2{font-size:clamp(38px,4.6vw,74px)}
+.pane-head h2 em,.big span{font-style:normal;background:linear-gradient(180deg,#ffffff,#f1e6d6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.map-head h2{font-size:clamp(40px,4.6vw,72px)}
+.spot{display:grid;grid-template-columns:1.15fr .85fr;gap:4vw;align-items:center;min-height:86vh;margin-bottom:60px}
+.big{font-size:clamp(54px,7.4vw,124px);margin-top:16px}
+.counters{display:grid;grid-template-columns:repeat(4,1fr);margin-top:40px;border-top:1px solid rgba(212,176,116,.35)}
+.counters div{padding:18px 12px 0 0}
+.counters b{display:block;font-family:"Anton",sans-serif;font-weight:400;font-size:clamp(32px,3.2vw,52px);color:#fff;line-height:1;font-variant-numeric:tabular-nums}
+.counters span{display:block;margin-top:8px;font-size:12.5px;color:var(--mute)}
+.spot-photo{position:relative;height:min(78vh,720px);overflow:hidden;border:1px solid rgba(212,176,116,.45);box-shadow:0 0 0 8px rgba(212,176,116,.06),0 30px 80px rgba(0,0,0,.6)}
+.spot-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;filter:saturate(.9) contrast(1.08) brightness(.8)}
+.spot-photo::after{content:"";position:absolute;inset:0;background:radial-gradient(38% 46% at 50% 70%,transparent 0%,rgba(0,0,0,.35) 60%,rgba(0,0,0,.82) 100%)}
+.spot-photo .beam{position:absolute;left:50%;top:-10%;width:70%;height:95%;transform:translateX(-50%);background:linear-gradient(180deg,rgba(255,232,190,.55),rgba(255,232,190,0));clip-path:polygon(44% 0,56% 0,100% 100%,0 100%);mix-blend-mode:screen;filter:blur(6px);animation:beam 5s ease-in-out infinite}
+@keyframes beam{0%,100%{opacity:.75}50%{opacity:1}}
+.ic-list li{padding:14px 16px;background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.01));border:1px solid rgba(212,176,116,.22);backdrop-filter:blur(6px);transition:transform .35s,border-color .35s,box-shadow .35s}
+.ic-list li:hover{transform:translateY(-3px);border-color:rgba(212,176,116,.7);box-shadow:0 0 30px -8px rgba(212,176,116,.5)}
+.ic-list li svg{box-shadow:0 0 18px -4px rgba(212,176,116,.7);background:rgba(212,176,116,.08)}
+.stats b{font-family:"Anton",sans-serif;font-weight:400}
+@media (max-width:900px){.spot{grid-template-columns:1fr;min-height:auto}.spot-photo{height:62vh}.counters{grid-template-columns:1fr 1fr}.counters div:nth-child(n+3){margin-top:10px}}
 /* lightbox */
 .lb{position:fixed;inset:0;z-index:100;background:rgba(6,5,7,.94);display:none;align-items:center;justify-content:center;padding:4vh 4vw;cursor:zoom-out}
 .lb.open{display:flex}
@@ -358,7 +384,7 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
   <video class="bg" src="img/land.mp4" poster="img/land.jpg" muted loop playsinline preload="auto"></video>
   <div class="tint"></div>
   <div class="sc-copy center">
-    <span class="label kick">Scene 02 · Touchdown</span>
+    
     <h2 class="split">Landing in</h2>
     <h2 class="split it">Seoul</h2>
     <p class="sub">Born in Maryland · Grew up in Gangneung · Now in Seoul</p>
@@ -391,7 +417,21 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
 
 <!-- ================= WORK ================= -->
 <section class="work" id="work">
+  <canvas class="aurora" id="aurora" aria-hidden="true"></canvas>
   <div class="wrap">
+    <div class="spot rv">
+      <div class="spot-copy">
+        <span class="label">Soohyun (Sony) Jeong · Marketing Intern Candidate</span>
+        <h2 class="big">I design<br><span>moments</span><br>people remember</h2>
+        <div class="counters">
+          <div><b data-count="150">0</b><span>최대 게스트 / 이벤트</span></div>
+          <div><b data-count="66.7" data-dec="1" data-suf="%">0</b><span>참여 인원 증가</span></div>
+          <div><b data-count="7303">0</b><span>2년간 고객 회신</span></div>
+          <div><b data-count="11" data-suf="yrs">0</b><span>미국 거주 · Bicultural</span></div>
+        </div>
+      </div>
+      <figure class="spot-photo"><img src="../assets/laka/hero.jpg" alt="정수현" loading="lazy"><i class="beam"></i></figure>
+    </div>
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" aria-selected="true" data-p="0"><span class="n">01</span><span class="t">Brand Events</span></button>
       <button class="tab" role="tab" aria-selected="false" data-p="1"><span class="n">02</span><span class="t">Global Content</span></button>
@@ -570,8 +610,21 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
   scenes.forEach(x=>so.observe(x));
   const route=$('#route'), mapSec=$('#journey'); const RL=route.getTotalLength(); route.style.strokeDasharray=RL; route.style.strokeDashoffset=RL;
   new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){mapSec.classList.add('in');route.style.strokeDashoffset='0'}}),{threshold:.35}).observe(mapSec);
+
+  /* aurora ribbons */
+  (function(){const c=document.getElementById('aurora');if(!c||reduce)return;const x=c.getContext('2d');let w,h;
+    function rs(){w=c.width=c.offsetWidth;h=c.height=Math.min(c.offsetHeight,4000)}rs();addEventListener('resize',rs);
+    const R=[{c:'212,176,116',a:.5,y:.12,s:.0007,amp:90,wl:.0025},{c:'179,40,60',a:.35,y:.35,s:.0005,amp:120,wl:.0018},{c:'232,207,159',a:.4,y:.6,s:.0009,amp:70,wl:.003},{c:'120,200,230',a:.18,y:.82,s:.0006,amp:100,wl:.0022}];
+    let vis=true;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(c);
+    (function draw(t){requestAnimationFrame(draw);if(!vis)return;x.clearRect(0,0,w,h);x.globalCompositeOperation='lighter';
+      R.forEach(r=>{for(let k=0;k<18;k++){x.beginPath();for(let px=0;px<=w;px+=20){const py=h*r.y+Math.sin(px*r.wl+t*r.s+k*.12)*r.amp+Math.sin(px*.0009-t*r.s*1.7)*r.amp*.6+k*3;px?x.lineTo(px,py):x.moveTo(px,py)}
+        x.strokeStyle=`rgba(${r.c},${r.a*(1-k/18)*.25})`;x.lineWidth=2;x.stroke()}})})(0);})();
+  /* count-up */
+  const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,to=+el.dataset.count,dec=+(el.dataset.dec||0),suf=el.dataset.suf||'';const t0=performance.now(),D=1600;
+    (function step(n){const k=Math.min(1,(n-t0)/D),v=to*(1-Math.pow(1-k,3));el.textContent=v.toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec})+suf;if(k<1)requestAnimationFrame(step)})(t0)}),{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
   // content reveal
-  $$('.pane-head,.stats,.sp,.holo-row,.cred-grid,.cred-2,.end').forEach(el=>el.classList.add('rv'));
+  $$('.pane-head,.stats,.sp,.holo-row,.cred-grid,.cred-2,.end,.ic-list li').forEach(el=>el.classList.add('rv'));
   const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}}),{threshold:.12});
   $$('.rv').forEach(el=>ro.observe(el));
 
