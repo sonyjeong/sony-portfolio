@@ -7,7 +7,7 @@
 <meta name="description" content="정수현(Sony Jeong) 포트폴리오 · 브랜드 이벤트 기획과 글로벌 콘텐츠 제작 경험">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root{
@@ -381,8 +381,8 @@ mark{background:linear-gradient(transparent 62%,rgba(200,169,106,.35) 62%)!impor
   background:linear-gradient(180deg,#efebe4,#e1dcd3 70%,#cfc8bd);box-shadow:0 8px 22px rgba(0,0,0,.5)}
 .shade::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.035) 0 1px,transparent 1px 24px)}
 .shade .handle{position:absolute;left:36%;right:36%;bottom:5%;height:9px;border-radius:9px;background:#a69f94;box-shadow:inset 0 1px 1px rgba(0,0,0,.3)}
-.shade .tag{position:absolute;left:0;right:0;top:15%;text-align:center;font:400 5.4cqw/1 "Marker",cursive;color:#151515;transform:rotate(-4deg);letter-spacing:.02em}
-.shade .tag2{position:absolute;left:0;right:0;bottom:15%;text-align:center;font:400 6.4cqw/1 "Marker",cursive;color:#151515;transform:rotate(3deg);opacity:0;transition:opacity .5s .2s}
+.shade .tag{position:absolute;left:0;right:0;top:15%;text-align:center;font:400 5.4cqw/1 "Marker",cursive;color:#6b3f22;transform:rotate(-4deg);letter-spacing:.02em}
+.shade .tag2{position:absolute;left:0;right:0;bottom:15%;text-align:center;font:400 6.4cqw/1 "Marker",cursive;color:#6b3f22;transform:rotate(3deg);opacity:0;transition:opacity .5s .2s}
 .shade.done .tag2{opacity:1}
 .spray{position:absolute;left:3%;right:3%;top:29%;text-align:center;transform:rotate(-7deg)}
 .sp-in{position:relative;display:inline-block;
@@ -493,6 +493,80 @@ mark{background:linear-gradient(transparent 62%,rgba(200,169,106,.35) 62%)!impor
 .holo-cap button:hover{border-color:var(--gold);color:var(--gold)}
 .holo-cap i{font-style:normal;color:rgba(255,255,255,.45);letter-spacing:.1em}
 @media (max-width:900px){.holo-row .ic-list{grid-template-columns:1fr}.holo-cap b{min-width:150px}}
+/* ===================== IVORY THEME · unified type (matches the skate-road intro) ===================== */
+:root{--bg:#f3ede2;--bg-2:#ebe3d4;--ink:#1b1714;--ink-2:#4b443c;--mute:#81776b;--line:rgba(27,23,20,.14);
+  --gold:#c9281d;--gold-2:#8a5530;--red:#c9281d;--brown:#6b4428;--yellow:#ffd83a;--spr:#e4231b;
+  --serif:"ArchivoV","Pretendard",sans-serif;--display:"ArchivoV",sans-serif;--label:"ArchivoV","Pretendard",sans-serif}
+body{background:var(--bg);color:var(--ink)}
+.label{font-family:"ArchivoV",var(--sans)!important;font-stretch:118%;font-weight:700;letter-spacing:.2em;color:var(--brown)}
+.topbar .name,.topbar nav a{font-family:"ArchivoV",sans-serif!important;font-stretch:118%;font-weight:700;letter-spacing:.2em;color:var(--ink)}
+.topbar nav a:hover{color:var(--spr)}
+.work{background:var(--bg)!important;color:var(--ink)}
+.work::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background:url(img/brick.jpg) 0 0/360px;mix-blend-mode:multiply;
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent 340px);mask-image:linear-gradient(180deg,#000,transparent 340px)}
+.work>.wrap,.work>.end{position:relative}
+/* headings: condensed billboard caps + a hand-written accent word */
+.pane-head h2,.map-head h2{font-family:"ArchivoV",sans-serif!important;font-stretch:68%;font-weight:800!important;text-transform:uppercase;letter-spacing:-.005em!important;line-height:.98;font-size:clamp(40px,5vw,78px)!important;color:var(--ink)}
+.pane-head h2 em{font-family:"Marker",cursive;font-stretch:100%;font-weight:400;text-transform:none;color:var(--spr);font-size:.82em;display:inline-block;transform:rotate(-4deg);padding:0 .08em}
+.pane-head .kr{color:var(--ink-2)}
+.pane-head .meta{color:var(--mute)}.pane-head .meta b{color:var(--ink)}
+.stats b,.cred b,.edu .g,.bar .v,.script li::before,.gf-steps li b,.tab .n,.acts time{font-family:"ArchivoV",sans-serif!important;font-stretch:66%;font-weight:800!important}
+.stats b{font-size:clamp(44px,4.4vw,70px)!important;letter-spacing:-.01em}
+.stats b sup{color:var(--spr)!important}
+.stats span,.cred span,.edu p,.acts p,.chart .cap,.bar .bl{color:var(--mute)!important}
+.cred b{font-size:clamp(56px,6vw,96px)!important}
+.acts time{color:var(--spr)!important;font-size:24px!important}
+.edu .g small{color:var(--mute)}
+.sp::before{color:var(--brown)!important;font-family:"ArchivoV",sans-serif!important;font-stretch:118%;font-weight:700!important;border-color:var(--line)!important}
+.ic-list li{background:#fffaf1!important;border:1px solid var(--line)!important;padding:14px 16px!important;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.ic-list li:hover{border-color:var(--spr)!important}
+.ic-list li svg{stroke:var(--spr)!important;border-color:rgba(228,35,27,.4)!important}
+.ic-list b{color:var(--ink)!important}
+.ic-list li{color:var(--ink-2)!important}
+mark{background:linear-gradient(transparent 60%,rgba(255,216,58,.75) 60%)!important;color:var(--ink)!important}
+.proof button{background:#fffaf1!important;border:1px solid rgba(27,23,20,.3)!important;color:var(--ink)!important}
+.proof button:hover{border-color:var(--spr)!important;color:var(--spr)!important}
+.acts .pf button,.cred button{border-color:rgba(27,23,20,.3)!important;color:var(--ink)!important;background:#fffaf1}
+.acts .pf button:hover,.cred button:hover{border-color:var(--spr)!important;color:var(--spr)!important}
+.script{border-top-color:var(--ink)!important}.chart{border-top-color:var(--ink)!important}
+.bar .tr{background:rgba(27,23,20,.08)!important}.bar .tr i{background:var(--ink)!important}.bar.red .tr i{background:var(--spr)!important}.bar.gold .tr i{background:var(--brown)!important}
+.gf-steps li{background:#fffaf1;color:var(--ink-2)}.gf-steps li h4{color:var(--ink)}
+.gf-loop b{color:var(--spr)!important}
+.end .t{font-family:"ArchivoV",sans-serif!important;font-stretch:68%;font-weight:800!important;text-transform:uppercase;letter-spacing:0!important;font-size:clamp(44px,6vw,96px)!important;color:var(--ink)}
+.end .t em{font-family:"Marker",cursive;text-transform:none;color:var(--spr);font-size:.7em;display:inline-block;transform:rotate(-3deg)}
+.end a.mail{color:var(--ink)!important;border-color:var(--spr)!important;font-family:"ArchivoV",sans-serif;font-stretch:118%}
+.end footer{font-family:"ArchivoV",sans-serif;font-stretch:118%}
+.pane + .pane{border-top:0!important;padding-top:40px!important}
+/* hologram stage = a dark screen on the ivory page */
+.holo{background:radial-gradient(60% 60% at 50% 100%,rgba(120,220,255,.16),transparent 70%),#15120f!important;border:0!important;border-radius:14px}
+.holo::after{background:linear-gradient(90deg,#15120f 0,transparent 14%,transparent 86%,#15120f 100%)!important}
+.holo-cap{color:var(--ink)!important;font-family:"ArchivoV",sans-serif!important;font-stretch:118%;font-weight:700}
+.holo-cap i{color:var(--mute)!important}
+.holo-cap button{border-color:rgba(27,23,20,.35)!important;color:var(--ink)!important}
+.holo-cap button:hover{border-color:var(--spr)!important;color:var(--spr)!important}
+/* viewfinder brackets around the centre card (ref: FRAME) */
+.vf{position:absolute;left:50%;top:26px;width:calc(var(--cw) + 28px);height:calc(var(--ch) + 28px);margin:-14px 0 0 calc((var(--cw) + 28px) / -2);pointer-events:none;z-index:60}
+.vf i{position:absolute;width:26px;height:26px;border:2.5px solid var(--yellow)}
+.vf i:nth-child(1){left:0;top:0;border-right:0;border-bottom:0}.vf i:nth-child(2){right:0;top:0;border-left:0;border-bottom:0}
+.vf i:nth-child(3){left:0;bottom:0;border-right:0;border-top:0}.vf i:nth-child(4){right:0;bottom:0;border-left:0;border-top:0}
+.vf b{position:absolute;left:0;top:-22px;font:700 10px/1 "ArchivoV",sans-serif;font-stretch:118%;letter-spacing:.2em;color:var(--yellow)}
+.vf b::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--spr);margin-right:6px;vertical-align:1px;animation:blink 1.1s steps(2) infinite}
+.vf.snap i{animation:snap .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes snap{from{transform:scale(1.35);opacity:0}to{transform:none;opacity:1}}
+/* echo title band (ref: SINGLE) + light streak (ref: opening line) */
+.echo{position:relative;overflow:hidden;margin:0 calc(50% - 50vw) 34px;padding:6px 0;pointer-events:none;user-select:none}
+.echo .row{display:flex;white-space:nowrap;font:800 clamp(46px,7vw,110px)/.92 "ArchivoV",sans-serif;font-stretch:62%;text-transform:uppercase;letter-spacing:.01em;will-change:transform}
+.echo .row span{padding-right:.35em;color:transparent;-webkit-text-stroke:1.2px rgba(27,23,20,.22)}
+.echo .row span.f{color:var(--spr);-webkit-text-stroke:0}
+.echo .r1{animation:echoL 38s linear infinite}.echo .r2{animation:echoR 46s linear infinite}.echo .r3{animation:echoL 54s linear infinite}
+@keyframes echoL{from{transform:translateX(0)}to{transform:translateX(-50%)}}@keyframes echoR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.streak{position:relative;height:2px;margin:0 0 30px;background:linear-gradient(90deg,transparent,var(--spr) 30%,#ffb08a 50%,var(--spr) 70%,transparent);transform:scaleX(0);transition:transform 1.4s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 18px 2px rgba(228,35,27,.45)}
+.streak.in{transform:none}
+.stats b{font-variant-numeric:tabular-nums}
+@media (max-width:900px){.echo .row{font-size:44px}}
+@media (prefers-reduced-motion:reduce){.echo .row{animation:none}}
+.topbar{transition:background .35s,box-shadow .35s,padding .35s}
+.topbar.solid{background:rgba(243,237,226,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding-top:14px;padding-bottom:14px}
 </style>
 </head>
 <body>
@@ -523,7 +597,6 @@ mark{background:linear-gradient(transparent 62%,rgba(200,169,106,.35) 62%)!impor
         <span class="tag">Sony Jeong — Portfolio</span>
         <div class="spray" id="spray" aria-label="Scroll">
           <div class="sp-in"><span class="sp-t sh">SCROLL</span><span class="sp-t main">SCROLL</span><span class="sp-t hl">SCROLL</span></div>
-          <i class="spark" style="--x:6%;--y:2%;--d:1.75s">✦</i><i class="spark" style="--x:90%;--y:-14%;--d:1.9s">✦</i><i class="spark s" style="--x:70%;--y:86%;--d:2.05s">✦</i>
         </div>
         <svg class="can" id="can" viewBox="0 0 60 130" aria-hidden="true"><defs><linearGradient id="cg" x1="0" x2="1"><stop offset="0" stop-color="#7d0c08"/><stop offset=".35" stop-color="#ff4a3a"/><stop offset=".6" stop-color="#d81e18"/><stop offset="1" stop-color="#6a0805"/></linearGradient><linearGradient id="cm" x1="0" x2="1"><stop offset="0" stop-color="#777"/><stop offset=".4" stop-color="#eee"/><stop offset="1" stop-color="#666"/></linearGradient></defs>
           <rect x="22" y="2" width="14" height="10" rx="2" fill="#f2f2f2"/><rect x="26" y="0" width="6" height="4" fill="#333"/>
@@ -657,12 +730,12 @@ mark{background:linear-gradient(transparent 62%,rgba(200,169,106,.35) 62%)!impor
           </div>
           <div class="holo" data-holo>
             <div class="ring">
+              <figure class="card" data-zoom-video="../assets/party-live.mp4"><video src="../assets/party-live.mp4" poster="../assets/party-live.jpg" muted loop playsinline autoplay preload="metadata"></video><figcaption class="cap">On the night</figcaption></figure>
+              <figure class="card" data-zoom-video="img/party-night.mp4"><video src="img/party-night.mp4" poster="img/party-night.jpg" muted loop playsinline autoplay preload="metadata"></video><figcaption class="cap">Christmas · On site</figcaption></figure>
               <figure class="card" data-zoom="../assets/dreamhouse-poster.jpg"><img src="../assets/dreamhouse-poster.jpg" alt="드림하우스 파티 포스터" loading="lazy"><figcaption class="cap">Dream House · 2025.07</figcaption></figure>
               <figure class="card" data-zoom-video="../assets/christmas.mp4"><video src="../assets/christmas.mp4" poster="../assets/christmas.jpg" muted loop playsinline autoplay preload="metadata"></video><figcaption class="cap">Christmas · Animated</figcaption></figure>
               <figure class="card" data-zoom="../assets/casino-poster.jpg"><img src="../assets/casino-poster.jpg" alt="카지노 파티 포스터" loading="lazy"><figcaption class="cap">Casino · 2026.02</figcaption></figure>
               <figure class="card" data-zoom="../assets/coco.jpg"><img src="../assets/coco.jpg" alt="마스코트 코코" loading="lazy"><figcaption class="cap">Coco · Mascot</figcaption></figure>
-              <figure class="card" data-zoom-video="img/party-night.mp4"><video src="img/party-night.mp4" poster="img/party-night.jpg" muted loop playsinline autoplay preload="metadata"></video><figcaption class="cap">Christmas · On site</figcaption></figure>
-              <figure class="card" data-zoom-video="../assets/party-live.mp4"><video src="../assets/party-live.mp4" poster="../assets/party-live.jpg" muted loop playsinline autoplay preload="metadata"></video><figcaption class="cap">On the night</figcaption></figure>
               <figure class="card" data-zoom="../assets/staff/p-1.jpg"><img src="../assets/staff/p-1.jpg" alt="스태프 근무표" loading="lazy"><figcaption class="cap">Staff rota · KR/EN</figcaption></figure>
             </div>
           </div>
@@ -1000,6 +1073,28 @@ void main(){
       if(c&&!c.classList.contains('c')){e.stopPropagation();e.preventDefault();cur=cards.indexOf(c);render();restart()}},true);
     layout();addEventListener('resize',layout);restart();
   });
+
+  /* ===== motion accents: echo bands, light streaks, count-ups, viewfinder ===== */
+  (function(){
+    const words={p01:'Nights',p02:'Stories',p03:'Proof'};
+    Object.entries(words).forEach(([id,w])=>{const p=document.getElementById(id);if(!p)return;
+      const row=(cls,hit)=>`<div class="row ${cls}">${Array.from({length:16},(_,i)=>`<span class="${i%8===hit?'f':''}">${w}</span>`).join('')}</div>`;
+      const e=document.createElement('div');e.className='echo';e.setAttribute('aria-hidden','true');e.innerHTML=row('r1',-1)+row('r2',3)+row('r3',-1);
+      const s=document.createElement('div');s.className='streak';p.prepend(e);p.prepend(s)});
+    const so=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');so.unobserve(x.target)}}),{threshold:.6});
+    $$('.streak').forEach(s=>so.observe(s));
+    // count-up for stat numbers
+    $$('.stats b,.cred b').forEach(b=>{const n=b.firstChild;if(!n||n.nodeType!==3)return;const m=n.textContent.match(/^([^\d]*)([\d.]+)(.*)$/);if(!m)return;
+      const pre=m[1],end=parseFloat(m[2]),dec=(m[2].split('.')[1]||'').length,post=m[3];
+      const co=new IntersectionObserver(es=>{if(!es[0].isIntersecting)return;co.disconnect();if(reduce)return;const t0=performance.now();
+        (function step(t){const k=Math.min(1,(t-t0)/1300),e=1-Math.pow(1-k,3);n.textContent=pre+(end*e).toFixed(dec)+post;if(k<1)requestAnimationFrame(step)})(t0)},{threshold:.6});
+      co.observe(b)});
+    // viewfinder brackets on each hologram stage
+    $$('[data-holo]').forEach(h=>{const v=document.createElement('div');v.className='vf';v.innerHTML='<i></i><i></i><i></i><i></i><b>REC</b>';h.appendChild(v);
+      new MutationObserver(()=>{v.classList.remove('snap');void v.offsetWidth;v.classList.add('snap')}).observe(h.querySelector('.ring'),{subtree:true,attributes:true,attributeFilter:['class']})});
+  })();
+
+  (function(){const tb=$('.topbar'),wk=$('#work');const f=()=>tb.classList.toggle('solid',wk.getBoundingClientRect().top<60);addEventListener('scroll',f,{passive:true});f()})();
 
   /* lightbox (single + gallery) */
   const lb=$('#lb'); let gal=null, gi=0;
