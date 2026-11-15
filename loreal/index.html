@@ -36,7 +36,7 @@ button{font:inherit;color:inherit}
 .skip:hover{border-color:var(--gold);color:var(--gold)}
 
 /* ================= INTRO STAGE ================= */
-.intro{height:520vh;position:relative}
+.intro{height:640vh;position:relative}
 .stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#060507}
 /* cabin */
 .cabin{position:absolute;inset:0;background:
@@ -47,8 +47,8 @@ button{font:inherit;color:inherit}
 .win-wrap{position:absolute;left:58%;top:50%;width:min(24vw,50vh);aspect-ratio:408/728;transform:translate(-50%,-50%) scale(var(--zs,1));will-change:transform;transform-origin:50% 50%}
 .window{position:absolute;inset:0;border-radius:46%/30%;overflow:hidden;
   box-shadow:0 0 0 12px #2a2529,0 0 0 13px rgba(255,255,255,.06),0 0 0 30px #1d1a1e,0 0 90px 30px rgba(255,170,110,calc(.12 + var(--open,0)*.25)),inset 0 0 40px rgba(0,0,0,.5)}
-.window img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.6s ease}
-.window img.b{opacity:0}.window.swap img.b{opacity:1}
+.window .wv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
 .shade{position:absolute;left:0;right:0;top:0;height:100%;transform:translateY(calc(var(--open,0) * -101%));
   background:linear-gradient(180deg,#d8cfc3,#bfb4a6 92%,#a99d8e);box-shadow:0 4px 10px rgba(0,0,0,.35)}
 .shade::after{content:"";position:absolute;left:38%;right:38%;bottom:7%;height:7px;border-radius:9px;background:#8d8274}
@@ -63,7 +63,11 @@ button{font:inherit;color:inherit}
 .cue .line{width:1px;height:44px;background:linear-gradient(var(--gold),transparent);margin:10px auto 0;animation:drip 2.2s ease-in-out infinite}
 @keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 /* sky dive */
-.sky{position:absolute;inset:0;opacity:var(--so,0);background:linear-gradient(180deg,#1a1d3a 0%,#4b3a5e 30%,#c9785a 62%,#f2b07a 78%,#f6d2a6 100%);pointer-events:none}
+.sky{position:absolute;inset:0;opacity:var(--so,0);background:#0b0a0c;pointer-events:none}
+.fv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#dive{transform:scale(var(--dz,1.06));}
+#land{opacity:var(--lo,0);transform:scale(var(--lz,1.15))}
+.vig{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 50%,transparent 55%,rgba(0,0,0,.55));pointer-events:none}
 .cl{position:absolute;inset:-20%;background-repeat:repeat;will-change:background-position}
 .cl1{background-image:radial-gradient(closest-side,rgba(255,240,230,.9),rgba(255,240,230,0)),radial-gradient(closest-side,rgba(255,226,210,.8),rgba(255,226,210,0));background-size:520px 300px,380px 240px;background-position:0 var(--y1,0),210px calc(var(--y1,0) + 140px);filter:blur(10px);opacity:.75}
 .cl2{background-image:radial-gradient(closest-side,rgba(255,250,245,.95),rgba(255,250,245,0)),radial-gradient(closest-side,rgba(255,236,222,.9),rgba(255,236,222,0));background-size:900px 520px,700px 420px;background-position:120px var(--y2,0),560px calc(var(--y2,0) + 260px);filter:blur(16px);opacity:.85}
@@ -349,8 +353,7 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
 
     <div class="win-wrap" id="ww">
       <div class="window" id="win">
-        <img class="a" src="img/hero-b.jpg" alt="비행기 창가에 놓인 휴대폰 속 정수현의 사진">
-        <img class="b" src="img/hero-a.jpg" alt="" aria-hidden="true">
+        <video class="wv" src="img/window.mp4" poster="img/window.jpg" muted loop playsinline autoplay preload="auto" aria-label="비행기 창밖의 구름"></video>
         <div class="shade"></div>
       </div>
     </div>
@@ -384,8 +387,10 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
 
     <!-- skydive -->
     <div class="sky" id="sky">
-      <div class="clouds" id="clouds"><div class="cl cl3"></div><div class="cl cl2"></div><div class="cl cl1"></div></div>
-      <div class="sky-copy" id="skyc"><div class="t">Into the life<br>I have <em>lived</em></div></div>
+      <video class="fv" id="dive" src="img/dive.mp4" poster="img/dive.jpg" muted playsinline preload="auto"></video>
+      <video class="fv" id="land" src="img/land.mp4" poster="img/land.jpg" muted playsinline preload="auto"></video>
+      <div class="vig"></div>
+      <div class="sky-copy" id="skyc"><div class="t">Jumping into<br>the life I have <em>lived</em></div></div>
     </div>
 
     <!-- journey map -->
@@ -590,6 +595,11 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
   const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
   const st=$('#stage').style, intro=$('#intro'), ww=$('#ww'), win=$('#win'), arm=$('#arm'), route=$('#route');
   const RL=route.getTotalLength(); route.style.strokeDasharray=RL;
+  const dive=document.getElementById('dive'), land=document.getElementById('land');
+  function scrub(v,f){ if(!v.duration||isNaN(v.duration)) return; const t=Math.min(v.duration-0.05,f*v.duration); if(Math.abs(v.currentTime-t)>0.03 && !v.seeking) v.currentTime=t; }
+  [dive,land].forEach(v=>{v.addEventListener('loadedmetadata',()=>frame()); v.addEventListener('seeked',()=>{if(v._want!=null){}});});
+  const unlock=()=>{[dive,land].forEach(v=>{const pr=v.play(); if(pr&&pr.then) pr.then(()=>v.pause()).catch(()=>{});}); removeEventListener('touchstart',unlock); removeEventListener('pointerdown',unlock);};
+  addEventListener('touchstart',unlock,{passive:true}); addEventListener('pointerdown',unlock);
   function frame(){
     const r=intro.getBoundingClientRect(), total=intro.offsetHeight-innerHeight;
     const p=clamp(-r.top/total,0,1);
@@ -601,21 +611,21 @@ mark{background:linear-gradient(transparent 58%,rgba(212,176,116,.38) 58%);color
     const z=ease(seg(p,0.19,0.40));
     const maxS=Math.max(innerWidth/ww.offsetWidth,innerHeight/ww.offsetHeight)*3;
     ww.style.setProperty('--zs',reduce?1:(1+z*(maxS-1)).toFixed(3));
-    st.setProperty('--so',seg(p,0.34,0.41).toFixed(3));
-    const f=seg(p,0.38,0.80);
-    const H=innerHeight;
-    st.setProperty('--y1',(-f*H*5)+'px'); st.setProperty('--y2',(-f*H*3)+'px'); st.setProperty('--y3',(-f*H*1.6)+'px');
-    st.setProperty('--sc',(seg(p,0.44,0.50)*(1-seg(p,0.62,0.68))).toFixed(3));
-    st.setProperty('--clo',(1-seg(p,0.74,0.84)).toFixed(3));
-    const m=ease(seg(p,0.74,0.90));
+    st.setProperty('--so',seg(p,0.33,0.40).toFixed(3));
+    const fd=seg(p,0.38,0.64), fl=seg(p,0.62,0.86);
+    scrub(dive,fd); scrub(land,fl);
+    st.setProperty('--dz',(1.04+fd*0.08).toFixed(3));
+    st.setProperty('--lo',seg(p,0.60,0.66).toFixed(3));
+    st.setProperty('--lz',(1.18-fl*0.18).toFixed(3));
+    st.setProperty('--sc',(seg(p,0.42,0.47)*(1-seg(p,0.56,0.61))).toFixed(3));
+    const m=ease(seg(p,0.84,0.93));
     st.setProperty('--mo',m.toFixed(3));
     st.setProperty('--mrx',((1-m)*58)+'deg'); st.setProperty('--msc',(0.35+m*0.65).toFixed(3));
     st.setProperty('--mp',m>0.95?'auto':'none');
-    route.style.strokeDashoffset=(RL*(1-seg(p,0.86,0.96))).toFixed(1);
+    route.style.strokeDashoffset=(RL*(1-seg(p,0.90,0.98))).toFixed(1);
   }
   let tk=false; addEventListener('scroll',()=>{if(!tk){requestAnimationFrame(()=>{frame();tk=false});tk=true}},{passive:true});
   addEventListener('resize',frame); frame();
-  if(!reduce) setInterval(()=>win.classList.toggle('swap'),4200);
 
   /* journey pins */
   const STOPS=[
