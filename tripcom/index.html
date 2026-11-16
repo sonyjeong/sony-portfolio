@@ -359,10 +359,10 @@ mark{background:linear-gradient(transparent 62%,rgba(200,169,106,.35) 62%)!impor
 @font-face{font-family:"ArchivoV";src:url(fonts/archivo-latin-wdth-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
 .jr{position:relative;height:1000vh;--hzp:41.38%;background:#000;--spr:#287dfa;--yel:#ffffff}
 .jr-stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#000}
-.cabin{position:absolute;inset:0;z-index:1;opacity:var(--cab,1);pointer-events:none;overflow:hidden;background:linear-gradient(180deg,#f7f9fc,#e6ecf4)}
-.cabin::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 75% at 50% 50%,rgba(240,246,255,0) 30%,rgba(40,70,120,.22) 78%,rgba(10,30,70,.55) 100%)}
+.cabin{position:absolute;inset:0;z-index:1;opacity:var(--cab,1);pointer-events:none;overflow:hidden;background:radial-gradient(75% 85% at 50% 50%,#7fbcff 0%,#3d8bfb 38%,#1f62e0 68%,#0d3a9e 100%)}
+.cabin::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 75% at 50% 50%,rgba(240,246,255,0) 40%,rgba(8,40,120,.18) 80%,rgba(4,24,80,.4) 100%)}
 .cabin .glow{position:absolute;left:50%;top:50%;width:120vmax;height:120vmax;transform:translate(-50%,-50%);border-radius:50%;
-  background:radial-gradient(closest-side,rgba(220,236,255,.55),rgba(200,226,255,.18) 45%,transparent 70%);mix-blend-mode:screen;animation:glow 5s ease-in-out infinite alternate}
+  background:radial-gradient(closest-side,rgba(200,230,255,.6),rgba(150,205,255,.22) 45%,transparent 70%);mix-blend-mode:screen;animation:glow 5s ease-in-out infinite alternate}
 @keyframes glow{from{opacity:.75;transform:translate(-50%,-50%) scale(.96)}to{opacity:1;transform:translate(-50%,-50%) scale(1.04)}}
 .cabin .smoke{position:absolute;left:0;width:200%;height:70%;background:url(img/smoke.webp) 0 0/50% 100% repeat-x;opacity:.85;will-change:transform}
 .cabin .s1{bottom:-12%;animation:drift 70s linear infinite}
@@ -376,7 +376,7 @@ mark{background:linear-gradient(transparent 62%,rgba(200,169,106,.35) 62%)!impor
 .win video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .win .glass{position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.14),transparent 40%);pointer-events:none}
 .win-rim{z-index:3;pointer-events:none;opacity:var(--cab,1);
-  box-shadow:0 0 0 14px #fbfcfe,0 0 0 15px rgba(0,0,0,.12),0 0 0 40px #e8edf4,0 0 0 41px rgba(0,0,0,.14),0 22px 60px 40px rgba(20,40,80,.28),inset 0 0 0 2px rgba(0,0,0,.25)}
+  box-shadow:0 0 0 14px #fbfcfe,0 0 0 15px rgba(0,0,0,.12),0 0 0 40px #e8edf4,0 0 0 41px rgba(0,0,0,.14),0 22px 60px 40px rgba(5,30,90,.35),inset 0 0 0 2px rgba(0,0,0,.25)}
 .shade{position:absolute;inset:0;transform:translateY(calc(var(--sh,0) * -103%));will-change:transform;
   background:linear-gradient(180deg,#f3f5f9,#e3e8ef 70%,#d0d7e2);box-shadow:0 8px 22px rgba(0,0,0,.5)}
 .shade::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.035) 0 1px,transparent 1px 24px)}
@@ -610,6 +610,9 @@ html.en .xb::after{content:"× ↑";font-family:inherit;font-size:1em}
 .ladder span:last-child{background:#287dfa;border-color:#287dfa}
 .ic-list li,.gf-steps li,.flow4 li:not(.ok){background:#f7faff!important}
 .flow4 li.ok{background:#0f294d!important;color:#dbe6f7}
+.topbar:not(.solid) .name,.topbar:not(.solid) nav a{color:#fff!important}
+.topbar:not(.solid) .lang{border-color:rgba(255,255,255,.6)}.topbar:not(.solid) .lang button{color:#fff}
+.topbar:not(.solid) .lang button[aria-pressed="true"]{background:#fff;color:#0f294d}
 </style>
 </head>
 <body>
