@@ -1034,6 +1034,7 @@ html:not(.en) .gl-spec dt{font-family:"Pretendard",sans-serif;letter-spacing:.02
 .gw-diff b{display:block;font-size:16.5px;color:#fee500;margin-bottom:4px}.gw-diff>div p{font-size:15px;line-height:1.5;color:#f7f1e3}
 @media (max-width:1000px){.gw{grid-template-columns:1fr 1fr}.gw-diff{grid-column:1/-1}.gx-opts.n4{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:700px){.gstudio{padding:16px}.gx-res,.gw{grid-template-columns:1fr}.gx-opts.n6,.gx-opts.n3{grid-template-columns:repeat(2,1fr)}.gx-q{font-size:24px}.gx-opts button{padding:16px 8px;font-size:16px}}
+.gx-msg .gl-mock.big .gl-bub,.gw .gl-mock.big .gl-bub{min-height:0!important}
 </style>
 </head>
 <body>
@@ -1654,7 +1655,7 @@ void main(){
         {e:'👨‍👩‍👧',ko:'부모님 · 가족',en:'Family',id:'p',p:{ko:'한 해 고생하신 부모님·가족에게',en:'For family who worked hard all year'}},
         {e:'💼',ko:'동료 · 선배',en:'Coworker',id:'w',p:{ko:'올해 함께 고생한 동료·선배에게',en:'For the coworker you got through the year with'}}]},
       {k:'cat',q:{ko:'어떤 종류가 좋을까요?',en:'What kind of gift?'},o:[
-        {e:'🎟️',ko:'교환권',en:'Vouchers'},{e:'💄',ko:'색조',en:'Makeup'},{e:'🧴',ko:'기초',en:'Skincare'},
+        {e:'🎟️',ko:'체험 · 이용권',en:'Experiences'},{e:'💄',ko:'색조',en:'Makeup'},{e:'🧴',ko:'기초 · 바디',en:'Skin & body'},
         {e:'💍',ko:'액세서리',en:'Accessories'},{e:'🍰',ko:'디저트 · 푸드',en:'Food'},{e:'🕯️',ko:'리빙 · 향',en:'Living'}]},
       {k:'size',q:{ko:'예산은 어느 정도인가요?',en:'What is your budget?'},o:[
         {e:'💛',ko:'1만 원 이하',en:'Under ₩10k',t:{ko:'가벼운 연말 인사',en:'a light year-end hello'}},
@@ -1664,29 +1665,30 @@ void main(){
         {e:'🧺',ko:'매일 쓰는 실용템',en:'Something useful every day',s:'p'},
         {e:'🎁',ko:'오래 간직할 소장템',en:'Something to keep',s:'k'},
         {e:'🤍',ko:'둘 다 좋아요',en:'Either is fine',s:'b'}]}];
-    const I=[
-     [[['커피 교환권','Coffee voucher','fwp','p'],['편의점 금액권','Convenience-store credit','f','p'],['아이스크림 교환권','Ice-cream voucher','fw','b']],
-      [['디저트 카페 세트 교환권','Café dessert set voucher','fw','b'],['치킨 교환권','Fried-chicken voucher','fp','p'],['영화 관람권 2매','Two movie tickets','lf','k']],
-      [['홀케이크 교환권','Whole-cake voucher','pw','b'],['백화점 상품권','Department-store gift card','pw','p'],['호텔 디저트 뷔페권','Hotel dessert buffet','lp','k']]],
-     [[['미니 립 틴트','Mini lip tint','fw','b'],['네일 컬러','Nail color','f','k'],['립 오일','Lip oil','fl','p']],
-      [['립 틴트 + 파우치 세트','Lip tint & pouch set','fl','b'],['홀리데이 섀도 팔레트','Holiday shadow palette','fl','k'],['쿠션 팩트','Cushion compact','pw','p']],
-      [['홀리데이 한정 메이크업 키트','Holiday makeup kit','lf','k'],['립 컬렉션 박스','Lip collection box','l','k'],['메이크업 브러시 세트','Makeup brush set','fw','p']]],
-     [[['핸드크림','Hand cream','wpf','p'],['시트 마스크 세트','Sheet mask set','f','p'],['립 슬리핑 마스크','Lip sleeping mask','fl','b']],
-      [['핸드 · 바디 세트','Hand & body set','wp','p'],['수분 크림','Moisturizing cream','pl','p'],['홀리데이 미니 키트','Holiday mini kit','fl','k']],
-      [['스킨케어 기프트 세트','Skincare gift set','pl','p'],['세럼 · 앰플','Serum','p','p'],['한정판 스킨케어 박스','Limited skincare box','l','k']]],
-     [[['헤어 집게핀','Hair claw clip','f','b'],['양말 세트','Sock set','wfp','p'],['키링','Keyring','f','k']],
-      [['머플러','Scarf','pwl','p'],['실버 귀걸이','Silver earrings','fl','k'],['카드 지갑','Card wallet','w','p']],
-      [['목걸이','Necklace','l','k'],['가죽 장갑','Leather gloves','pw','p'],['각인 팔찌','Engraved bracelet','lf','k']]],
-     [[['크리스마스 쿠키','Christmas cookies','fw','b'],['핫초코 세트','Hot cocoa set','f','p'],['마카롱 세트','Macaron set','fl','k']],
-      [['슈톨렌','Stollen','wpf','b'],['수제 초콜릿','Handmade chocolate','l','k'],['제철 과일 세트','Seasonal fruit box','p','p']],
-      [['홀리데이 케이크','Holiday cake','pl','b'],['와인 + 치즈 세트','Wine & cheese set','lw','k'],['정육 선물 세트','Premium meat set','pw','p']]],
-     [[['미니 캔들','Mini candle','fl','k'],['머그컵','Mug','wf','p'],['핫팩 세트','Hand-warmer set','wp','p']],
-      [['디퓨저','Diffuser','fw','b'],['무드등','Mood lamp','lf','k'],['극세사 담요','Fleece blanket','pw','p']],
-      [['향수','Perfume','lf','k'],['가습기','Humidifier','pw','p'],['홈카페 드리퍼 세트','Home-café drip set','pl','b']]]];
-    const WI=[['🧴','핸드크림','Hand cream'],['💄','립 틴트','Lip tint'],['🧣','머플러','Scarf'],['🕯️','캔들','Candle'],['🎟️','커피 교환권','Coffee voucher'],['💍','실버 귀걸이','Silver earrings'],['🍰','홀리데이 케이크','Holiday cake'],['🎧','무선 이어폰','Earbuds'],['📚','다이어리','Planner']];
+    // [ko, en, cat, size, who-tags, style p|k|b]  cat: 0 experience 1 makeup 2 skincare 3 accessories 4 food 5 living
+    const P=[
+     ['포토부스 네컷 촬영권','Photo-booth 4-cut voucher',0,0,'fl','k'],['코인노래방 이용권','Coin karaoke pass',0,0,'f','b'],['겨울 시즌 음료 교환권','Winter seasonal drink voucher',0,0,'wp','p'],['볼링 · 방탈출 할인권','Bowling or escape-room pass',0,0,'fw','b'],
+     ['헤어숍 커트 · 클리닉 이용권','Hair salon cut & treatment',0,1,'pw','p'],['네일 케어 이용권','Nail care voucher',0,1,'fl','k'],['셀프 사진관 프로필 촬영권','Self-studio portrait session',0,1,'lf','k'],['찜질방 · 스파 입장권','Spa entry pass',0,1,'wp','p'],['영화 관람권 2매','Two movie tickets',0,1,'lf','b'],
+     ['커플 원데이 클래스 (향수 · 반지)','Couple one-day class (perfume or ring)',0,2,'l','k'],['헤드스파 이용권','Head-spa session',0,2,'pw','p'],['호텔 애프터눈 티','Hotel afternoon tea',0,2,'lp','k'],['가족사진 촬영권','Family photo session',0,2,'p','k'],['원데이 베이킹 클래스','One-day baking class',0,2,'f','b'],
+     ['미니 립 틴트','Mini lip tint',1,0,'fw','b'],['홀리데이 네일 컬러','Holiday nail color',1,0,'f','k'],['립 글로스','Lip gloss',1,0,'l','b'],['컬러 립밤','Tinted lip balm',1,0,'pw','p'],
+     ['홀리데이 섀도 팔레트','Holiday shadow palette',1,1,'fl','k'],['쿠션 팩트','Cushion compact',1,1,'pw','p'],['립 + 치크 듀오','Lip & cheek duo',1,1,'fl','b'],['톤업 베이스','Tone-up base',1,1,'p','p'],
+     ['홀리데이 한정 메이크업 키트','Holiday makeup kit',1,2,'lf','k'],['립 컬렉션 박스','Lip collection box',1,2,'l','k'],['메이크업 브러시 세트','Makeup brush set',1,2,'wf','p'],['베이스 + 립 선물 세트','Base & lip gift set',1,2,'p','p'],
+     ['핸드크림','Hand cream',2,0,'wp','p'],['립 슬리핑 마스크','Lip sleeping mask',2,0,'fl','b'],['시트 마스크 세트','Sheet mask set',2,0,'f','p'],['미니 핸드 · 립 키트','Mini hand & lip kit',2,0,'w','b'],
+     ['핸드 · 바디 세트','Hand & body set',2,1,'w','p'],['바디 미스트','Body mist',2,1,'lf','k'],['수분 크림','Moisturizing cream',2,1,'p','p'],['입욕제 세트','Bath bomb set',2,1,'fl','b'],
+     ['스킨케어 기프트 세트','Skincare gift set',2,2,'pl','p'],['탄력 세럼 · 앰플','Firming serum',2,2,'p','p'],['한정판 바디 컬렉션','Limited body collection',2,2,'l','k'],['남녀 공용 스킨케어 세트','Unisex skincare set',2,2,'w','p'],
+     ['헤어 집게핀','Hair claw clip',3,0,'f','b'],['수면 양말 세트','Cozy sock set',3,0,'wp','p'],['키링','Keyring',3,0,'fl','k'],['스마트폰 그립톡','Phone grip',3,0,'fw','b'],
+     ['머플러','Scarf',3,1,'pwl','p'],['실버 귀걸이','Silver earrings',3,1,'fl','k'],['카드 지갑','Card wallet',3,1,'w','p'],['파자마 · 수면 안대','Pajamas or sleep mask',3,1,'f','b'],
+     ['목걸이','Necklace',3,2,'l','k'],['가죽 장갑','Leather gloves',3,2,'pw','p'],['각인 팔찌','Engraved bracelet',3,2,'lf','k'],['장지갑','Long wallet',3,2,'p','p'],
+     ['크리스마스 쿠키','Christmas cookies',4,0,'wf','b'],['시즌 한정 마카롱','Seasonal macarons',4,0,'fl','k'],['핫초코 세트','Hot cocoa set',4,0,'fw','p'],['연말 간식 꾸러미','Year-end snack bundle',4,0,'p','p'],
+     ['슈톨렌','Stollen',4,1,'wp','b'],['수제 초콜릿','Handmade chocolate',4,1,'l','k'],['제철 과일 세트','Seasonal fruit box',4,1,'p','p'],['쿠키 만들기 DIY 키트','DIY cookie kit',4,1,'f','k'],
+     ['홀리데이 케이크','Holiday cake',4,2,'pl','b'],['와인 + 치즈 세트','Wine & cheese set',4,2,'lw','k'],['정육 선물 세트','Premium meat set',4,2,'p','p'],['홍삼 · 건강 세트','Red ginseng set',4,2,'pw','p'],
+     ['미니 캔들','Mini candle',5,0,'fl','k'],['머그컵','Mug',5,0,'w','p'],['핫팩 세트','Hand-warmer set',5,0,'wp','p'],['크리스마스 오너먼트','Christmas ornament',5,0,'f','k'],
+     ['디퓨저','Diffuser',5,1,'fw','b'],['무드등','Mood lamp',5,1,'lf','k'],['극세사 담요','Fleece blanket',5,1,'pw','p'],['미니 트리 꾸미기 세트','Mini tree decorating kit',5,1,'fl','k'],
+     ['향수','Perfume',5,2,'lf','k'],['가습기','Humidifier',5,2,'pw','p'],['목 · 어깨 안마기','Neck & shoulder massager',5,2,'p','p'],['홈카페 드리퍼 세트','Home-café drip set',5,2,'lw','b']];
+    const WI=[['🧴','핸드크림','Hand cream'],['💄','립 틴트','Lip tint'],['🧣','머플러','Scarf'],['🕯️','캔들','Candle'],['📸','네컷 촬영권','Photo-booth voucher'],['💍','실버 귀걸이','Silver earrings'],['🍰','홀리데이 케이크','Holiday cake'],['🎧','무선 이어폰','Earbuds'],['📚','다이어리','Planner']];
     const S={tab:'model',step:0,a:{},v:'b',wish:[0,2,6]};
     function rank(){const w=Q[0].o[S.a.who].id,st=Q[3].o[S.a.sty].s;
-      return I[S.a.cat][S.a.size].map(x=>({x,s:(x[2].includes(w)?2:0)+(x[3]===st?2:(x[3]==='b'||st==='b')?1:0)})).sort((a,b)=>b.s-a.s)}
+      return P.filter(x=>x[2]===S.a.cat&&x[3]===S.a.size).map((x,i)=>({x,i,s:(x[4].includes(w)?3:0)+(x[4][0]===w?1:0)+(x[5]===st?2:(x[5]==='b'||st==='b')?1:0)})).sort((a,b)=>b.s-a.s||a.i-b.i)}
     function model(l){
       const prog=`<div class="gx-prog">${Q.map((q,i)=>`<i class="${i<S.step?'done':i===S.step?'now':''}"></i>`).join('')}</div>`;
       if(S.step<4){const q=Q[S.step];
@@ -1700,7 +1702,7 @@ void main(){
       return `<div class="gx">${prog}<div class="gx-res">
         <div class="gx-card"><p class="gx-n">${l==='ko'?'이런 선물은 어때요?':'How about this?'}</p><div class="gx-big"><span>${c.e}</span><b>${nm}</b></div>
           <p class="gx-why">${w[l]} · ${z[l]} · ${Q[3].o[S.a.sty][l]}</p>
-          <p class="gx-n">${l==='ko'?'다른 추천':'Also good'}</p><div class="gx-alt">${r.slice(1).map(o=>`<span>${l==='ko'?o.x[0]:o.x[1]}</span>`).join('')}</div>
+          <p class="gx-n">${l==='ko'?'다른 추천':'Also good'}</p><div class="gx-alt">${r.slice(1,3).map(o=>`<span>${l==='ko'?o.x[0]:o.x[1]}</span>`).join('')}</div>
           <button type="button" class="gx-again">↺ ${l==='ko'?'처음부터 다시 고르기':'Start over'}</button></div>
         <div class="gx-msg"><p class="gx-n">${l==='ko'?'이 고객에게 보낼 톡채널 메시지 A/B':'Channel message A/B for this customer'}</p>
           <div class="gl-ab"><button type="button" class="${S.v==='a'?'on':''}" data-v="a">${l==='ko'?'A안 · 상품 중심':'A · Product-led'}</button><button type="button" class="${S.v==='b'?'on':''}" data-v="b">${l==='ko'?'B안 · 인사 중심':'B · Greeting-led'}</button></div>
