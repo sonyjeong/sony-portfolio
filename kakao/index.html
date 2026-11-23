@@ -1067,6 +1067,44 @@ html:not(.en) .gl-spec dt{font-family:"Pretendard",sans-serif;letter-spacing:.02
 .mm-side .fun{display:flex;flex-wrap:wrap;align-items:center;gap:4px;color:#8f879c}.mm-side .fun .gl-m{font-style:normal;font-size:12.5px;margin:0}
 @media (max-width:1100px){.mm-grid{grid-template-columns:1fr 1fr}.mm-side{grid-column:1/-1;grid-template-columns:repeat(3,1fr)}}
 @media (max-width:700px){.mfs,.mm-grid,.mm-side{grid-template-columns:1fr}.mf{padding:12px}.mk li{font-size:12.5px}}
+
+/* ===== v9: One of a Kind Wrap ===== */
+.wp{display:grid;grid-template-columns:1fr .95fr 1fr;gap:26px;align-items:start}
+.wp-date{display:flex;gap:8px}
+.wp-date select,.wp-msg{font:600 15px/1 "Pretendard",sans-serif;padding:11px 12px;border-radius:10px;border:1px solid rgba(255,243,196,.3);background:rgba(255,255,255,.06);color:#fff}
+.wp-date select option{color:#2a1a10}
+.wp-msg{width:100%}
+.wc{font:600 14.5px/1 "Pretendard",sans-serif;padding:10px 13px;border-radius:10px;border:1px solid rgba(255,243,196,.28);background:rgba(255,255,255,.04);color:#f7f1e3;cursor:pointer}
+.wc.on{background:#fee500;color:#2a1a10;border-color:#fee500}
+.wp-out{display:flex;flex-direction:column;align-items:center}
+.wbox{--p1:#c2410c;--p2:#f9b27a;--rb:#fee500;position:relative;width:min(100%,300px);aspect-ratio:1/1;margin:8px auto 0}
+.wbox.w-warm{--bgp:repeating-linear-gradient(45deg,#b4471c 0 14px,#d96a32 14px 28px)}
+.wbox.w-spark{--bgp:radial-gradient(circle,#ffd86b 0 2px,transparent 2.6px) 0 0/18px 18px,linear-gradient(160deg,#1c1f5c,#2c2a7e)}
+.wbox.w-calm{--bgp:linear-gradient(180deg,#8fa89a,#6e8b7c)}
+.wbox.w-fun{--bgp:radial-gradient(circle,#ff8fb1 0 5px,transparent 5.5px) 0 0/26px 26px,#fee500}
+.wbox.rb-y{--rb:#fee500}.wbox.rb-r{--rb:#d7263d}.wbox.rb-n{--rb:#f7f1e3}.wbox.rb-p{--rb:#ff9ac1}
+.wb-body{position:absolute;left:6%;right:6%;top:30%;bottom:0;border-radius:8px;background:var(--bgp);box-shadow:0 22px 40px rgba(0,0,0,.4);overflow:hidden}
+.wb-lid{position:absolute;left:0;right:0;top:18%;height:16%;border-radius:8px;background:var(--bgp);box-shadow:0 8px 14px rgba(0,0,0,.3);z-index:2;overflow:hidden;transition:transform .8s cubic-bezier(.5,-.3,.3,1) .45s,opacity .4s .9s}
+.wb-rv{position:absolute;left:44%;width:12%;top:0;bottom:0;background:var(--rb);box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);transition:transform .5s ease}
+.wb-rh{position:absolute;top:40%;height:13%;left:0;right:0;background:var(--rb);transition:transform .5s ease}
+.wb-bow{position:absolute;left:50%;top:5%;width:34%;height:16%;transform:translateX(-50%);z-index:3;transition:transform .5s ease,opacity .4s ease;
+  background:radial-gradient(ellipse at 22% 55%,var(--rb) 0 38%,transparent 40%),radial-gradient(ellipse at 78% 55%,var(--rb) 0 38%,transparent 40%),radial-gradient(circle at 50% 60%,var(--rb) 0 16%,transparent 17%);filter:drop-shadow(0 3px 3px rgba(0,0,0,.3)) brightness(.95)}
+.wb-card{position:absolute;left:12%;right:12%;top:34%;z-index:1;background:#fffbee;color:#2a1a10;border-radius:10px;padding:14px;text-align:center;opacity:0;transform:translateY(30px) scale(.9);transition:all .6s cubic-bezier(.3,1.4,.5,1) .9s;box-shadow:0 12px 24px rgba(0,0,0,.35)}
+.wb-card b{display:block;font:800 22px/1 "ArchivoV",sans-serif;letter-spacing:.06em}
+.wb-card span{display:block;font-size:12.5px;color:#7a4a1e;margin:6px 0 8px;font-weight:700}
+.wb-card p{font-size:13px;line-height:1.45}
+.wb-card em{display:block;font-style:normal;font-size:12.5px;margin-top:8px;padding-top:8px;border-top:1px dashed #d9cfb8}.wb-card em small{color:#a39cb4}
+.wbox.open .wb-bow{transform:translateX(-50%) scale(0) rotate(40deg);opacity:0}
+.wbox.open .wb-body .wb-rv{transform:translateY(105%)}.wbox.open .wb-lid .wb-rv{transform:translateY(-105%)}.wbox.open .wb-rh{transform:translateX(105%)}
+.wbox.open .wb-lid{transform:translate(-30%,-140%) rotate(-24deg);opacity:0}
+.wbox.open .wb-card{opacity:1;transform:translateY(-38%) scale(1.06);z-index:4}
+.wb-label{text-align:center;margin-top:14px}.wb-label b{display:block;font:800 26px/1 "ArchivoV",sans-serif;color:#fee500;letter-spacing:.06em}.wb-label span{display:block;font-size:14px;color:#f7f1e3;margin-top:6px}
+.wb-open{margin-top:14px;font:700 14.5px/1 "Pretendard",sans-serif;padding:12px 18px;border-radius:999px;border:0;background:#fee500;color:#2a1a10;cursor:pointer}
+.wp-side{display:grid;gap:10px}.wp-side .gs-box p{font-size:14.5px}.wp-side b{color:#fee500}
+.wp-lad{display:grid;gap:6px}.wp-lad i{font-style:normal;display:flex;justify-content:space-between;padding:7px 10px;border-radius:8px;background:rgba(255,255,255,.05)}
+.wp-prize{margin-top:8px;font-size:13.5px!important;color:#d2c9b8}
+@media (max-width:1100px){.wp{grid-template-columns:1fr 1fr}.wp-side{grid-column:1/-1;grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.wp,.wp-side{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -1679,7 +1717,7 @@ void main(){
   (function(){
     const R=$('#gs');if(!R)return;
     const lg=()=>document.documentElement.classList.contains('en')?'en':'ko';
-    const TAB={mem:{ko:'① 받은 마음 기억하기',en:'① Remember the gift'},wish:{ko:'② 위시 카드 이벤트',en:'② Wish card event'},rep:{ko:'③ 결과 리포트',en:'③ Report'}};
+    const TAB={mem:{ko:'① 받은 마음 기억하기',en:'① Remember the gift'},wish:{ko:'② One of a Kind Wrap',en:'② One of a Kind Wrap'},rep:{ko:'③ 결과 리포트',en:'③ Report'}};
     const F=[
       {e:'👭',n:{ko:'대학 친구',en:'College friend'},d:3,
        got:{ko:'지난 3월, 면접 응원으로 커피 · 샌드위치 세트 (1만 원대)',en:'Last March, a coffee & sandwich set to cheer my interview (~₩15k)'},
@@ -1691,7 +1729,7 @@ void main(){
        got:{ko:'지난 9월 입사 축하로 핸드크림 (2만 원대)',en:'In September, a hand cream for my new job (~₩25k)'},
        op:[['wish','🍫','페레로로쉐 선물 세트','Ferrero Rocher gift set'],['sim','🍫','고디바 초콜릿','Godiva chocolate'],['use','🛵','배달의민족 상품권','Baemin delivery credit'],['safe','🍰','투썸 조각케이크 세트','Twosome cake slice set']],pr:{ko:'2만 원대',en:'~₩25k'}}];
     const OPL={wish:{ko:'위시',en:'Wishlist'},sim:{ko:'위시와 비슷한',en:'Like the wish'},use:{ko:'실용적인',en:'Practical'},safe:{ko:'호불호 없는',en:'Safe pick'}};
-    const S={tab:'mem',f:0,o:0,run:0,wish:[0,2,6]};
+    const S={tab:'mem',f:0,o:0,run:0};
     const CK=[{ko:'언제',en:'When'},{ko:'누구에게',en:'Who'},{ko:'무엇을',en:'What'},{ko:'얼마나',en:'How much'}];
     function mem(l){const f=F[S.f],w=f.op[S.o],nm='○○';
       const cards=F.map((x,i)=>`<button type="button" class="mf${S.f===i?' on':''}" data-f="${i}"><span class="e">${x.e}</span><b>${x.n[l]}</b><small>${l==='ko'?'생일 D-'+x.d:'birthday in '+x.d+' days'}</small></button>`).join('');
@@ -1721,20 +1759,41 @@ void main(){
             <div class="gs-box"><span>${l==='ko'?'검증 퍼널':'Test funnel'}</span><p class="fun"><em class="gl-m p">${l==='ko'?'클릭률':'CTR'}</em>→<em class="gl-m">${l==='ko'?'위시 상세 도달':'Wish detail view'}</em>→<em class="gl-m">${l==='ko'?'생일 전 결제':'Paid before birthday'}</em>→<em class="gl-m">${l==='ko'?'다음 기념일 재구매':'Repeat on next occasion'}</em><em class="gl-m g">${l==='ko'?'함께 볼 기준 · 채널 차단율':'Guardrail · block rate'}</em></p></div>
           </div>
         </div></div>`}
-    const WI=[['🧴','핸드크림','Hand cream'],['💄','립 틴트','Lip tint'],['🧣','머플러','Scarf'],['🕯️','캔들','Candle'],['📸','인생네컷 이용권','Life4Cuts voucher'],['💍','실버 귀걸이','Silver earrings'],['🍰','홀리데이 케이크','Holiday cake'],['📱','케이스티파이 폰케이스','CASETiFY case'],['💇','준오헤어 이용권','Juno Hair voucher']];
-    function wish(l){const sel=S.wish;
-      const items=WI.map((x,i)=>`<button type="button" class="${sel.includes(i)?'on':''}" data-w="${i}"><span>${x[0]}</span>${l==='ko'?x[1]:x[2]}</button>`).join('');
-      const card=sel.map(i=>`<li><span>${WI[i][0]}</span>${l==='ko'?WI[i][1]:WI[i][2]}<em>${l==='ko'?'선물하기':'Gift it'}</em></li>`).join('')||`<li class="empty">${l==='ko'?'위시를 골라 주세요':'Pick your wishes'}</li>`;
-      const D=l==='ko'?[['기억 기반 메시지의 재료','① 메시지는 친구의 위시가 있어야 작동합니다. 이 이벤트는 그 위시를 모으는 장치입니다.'],['공유하는 카드가 곧 선물 링크','카드 속 상품을 누르면 바로 선물할 수 있어, 공유가 구매 동선으로 이어집니다.'],['주는 사람도 함께 응모','친구가 카드에서 선물하면 두 사람 모두 응모권을 받아, 선물할 이유가 하나 더 생깁니다.']]
-        :[['Fuel for tab ①','Memory-based messages need friends’ wishlists. This event collects them.'],['The card is a gift link','Tap an item on the card to gift it, so sharing leads straight to checkout.'],['Givers enter too','When a friend gifts from your card, you both get an entry.']];
-      return `<div class="gw">
-        <div class="gw-pick"><p class="gx-n">${l==='ko'?'갖고 싶은 선물 3개를 골라 보세요':'Pick 3 gifts you want'}</p><div class="gw-items">${items}</div>
-          <ol class="gw-flow"><li>${l==='ko'?'위시 카드 만들기':'Make a wish card'}</li><li>${l==='ko'?'SNS 공유 + 응모':'Share + enter'}</li><li>${l==='ko'?'친구가 카드에서 선물 → 둘 다 +1':'Friend gifts → both +1'}</li><li>${l==='ko'?'12/24 추첨':'Dec 24 draw'}</li></ol></div>
-        <div class="gw-cardw"><p class="gx-n">${l==='ko'?'자동으로 만들어진 위시 카드':'Your auto-made wish card'}</p>
-          <div class="gw-card"><p class="t">🎄 ${l==='ko'?'○○의 크리스마스 위시':'○○’s Christmas wishes'}</p><ol>${card}</ol><p class="h">#크리스마스위시카드</p></div></div>
-        <div class="gw-diff">${D.map(d=>`<div><b>${d[0]}</b><p>${d[1]}</p></div>`).join('')}
-          <p class="gx-met">${l==='ko'?'지표':'Metrics'} <em class="gl-m p">${l==='ko'?'위시 등록 수':'Wishlist adds'}</em><em class="gl-m">${l==='ko'?'카드 경유 선물 결제':'Gifts via cards'}</em><em class="gl-m">${l==='ko'?'신규 채널 친구':'New channel friends'}</em></p></div>
-      </div>`}
+    const WM=[{k:'warm',ko:'따뜻한',en:'Warm',n:{ko:'온기',en:'Warmth'},g:'🕯️',p:{ko:'단독 에디션 홀리데이 캔들',en:'Exclusive holiday candle'}},
+      {k:'spark',ko:'반짝이는',en:'Sparkly',n:{ko:'반짝임',en:'Sparkle'},g:'💄',p:{ko:'단독 홀리데이 메이크업 키트',en:'Exclusive holiday makeup kit'}},
+      {k:'calm',ko:'차분한',en:'Calm',n:{ko:'위로',en:'Comfort'},g:'🛁',p:{ko:'단독 바디 기프트 세트',en:'Exclusive body gift set'}},
+      {k:'fun',ko:'장난스러운',en:'Playful',n:{ko:'웃음',en:'Laughter'},g:'🔑',p:{ko:'단독 캐릭터 키링 세트',en:'Exclusive character keyring set'}}];
+    const WR=[{k:'y',ko:'오랜 친구',en:'Old friend'},{k:'r',ko:'가족',en:'Family'},{k:'n',ko:'고마운 선배',en:'Mentor'},{k:'p',ko:'연인',en:'Partner'}];
+    const SEA=m=>m<=2||m===12?{ko:'겨울날',en:'Winter'}:m<=5?{ko:'봄날',en:'Spring'}:m<=8?{ko:'여름날',en:'Summer'}:{ko:'가을날',en:'Autumn'};
+    const W={m:0,r:0,mo:3,d:14,msg:'',open:false};
+    function wish(l){const m=WM[W.m],r=WR[W.r],s=SEA(W.mo),no=String(W.mo).padStart(2,'0')+String(W.d).padStart(2,'0');
+      const msg=W.msg||(l==='ko'?'면접 날 보내준 커피 덕분에 버텼어':'Your coffee got me through interview day');
+      const title=l==='ko'?`${s.ko}의 ${m.n.ko} · ${r.ko} 에디션`:`${s.en} ${m.n.en} · ${r.en} Edition`;
+      const chips=(arr,key)=>arr.map((x,i)=>`<button type="button" class="wc${W[key]===i?' on':''}" data-k="${key}" data-i="${i}">${x[l]}</button>`).join('');
+      const months=Array.from({length:12},(_,i)=>`<option value="${i+1}"${W.mo===i+1?' selected':''}>${i+1}${l==='ko'?'월':''}</option>`).join('');
+      const days=Array.from({length:31},(_,i)=>`<option value="${i+1}"${W.d===i+1?' selected':''}>${i+1}${l==='ko'?'일':''}</option>`).join('');
+      return `<div class="wp">
+        <div class="wp-in">
+          <p class="gs-q">1 · ${l==='ko'?'포장지 · 올해 나의 무드':'Wrapping · your mood this year'}</p><div class="gs-chips">${chips(WM,'m')}</div>
+          <p class="gs-q">2 · ${l==='ko'?'리본 · 그 사람과의 관계':'Ribbon · your relationship'}</p><div class="gs-chips">${chips(WR,'r')}</div>
+          <p class="gs-q">3 · ${l==='ko'?'고마웠던 날 → 포장 번호':'The day you were grateful → wrap number'}</p>
+          <div class="wp-date"><select id="wMo">${months}</select><select id="wD">${days}</select></div>
+          <p class="gs-q">4 · ${l==='ko'?'그날의 한 줄':'One line about that day'}</p>
+          <input id="wMsg" class="wp-msg" maxlength="30" placeholder="${l==='ko'?'면접 날 보내준 커피 덕분에 버텼어':'Your coffee got me through interview day'}" value="${W.msg.replace(/"/g,'&quot;')}">
+        </div>
+        <div class="wp-out">
+          <div class="wbox w-${m.k} rb-${r.k}${W.open?' open':''}">
+            <div class="wb-lid"><i class="wb-rv"></i></div><div class="wb-body"><i class="wb-rv"></i><i class="wb-rh"></i></div><i class="wb-bow"></i>
+            <div class="wb-card"><b>No. ${no}</b><span>${title}</span><p>“${msg}”</p><em>${m.g} ${m.p[l]} <small>${l==='ko'?'(예시)':'(example)'}</small></em></div>
+          </div>
+          <div class="wb-label"><b>No. ${no}</b><span>${title}</span></div>
+          <button type="button" class="wb-open">${W.open?(l==='ko'?'↺ 다시 포장하기':'↺ Wrap again'):(l==='ko'?'🎀 받는 사람처럼 리본 풀어보기':'🎀 Untie it like the receiver')}</button>
+        </div>
+        <div class="wp-side">
+          <div class="gs-box"><span>${l==='ko'?'응모권':'Entries'}</span><p class="wp-lad"><i>${l==='ko'?'포장 만들기':'Make a wrap'} <b>+1</b></i><i>${l==='ko'?'이 포장으로 선물 보내기':'Send a gift in it'} <b>+1</b></i><i>${l==='ko'?'받은 사람이 \'나도 포장\' 참여':'Receiver makes one too'} <b>+1</b></i></p><p class="wp-prize">${l==='ko'?'12/26 추첨 · 당첨자의 포장을 <mark>실물 기프트 박스</mark>로 제작해 선물과 함께 배송':'Dec 26 draw · winners get their wrap made into a <mark>real gift box</mark>'}</p></div>
+          <div class="gs-box"><span>${l==='ko'?'왜 One of a Kind인가요':'Why One of a Kind'}</span><p>${l==='ko'?'포장은 <b>그 사람과의 날짜 · 관계</b>로 만들어져 겹치지 않고, 안의 선물은 <b>선물하기에서만</b> 살 수 있어요.':'The wrap comes from <b>your date and relationship</b>, so it never repeats, and the gift is <b>only on the gift shop</b>.'}</p></div>
+          <div class="gs-box"><span>${l==='ko'?'이벤트 후에도 남는 것':'What stays after'}</span><p>${l==='ko'?`동의 시 내년 <b>${W.mo}월 ${W.d}일</b>, "1년 전 오늘을 고마운 날로 고르셨어요" 메시지 → ① 받은 마음 기억하기로 연결`:`With consent, next <b>${W.mo}/${W.d}</b>: “A year ago you chose today as a grateful day” → links to ①`}</p></div>
+        </div></div>`}
     function rep(l){const H=l==='ko'?['테스트','대상','클릭률 A / B','생일 전 결제 A / B','차단율 A / B','판정 · 다음 액션']:['Test','Audience','CTR A / B','Paid before birthday A / B','Block rate A / B','Decision · next'];
       const rows=l==='ko'?[['생일 D-3 메시지 · 상품 기준 vs 사람 기준','선물을 받은 이력이 있는 고객','B 채택 시 결혼기념일 · 명절로 확장'],['첫 문장만 비교 · "생일 D-3" vs "받은 마음"','위와 같음, 다른 요소 고정','이긴 문장을 기본 템플릿으로']]:[['Birthday D-3 message · product-first vs person-first','Customers who received gifts','If B wins, extend to anniversaries and holidays'],['First line only · “D-3” vs “what you received”','Same, everything else fixed','Make the winner the default template']];
       return `<div class="gs-rep"><table class="gl-tbl"><thead><tr>${H.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>— / —</td><td>— / —</td><td>— / —</td><td>${r[2]}</td></tr>`).join('')}</tbody></table>
@@ -1744,8 +1803,12 @@ void main(){
       const V=$('#gsView');V.innerHTML=S.tab==='mem'?mem(l):S.tab==='wish'?wish(l):rep(l);
       V.querySelectorAll('.mf').forEach(b=>b.onclick=()=>{S.f=+b.dataset.f;S.o=0;S.run++;draw()});
       V.querySelectorAll('.mm-opts button').forEach(b=>b.onclick=()=>{S.o=+b.dataset.o;draw()});
-      V.querySelectorAll('.gw-items button').forEach(b=>b.onclick=()=>{const i=+b.dataset.w,k=S.wish.indexOf(i);
-        if(k>-1)S.wish.splice(k,1);else{S.wish.push(i);if(S.wish.length>3)S.wish.shift()}draw()});}
+      V.querySelectorAll('.wc').forEach(b=>b.onclick=()=>{W[b.dataset.k]=+b.dataset.i;W.open=false;draw()});
+      const mo=$('#wMo'),dd=$('#wD'),ms=$('#wMsg');
+      mo&&(mo.onchange=()=>{W.mo=+mo.value;W.open=false;draw()});dd&&(dd.onchange=()=>{W.d=+dd.value;W.open=false;draw()});
+      ms&&(ms.onchange=()=>{W.msg=ms.value.trim();draw()});
+      const ob=V.querySelector('.wb-open');ob&&(ob.onclick=()=>{W.open=!W.open;const bx=V.querySelector('.wbox');bx.classList.toggle('open',W.open);
+        ob.textContent=W.open?(lg()==='ko'?'↺ 다시 포장하기':'↺ Wrap again'):(lg()==='ko'?'🎀 받는 사람처럼 리본 풀어보기':'🎀 Untie it like the receiver')});}
     R.querySelectorAll('.gs-tabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;draw()});
     new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
     draw();
