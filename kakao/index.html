@@ -1053,6 +1053,7 @@ html:not(.en) .gl-spec dt{font-family:"Pretendard",sans-serif;letter-spacing:.02
 .mm-wish{display:flex;gap:10px;align-items:center;margin-top:10px;padding:10px;border-radius:10px;background:#f3efe4}
 .mm-wish>span{font-size:30px}.mm-wish small{display:block;font-size:11px;color:#8f7b66}.mm-wish b{display:block;font-size:15px}.mm-wish em{display:block;font-style:normal;font-size:11.5px;color:#a06a10;margin-top:2px}
 .gl-btn.y{background:#fee500;font-weight:700}
+.mm-opts{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}.mm-opts button{font:600 11.5px/1 "Pretendard",sans-serif;padding:6px 9px;border-radius:999px;border:1px solid #d9cfb8;background:#fff;color:#5a4636;cursor:pointer}.mm-opts button.on{background:#2a1a10;color:#fee500;border-color:#2a1a10}
 .mk{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px}
 .mk li{display:flex;align-items:center;justify-content:center;gap:5px;font-size:13.5px;padding:8px 4px;border-radius:8px;background:rgba(255,255,255,.05);color:#8f879c;border:1px solid rgba(255,243,196,.1)}
 .mk li i{font-style:normal;font-weight:800}
@@ -1680,30 +1681,32 @@ void main(){
     const lg=()=>document.documentElement.classList.contains('en')?'en':'ko';
     const TAB={mem:{ko:'① 받은 마음 기억하기',en:'① Remember the gift'},wish:{ko:'② 위시 카드 이벤트',en:'② Wish card event'},rep:{ko:'③ 결과 리포트',en:'③ Report'}};
     const F=[
-      {e:'👭',n:{ko:'지은',en:'Jieun'},r:{ko:'대학 친구',en:'College friend'},d:3,
-       got:{ko:'지난 3월, 면접 응원으로 커피 · 샌드위치 세트',en:'Last March, a coffee & sandwich set to cheer my interview'},gp:{ko:'1만 원대',en:'about ₩15k'},
-       wish:[['🛁','러쉬 입욕제 세트','LUSH bath bomb set','1만 원대','~₩15k'],['📸','인생네컷 이용권','Life4Cuts voucher','1만 원 이하','under ₩10k'],['🔑','카카오프렌즈 키링','Kakao Friends keyring','1만 원 이하','under ₩10k']]},
-      {e:'👩',n:{ko:'엄마',en:'Mom'},r:{ko:'가족',en:'Family'},d:5,
-       got:{ko:'지난 6월 내 생일, 홀케이크 교환권',en:'On my birthday in June, a whole-cake voucher'},gp:{ko:'3만 원대',en:'about ₩35k'},
-       wish:[['💇','준오헤어 이용권','Juno Hair voucher','3만 원대','~₩35k'],['🧴','록시땅 핸드 · 바디 세트','L’Occitane hand & body set','4만 원대','~₩45k'],['🍎','제철 과일 세트','Seasonal fruit box','3만 원대','~₩30k']]},
-      {e:'💼',n:{ko:'수아 선배',en:'Sua (senior)'},r:{ko:'직장 선배',en:'Work senior'},d:2,
-       got:{ko:'지난 9월 입사 축하로 핸드크림',en:'In September, a hand cream to celebrate my new job'},gp:{ko:'2만 원대',en:'about ₩25k'},
-       wish:[['🍫','페레로로쉐 선물 세트','Ferrero Rocher gift set','2만 원대','~₩25k'],['⛄','일광전구 스노우맨 무드등','Snowman mood lamp','4만 원대','~₩40k'],['🧣','머플러','Scarf','3만 원대','~₩30k']]}];
-    const S={tab:'mem',f:0,run:0,wish:[0,2,6]};
+      {e:'👭',n:{ko:'대학 친구',en:'College friend'},d:3,
+       got:{ko:'지난 3월, 면접 응원으로 커피 · 샌드위치 세트 (1만 원대)',en:'Last March, a coffee & sandwich set to cheer my interview (~₩15k)'},
+       op:[['wish','🛁','러쉬 입욕제 세트','LUSH bath bomb set'],['sim','🌸','바디 미스트','Body mist'],['use','🧴','핸드크림','Hand cream'],['safe','🍨','배스킨라빈스 교환권','Baskin-Robbins voucher']],pr:{ko:'1만 원대',en:'~₩15k'}},
+      {e:'👩',n:{ko:'엄마',en:'Mom'},d:5,
+       got:{ko:'지난 6월 내 생일, 홀케이크 교환권 (3만 원대)',en:'On my birthday in June, a whole-cake voucher (~₩35k)'},
+       op:[['wish','💇','준오헤어 이용권','Juno Hair voucher'],['sim','🛍️','올리브영 상품권','Olive Young gift card'],['use','🧴','록시땅 핸드 · 바디 세트','L’Occitane hand & body set'],['safe','🍎','제철 과일 세트','Seasonal fruit box']],pr:{ko:'3만 원대',en:'~₩35k'}},
+      {e:'💼',n:{ko:'직장 선배',en:'Work senior'},d:2,
+       got:{ko:'지난 9월 입사 축하로 핸드크림 (2만 원대)',en:'In September, a hand cream for my new job (~₩25k)'},
+       op:[['wish','🍫','페레로로쉐 선물 세트','Ferrero Rocher gift set'],['sim','🍫','고디바 초콜릿','Godiva chocolate'],['use','🛵','배달의민족 상품권','Baemin delivery credit'],['safe','🍰','투썸 조각케이크 세트','Twosome cake slice set']],pr:{ko:'2만 원대',en:'~₩25k'}}];
+    const OPL={wish:{ko:'위시',en:'Wishlist'},sim:{ko:'위시와 비슷한',en:'Like the wish'},use:{ko:'실용적인',en:'Practical'},safe:{ko:'호불호 없는',en:'Safe pick'}};
+    const S={tab:'mem',f:0,o:0,run:0,wish:[0,2,6]};
     const CK=[{ko:'언제',en:'When'},{ko:'누구에게',en:'Who'},{ko:'무엇을',en:'What'},{ko:'얼마나',en:'How much'}];
-    function mem(l){const f=F[S.f],w=f.wish[0],nm=f.n[l];
-      const cards=F.map((x,i)=>`<button type="button" class="mf${S.f===i?' on':''}" data-f="${i}"><span class="e">${x.e}</span><b>${x.n[l]}</b><small>${x.r[l]} · ${l==='ko'?'생일 D-'+x.d:'birthday in '+x.d+' days'}</small></button>`).join('');
+    function mem(l){const f=F[S.f],w=f.op[S.o],nm='○○';
+      const cards=F.map((x,i)=>`<button type="button" class="mf${S.f===i?' on':''}" data-f="${i}"><span class="e">${x.e}</span><b>${x.n[l]}</b><small>${l==='ko'?'생일 D-'+x.d:'birthday in '+x.d+' days'}</small></button>`).join('');
       const before=`<div class="gl-row"><span class="gl-chip">♥ ${l==='ko'?'내가 위시한':'My wishlist'}</span><span class="gl-off">25%</span></div><div class="gl-brand">${l==='ko'?'브랜드':'Brand'}</div><div class="gl-price">19,344원</div><div class="gl-img"></div><div class="gl-line">${l==='ko'?'○○님이 위시한 상품<br>지금 최대 할인 중':'The item on your wishlist<br>is now on sale'}</div><div class="gl-btn">${l==='ko'?'지금 할인받기':'Get the deal'}</div>`;
       const after=`<div class="mm-top">🎂 ${l==='ko'?`<b>${nm}</b>님 생일이 <b>${f.d}일</b> 남았어요`:`<b>${nm}</b>’s birthday is in <b>${f.d} days</b>`}</div>
         <div class="mm-got">${l==='ko'?'받은 마음':'You received'} · ${f.got[l]}</div>
-        <div class="mm-wish"><span>${w[0]}</span><div><small>${l==='ko'?`${nm}님 위시`:`On ${nm}’s wishlist`}</small><b>${l==='ko'?w[1]:w[2]}</b><em>${l==='ko'?`${w[3]} · 받은 선물과 비슷한 금액`:`${w[4]} · close to what you received`}</em></div></div>
-        <div class="gl-btn y">${l==='ko'?`${nm}님 위시에서 바로 선물하기`:`Gift from ${nm}’s wishlist`}</div>`;
+        <div class="mm-opts">${f.op.map((o,i)=>`<button type="button" class="${S.o===i?'on':''}" data-o="${i}">${OPL[o[0]][l]}</button>`).join('')}</div>
+        <div class="mm-wish"><span>${w[1]}</span><div><small>${OPL[w[0]][l]}</small><b>${l==='ko'?w[2]:w[3]}</b><em>${l==='ko'?`${f.pr.ko} · 받은 선물과 비슷한 금액`:`${f.pr.en} · close to what you received`}</em></div></div>
+        <div class="gl-btn y">${l==='ko'?'바로 선물하기':'Gift now'}</div>`;
       const ck=(on)=>`<ul class="mk">${CK.map((c,i)=>`<li class="${on?'on':''}" style="--i:${i}"><i>${on?'✓':'–'}</i>${c[l]}</li>`).join('')}</ul>`;
       const stepsB=l==='ko'?['앱 열기','친구 찾기','위시 확인','금액 고민','결제']:['Open app','Find friend','Check wishlist','Decide budget','Pay'];
       const stepsA=l==='ko'?['메시지','결제']:['Message','Pay'];
       const chain=(a,cls)=>`<div class="mch ${cls}">${a.map(s=>`<span>${s}</span>`).join('<i>→</i>')}</div>`;
       return `<div class="mm" data-run="${S.run}">
-        <p class="gx-n">${l==='ko'?'1. 나에게 선물을 보냈던 사람을 골라 보세요 (예시 인물)':'1. Pick someone who once sent you a gift (example people)'}</p>
+        <p class="gx-n">${l==='ko'?'1. 나에게 선물을 보냈던 사람을 골라 보세요 (예시)':'1. Pick someone who once sent you a gift (example people)'}</p>
         <div class="mfs">${cards}</div>
         <div class="mm-grid">
           <div class="mm-col b"><p class="mm-h"><span>Before</span>${l==='ko'?'지금 받는 메시지 · 상품 기준':'What I get now · product-first'}</p>
@@ -1739,7 +1742,8 @@ void main(){
     function draw(){const l=lg();
       R.querySelectorAll('.gs-tabs button').forEach(b=>{b.textContent=TAB[b.dataset.t][l];b.classList.toggle('on',b.dataset.t===S.tab)});
       const V=$('#gsView');V.innerHTML=S.tab==='mem'?mem(l):S.tab==='wish'?wish(l):rep(l);
-      V.querySelectorAll('.mf').forEach(b=>b.onclick=()=>{S.f=+b.dataset.f;S.run++;draw()});
+      V.querySelectorAll('.mf').forEach(b=>b.onclick=()=>{S.f=+b.dataset.f;S.o=0;S.run++;draw()});
+      V.querySelectorAll('.mm-opts button').forEach(b=>b.onclick=()=>{S.o=+b.dataset.o;draw()});
       V.querySelectorAll('.gw-items button').forEach(b=>b.onclick=()=>{const i=+b.dataset.w,k=S.wish.indexOf(i);
         if(k>-1)S.wish.splice(k,1);else{S.wish.push(i);if(S.wish.length>3)S.wish.shift()}draw()});}
     R.querySelectorAll('.gs-tabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;draw()});
