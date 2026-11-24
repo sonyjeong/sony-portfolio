@@ -1747,7 +1747,7 @@ void main(){
   (function(){
     const R=$('#gs');if(!R)return;
     const lg=()=>document.documentElement.classList.contains('en')?'en':'ko';
-    const TAB={mem:{ko:'① 받은 마음 기억하기',en:'① Remember the gift'},wish:{ko:'② One of a Kind Wrap',en:'② One of a Kind Wrap'},rep:{ko:'③ 결과 리포트',en:'③ Report'}};
+    const TAB={mem:{ko:'① 받은 마음 기억하기',en:'① Remember the gift'},wish:{ko:'② Holiday Memory Gift',en:'② Holiday Memory Gift'},rep:{ko:'③ 결과 리포트',en:'③ Report'}};
     const F=[
       {e:'👭',n:{ko:'대학 친구',en:'College friend'},d:3,
        got:{ko:'지난 3월, 면접 응원으로 커피 · 샌드위치 세트 (1만 원대)',en:'Last March, a coffee & sandwich set to cheer my interview (~₩15k)'},
@@ -1827,7 +1827,7 @@ void main(){
         </div>
         <div class="wp-side">
           <div class="gs-box"><span>${l==='ko'?'응모권':'Entries'}</span><p class="wp-lad"><i>${l==='ko'?'포장 만들기':'Make a wrap'} <b>+1</b></i><i>${l==='ko'?'이 포장으로 선물 보내기':'Send a gift in it'} <b>+1</b></i><i>${l==='ko'?'받은 사람이 \'나도 포장\' 참여':'Receiver makes one too'} <b>+1</b></i></p><p class="wp-prize">${l==='ko'?'12/26 추첨 · 당첨자의 포장을 <mark>실물 기프트 박스</mark>로 제작해 선물과 함께 배송':'Dec 26 draw · winners get their wrap made into a <mark>real gift box</mark>'}</p></div>
-          <div class="gs-box"><span>${l==='ko'?'왜 One of a Kind인가요':'Why One of a Kind'}</span><p>${l==='ko'?'포장은 <b>그 사람과의 날짜 · 관계</b>로 만들어져 겹치지 않고, 안의 선물은 <b>선물하기에서만</b> 살 수 있어요.':'The wrap comes from <b>your date and relationship</b>, so it never repeats, and the gift is <b>only on the gift shop</b>.'}</p></div>
+          <div class="gs-box"><span>Holiday Memory Gift · Only on Kakao</span><p>${l==='ko'?'포장에는 <b>그 사람과 고마웠던 날짜와 한 줄</b>이 담겨 같은 포장이 없고, 안의 선물은 <b>선물하기 단독 상품</b>이에요. 기억은 두 사람의 것, 선물은 카카오에서만.':'Each wrap holds <b>the date and line you share with that person</b>, so no two match, and the gift inside is <b>a Gift-exclusive item</b>. The memory is yours; the gift is only on Kakao.'}</p></div>
           <div class="gs-box"><span>${l==='ko'?'이벤트 후에도 남는 것':'What stays after'}</span><p>${l==='ko'?`동의 시 내년 <b>${W.mo}월 ${W.d}일</b>, "1년 전 오늘을 고마운 날로 고르셨어요" 메시지 → ① 받은 마음 기억하기로 연결`:`With consent, next <b>${W.mo}/${W.d}</b>: “A year ago you chose today as a grateful day” → links to ①`}</p></div>
         </div></div>`}
     function rep(l){const H=l==='ko'?['테스트','대상','클릭률 A / B','생일 전 결제 A / B','차단율 A / B','판정 · 다음 액션']:['Test','Audience','CTR A / B','Paid before birthday A / B','Block rate A / B','Decision · next'];
