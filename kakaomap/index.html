@@ -1198,6 +1198,22 @@ html:not(.en) .gl-spec dt{font-family:"Pretendard",sans-serif;letter-spacing:.02
 .kx-hand.off,.kx-auto.off{display:none}
 @keyframes kxTap{0%{transform:translateY(10px);opacity:0}15%,78%{transform:translateY(0);opacity:1}86%{transform:translateY(-3px) scale(.8)}94%{transform:scale(1);opacity:1}100%{opacity:0}}
 
+/* clean-up v2 */
+.kx-q{font-size:clamp(19px,2vw,24px)}
+.kx-tg{position:relative;display:inline-flex;padding:4px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.kx-t{font:700 14px/1 "Pretendard",sans-serif;padding:10px 20px;border-radius:999px;border:0;background:transparent;color:#cfc8dd;cursor:pointer;transition:.2s}
+.kx-t.on{background:#fee500;color:#2a1a10}
+.kx-hand{right:auto;left:calc(var(--to) * 70px + (1 - var(--to)) * 8px);top:34px}
+.kx-stage{padding:22px 24px 14px;background:rgba(255,255,255,.025)}
+.kx-cap{font-size:15px;margin-top:2px}
+.kx-note{text-align:center;font-size:11.5px;color:#7d7792;margin-top:6px}
+.kx-steps{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.kx-steps li{padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08)}
+.kx-steps span{font:700 11px/1 "ArchivoV",sans-serif;letter-spacing:.12em;color:#fee500}
+.kx-steps b{display:block;margin-top:8px;font-size:15px;color:#fff}
+.kx-steps p{margin-top:6px;font-size:13.5px;line-height:1.6;color:#bdb6cc}
+@media (max-width:900px){.kx-steps{grid-template-columns:1fr}}
+
 /* ===== map pin intro ===== */
 .cabin,.gift,.burst,.balloons{display:none!important}
 .mapintro{position:absolute;inset:0;z-index:3;overflow:hidden;pointer-events:none;
@@ -1893,34 +1909,33 @@ void main(){
         <rect x="160" y="96" width="60" height="44" rx="6" fill="#d7ead2"/>
         <circle cx="118" cy="86" r="11" fill="#2b6cf6"/><text x="118" y="90" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">M</text>
         ${pts.map((p,i)=>`<g class="km-pin" style="--d:${i*.12}s"><path d="M${p[0]} ${p[1]+16}c-8-9-13-14-13-21a13 13 0 0 1 26 0c0 7-5 12-13 21z" fill="#ff5a3c"/><text x="${p[0]}" y="${p[1]-1}" text-anchor="middle" font-size="11" fill="#fff" font-weight="800">${i+1}</text></g>`).join('')}</svg>`}
-    function trainSvg(prop){const l=lg(),cars=[5,6,7,8],cw=136,x0=28,W=600;let g='',doors=[];
-      cars.forEach((c,ci)=>{const x=x0+ci*cw;
-        g+=`<rect x="${x}" y="112" width="${cw-8}" height="58" rx="9" fill="rgba(43,108,246,.28)" stroke="#5b8cff" stroke-width="1.5"/><text x="${x+(cw-8)/2}" y="133" text-anchor="middle" font-size="12" fill="#cfe0ff" font-weight="700">${c}${l==='ko'?'호차':''}</text>`;
-        for(let d=1;d<=4;d++){const dx=x+12+(d-1)*((cw-32)/3);doors.push({id:c+'-'+d,x:dx+4});g+=`<rect x="${dx}" y="146" width="8" height="24" rx="1" fill="rgba(207,224,255,.55)"/>`}});
-      const dA=doors.find(z=>z.id==='5-2').x,dB=doors.find(z=>z.id==='8-1').x,mid=(dA+dB)/2,top=48,base=186,n=9;
-      let pl='',pr='';for(let i=0;i<=n;i++){const y=base-(base-top)*i/n,xl=dA+(mid-dA)*i/n,xr=dB-(dB-mid)*i/n;pl+=(i?` L${xl} ${y+((base-top)/n)}`:`M${xl} ${base}`)+` L${xl} ${y}`;pr+=(i?` L${xr} ${y+((base-top)/n)}`:`M${xr} ${base}`)+` L${xr} ${y}`}
-      const stairs=`<path d="${pl} L${mid} ${top}" fill="none" stroke="rgba(254,229,0,.55)" stroke-width="3"/><path d="${pr} L${mid} ${top}" fill="none" stroke="rgba(254,229,0,.55)" stroke-width="3"/>
-        <path d="M${dA} ${base} L${mid} ${top} L${dB} ${base} Z" fill="rgba(254,229,0,.07)"/>
-        <text x="${mid}" y="${top-10}" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fee500">↑ ${l==='ko'?'개찰구 · 출구':'Gates · exit'}</text>`;
-      const hot=prop?['5-2','8-1']:['5-2'];
-      let marks='',opn='';doors.forEach(d=>{if(d.id==='5-2'||d.id==='8-1'){const on=hot.includes(d.id),dense=prop?1:(d.id==='5-2'?2:0);
-        const lv=[{c:'#7ad19a',t:l==='ko'?'여유':'Light',w:.2},{c:'#fee500',t:l==='ko'?'보통':'Moderate',w:.55},{c:'#ff6b5a',t:l==='ko'?'혼잡':'Crowded',w:1}][dense];
-        marks+=`<text x="${d.x}" y="204" text-anchor="middle" font-size="12.5" font-weight="800" fill="${on?'#fee500':'#8f879c'}">${d.id}${on?(l==='ko'?' 빠른 하차':' quick exit'):''}</text>
-          <rect x="${d.x-34}" y="212" width="68" height="6" rx="3" fill="rgba(255,255,255,.12)"/><rect class="km-bar" x="${d.x-34}" y="212" width="${68*lv.w}" height="6" rx="3" fill="${lv.c}"/>
-          <text x="${d.x}" y="234" text-anchor="middle" font-size="11.5" font-weight="700" fill="${lv.c}">${l==='ko'?'혼잡도':'Crowding'} · ${lv.t}</text>`;
-        if(on)opn+=`<rect class="km-dl" x="${d.x-4}" y="146" width="4" height="24" fill="rgba(207,224,255,.9)"/><rect class="km-dr" x="${d.x}" y="146" width="4" height="24" fill="rgba(207,224,255,.9)"/><rect x="${d.x-4}" y="146" width="8" height="24" fill="#0b1030" class="km-gap"/>`}});
-      let crowd='';const n2=prop?[7,7]:[14,0];hot.forEach((id,hi)=>{const d=doors.find(z=>z.id===id);for(let i=0;i<n2[hi];i++){const fx=d.x-21+(i%7)*7,fy=180-Math.floor(i/7)*7;crowd+=`<circle class="km-dot" style="--d:${.55+i*.07}s;--sx:${(d.x-fx).toFixed(0)}px;--sy:${(158-fy).toFixed(0)}px" cx="${fx}" cy="${fy}" r="3.2" fill="#ffb4a3"/>`}});
-      return `<svg class="km-train" viewBox="0 30 ${W} 212" aria-hidden="true"><line x1="10" y1="${base}" x2="${W-10}" y2="${base}" stroke="rgba(255,255,255,.25)"/>${stairs}${g}${opn}${crowd}${marks}</svg>`}
+    function trainSvg(prop){const l=lg(),W=900,x0=60,cw=195,gap=8,ty=118,th=72,floor=232;let g='',doors=[];
+      [5,6,7,8].forEach((c,ci)=>{const x=x0+ci*(cw+gap);
+        g+=`<rect x="${x}" y="${ty}" width="${cw}" height="${th}" rx="12" fill="rgba(79,139,255,.16)" stroke="rgba(120,160,255,.55)" stroke-width="1.5"/><text x="${x+14}" y="${ty+20}" font-size="12" fill="#a9c1ff" font-weight="600">${c}${l==='ko'?'호차':''}</text>`;
+        for(let d=1;d<=4;d++){const dx=x+22+(d-1)*((cw-44)/3);doors.push({id:c+'-'+d,x:dx});g+=`<rect x="${dx-6}" y="${ty+th-34}" width="12" height="34" rx="2" fill="rgba(200,218,255,.28)"/>`}});
+      const dA=doors.find(z=>z.id==='5-2').x,dB=doors.find(z=>z.id==='8-1').x,mid=(dA+dB)/2,top=58,n=8;
+      let pl=`M${dA} ${floor}`,pr=`M${dB} ${floor}`;for(let i=1;i<=n;i++){const y0=floor-(floor-top)*(i-1)/n,y=floor-(floor-top)*i/n,xl=dA+(mid-dA)*i/n,xr=dB-(dB-mid)*i/n;pl+=` V${y} H${xl}`;pr+=` V${y} H${xr}`}
+      const stairs=`<path d="M${dA} ${floor} L${mid} ${top} L${dB} ${floor} Z" fill="rgba(254,229,0,.06)"/><path d="${pl}" fill="none" stroke="rgba(254,229,0,.45)" stroke-width="2"/><path d="${pr}" fill="none" stroke="rgba(254,229,0,.45)" stroke-width="2"/>
+        <text x="${mid}" y="${top-16}" text-anchor="middle" font-size="13" font-weight="700" fill="#fee500">↑ ${l==='ko'?'개찰구 · 출구':'Gates · exit'}</text>`;
+      const hot=prop?['5-2','8-1']:['5-2'];let marks='',opn='',crowd='';
+      ['5-2','8-1'].forEach(id=>{const d=doors.find(z=>z.id===id),on=hot.includes(id),lv=prop?1:(id==='5-2'?2:0);
+        const L=[{c:'#6fd39a',t:l==='ko'?'여유':'Light',w:.18},{c:'#fee500',t:l==='ko'?'보통':'Moderate',w:.55},{c:'#ff7a66',t:l==='ko'?'혼잡':'Crowded',w:1}][lv];
+        marks+=`<text x="${d.x}" y="${floor+30}" text-anchor="middle" font-size="13" font-weight="700" fill="${on?'#fff':'#7d7792'}">${id}${on?(l==='ko'?' · 빠른 하차':' · quick exit'):''}</text>
+          <rect x="${d.x-40}" y="${floor+42}" width="80" height="5" rx="2.5" fill="rgba(255,255,255,.1)"/><rect class="km-bar" x="${d.x-40}" y="${floor+42}" width="${80*L.w}" height="5" rx="2.5" fill="${L.c}"/>
+          <text x="${d.x}" y="${floor+64}" text-anchor="middle" font-size="12" fill="${L.c}">${L.t}</text>`;
+        if(on)opn+=`<rect class="km-dl" x="${d.x-6}" y="${ty+th-34}" width="6" height="34" fill="rgba(220,232,255,.85)"/><rect class="km-dr" x="${d.x}" y="${ty+th-34}" width="6" height="34" fill="rgba(220,232,255,.85)"/>`});
+      const n2=prop?[7,7]:[14,0];hot.forEach((id,hi)=>{const d=doors.find(z=>z.id===id);for(let i=0;i<n2[hi];i++){const fx=d.x-24+(i%7)*8,fy=floor-8-Math.floor(i/7)*9;crowd+=`<circle class="km-dot" style="--d:${.5+i*.06}s;--sx:${(d.x-fx).toFixed(0)}px;--sy:${(ty+th-10-fy).toFixed(0)}px" cx="${fx}" cy="${fy}" r="3.4" fill="#ffb4a3"/>`}});
+      return `<svg class="km-train" viewBox="0 20 ${W} ${floor+60}" aria-hidden="true"><line x1="30" y1="${floor}" x2="${W-30}" y2="${floor}" stroke="rgba(255,255,255,.18)"/>${stairs}${g}${opn}${crowd}${marks}</svg>`}
     function exit(l){const p=S.x===1;
       return `<div class="kx">
         <div class="kx-top"><div><p class="gx-n">${l==='ko'?'이용자로서 느낀 불편':'What I noticed as a user'}</p><p class="kx-q">${l==='ko'?'빠른 하차 칸이 한 곳만 보이면, 그 문 앞으로 사람이 몰려요':'When only one quick-exit door is shown, everyone crowds that door'}</p></div>
-          <div class="gs-chips kx-tg"><span class="kx-hand${S.touch?' off':''}" style="--to:${p?0:1}">👆</span><span class="kx-auto${S.touch?' off':''}">${l==='ko'?'자동으로 전·후를 비교해요':'Auto-comparing before / after'}</span><button type="button" class="wc kx-t${!p?' on':''}" data-x="0">${l==='ko'?'지금 · 한 곳만 표시':'Now · one door'}</button><button type="button" class="wc kx-t${p?' on':''}" data-x="1">${l==='ko'?'제안 · 같은 계단의 다른 문도':'Proposed · the other door too'}</button></div></div>
-        <div class="kx-stage">${trainSvg(p)}<p class="kx-cap">${p?(l==='ko'?'같은 계단으로 이어지는 8-1을 함께 알려 주면, 사람이 두 문으로 나뉘어요':'Showing 8-1, which reaches the same stairs, splits the crowd across two doors'):(l==='ko'?'5-2만 표시되어 한 문 앞에 사람이 몰려요':'Only 5-2 is shown, so one door gets crowded')}</p><p class="km-ex">${l==='ko'?'칸 번호와 계단 위치는 예시이며, 역마다 실측이 필요합니다':'Door numbers and stair position are examples; each station needs checking'}</p></div>
-        <div class="kx-grid">
-          <div class="kx-card"><span class="kx-l">${l==='ko'?'1 · 콘텐츠로 먼저 알리기':'1 · Tell people with content first'}</span><div class="kx-cn"><b>${l==='ko'?'같은 계단인데,<br>왜 여기만 붐빌까?':'Same stairs,<br>why only this door?'}</b><small>${l==='ko'?'카드뉴스 표지 시안 · 인스타그램':'Card news cover draft · Instagram'}</small></div></div>
-          <div class="kx-card"><span class="kx-l">${l==='ko'?'2 · 톡채널 메시지':'2 · Talk Channel message'}</span><div class="gl-mock"><span class="gl-ad">${l==='ko'?'(광고) 카카오맵 채널':'(Ad) Kakao Map channel'}</span><div class="gl-bub"><p class="km-copy" style="margin:0">${l==='ko'?'빠른 하차 칸, 사람 많아서 못 내리셨죠? 🚇 같은 계단으로 가는 숨은 문, 출근길 역부터 알려드려요.':'Couldn’t get off at the quick-exit door? 🚇 We’ll show the hidden door to the same stairs, starting with commuter stations.'}</p><div class="gl-btn y">${l==='ko'?'우리 역 숨은 문 보기':'See my station'}</div></div></div></div>
-          <div class="kx-card"><span class="kx-l">${l==='ko'?'3 · 반응을 근거로 공유':'3 · Share the response as evidence'}</span><p class="fun"><em class="gl-m p">${l==='ko'?'저장 · 공유':'Saves · shares'}</em>→<em class="gl-m">${l==='ko'?'"우리 역도" 댓글 요청':'“Do my station” requests'}</em>→<em class="gl-m">${l==='ko'?'역별 실측 확대':'More stations checked'}</em>→<em class="gl-m g">${l==='ko'?'유관부서에 기능 개선 근거로 공유':'Share with product as evidence'}</em></p></div>
-        </div></div>`}
+          <div class="kx-tg"><span class="kx-hand${S.touch?' off':''}" style="--to:${p?0:1}">👆</span><button type="button" class="kx-t${!p?' on':''}" data-x="0">${l==='ko'?'지금':'Now'}</button><button type="button" class="kx-t${p?' on':''}" data-x="1">${l==='ko'?'제안':'Proposed'}</button></div></div>
+        <div class="kx-stage">${trainSvg(p)}<p class="kx-cap">${p?(l==='ko'?'같은 계단으로 이어지는 8-1도 함께 알려 주면, 사람이 두 문으로 나뉘어요':'Showing 8-1 too, which reaches the same stairs, splits the crowd'):(l==='ko'?'5-2만 표시되어 한 문 앞에 사람이 몰려요':'Only 5-2 is shown, so one door gets crowded')}</p><p class="kx-note">${S.touch?'':(l==='ko'?'자동으로 전·후를 번갈아 보여줘요 · ':'Auto-comparing · ')}${l==='ko'?'칸 번호와 계단 위치는 예시이며 역마다 실측이 필요합니다':'door numbers and stairs are examples; each station needs checking'}</p></div>
+        <ol class="kx-steps">
+          <li><span>01</span><b>${l==='ko'?'콘텐츠로 먼저 알리기':'Tell people with content'}</b><p>${l==='ko'?'인스타그램 카드뉴스 "같은 계단인데, 왜 여기만 붐빌까?"':'Instagram cards: “Same stairs, why only this door?”'}</p></li>
+          <li><span>02</span><b>${l==='ko'?'톡채널 메시지':'Talk Channel message'}</b><p>${l==='ko'?'"빠른 하차 칸, 사람 많아서 못 내리셨죠? 같은 계단으로 가는 숨은 문, 출근길 역부터 알려드려요."':'“Couldn’t get off at the quick-exit door? We’ll show the hidden door to the same stairs, starting with commuter stations.”'}</p></li>
+          <li><span>03</span><b>${l==='ko'?'반응을 근거로 공유':'Share the response'}</b><p>${l==='ko'?'저장·공유와 "우리 역도" 요청을 모아 역별 실측을 넓히고, 유관부서에 기능 개선 근거로 전달':'Collect saves, shares and “do my station” requests, check more stations, pass to product'}</p></li>
+        </ol></div>`}
     function map(l){const th=TH[S.t],ar=AR[S.a][l];
       const chips=(arr,key,lab)=>arr.map((x,i)=>`<button type="button" class="wc${S[key]===i?' on':''}" data-k="${key}" data-i="${i}">${lab(x)}</button>`).join('');
       const list=th.p.map((p,i)=>`<li><b>${i+1}</b><span class="e">${p[0]}</span><div><strong>${p[1][l]}</strong><small>${l==='ko'?`${ar} 도보 ${p[2]}분`:`${p[2]} min walk from ${ar}`}</small></div><em>${p[3][l]}</em></li>`).join('');
