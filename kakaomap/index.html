@@ -1954,7 +1954,7 @@ void main(){
       return `<svg class="km-train" viewBox="0 20 ${W} ${floor+60}" aria-hidden="true"><line x1="30" y1="${floor}" x2="${W-30}" y2="${floor}" stroke="rgba(255,255,255,.18)"/>${stairs}${g}${opn}${crowd}${marks}</svg>`}
     function exit(l){const p=S.x===1;
       return `<div class="kx">
-        <div class="kx-top"><div><p class="gx-n">${l==='ko'?'이용자로서 느낀 불편':'What I noticed as a user'}</p><p class="kx-q">${l==='ko'?'빠른 하차 칸이 한 곳만 보이면, 그 문 앞으로 사람이 몰려요':'When only one quick-exit door is shown, everyone crowds that door'}</p></div>
+        <div class="kx-top"><div><p class="gx-n">${l==='ko'?'이용자로서 느낀 불편 · 매일 내리던 신촌역(환승역 아님)에서':'What I noticed as a user · at Sinchon, my daily stop (not a transfer station)'}</p><p class="kx-q">${l==='ko'?'빠른 하차 칸이 한 곳만 보이면, 그 문 앞으로 사람이 몰려요':'When only one quick-exit door is shown, everyone crowds that door'}</p></div>
           <div class="kx-tg"><span class="kx-hand${S.touch?' off':''}" style="--to:${p?0:1}">👆</span><button type="button" class="kx-t${!p?' on':''}" data-x="0">${l==='ko'?'지금':'Now'}</button><button type="button" class="kx-t${p?' on':''}" data-x="1">${l==='ko'?'제안':'Proposed'}</button></div></div>
         <div class="kx-stage">${trainSvg(p)}<p class="kx-cap">${p?(l==='ko'?'같은 계단으로 이어지는 8-1도 함께 알려 주면, 사람이 두 문으로 나뉘어요':'Showing 8-1 too, which reaches the same stairs, splits the crowd'):(l==='ko'?'5-2만 표시되어 한 문 앞에 사람이 몰려요':'Only 5-2 is shown, so one door gets crowded')}</p><p class="kx-note">${S.touch?'':(l==='ko'?'자동으로 전·후를 번갈아 보여줘요 · ':'Auto-comparing · ')}${l==='ko'?'칸 번호와 계단 위치는 예시이며 역마다 실측이 필요합니다':'door numbers and stairs are examples; each station needs checking'}</p></div>
         <ol class="kx-steps">
