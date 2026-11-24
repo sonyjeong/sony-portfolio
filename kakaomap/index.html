@@ -1945,12 +1945,12 @@ void main(){
         <text x="${mid}" y="${top-16}" text-anchor="middle" font-size="13" font-weight="700" fill="#fee500">↑ ${l==='ko'?'개찰구 · 출구':'Gates · exit'}</text>`;
       const hot=prop?['6-1','8-1']:['6-1'];let marks='',opn='',crowd='';
       ['6-1','8-1'].forEach(id=>{const d=doors.find(z=>z.id===id),on=hot.includes(id),lv=prop?1:(id==='6-1'?2:0);
-        const L=[{c:'#6fd39a',t:l==='ko'?'여유':'Light',w:.18},{c:'#fee500',t:l==='ko'?'보통':'Moderate',w:.55},{c:'#ff7a66',t:l==='ko'?'혼잡':'Crowded',w:1}][lv];
+        const L=[{c:'#6fb2ff',t:l==='ko'?'여유':'Light',w:.18},{c:'#8fe3b0',t:l==='ko'?'보통':'Moderate',w:.55},{c:'#ff7a66',t:l==='ko'?'혼잡':'Crowded',w:1}][lv];
         marks+=`<text x="${d.x}" y="${floor+30}" text-anchor="middle" font-size="13" font-weight="700" fill="${on?'#fff':'#7d7792'}">${id}${on?(l==='ko'?' · 빠른 하차':' · quick exit'):''}</text>
           <rect x="${d.x-40}" y="${floor+42}" width="80" height="5" rx="2.5" fill="rgba(255,255,255,.1)"/><rect class="km-bar" x="${d.x-40}" y="${floor+42}" width="${80*L.w}" height="5" rx="2.5" fill="${L.c}"/>
           <text x="${d.x}" y="${floor+64}" text-anchor="middle" font-size="12" fill="${L.c}">${L.t}</text>`;
         if(on)opn+=`<rect class="km-dl" x="${d.x-6}" y="${ty+th-34}" width="6" height="34" fill="rgba(220,232,255,.85)"/><rect class="km-dr" x="${d.x}" y="${ty+th-34}" width="6" height="34" fill="rgba(220,232,255,.85)"/>`});
-      const n2=prop?[7,7]:[14,0];hot.forEach((id,hi)=>{const d=doors.find(z=>z.id===id);for(let i=0;i<n2[hi];i++){const fx=d.x-24+(i%7)*8,fy=floor-8-Math.floor(i/7)*9;crowd+=`<circle class="km-dot" style="--d:${.5+i*.06}s;--sx:${(d.x-fx).toFixed(0)}px;--sy:${(ty+th-10-fy).toFixed(0)}px" cx="${fx}" cy="${fy}" r="3.4" fill="#ffb4a3"/>`}});
+      const n2=prop?[7,7]:[14,0];hot.forEach((id,hi)=>{const d=doors.find(z=>z.id===id);for(let i=0;i<n2[hi];i++){const fx=d.x-24+(i%7)*8,fy=floor-8-Math.floor(i/7)*9;crowd+=`<circle class="km-dot" style="--d:${.5+i*.06}s;--sx:${(d.x-fx).toFixed(0)}px;--sy:${(ty+th-10-fy).toFixed(0)}px" cx="${fx}" cy="${fy}" r="3.4" fill="${prop?'#8fe3b0':'#ffb4a3'}"/>`}});
       return `<svg class="km-train" viewBox="0 20 ${W} ${floor+60}" aria-hidden="true"><defs><filter id="kxGlow" x="-10%" y="-40%" width="120%" height="180%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><line x1="30" y1="${floor}" x2="${W-30}" y2="${floor}" stroke="rgba(255,255,255,.18)"/>${stairs}${g}${opn}${crowd}${marks}</svg>`}
     function exit(l){const p=S.x===1;
       return `<div class="kx">
