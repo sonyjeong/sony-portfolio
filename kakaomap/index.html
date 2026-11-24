@@ -1459,7 +1459,7 @@ html:not(.en) .gl-spec dt{font-family:"Pretendard",sans-serif;letter-spacing:.02
     <!-- 01 · christmas gift studio -->
     <div class="pane on" data-pane="0" id="p00">
       <div class="pane-head gs-head">
-        <div><span class="label">Portfolio 01 · Kakao Map Content Concept</span><h2 style="margin-top:10px">Where should we <em>meet?</em></h2><p class="kr">이용자로서 느낀 불편과 약속 장소를 정하는 순간에서 출발해 카카오맵 콘텐츠를 기획했습니다</p></div>
+        <div><span class="label">Portfolio 01 · Kakao Map Content Concept</span><h2 style="margin-top:10px">The moments we <em>open the map</em></h2><p class="kr">지하철에서 내리는 순간부터 약속 장소를 정하는 순간까지, 이용자로서 겪은 장면에서 출발해 카카오맵 콘텐츠를 기획했습니다</p></div>
         <div class="meta"><b>개인 데모 기획</b><br>카카오맵을 직접 사용하며<br>발견한 순간에서 출발</div>
       </div>
       <div class="gstudio" id="gs">
@@ -1901,7 +1901,7 @@ void main(){
 
   /* ===== Kakao Map content demo ===== */
   Object.assign(window.__EN||(window.__EN={}),{
-    "이용자로서 느낀 불편과 약속 장소를 정하는 순간에서 출발해 카카오맵 콘텐츠를 기획했습니다":"Kakao Map content planned from a pain point I felt as a user and the moment people pick where to meet",
+    "지하철에서 내리는 순간부터 약속 장소를 정하는 순간까지, 이용자로서 겪은 장면에서 출발해 카카오맵 콘텐츠를 기획했습니다":"From stepping off the subway to picking where to meet: Kakao Map content planned from moments I lived as a user",
     "개인 데모 기획카카오맵을 직접 사용하며발견한 순간에서 출발":"<b>Personal demo concept</b><br>Built on moments I noticed<br>using Kakao Map myself",
     "카카오와 무관한 개인 데모 기획입니다. 장소와 수치는 예시이며, 실제 발행 시에는 영업 정보와 이미지 사용 권한을 확인합니다.":"An independent demo, not affiliated with Kakao. Places and numbers are examples; real publishing would verify hours and image rights."
   });
@@ -1939,12 +1939,12 @@ void main(){
       [5,6,7,8].forEach((c,ci)=>{const x=x0+ci*(cw+gap);
         g+=`<rect x="${x}" y="${ty}" width="${cw}" height="${th}" rx="12" fill="rgba(79,139,255,.14)" stroke="#7fb2ff" stroke-width="2" filter="url(#kxGlow)"/><rect x="${x+8}" y="${ty+28}" width="${cw-16}" height="3" rx="1.5" fill="#7ff6ff" opacity=".55" filter="url(#kxGlow)"/><text x="${x+14}" y="${ty+20}" font-size="12" fill="#a9c1ff" font-weight="600">${c}${l==='ko'?'호차':''}</text>`;
         for(let d=1;d<=4;d++){const dx=x+22+(d-1)*((cw-44)/3);doors.push({id:c+'-'+d,x:dx});g+=`<rect x="${dx-6}" y="${ty+th-34}" width="12" height="34" rx="2" fill="rgba(200,218,255,.28)"/>`}});
-      const dA=doors.find(z=>z.id==='5-2').x,dB=doors.find(z=>z.id==='8-1').x,mid=(dA+dB)/2,top=58,n=8;
+      const dA=doors.find(z=>z.id==='6-1').x,dB=doors.find(z=>z.id==='8-1').x,mid=(dA+dB)/2,top=58,n=8;
       let pl=`M${dA} ${floor}`,pr=`M${dB} ${floor}`;for(let i=1;i<=n;i++){const y0=floor-(floor-top)*(i-1)/n,y=floor-(floor-top)*i/n,xl=dA+(mid-dA)*i/n,xr=dB-(dB-mid)*i/n;pl+=` V${y} H${xl}`;pr+=` V${y} H${xr}`}
       const stairs=`<path d="M${dA} ${floor} L${mid} ${top} L${dB} ${floor} Z" fill="rgba(254,229,0,.06)"/><path d="${pl}" fill="none" stroke="rgba(254,229,0,.45)" stroke-width="2"/><path d="${pr}" fill="none" stroke="rgba(254,229,0,.45)" stroke-width="2"/>
         <text x="${mid}" y="${top-16}" text-anchor="middle" font-size="13" font-weight="700" fill="#fee500">↑ ${l==='ko'?'개찰구 · 출구':'Gates · exit'}</text>`;
-      const hot=prop?['5-2','8-1']:['5-2'];let marks='',opn='',crowd='';
-      ['5-2','8-1'].forEach(id=>{const d=doors.find(z=>z.id===id),on=hot.includes(id),lv=prop?1:(id==='5-2'?2:0);
+      const hot=prop?['6-1','8-1']:['6-1'];let marks='',opn='',crowd='';
+      ['6-1','8-1'].forEach(id=>{const d=doors.find(z=>z.id===id),on=hot.includes(id),lv=prop?1:(id==='6-1'?2:0);
         const L=[{c:'#6fd39a',t:l==='ko'?'여유':'Light',w:.18},{c:'#fee500',t:l==='ko'?'보통':'Moderate',w:.55},{c:'#ff7a66',t:l==='ko'?'혼잡':'Crowded',w:1}][lv];
         marks+=`<text x="${d.x}" y="${floor+30}" text-anchor="middle" font-size="13" font-weight="700" fill="${on?'#fff':'#7d7792'}">${id}${on?(l==='ko'?' · 빠른 하차':' · quick exit'):''}</text>
           <rect x="${d.x-40}" y="${floor+42}" width="80" height="5" rx="2.5" fill="rgba(255,255,255,.1)"/><rect class="km-bar" x="${d.x-40}" y="${floor+42}" width="${80*L.w}" height="5" rx="2.5" fill="${L.c}"/>
@@ -1954,13 +1954,13 @@ void main(){
       return `<svg class="km-train" viewBox="0 20 ${W} ${floor+60}" aria-hidden="true"><defs><filter id="kxGlow" x="-10%" y="-40%" width="120%" height="180%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><line x1="30" y1="${floor}" x2="${W-30}" y2="${floor}" stroke="rgba(255,255,255,.18)"/>${stairs}${g}${opn}${crowd}${marks}</svg>`}
     function exit(l){const p=S.x===1;
       return `<div class="kx">
-        <div class="kx-top"><div><p class="gx-n">${l==='ko'?'이용자로서 느낀 불편 · 매일 내리던 신촌역(환승역 아님)에서':'What I noticed as a user · at Sinchon, my daily stop (not a transfer station)'}</p><p class="kx-q">${l==='ko'?'빠른 하차 칸이 한 곳만 보이면, 그 문 앞으로 사람이 몰려요':'When only one quick-exit door is shown, everyone crowds that door'}</p></div>
-          <div class="kx-tg"><span class="kx-hand${S.touch?' off':''}" style="--to:${p?0:1}">👆</span><button type="button" class="kx-t${!p?' on':''}" data-x="0">${l==='ko'?'지금':'Now'}</button><button type="button" class="kx-t${p?' on':''}" data-x="1">${l==='ko'?'제안':'Proposed'}</button></div></div>
-        <div class="kx-stage">${trainSvg(p)}<p class="kx-cap">${p?(l==='ko'?'같은 계단으로 이어지는 8-1도 함께 알려 주면, 사람이 두 문으로 나뉘어요':'Showing 8-1 too, which reaches the same stairs, splits the crowd'):(l==='ko'?'5-2만 표시되어 한 문 앞에 사람이 몰려요':'Only 5-2 is shown, so one door gets crowded')}</p><p class="kx-note">${S.touch?'':(l==='ko'?'자동으로 전·후를 번갈아 보여줘요 · ':'Auto-comparing · ')}${l==='ko'?'칸 번호와 계단 위치는 예시이며 역마다 실측이 필요합니다':'door numbers and stairs are examples; each station needs checking'}</p></div>
+        <div class="kx-top"><div><p class="gx-n">${l==='ko'?'이용자 관점에서 발견한 불편 · 매일 이용하던 신촌역 사례':'A pain point noticed as a user · Sinchon Station, my daily stop'}</p><p class="kx-q">${l==='ko'?'빠른 하차 위치가 한 곳만 안내되어, 해당 출입문에 승객이 집중됩니다':'When only one quick-exit door is shown, everyone crowds that door'}</p></div>
+          <div class="kx-tg"><span class="kx-hand${S.touch?' off':''}" style="--to:${p?0:1}">👆</span><button type="button" class="kx-t${!p?' on':''}" data-x="0">${l==='ko'?'현재':'Now'}</button><button type="button" class="kx-t${p?' on':''}" data-x="1">${l==='ko'?'제안':'Proposed'}</button></div></div>
+        <div class="kx-stage">${trainSvg(p)}<p class="kx-cap">${p?(l==='ko'?'같은 계단으로 이어지는 8-1을 함께 안내하면, 승객이 두 출입문으로 분산됩니다':'Showing 8-1 too, which reaches the same stairs, splits the crowd'):(l==='ko'?'6-1만 안내되어 한 출입문에 승객이 집중됩니다':'Only 6-1 is shown, so one door gets crowded')}</p><p class="kx-note">${S.touch?'':(l==='ko'?'현재와 제안을 자동으로 비교합니다 · ':'Auto-comparing · ')}${l==='ko'?'칸 번호와 계단 위치는 예시이며, 역별 실측이 필요합니다':'door numbers and stairs are examples; each station needs checking'}</p></div>
         <ol class="kx-steps">
-          <li><span>01</span><b>${l==='ko'?'콘텐츠로 먼저 알리기':'Tell people with content'}</b><p>${l==='ko'?'인스타그램 카드뉴스 "같은 계단인데, 왜 여기만 붐빌까?"':'Instagram cards: “Same stairs, why only this door?”'}</p></li>
+          <li><span>01</span><b>${l==='ko'?'콘텐츠로 먼저 안내':'Tell people with content'}</b><p>${l==='ko'?'인스타그램 카드뉴스 "같은 계단인데, 왜 여기만 붐빌까?"':'Instagram cards: “Same stairs, why only this door?”'}</p></li>
           <li><span>02</span><b>${l==='ko'?'톡채널 메시지':'Talk Channel message'}</b><p>${l==='ko'?'"빠른 하차 칸, 사람 많아서 못 내리셨죠? 같은 계단으로 가는 숨은 문, 출근길 역부터 알려드려요."':'“Couldn’t get off at the quick-exit door? We’ll show the hidden door to the same stairs, starting with commuter stations.”'}</p></li>
-          <li><span>03</span><b>${l==='ko'?'반응을 근거로 공유':'Share the response'}</b><p>${l==='ko'?'저장·공유와 "우리 역도" 요청을 모아 역별 실측을 넓히고, 유관부서에 기능 개선 근거로 전달':'Collect saves, shares and “do my station” requests, check more stations, pass to product'}</p></li>
+          <li><span>03</span><b>${l==='ko'?'반응 기반 개선 제안':'Share the response'}</b><p>${l==='ko'?'저장·공유 반응과 "우리 역도" 요청을 모아 역별 실측을 확대하고, 유관부서에 기능 개선 근거로 전달합니다':'Collect saves, shares and “do my station” requests, check more stations, pass to product'}</p></li>
         </ol></div>`}
     function hero(l){const th=TH[S.t],ar=AR[S.a][l],c=S.c%th.p.length,p=th.p[c],g=GR[th.k];
       return `<div class="km-ph" style="--g1:${g[0]};--g2:${g[1]}"><span class="km-pe" key="${c}">${p[0]}</span>
