@@ -1170,6 +1170,21 @@ html:not(.en) .gl-spec dt{font-family:"Pretendard",sans-serif;letter-spacing:.02
 .km-test{margin-top:18px;padding:12px 16px;border-radius:12px;border:1px dashed rgba(255,243,196,.3)}.km-test b{font-size:12.5px;color:#e3b873}.km-test p{font-size:14px;color:#f7f1e3;margin-top:4px}
 @media (max-width:1100px){.km{grid-template-columns:1fr 1fr}.km-side{grid-column:1/-1;grid-template-columns:1fr 1fr}}
 @media (max-width:700px){.km,.km-ab,.km-side{grid-template-columns:1fr}.km-phone{max-width:340px;margin:0 auto}}
+
+.kx-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+.kx-q{font:800 clamp(20px,2.2vw,26px)/1.35 "Pretendard",sans-serif;color:#fff}
+.kx-stage{border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,243,196,.15);padding:14px 16px}
+.km-train{width:100%;display:block}
+.km-dot{animation:kmIn .4s var(--d) both}@keyframes kmIn{0%{opacity:0;transform:translateY(-6px)}100%{opacity:1}}
+.km-door{animation:kmIn .35s both}
+.kx-cap{text-align:center;font-size:15px;color:#f7f1e3;margin-top:4px}
+.kx-grid{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:16px;margin-top:18px;align-items:start}
+.kx-card{border-radius:14px;padding:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,243,196,.15)}
+.kx-l{display:block;font:700 12.5px/1 "Pretendard",sans-serif;color:#e3b873;margin-bottom:10px}
+.kx-cn{aspect-ratio:1/1;max-width:220px;border-radius:12px;background:linear-gradient(150deg,#2b6cf6,#1a3f9e);color:#fff;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+.kx-cn b{font-size:20px;line-height:1.35}.kx-cn small{font-size:11px;opacity:.8}
+.kx-card .fun{display:flex;flex-wrap:wrap;align-items:center;gap:4px;color:#8f879c}.kx-card .fun .gl-m{font-style:normal;font-size:12.5px;margin:0}
+@media (max-width:900px){.kx-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -1338,11 +1353,11 @@ html:not(.en) .gl-spec dt{font-family:"Pretendard",sans-serif;letter-spacing:.02
     <!-- 01 · christmas gift studio -->
     <div class="pane on" data-pane="0" id="p00">
       <div class="pane-head gs-head">
-        <div><span class="label">Portfolio 01 · Kakao Map Content Concept</span><h2 style="margin-top:10px">Where should we <em>meet?</em></h2><p class="kr">약속 장소를 정하는 순간에 맞춰 테마지도, 톡채널 메시지, 12월 콘텐츠 캘린더를 기획했습니다</p></div>
+        <div><span class="label">Portfolio 01 · Kakao Map Content Concept</span><h2 style="margin-top:10px">Where should we <em>meet?</em></h2><p class="kr">이용자로서 느낀 불편과 약속 장소를 정하는 순간에서 출발해 카카오맵 콘텐츠를 기획했습니다</p></div>
         <div class="meta"><b>개인 데모 기획</b><br>카카오맵을 직접 사용하며<br>발견한 순간에서 출발</div>
       </div>
       <div class="gstudio" id="gs">
-        <div class="gs-tabs" role="tablist"><button type="button" class="on" data-t="map"></button><button type="button" data-t="msg"></button><button type="button" data-t="cal"></button></div>
+        <div class="gs-tabs" role="tablist"><button type="button" class="on" data-t="exit"></button><button type="button" data-t="map"></button><button type="button" data-t="msg"></button><button type="button" data-t="cal"></button></div>
         <div class="gs-view" id="gsView"></div>
       </div>
       <p class="gl-note">카카오와 무관한 개인 데모 기획입니다. 장소와 수치는 예시이며, 실제 발행 시에는 영업 정보와 이미지 사용 권한을 확인합니다.</p>
@@ -1780,14 +1795,14 @@ void main(){
 
   /* ===== Kakao Map content demo ===== */
   Object.assign(window.__EN||(window.__EN={}),{
-    "약속 장소를 정하는 순간에 맞춰 테마지도, 톡채널 메시지, 12월 콘텐츠 캘린더를 기획했습니다":"Theme maps, Talk Channel messages and a December content calendar, built around the moment people pick where to meet",
+    "이용자로서 느낀 불편과 약속 장소를 정하는 순간에서 출발해 카카오맵 콘텐츠를 기획했습니다":"Kakao Map content planned from a pain point I felt as a user and the moment people pick where to meet",
     "개인 데모 기획카카오맵을 직접 사용하며발견한 순간에서 출발":"<b>Personal demo concept</b><br>Built on moments I noticed<br>using Kakao Map myself",
     "카카오와 무관한 개인 데모 기획입니다. 장소와 수치는 예시이며, 실제 발행 시에는 영업 정보와 이미지 사용 권한을 확인합니다.":"An independent demo, not affiliated with Kakao. Places and numbers are examples; real publishing would verify hours and image rights."
   });
   (function(){
     const R=$('#gs');if(!R)return;
     const lg=()=>document.documentElement.classList.contains('en')?'en':'ko';
-    const TAB={map:{ko:'① 테마지도 만들기',en:'① Build a theme map'},msg:{ko:'② 톡채널 메시지 · 배너',en:'② Talk Channel & banner'},cal:{ko:'③ 12월 콘텐츠 캘린더',en:'③ December calendar'}};
+    const TAB={exit:{ko:'① 숨은 빠른 하차',en:'① Hidden quick exit'},map:{ko:'② 테마지도 만들기',en:'② Build a theme map'},msg:{ko:'③ 톡채널 메시지 · 배너',en:'③ Talk Channel & banner'},cal:{ko:'④ 12월 콘텐츠 캘린더',en:'④ December calendar'}};
     const TH=[
       {k:'year',e:'🥂',n:{ko:'연말 약속',en:'Year-end meetup'},t:{ko:'연말 약속, 우리 어디서 봐?',en:'Year-end plans: where do we meet?'},
        s:{ko:'단톡방 회의는 그만. 역에서 5분 안쪽, 여럿이 앉기 좋은 곳만 모았어요',en:'End the group-chat debate. Spots within 5 minutes of the station that seat a crowd'},
@@ -1806,13 +1821,35 @@ void main(){
             b:{ko:'우산 접는 순간 도착 ☔ 지하철 출구에서 몇 걸음이면 닿는 약속 장소만 모았어요.',en:'Close the umbrella and you’re there ☔ Only spots a few steps from the exit.'}},
       last:{a:{ko:'[카카오맵] 막차 시간 걱정 없이, 역 근처 2차 장소를 확인하세요.',en:'[Kakao Map] No last-train worries: second-round spots near the station.'},
             b:{ko:'"지금 뛰면 탈 수 있나?" 고민은 초정밀 지하철에 맡기고, 역 근처 2차부터 골라 보세요 🌙',en:'“Can I make it if I run?” Let live subway tracking answer that, and pick a spot near the station first 🌙'}}};
-    const S={tab:'map',t:0,a:0,v:'b'};
+    const S={tab:'exit',t:0,a:0,v:'b',x:0};
     function mapSvg(n){const pts=[[70,52],[178,40],[150,112],[52,122]].slice(0,n);
       return `<svg class="km-svg" viewBox="0 0 240 160" aria-hidden="true"><rect width="240" height="160" fill="#eef3f6"/>
         <path d="M0 86H240M118 0V160M0 30L240 140" stroke="#fff" stroke-width="9"/><path d="M0 86H240M118 0V160" stroke="#dfe6ea" stroke-width="1"/>
         <rect x="160" y="96" width="60" height="44" rx="6" fill="#d7ead2"/>
         <circle cx="118" cy="86" r="11" fill="#2b6cf6"/><text x="118" y="90" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">M</text>
         ${pts.map((p,i)=>`<g class="km-pin" style="--d:${i*.12}s"><path d="M${p[0]} ${p[1]+16}c-8-9-13-14-13-21a13 13 0 0 1 26 0c0 7-5 12-13 21z" fill="#ff5a3c"/><text x="${p[0]}" y="${p[1]-1}" text-anchor="middle" font-size="11" fill="#fff" font-weight="800">${i+1}</text></g>`).join('')}</svg>`}
+    function trainSvg(prop){const cars=[5,6,7,8],W=600,cw=140,x0=20;let g='';
+      const doors=[];cars.forEach((c,ci)=>{const x=x0+ci*cw;g+=`<rect x="${x}" y="70" width="${cw-8}" height="46" rx="8" fill="#2b6cf6"/><text x="${x+cw/2-4}" y="98" text-anchor="middle" font-size="13" fill="#fff" font-weight="700">${c}</text>`;
+        for(let d=1;d<=4;d++){const dx=x+8+(d-1)*((cw-24)/3);doors.push({id:c+'-'+d,x:dx+4});g+=`<rect x="${dx}" y="112" width="8" height="4" fill="#cfe0ff"/>`}});
+      const dA=doors.find(z=>z.id==='5-2').x,dB=doors.find(z=>z.id==='8-1').x;
+      let steps='';for(let x=dA+40;x<dB-40;x+=24)steps+=`<path d="M${x} 167h14" stroke="#6b7280" stroke-width="3"/>`;
+      const st=`<path d="M${dA-14} 184 L${dA+30} 152 H${dB-30} L${dB+14} 184 Z" fill="#3a3f4a"/>${steps}<text x="${dA+4}" y="200" font-size="11" fill="#c9ced8">↗ ${lg()==='ko'?'진입':'in'}</text><text x="${dB-4}" y="200" text-anchor="end" font-size="11" fill="#c9ced8">${lg()==='ko'?'진입':'in'} ↖</text><text x="${(dA+dB)/2}" y="200" text-anchor="middle" font-size="12" fill="#c9ced8">${lg()==='ko'?'같은 계단 (양쪽 끝에서 진입)':'One staircase (entered from both ends)'}</text>`;
+      const hot=prop?['5-2','8-1']:['5-2'];
+      let marks='';doors.filter(d=>hot.includes(d.id)).forEach(d=>{marks+=`<g class="km-door"><circle cx="${d.x}" cy="128" r="9" fill="#fee500"/><text x="${d.x}" y="58" text-anchor="middle" font-size="12" font-weight="800" fill="#fee500">${d.id}</text><path d="M${d.x} 138 V150" stroke="#fee500" stroke-width="2" stroke-dasharray="3 3"/></g>`});
+      let crowd='';const seed=[3,9,14,6,11,2,8,13,5,10,1,12,7,4];
+      const n=prop?[7,7]:[14,0];hot.forEach((id,hi)=>{const d=doors.find(z=>z.id===id);for(let i=0;i<n[hi];i++){crowd+=`<circle class="km-dot" style="--d:${i*.04}s" cx="${d.x-22+(seed[i]%7)*7}" cy="${136+Math.floor(i/7)*8+(seed[i]%3)}" r="3.2" fill="#ffb4a3"/>`}});
+      if(!prop){const d=doors.find(z=>z.id==='8-1');crowd+=`<text x="${d.x}" y="58" text-anchor="middle" font-size="12" fill="#8f879c">8-1</text>`}
+      return `<svg class="km-train" viewBox="0 40 ${W} 168" aria-hidden="true"><rect x="0" y="120" width="${W}" height="80" fill="rgba(255,255,255,.04)"/>${g}${st}${crowd}${marks}</svg>`}
+    function exit(l){const p=S.x===1;
+      return `<div class="kx">
+        <div class="kx-top"><div><p class="gx-n">${l==='ko'?'이용자로서 느낀 불편':'What I noticed as a user'}</p><p class="kx-q">${l==='ko'?'빠른 하차 칸이 한 곳만 보이면, 그 문 앞으로 사람이 몰려요':'When only one quick-exit door is shown, everyone crowds that door'}</p></div>
+          <div class="gs-chips"><button type="button" class="wc kx-t${!p?' on':''}" data-x="0">${l==='ko'?'지금 · 한 곳만 표시':'Now · one door'}</button><button type="button" class="wc kx-t${p?' on':''}" data-x="1">${l==='ko'?'제안 · 같은 계단의 다른 문도':'Proposed · the other door too'}</button></div></div>
+        <div class="kx-stage">${trainSvg(p)}<p class="kx-cap">${p?(l==='ko'?'같은 계단으로 이어지는 8-1을 함께 알려 주면, 사람이 두 문으로 나뉘어요':'Showing 8-1, which reaches the same stairs, splits the crowd across two doors'):(l==='ko'?'5-2만 표시되어 한 문 앞에 사람이 몰려요':'Only 5-2 is shown, so one door gets crowded')}</p><p class="km-ex">${l==='ko'?'칸 번호와 계단 위치는 예시이며, 역마다 실측이 필요합니다':'Door numbers and stair position are examples; each station needs checking'}</p></div>
+        <div class="kx-grid">
+          <div class="kx-card"><span class="kx-l">${l==='ko'?'1 · 콘텐츠로 먼저 알리기':'1 · Tell people with content first'}</span><div class="kx-cn"><b>${l==='ko'?'같은 계단인데,<br>왜 여기만 붐빌까?':'Same stairs,<br>why only this door?'}</b><small>${l==='ko'?'카드뉴스 표지 시안 · 인스타그램':'Card news cover draft · Instagram'}</small></div></div>
+          <div class="kx-card"><span class="kx-l">${l==='ko'?'2 · 톡채널 메시지':'2 · Talk Channel message'}</span><div class="gl-mock"><span class="gl-ad">${l==='ko'?'(광고) 카카오맵 채널':'(Ad) Kakao Map channel'}</span><div class="gl-bub"><p class="km-copy" style="margin:0">${l==='ko'?'빠른 하차 칸, 사람 많아서 못 내리셨죠? 🚇 같은 계단으로 가는 숨은 문, 출근길 역부터 알려드려요.':'Couldn’t get off at the quick-exit door? 🚇 We’ll show the hidden door to the same stairs, starting with commuter stations.'}</p><div class="gl-btn y">${l==='ko'?'우리 역 숨은 문 보기':'See my station'}</div></div></div></div>
+          <div class="kx-card"><span class="kx-l">${l==='ko'?'3 · 반응을 근거로 공유':'3 · Share the response as evidence'}</span><p class="fun"><em class="gl-m p">${l==='ko'?'저장 · 공유':'Saves · shares'}</em>→<em class="gl-m">${l==='ko'?'"우리 역도" 댓글 요청':'“Do my station” requests'}</em>→<em class="gl-m">${l==='ko'?'역별 실측 확대':'More stations checked'}</em>→<em class="gl-m g">${l==='ko'?'유관부서에 기능 개선 근거로 공유':'Share with product as evidence'}</em></p></div>
+        </div></div>`}
     function map(l){const th=TH[S.t],ar=AR[S.a][l];
       const chips=(arr,key,lab)=>arr.map((x,i)=>`<button type="button" class="wc${S[key]===i?' on':''}" data-k="${key}" data-i="${i}">${lab(x)}</button>`).join('');
       const list=th.p.map((p,i)=>`<li><b>${i+1}</b><span class="e">${p[0]}</span><div><strong>${p[1][l]}</strong><small>${l==='ko'?`${ar} 도보 ${p[2]}분`:`${p[2]} min walk from ${ar}`}</small></div><em>${p[3][l]}</em></li>`).join('');
@@ -1839,7 +1876,7 @@ void main(){
         <div class="gl-mock big"><span class="gl-ad">${l==='ko'?'(광고) 카카오맵 채널':'(Ad) Kakao Map channel'}</span><div class="gl-bub">
           <div class="km-thumb">${th.e}<b>${th.t[l]}</b></div><p class="km-copy">${m[v][l]}</p><div class="gl-btn y">${l==='ko'?'테마지도 보기':'Open theme map'}</div></div></div></div>`;
       return `<div class="km2">
-        <p class="gx-n">${l==='ko'?`① 탭에서 고른 테마: ${th.e} ${th.n.ko} · 첫 문장의 톤만 바꾼 A/B 시안이에요. 눌러서 비교해 보세요`:`Theme from tab ①: ${th.e} ${th.n.en} · A/B drafts that change only the tone of the first line. Tap to compare`}</p>
+        <p class="gx-n">${l==='ko'?`② 탭에서 고른 테마: ${th.e} ${th.n.ko} · 첫 문장의 톤만 바꾼 A/B 시안이에요. 눌러서 비교해 보세요`:`Theme from tab ②: ${th.e} ${th.n.en} · A/B drafts that change only the tone of the first line. Tap to compare`}</p>
         <div class="km-ab">${card('a')}${card('b')}</div>
         <div class="km-ban"><span class="km-bl">${l==='ko'?'앱 내 배너 시안':'In-app banner draft'}</span><div class="km-bn"><i>${th.e}</i><div><b>${th.t[l]}</b><small>${l==='ko'?'테마지도에서 한 번에 보기':'See it all in one theme map'}</small></div><em>›</em></div></div>
         <div class="km-test"><b>${l==='ko'?'테스트 설계':'Test plan'}</b><p>${l==='ko'?'바꾸는 것: 첫 문장 톤 하나 · 같은 대상, 같은 발송 시간 · 볼 지표: 클릭률, 테마지도 저장, 채널 차단율':'Change: first-line tone only · same audience and send time · watch: CTR, theme map saves, block rate'}</p></div>
@@ -1858,11 +1895,15 @@ void main(){
         <p class="gs-rn">${l==='ko'?'결과 칸은 실제 발행 후 채울 자리입니다. 매주 반응이 좋았던 톤과 테마를 다음 주 콘텐츠에 반영하겠습니다.':'Result cells are for real data after publishing. Each week, the tone and theme that worked feed into the next week.'}</p></div>`}
     function draw(){const l=lg();
       R.querySelectorAll('.gs-tabs button').forEach(b=>{b.textContent=TAB[b.dataset.t][l];b.classList.toggle('on',b.dataset.t===S.tab)});
-      const V=$('#gsView');V.innerHTML=S.tab==='map'?map(l):S.tab==='msg'?msg(l):cal(l);
-      V.querySelectorAll('.wc').forEach(b=>b.onclick=()=>{S[b.dataset.k]=+b.dataset.i;draw()});
+      const V=$('#gsView');V.innerHTML=S.tab==='exit'?exit(l):S.tab==='map'?map(l):S.tab==='msg'?msg(l):cal(l);
+      V.querySelectorAll('.kx-t').forEach(b=>b.onclick=()=>{S.x=+b.dataset.x;draw()});
+      V.querySelectorAll('.wc:not(.kx-t)').forEach(b=>b.onclick=()=>{S[b.dataset.k]=+b.dataset.i;draw()});
       V.querySelectorAll('.km-mc').forEach(b=>b.onclick=()=>{S.v=b.dataset.v;draw()});}
     R.querySelectorAll('.gs-tabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;draw()});
     new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
+    let vis=0,auto=setInterval(()=>{if(vis&&S.tab==='exit'&&!S.touch){S.x=1-S.x;draw()}},3200);
+    new IntersectionObserver(es=>es.forEach(e=>vis=e.isIntersecting),{threshold:.3}).observe(R);
+    R.addEventListener('pointerdown',()=>{S.touch=1});
     draw();
   })();
 
