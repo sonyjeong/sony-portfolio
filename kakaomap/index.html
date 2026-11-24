@@ -1185,6 +1185,7 @@ html:not(.en) .gl-spec dt{font-family:"Pretendard",sans-serif;letter-spacing:.02
 .kx-cn b{font-size:20px;line-height:1.35}.kx-cn small{font-size:11px;opacity:.8}
 .kx-card .fun{display:flex;flex-wrap:wrap;align-items:center;gap:4px;color:#8f879c}.kx-card .fun .gl-m{font-style:normal;font-size:12.5px;margin:0}
 @media (max-width:900px){.kx-grid{grid-template-columns:1fr}}
+.gs-box .gl-bub p,.gs-box .gl-bub .km-copy{color:#1d1d1f;font-size:13.5px;line-height:1.55}
 </style>
 </head>
 <body>
@@ -1357,7 +1358,7 @@ html:not(.en) .gl-spec dt{font-family:"Pretendard",sans-serif;letter-spacing:.02
         <div class="meta"><b>개인 데모 기획</b><br>카카오맵을 직접 사용하며<br>발견한 순간에서 출발</div>
       </div>
       <div class="gstudio" id="gs">
-        <div class="gs-tabs" role="tablist"><button type="button" class="on" data-t="exit"></button><button type="button" data-t="map"></button><button type="button" data-t="msg"></button><button type="button" data-t="cal"></button></div>
+        <div class="gs-tabs" role="tablist"><button type="button" class="on" data-t="exit"></button><button type="button" data-t="map"></button><button type="button" data-t="rep"></button></div>
         <div class="gs-view" id="gsView"></div>
       </div>
       <p class="gl-note">카카오와 무관한 개인 데모 기획입니다. 장소와 수치는 예시이며, 실제 발행 시에는 영업 정보와 이미지 사용 권한을 확인합니다.</p>
@@ -1802,7 +1803,7 @@ void main(){
   (function(){
     const R=$('#gs');if(!R)return;
     const lg=()=>document.documentElement.classList.contains('en')?'en':'ko';
-    const TAB={exit:{ko:'① 숨은 빠른 하차',en:'① Hidden quick exit'},map:{ko:'② 테마지도 만들기',en:'② Build a theme map'},msg:{ko:'③ 톡채널 메시지 · 배너',en:'③ Talk Channel & banner'},cal:{ko:'④ 12월 콘텐츠 캘린더',en:'④ December calendar'}};
+    const TAB={exit:{ko:'① 숨은 빠른 하차',en:'① Hidden quick exit'},map:{ko:'② 약속 장소 테마지도',en:'② Meetup theme map'},rep:{ko:'③ 결과 분석',en:'③ Results'}};
     const TH=[
       {k:'year',e:'🥂',n:{ko:'연말 약속',en:'Year-end meetup'},t:{ko:'연말 약속, 우리 어디서 봐?',en:'Year-end plans: where do we meet?'},
        s:{ko:'단톡방 회의는 그만. 역에서 5분 안쪽, 여럿이 앉기 좋은 곳만 모았어요',en:'End the group-chat debate. Spots within 5 minutes of the station that seat a crowd'},
@@ -1828,18 +1829,19 @@ void main(){
         <rect x="160" y="96" width="60" height="44" rx="6" fill="#d7ead2"/>
         <circle cx="118" cy="86" r="11" fill="#2b6cf6"/><text x="118" y="90" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">M</text>
         ${pts.map((p,i)=>`<g class="km-pin" style="--d:${i*.12}s"><path d="M${p[0]} ${p[1]+16}c-8-9-13-14-13-21a13 13 0 0 1 26 0c0 7-5 12-13 21z" fill="#ff5a3c"/><text x="${p[0]}" y="${p[1]-1}" text-anchor="middle" font-size="11" fill="#fff" font-weight="800">${i+1}</text></g>`).join('')}</svg>`}
-    function trainSvg(prop){const cars=[5,6,7,8],W=600,cw=140,x0=20;let g='';
-      const doors=[];cars.forEach((c,ci)=>{const x=x0+ci*cw;g+=`<rect x="${x}" y="70" width="${cw-8}" height="46" rx="8" fill="#2b6cf6"/><text x="${x+cw/2-4}" y="98" text-anchor="middle" font-size="13" fill="#fff" font-weight="700">${c}</text>`;
-        for(let d=1;d<=4;d++){const dx=x+8+(d-1)*((cw-24)/3);doors.push({id:c+'-'+d,x:dx+4});g+=`<rect x="${dx}" y="112" width="8" height="4" fill="#cfe0ff"/>`}});
-      const dA=doors.find(z=>z.id==='5-2').x,dB=doors.find(z=>z.id==='8-1').x;
-      let steps='';for(let x=dA+40;x<dB-40;x+=24)steps+=`<path d="M${x} 167h14" stroke="#6b7280" stroke-width="3"/>`;
-      const st=`<path d="M${dA-14} 184 L${dA+30} 152 H${dB-30} L${dB+14} 184 Z" fill="#3a3f4a"/>${steps}<text x="${dA+4}" y="200" font-size="11" fill="#c9ced8">↗ ${lg()==='ko'?'진입':'in'}</text><text x="${dB-4}" y="200" text-anchor="end" font-size="11" fill="#c9ced8">${lg()==='ko'?'진입':'in'} ↖</text><text x="${(dA+dB)/2}" y="200" text-anchor="middle" font-size="12" fill="#c9ced8">${lg()==='ko'?'같은 계단 (양쪽 끝에서 진입)':'One staircase (entered from both ends)'}</text>`;
+    function trainSvg(prop){const l=lg(),cars=[5,6,7,8],cw=136,x0=28,W=600;let g='',doors=[];
+      cars.forEach((c,ci)=>{const x=x0+ci*cw;
+        g+=`<rect x="${x}" y="112" width="${cw-8}" height="58" rx="9" fill="rgba(43,108,246,.28)" stroke="#5b8cff" stroke-width="1.5"/><text x="${x+(cw-8)/2}" y="133" text-anchor="middle" font-size="12" fill="#cfe0ff" font-weight="700">${c}${l==='ko'?'호차':''}</text>`;
+        for(let d=1;d<=4;d++){const dx=x+12+(d-1)*((cw-32)/3);doors.push({id:c+'-'+d,x:dx+4});g+=`<rect x="${dx}" y="146" width="8" height="24" rx="1" fill="rgba(207,224,255,.55)"/>`}});
+      const dA=doors.find(z=>z.id==='5-2').x,dB=doors.find(z=>z.id==='8-1').x,mid=(dA+dB)/2,top=48,base=186,n=9;
+      let pl='',pr='';for(let i=0;i<=n;i++){const y=base-(base-top)*i/n,xl=dA+(mid-dA)*i/n,xr=dB-(dB-mid)*i/n;pl+=(i?` L${xl} ${y+((base-top)/n)}`:`M${xl} ${base}`)+` L${xl} ${y}`;pr+=(i?` L${xr} ${y+((base-top)/n)}`:`M${xr} ${base}`)+` L${xr} ${y}`}
+      const stairs=`<path d="${pl} L${mid} ${top}" fill="none" stroke="rgba(254,229,0,.55)" stroke-width="3"/><path d="${pr} L${mid} ${top}" fill="none" stroke="rgba(254,229,0,.55)" stroke-width="3"/>
+        <path d="M${dA} ${base} L${mid} ${top} L${dB} ${base} Z" fill="rgba(254,229,0,.07)"/>
+        <text x="${mid}" y="${top-10}" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fee500">↑ ${l==='ko'?'개찰구 · 출구':'Gates · exit'}</text>`;
       const hot=prop?['5-2','8-1']:['5-2'];
-      let marks='';doors.filter(d=>hot.includes(d.id)).forEach(d=>{marks+=`<g class="km-door"><circle cx="${d.x}" cy="128" r="9" fill="#fee500"/><text x="${d.x}" y="58" text-anchor="middle" font-size="12" font-weight="800" fill="#fee500">${d.id}</text><path d="M${d.x} 138 V150" stroke="#fee500" stroke-width="2" stroke-dasharray="3 3"/></g>`});
-      let crowd='';const seed=[3,9,14,6,11,2,8,13,5,10,1,12,7,4];
-      const n=prop?[7,7]:[14,0];hot.forEach((id,hi)=>{const d=doors.find(z=>z.id===id);for(let i=0;i<n[hi];i++){crowd+=`<circle class="km-dot" style="--d:${i*.04}s" cx="${d.x-22+(seed[i]%7)*7}" cy="${136+Math.floor(i/7)*8+(seed[i]%3)}" r="3.2" fill="#ffb4a3"/>`}});
-      if(!prop){const d=doors.find(z=>z.id==='8-1');crowd+=`<text x="${d.x}" y="58" text-anchor="middle" font-size="12" fill="#8f879c">8-1</text>`}
-      return `<svg class="km-train" viewBox="0 40 ${W} 168" aria-hidden="true"><rect x="0" y="120" width="${W}" height="80" fill="rgba(255,255,255,.04)"/>${g}${st}${crowd}${marks}</svg>`}
+      let marks='';doors.forEach(d=>{if(d.id==='5-2'||d.id==='8-1'){const on=hot.includes(d.id);marks+=`<text x="${d.x}" y="206" text-anchor="middle" font-size="12.5" font-weight="800" fill="${on?'#fee500':'#8f879c'}">${d.id}${on?(l==='ko'?' 빠른 하차':' quick exit'):''}</text>`;if(on)marks+=`<circle cx="${d.x}" cy="158" r="7" fill="#fee500"/>`}});
+      let crowd='';const n2=prop?[7,7]:[14,0];hot.forEach((id,hi)=>{const d=doors.find(z=>z.id===id);for(let i=0;i<n2[hi];i++){crowd+=`<circle class="km-dot" style="--d:${i*.04}s" cx="${d.x-21+(i%7)*7}" cy="${180+Math.floor(i/7)*-7}" r="3.2" fill="#ffb4a3"/>`}});
+      return `<svg class="km-train" viewBox="0 30 ${W} 186" aria-hidden="true"><line x1="10" y1="${base}" x2="${W-10}" y2="${base}" stroke="rgba(255,255,255,.25)"/>${stairs}${g}${crowd}${marks}</svg>`}
     function exit(l){const p=S.x===1;
       return `<div class="kx">
         <div class="kx-top"><div><p class="gx-n">${l==='ko'?'이용자로서 느낀 불편':'What I noticed as a user'}</p><p class="kx-q">${l==='ko'?'빠른 하차 칸이 한 곳만 보이면, 그 문 앞으로 사람이 몰려요':'When only one quick-exit door is shown, everyone crowds that door'}</p></div>
@@ -1869,36 +1871,23 @@ void main(){
         </div></div>
         <div class="km-side">
           <div class="gs-box"><span>${l==='ko'?'발행 후 볼 지표':'Metrics after publishing'}</span><p class="fun"><em class="gl-m p">${l==='ko'?'테마지도 조회':'Views'}</em>→<em class="gl-m">${l==='ko'?'즐겨찾기 저장':'Saves'}</em>→<em class="gl-m">${l==='ko'?'길찾기 실행':'Directions'}</em>→<em class="gl-m">${l==='ko'?'단톡방 공유':'Shares'}</em></p></div>
-          <div class="gs-box"><span>${l==='ko'?'발행 전 체크':'Pre-publish check'}</span><ul class="km-ck">${(l==='ko'?['영업시간 · 휴무일 확인','출구 번호 · 도보 시간 실측','사진 사용 권한','광고 · 제휴 표기']:['Hours & closing days','Exit number & walking time','Photo rights','Ad / partnership label']).map(x=>`<li>✓ ${x}</li>`).join('')}</ul></div>
+          <div class="gs-box"><span>${l==='ko'?'알림 메시지 · 공감형 시안':'Talk Channel · relatable draft'}</span><div class="gl-mock"><span class="gl-ad">${l==='ko'?'(광고) 카카오맵 채널':'(Ad) Kakao Map channel'}</span><div class="gl-bub"><p class="km-copy" style="margin:0">${MSG[th.k].b[l]}</p><div class="gl-btn y">${l==='ko'?'테마지도 보기':'Open theme map'}</div></div></div></div>
         </div></div>`}
-    function msg(l){const th=TH[S.t],m=MSG[th.k];
-      const card=(v)=>`<div class="km-mc${S.v===v?' on':''}" data-v="${v}"><p class="mm-h"><span>${v.toUpperCase()}</span>${v==='a'?(l==='ko'?'정보형':'Informative'):(l==='ko'?'공감형':'Relatable')}</p>
-        <div class="gl-mock big"><span class="gl-ad">${l==='ko'?'(광고) 카카오맵 채널':'(Ad) Kakao Map channel'}</span><div class="gl-bub">
-          <div class="km-thumb">${th.e}<b>${th.t[l]}</b></div><p class="km-copy">${m[v][l]}</p><div class="gl-btn y">${l==='ko'?'테마지도 보기':'Open theme map'}</div></div></div></div>`;
-      return `<div class="km2">
-        <p class="gx-n">${l==='ko'?`② 탭에서 고른 테마: ${th.e} ${th.n.ko} · 첫 문장의 톤만 바꾼 A/B 시안이에요. 눌러서 비교해 보세요`:`Theme from tab ②: ${th.e} ${th.n.en} · A/B drafts that change only the tone of the first line. Tap to compare`}</p>
-        <div class="km-ab">${card('a')}${card('b')}</div>
-        <div class="km-ban"><span class="km-bl">${l==='ko'?'앱 내 배너 시안':'In-app banner draft'}</span><div class="km-bn"><i>${th.e}</i><div><b>${th.t[l]}</b><small>${l==='ko'?'테마지도에서 한 번에 보기':'See it all in one theme map'}</small></div><em>›</em></div></div>
-        <div class="km-test"><b>${l==='ko'?'테스트 설계':'Test plan'}</b><p>${l==='ko'?'바꾸는 것: 첫 문장 톤 하나 · 같은 대상, 같은 발송 시간 · 볼 지표: 클릭률, 테마지도 저장, 채널 차단율':'Change: first-line tone only · same audience and send time · watch: CTR, theme map saves, block rate'}</p></div>
-      </div>`}
-    function cal(l){const rows=l==='ko'?[
-        ['12/1주','테마지도 · 톡채널','🥂 연말 약속 테마지도 발행 + 공감형 메시지 발송','테마지도 저장 수'],
-        ['12/2주','인스타그램','"숨은 빠른 하차" 카드뉴스: 같은 계단으로 이어지는 덜 붐비는 문 (역별 실측 후 발행)','저장 · 공유'],
-        ['12/3주','테마지도 · 배너','🎄 크리스마스 트리 보러 가는 길 + 즐겨찾기 그룹','길찾기 실행'],
-        ['12/4주','톡채널 · 인스타그램','🌙 막차 전 2차 테마지도 + 연말 결산 카드뉴스','클릭률 · 차단율']]:[
-        ['Dec W1','Theme map · Talk Channel','🥂 Year-end meetup map + relatable message','Map saves'],
-        ['Dec W2','Instagram','“Hidden quick exit” cards: a less crowded door to the same stairs (verified per station)','Saves · shares'],
-        ['Dec W3','Theme map · banner','🎄 Christmas tree route + favorites group','Directions'],
-        ['Dec W4','Talk Channel · Instagram','🌙 Before-the-last-train map + year-in-review cards','CTR · block rate']];
-      const H=l==='ko'?['주차','채널','콘텐츠','목표 지표','결과']:['Week','Channel','Content','Goal metric','Result'];
-      return `<div class="gs-rep"><table class="gl-tbl"><thead><tr>${H.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}<td>—</td></tr>`).join('')}</tbody></table>
-        <p class="gs-rn">${l==='ko'?'결과 칸은 실제 발행 후 채울 자리입니다. 매주 반응이 좋았던 톤과 테마를 다음 주 콘텐츠에 반영하겠습니다.':'Result cells are for real data after publishing. Each week, the tone and theme that worked feed into the next week.'}</p></div>`}
+    function rep(l){const H=l==='ko'?['콘텐츠','채널','볼 지표','결과','판정 · 다음 액션']:['Content','Channel','Metrics','Result','Decision · next'];
+      const rows=l==='ko'?[
+        ['① 숨은 빠른 하차 카드뉴스','인스타그램','저장 · 공유 · "우리 역도" 댓글','반응 많은 역부터 실측 확대, 요청 모아 유관부서에 기능 개선 근거로 공유'],
+        ['② 연말 약속 테마지도','카카오맵','조회 → 즐겨찾기 저장 → 길찾기','저장률 높은 테마를 다음 달 주제로 확장'],
+        ['② 알림 메시지 A/B · 정보형 vs 공감형','톡채널','클릭률 · 채널 차단율','첫 문장 톤만 바꿔 비교, 이긴 톤을 기본 템플릿으로']]:[
+        ['① Hidden quick exit cards','Instagram','Saves · shares · “do my station” comments','Check more stations where demand is high; share requests with product'],
+        ['② Year-end meetup theme map','Kakao Map','Views → saves → directions','Expand the themes with the best save rate'],
+        ['② Message A/B · informative vs relatable','Talk Channel','CTR · block rate','Change only first-line tone; winner becomes the template']];
+      return `<div class="gs-rep"><table class="gl-tbl"><thead><tr>${H.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>— / —</td><td>${r[3]}</td></tr>`).join('')}</tbody></table>
+        <p class="gs-rn">${l==='ko'?'결과 칸은 실제 발행 후 채울 자리입니다. 매주 반응을 정리해, 잘 된 톤과 테마는 다음 콘텐츠에 반영하고 이용자 요청은 유관부서에 전달하겠습니다.':'Result cells are for real data after publishing. Each week I’d log responses, carry what worked into the next piece, and pass user requests to the product team.'}</p></div>`}
     function draw(){const l=lg();
       R.querySelectorAll('.gs-tabs button').forEach(b=>{b.textContent=TAB[b.dataset.t][l];b.classList.toggle('on',b.dataset.t===S.tab)});
-      const V=$('#gsView');V.innerHTML=S.tab==='exit'?exit(l):S.tab==='map'?map(l):S.tab==='msg'?msg(l):cal(l);
+      const V=$('#gsView');V.innerHTML=S.tab==='exit'?exit(l):S.tab==='map'?map(l):rep(l);
       V.querySelectorAll('.kx-t').forEach(b=>b.onclick=()=>{S.x=+b.dataset.x;draw()});
-      V.querySelectorAll('.wc:not(.kx-t)').forEach(b=>b.onclick=()=>{S[b.dataset.k]=+b.dataset.i;draw()});
-      V.querySelectorAll('.km-mc').forEach(b=>b.onclick=()=>{S.v=b.dataset.v;draw()});}
+      V.querySelectorAll('.wc:not(.kx-t)').forEach(b=>b.onclick=()=>{S[b.dataset.k]=+b.dataset.i;draw()});}
     R.querySelectorAll('.gs-tabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;draw()});
     new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
     let vis=0,auto=setInterval(()=>{if(vis&&S.tab==='exit'&&!S.touch){S.x=1-S.x;draw()}},3200);
