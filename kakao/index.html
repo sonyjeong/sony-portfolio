@@ -1105,6 +1105,16 @@ html:not(.en) .gl-spec dt{font-family:"Pretendard",sans-serif;letter-spacing:.02
 .wp-prize{margin-top:8px;font-size:13.5px!important;color:#d2c9b8}
 @media (max-width:1100px){.wp{grid-template-columns:1fr 1fr}.wp-side{grid-column:1/-1;grid-template-columns:repeat(3,1fr)}}
 @media (max-width:700px){.wp,.wp-side{grid-template-columns:1fr}}
+
+/* ===== v10: holiday wraps + ribbon colour ===== */
+.wbox.w-tree{--bgp:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Cpath d='M18 5l7 11h-4l6 9H9l6-9h-4z' fill='%239fd3a8'/%3E%3Crect x='16.5' y='25' width='3' height='4' fill='%23e9b949'/%3E%3C/svg%3E") 0 0/36px 36px,#2f7d4f}
+.wbox.w-snow{--bgp:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Cg stroke='%23e6ecff' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M17 7v20M8.3 12l17.4 10M8.3 22l17.4-10'/%3E%3C/g%3E%3Ccircle cx='17' cy='17' r='2' fill='%23fff'/%3E%3C/svg%3E") 0 0/34px 34px,linear-gradient(160deg,#3b4aa8,#6a4fb0)}
+.wbox.w-sweet{--bgp:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Cellipse cx='17' cy='17' rx='10' ry='5.5' transform='rotate(-25 17 17)' fill='%238e4f7a'/%3E%3Cellipse cx='13' cy='19' rx='3' ry='1.6' transform='rotate(-25 13 19)' fill='%23f5c451'/%3E%3C/svg%3E") 0 0/34px 34px,#f6c344}
+.wbox.w-ginger{--bgp:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='38' height='38'%3E%3Cg fill='%23e8c39a'%3E%3Ccircle cx='19' cy='10' r='4.5'/%3E%3Cpath d='M13 15h12l3 6-4 1v8h-4v-5h-2v5h-4v-8l-4-1z'/%3E%3C/g%3E%3Cg fill='%23fff'%3E%3Ccircle cx='19' cy='19' r='1'/%3E%3Ccircle cx='19' cy='23' r='1'/%3E%3C/g%3E%3C/svg%3E") 0 0/38px 38px,#7a4a26}
+.wbox.w-red{--bgp:repeating-linear-gradient(135deg,#b3122a 0 16px,#c8102e 16px 26px,#e9b949 26px 28px)}
+.wc .sw{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:7px;vertical-align:-2px;box-shadow:0 0 0 1px rgba(255,255,255,.35)}
+.wp-in .gs-q:not(:first-child){margin-top:14px}
+.wp-in .wc{padding:9px 11px;font-size:14px}
 </style>
 </head>
 <body>
@@ -1759,30 +1769,33 @@ void main(){
             <div class="gs-box"><span>${l==='ko'?'검증 퍼널':'Test funnel'}</span><p class="fun"><em class="gl-m p">${l==='ko'?'클릭률':'CTR'}</em>→<em class="gl-m">${l==='ko'?'위시 상세 도달':'Wish detail view'}</em>→<em class="gl-m">${l==='ko'?'생일 전 결제':'Paid before birthday'}</em>→<em class="gl-m">${l==='ko'?'다음 기념일 재구매':'Repeat on next occasion'}</em><em class="gl-m g">${l==='ko'?'함께 볼 기준 · 채널 차단율':'Guardrail · block rate'}</em></p></div>
           </div>
         </div></div>`}
-    const WM=[{k:'warm',ko:'따뜻한',en:'Warm',n:{ko:'온기',en:'Warmth'},g:'🕯️',p:{ko:'단독 에디션 홀리데이 캔들',en:'Exclusive holiday candle'}},
-      {k:'spark',ko:'반짝이는',en:'Sparkly',n:{ko:'반짝임',en:'Sparkle'},g:'💄',p:{ko:'단독 홀리데이 메이크업 키트',en:'Exclusive holiday makeup kit'}},
-      {k:'calm',ko:'차분한',en:'Calm',n:{ko:'위로',en:'Comfort'},g:'🛁',p:{ko:'단독 바디 기프트 세트',en:'Exclusive body gift set'}},
-      {k:'fun',ko:'장난스러운',en:'Playful',n:{ko:'웃음',en:'Laughter'},g:'🔑',p:{ko:'단독 캐릭터 키링 세트',en:'Exclusive character keyring set'}}];
+    const WM=[{k:'tree',ko:'🌲 트리 그린',en:'🌲 Tree green',n:{ko:'설렘',en:'Flutter'},g:'🕯️',p:{ko:'단독 에디션 홀리데이 캔들',en:'Exclusive holiday candle'}},
+      {k:'snow',ko:'❄️ 스노우 블루',en:'❄️ Snow blue',n:{ko:'포근함',en:'Coziness'},g:'🛁',p:{ko:'단독 바디 기프트 세트',en:'Exclusive body gift set'}},
+      {k:'sweet',ko:'🍠 고구마 옐로우',en:'🍠 Sweet-potato yellow',n:{ko:'온기',en:'Warmth'},g:'🔑',p:{ko:'단독 캐릭터 키링 세트',en:'Exclusive character keyring set'}},
+      {k:'ginger',ko:'🍪 진저 브라운',en:'🍪 Ginger brown',n:{ko:'달콤함',en:'Sweetness'},g:'🍫',p:{ko:'단독 홀리데이 디저트 박스',en:'Exclusive holiday dessert box'}},
+      {k:'red',ko:'🎁 홀리데이 레드',en:'🎁 Holiday red',n:{ko:'반짝임',en:'Sparkle'},g:'💄',p:{ko:'단독 홀리데이 메이크업 키트',en:'Exclusive holiday makeup kit'}}];
+    const RC=[{ko:'골드',en:'Gold',c:'#e9b949'},{ko:'레드',en:'Red',c:'#c8102e'},{ko:'아이보리',en:'Ivory',c:'#f7f1e3'},{ko:'핑크',en:'Pink',c:'#ff9ac1'},{ko:'포레스트',en:'Forest',c:'#1f5a3a'}];
     const WR=[{k:'y',ko:'오랜 친구',en:'Old friend'},{k:'r',ko:'가족',en:'Family'},{k:'n',ko:'고마운 선배',en:'Mentor'},{k:'p',ko:'연인',en:'Partner'}];
     const SEA=m=>m<=2||m===12?{ko:'겨울날',en:'Winter'}:m<=5?{ko:'봄날',en:'Spring'}:m<=8?{ko:'여름날',en:'Summer'}:{ko:'가을날',en:'Autumn'};
-    const W={m:0,r:0,mo:3,d:14,msg:'',open:false};
+    const W={m:0,c:0,r:0,mo:3,d:14,msg:'',open:false};
     function wish(l){const m=WM[W.m],r=WR[W.r],s=SEA(W.mo),no=String(W.mo).padStart(2,'0')+String(W.d).padStart(2,'0');
       const msg=W.msg||(l==='ko'?'면접 날 보내준 커피 덕분에 버텼어':'Your coffee got me through interview day');
       const title=l==='ko'?`${s.ko}의 ${m.n.ko} · ${r.ko} 에디션`:`${s.en} ${m.n.en} · ${r.en} Edition`;
-      const chips=(arr,key)=>arr.map((x,i)=>`<button type="button" class="wc${W[key]===i?' on':''}" data-k="${key}" data-i="${i}">${x[l]}</button>`).join('');
+      const chips=(arr,key)=>arr.map((x,i)=>`<button type="button" class="wc${W[key]===i?' on':''}" data-k="${key}" data-i="${i}">${x.c?`<i class="sw" style="background:${x.c}"></i>`:''}${x[l]}</button>`).join('');
       const months=Array.from({length:12},(_,i)=>`<option value="${i+1}"${W.mo===i+1?' selected':''}>${i+1}${l==='ko'?'월':''}</option>`).join('');
       const days=Array.from({length:31},(_,i)=>`<option value="${i+1}"${W.d===i+1?' selected':''}>${i+1}${l==='ko'?'일':''}</option>`).join('');
       return `<div class="wp">
         <div class="wp-in">
-          <p class="gs-q">1 · ${l==='ko'?'포장지 · 올해 나의 무드':'Wrapping · your mood this year'}</p><div class="gs-chips">${chips(WM,'m')}</div>
-          <p class="gs-q">2 · ${l==='ko'?'리본 · 그 사람과의 관계':'Ribbon · your relationship'}</p><div class="gs-chips">${chips(WR,'r')}</div>
-          <p class="gs-q">3 · ${l==='ko'?'고마웠던 날 → 포장 번호':'The day you were grateful → wrap number'}</p>
+          <p class="gs-q">1 · ${l==='ko'?'포장지':'Wrapping paper'}</p><div class="gs-chips">${chips(WM,'m')}</div>
+          <p class="gs-q">2 · ${l==='ko'?'리본 색':'Ribbon colour'}</p><div class="gs-chips">${chips(RC,'c')}</div>
+          <p class="gs-q">3 · ${l==='ko'?'그 사람과의 관계 → 에디션 이름':'Relationship → edition name'}</p><div class="gs-chips">${chips(WR,'r')}</div>
+          <p class="gs-q">4 · ${l==='ko'?'고마웠던 날 → 포장 번호':'The day you were grateful → wrap number'}</p>
           <div class="wp-date"><select id="wMo">${months}</select><select id="wD">${days}</select></div>
-          <p class="gs-q">4 · ${l==='ko'?'그날의 한 줄':'One line about that day'}</p>
+          <p class="gs-q">5 · ${l==='ko'?'그날의 한 줄':'One line about that day'}</p>
           <input id="wMsg" class="wp-msg" maxlength="30" placeholder="${l==='ko'?'면접 날 보내준 커피 덕분에 버텼어':'Your coffee got me through interview day'}" value="${W.msg.replace(/"/g,'&quot;')}">
         </div>
         <div class="wp-out">
-          <div class="wbox w-${m.k} rb-${r.k}${W.open?' open':''}">
+          <div class="wbox w-${m.k}${W.open?' open':''}" style="--rb:${RC[W.c].c}">
             <div class="wb-lid"><i class="wb-rv"></i></div><div class="wb-body"><i class="wb-rv"></i><i class="wb-rh"></i></div><i class="wb-bow"></i>
             <div class="wb-card"><b>No. ${no}</b><span>${title}</span><p>“${msg}”</p><em>${m.g} ${m.p[l]} <small>${l==='ko'?'(예시)':'(example)'}</small></em></div>
           </div>
