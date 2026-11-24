@@ -1221,6 +1221,22 @@ html:not(.en) .gl-spec dt{font-family:"Pretendard",sans-serif;letter-spacing:.02
 .km-feed i{font-style:normal;font-size:14px}.km-feed b{display:block;font-size:12px;margin-top:2px}.km-feed small{font-size:10.5px;color:#8a8f98}
 .km-role{margin:6px 0 0;padding-left:18px;display:grid;gap:5px;font-size:14px;color:#f7f1e3}
 .km-role li::marker{color:#fee500;font-weight:700}
+.km-acc{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.km-acc>i{font-style:normal;width:32px;height:32px;border-radius:50%;background:#eef3ff;display:grid;place-items:center;font-size:16px}
+.km-acc div{flex:1}.km-acc b{display:block;font-size:13.5px}.km-acc small{font-size:10.5px;color:#8a8f98}
+.km-ck{display:inline-grid;place-items:center;width:14px;height:14px;border-radius:50%;background:#2b6cf6;color:#fff;font-size:9px;vertical-align:1px}
+.km-fl{font:700 11.5px/1 "Pretendard",sans-serif;padding:7px 11px;border-radius:999px;background:#2b6cf6;color:#fff}
+.km-ph{position:relative;height:200px;border-radius:14px;overflow:hidden;background:linear-gradient(145deg,var(--g1),var(--g2))}
+.km-pe{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font-size:78px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.25));animation:kmPe .5s both}
+@keyframes kmPe{0%{opacity:0;transform:translate(-30%,-50%) scale(.9)}100%{opacity:1;transform:translate(-50%,-50%)}}
+.km-pc{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 22px;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff}
+.km-pc b{display:block;font-size:13.5px}.km-pc small{font-size:11px;opacity:.9}
+.km-dots{position:absolute;left:0;right:0;bottom:8px;display:flex;justify-content:center;gap:4px}
+.km-dots em{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.5);transition:.3s}.km-dots em.on{width:14px;border-radius:3px;background:#fff}
+.km-scr .km-t{margin-top:12px;font-size:17px}
+.km-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.km-gc{border-radius:10px;padding:10px;min-height:92px;background:linear-gradient(145deg,var(--g1),var(--g2));color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+.km-gc i{font-style:normal;font-size:20px}.km-gc b{font-size:11.5px;line-height:1.3;margin-top:4px}.km-gc small{font-size:10px;opacity:.85}
 
 /* ===== map pin intro ===== */
 .cabin,.gift,.burst,.balloons{display:none!important}
@@ -1894,14 +1910,14 @@ void main(){
     const lg=()=>document.documentElement.classList.contains('en')?'en':'ko';
     const TAB={exit:{ko:'① 숨은 빠른 하차',en:'① Hidden quick exit'},map:{ko:'② 약속 장소 테마지도',en:'② Meetup theme map'},rep:{ko:'③ 결과 분석',en:'③ Results'}};
     const TH=[
-      {k:'year',e:'🥂',n:{ko:'연말 약속',en:'Year-end meetup'},t:{ko:'연말 약속, 우리 어디서 봐?',en:'Year-end plans: where do we meet?'},
-       s:{ko:'단톡방 회의는 그만. 역에서 5분 안쪽, 여럿이 앉기 좋은 곳만 모았어요',en:'End the group-chat debate. Spots within 5 minutes of the station that seat a crowd'},
+      {k:'year',e:'🥂',n:{ko:'연말 약속',en:'Year-end meetup'},t:{ko:'단톡방 회의 끝! 역 5분 연말 모임 장소',en:'Group chat debate over! Year-end spots 5 min from the station'},
+       s:{ko:'어디서 볼지 정하다 해 넘기기 전에, 역에서 5분 안쪽 단체석 맛집만 모았어요 🥂',en:'Before the year ends mid-debate: group-friendly spots within 5 minutes of the station 🥂'},
        p:[['🥩',{ko:'단체석 있는 고깃집',en:'BBQ with group seating'},2,{ko:'단체석',en:'Group seats'}],['🍝',{ko:'10인 룸 파스타집',en:'Pasta place with a 10-seat room'},4,{ko:'예약 가능',en:'Bookable'}],['🍶',{ko:'새벽까지 여는 이자카야',en:'Izakaya open late'},3,{ko:'늦게까지',en:'Open late'}],['🍰',{ko:'케이크 반입 되는 카페',en:'Café that allows outside cake'},5,{ko:'케이크 OK',en:'Cake OK'}]]},
-      {k:'rain',e:'☔',n:{ko:'비 오는 날',en:'Rainy day'},t:{ko:'우산 접고 바로 도착',en:'Close the umbrella, you’re there'},
-       s:{ko:'지하철 출구에서 몇 걸음이면 닿는 실내 약속 장소',en:'Indoor spots a few steps from the subway exit'},
+      {k:'rain',e:'☔',n:{ko:'비 오는 날',en:'Rainy day'},t:{ko:'우산 접고 바로 입장! 역 연결 실내 약속 장소',en:'Fold the umbrella, walk right in! Indoor spots by the station'},
+       s:{ko:'지하철 출구에서 몇 걸음이면 닿는 곳만 골랐어요 ☔',en:'Only places a few steps from the subway exit ☔'},
        p:[['🛍️',{ko:'역과 연결된 쇼핑몰 맛집',en:'Mall food hall linked to the station'},1,{ko:'역 연결',en:'Station-linked'}],['📚',{ko:'출구 앞 대형 서점 카페',en:'Bookstore café by the exit'},2,{ko:'실내',en:'Indoor'}],['🎳',{ko:'지하 볼링·보드게임',en:'Basement bowling & board games'},3,{ko:'단체 놀거리',en:'Group fun'}],['🍲',{ko:'따뜻한 전골집',en:'Hot-pot place'},4,{ko:'국물',en:'Soup'}]]},
-      {k:'last',e:'🌙',n:{ko:'막차 전 2차',en:'Before the last train'},t:{ko:'막차 전, 딱 한 곳만 더',en:'One more stop before the last train'},
-       s:{ko:'초정밀 지하철로 막차 위치를 보면서 고르는 역 근처 2차',en:'Second-round spots near the station, picked while watching the last train live'},
+      {k:'last',e:'🌙',n:{ko:'막차 전 2차',en:'Before the last train'},t:{ko:'막차 보면서 딱 한 잔! 역 1분 2차 스팟',en:'One more round, eyes on the last train! Spots 1 min from the station'},
+       s:{ko:'초정밀 지하철로 막차 위치 확인하고, 마음 편히 즐겨요 🌙',en:'Check the last train live, then relax 🌙'},
        p:[['🍺',{ko:'역 1분 호프집',en:'Pub 1 minute from the station'},1,{ko:'역 1분',en:'1 min'}],['☕',{ko:'자정까지 여는 카페',en:'Café open till midnight'},2,{ko:'자정까지',en:'Till 12'}],['🍢',{ko:'포장마차 거리',en:'Street-food tents'},3,{ko:'가볍게',en:'Light bites'}],['🍨',{ko:'디저트 바',en:'Dessert bar'},4,{ko:'단 거',en:'Sweet'}]]}];
     const AR=[{ko:'강남역',en:'Gangnam Stn.'},{ko:'홍대입구역',en:'Hongik Univ. Stn.'},{ko:'성수역',en:'Seongsu Stn.'}];
     const MSG={
@@ -1911,7 +1927,8 @@ void main(){
             b:{ko:'우산 접는 순간 도착 ☔ 지하철 출구에서 몇 걸음이면 닿는 약속 장소만 모았어요.',en:'Close the umbrella and you’re there ☔ Only spots a few steps from the exit.'}},
       last:{a:{ko:'[카카오맵] 막차 시간 걱정 없이, 역 근처 2차 장소를 확인하세요.',en:'[Kakao Map] No last-train worries: second-round spots near the station.'},
             b:{ko:'"지금 뛰면 탈 수 있나?" 고민은 초정밀 지하철에 맡기고, 역 근처 2차부터 골라 보세요 🌙',en:'“Can I make it if I run?” Let live subway tracking answer that, and pick a spot near the station first 🌙'}}};
-    const S={tab:'exit',t:0,a:0,v:'b',x:0};
+    const S={tab:'exit',t:0,a:0,v:'b',x:0,c:0};
+    const GR={year:['#ffd36b','#ff7a59'],rain:['#8fb8ff','#4c6fd8'],last:['#5a4fcf','#1d2150']};
     function mapSvg(n){const pts=[[70,52],[178,40],[150,112],[52,122]].slice(0,n);
       return `<svg class="km-svg" viewBox="0 0 240 160" aria-hidden="true"><rect width="240" height="160" fill="#eef3f6"/>
         <path d="M0 86H240M118 0V160M0 30L240 140" stroke="#fff" stroke-width="9"/><path d="M0 86H240M118 0V160" stroke="#dfe6ea" stroke-width="1"/>
@@ -1945,27 +1962,30 @@ void main(){
           <li><span>02</span><b>${l==='ko'?'톡채널 메시지':'Talk Channel message'}</b><p>${l==='ko'?'"빠른 하차 칸, 사람 많아서 못 내리셨죠? 같은 계단으로 가는 숨은 문, 출근길 역부터 알려드려요."':'“Couldn’t get off at the quick-exit door? We’ll show the hidden door to the same stairs, starting with commuter stations.”'}</p></li>
           <li><span>03</span><b>${l==='ko'?'반응을 근거로 공유':'Share the response'}</b><p>${l==='ko'?'저장·공유와 "우리 역도" 요청을 모아 역별 실측을 넓히고, 유관부서에 기능 개선 근거로 전달':'Collect saves, shares and “do my station” requests, check more stations, pass to product'}</p></li>
         </ol></div>`}
-    function map(l){const th=TH[S.t],ar=AR[S.a][l];
+    function hero(l){const th=TH[S.t],ar=AR[S.a][l],c=S.c%th.p.length,p=th.p[c],g=GR[th.k];
+      return `<div class="km-ph" style="--g1:${g[0]};--g2:${g[1]}"><span class="km-pe" key="${c}">${p[0]}</span>
+          <div class="km-pc"><b>${c+1}. ${p[1][l]}</b><small>${l==='ko'?`${ar} 도보 ${p[2]}분 · ${p[3][l]}`:`${p[2]} min from ${ar} · ${p[3][l]}`}</small></div>
+          <i class="km-dots">${th.p.map((_,k)=>`<em class="${k===c?'on':''}"></em>`).join('')}</i></div>`}
+    function map(l){const th=TH[S.t];
       const chips=(arr,key,lab)=>arr.map((x,i)=>`<button type="button" class="wc${S[key]===i?' on':''}" data-k="${key}" data-i="${i}">${lab(x)}</button>`).join('');
-      const list=th.p.map((p,i)=>`<li><b>${i+1}</b><span class="e">${p[0]}</span><div><strong>${p[1][l]}</strong><small>${l==='ko'?`${ar} 도보 ${p[2]}분`:`${p[2]} min walk from ${ar}`}</small></div><em>${p[3][l]}</em></li>`).join('');
+      const others=TH.map((x,i)=>i).filter(i=>i!==S.t).map(i=>TH[i]);
       return `<div class="km">
         <div class="km-in">
           <p class="gs-q">1 · ${l==='ko'?'테마 · 언제 열어 보는 지도인가요?':'Theme · when would someone open it?'}</p><div class="gs-chips">${chips(TH,'t',x=>x.e+' '+x.n[l])}</div>
           <p class="gs-q">2 · ${l==='ko'?'지역':'Area'}</p><div class="gs-chips">${chips(AR,'a',x=>x[l])}</div>
-          <div class="km-why"><b>${l==='ko'?'기획 출발점':'Starting point'}</b><p>${l==='ko'?'제가 카카오맵을 가장 많이 여는 순간은 약속 장소를 정할 때입니다. 그래서 "어디가 좋을까"보다 <mark>"모두가 가기 편한 역 근처"</mark>에서 출발하는 테마지도를 기획했습니다.':'I open Kakao Map most when picking where to meet. So these theme maps start from <mark>“easy for everyone, near the station”</mark>, not just “what’s good”.'}</p></div>
+          <div class="km-why"><b>${l==='ko'?'기획 출발점':'Starting point'}</b><p>${l==='ko'?'제가 카카오맵을 가장 많이 여는 순간은 약속 장소를 정할 때입니다. 그래서 "어디가 좋을까"보다 <mark>"모두가 가기 편한 역 근처"</mark>에서 출발하는 테마지도를 공식 \'테마지도\' 계정 형식으로 기획했습니다.':'I open Kakao Map most when picking where to meet. So these theme maps start from <mark>“easy for everyone, near the station”</mark>, in the format of the official Theme Map account.'}</p></div>
         </div>
         <div class="km-phone"><div class="km-scr">
-          <div class="km-top"><span>${l==='ko'?'발견 · 즐겨찾기 그룹':'Discover · saved lists'}</span><i>⋯</i></div>
-          <span class="km-pick">${l==='ko'?'카카오맵 Pick · 공식 그룹':'Kakao Map Pick · official'}</span><p class="km-t">${th.e} ${th.t[l]}</p><p class="km-s">${th.s[l]}</p>
-          ${mapSvg(4)}
-          <ul class="km-list">${list}</ul>
-          <div class="km-act"><span>⭐ ${l==='ko'?'즐겨찾기 그룹 저장':'Save as group'}</span><span>↗ ${l==='ko'?'단톡방에 공유':'Share to chat'}</span></div>
-          <p class="km-fh">${l==='ko'?'이 테마의 사용자 그룹':'User lists on this theme'}</p><div class="km-feed">${(l==='ko'?[['🙋','맵플루언서 A','역 앞 단체석 모음'],['🙋','사용자 B','동네 연말 술집']]:[['🙋','Mapfluencer A','Group seats by the station'],['🙋','User B','Local year-end bars']]).map(u=>`<div><i>${u[0]}</i><b>${u[2]}</b><small>${u[1]} · ${l==='ko'?'구독':'Subscribe'}</small></div>`).join('')}</div>
-          <p class="km-ex">${l==='ko'?'예시 장소':'Example places'}</p>
+          <div class="km-acc"><i>🗺️</i><div><b>${l==='ko'?'테마지도':'Theme Map'} <span class="km-ck">✓</span></b><small>${l==='ko'?'카카오맵 공식 계정':'Official Kakao Map account'}</small></div><span class="km-fl">${l==='ko'?'팔로우':'Follow'}</span></div>
+          <div id="kmHero">${hero(l)}</div>
+          <p class="km-t">${th.t[l]}</p><p class="km-s">${th.s[l]}</p>
+          <div class="km-act"><span>☆ ${l==='ko'?`${th.p.length}개 모두 저장`:`Save all ${th.p.length}`}</span><span>↗ ${l==='ko'?'공유':'Share'}</span></div>
+          <p class="km-fh">${l==='ko'?'테마지도의 다른 지도':'More from Theme Map'}</p><div class="km-grid">${others.map(x=>`<div class="km-gc" style="--g1:${GR[x.k][0]};--g2:${GR[x.k][1]}"><i>${x.e}</i><b>${x.t[l]}</b><small>${l==='ko'?`${x.p.length}개 장소`:`${x.p.length} places`}</small></div>`).join('')}</div>
+          <p class="km-ex">${l==='ko'?'예시 장소 · 실제 발행 시 사진 사용':'Example places · real photos when published'}</p>
         </div></div>
         <div class="km-side">
-          <div class="gs-box"><span>${l==='ko'?'카카오맵 담당자의 역할':'What the Kakao Map team does'}</span><ol class="km-role">${(l==='ko'?['시즌 · 화제에 맞는 주제 정하기','사용자 그룹에서 좋은 장소 고르기','공식 Pick 그룹으로 발행','톡채널 · 배너로 알리기']:['Pick a timely theme','Curate the best places from user lists','Publish as an official Pick','Promote via Talk Channel & banner']).map(x=>`<li>${x}</li>`).join('')}</ol></div>
-          <div class="gs-box"><span>${l==='ko'?'발행 후 볼 지표':'Metrics after publishing'}</span><p class="fun"><em class="gl-m p">${l==='ko'?'그룹 조회':'Views'}</em>→<em class="gl-m">${l==='ko'?'구독 · 저장':'Subscribes · saves'}</em>→<em class="gl-m">${l==='ko'?'길찾기 실행':'Directions'}</em>→<em class="gl-m">${l==='ko'?'단톡방 공유':'Shares'}</em></p></div>
+          <div class="gs-box"><span>${l==='ko'?'공식 계정 담당자의 역할':'Running the official account'}</span><ol class="km-role">${(l==='ko'?['시즌 · 화제에 맞는 주제 정하기','장소 선정 · 영업 정보 확인','대표 이미지와 재치 있는 제목 · 설명 제작','톡채널 · 배너로 알리고 반응 확인']:['Pick a timely theme','Choose places, verify hours','Make the cover image, witty title and copy','Promote via Talk Channel & banner, then check responses']).map(x=>`<li>${x}</li>`).join('')}</ol></div>
+          <div class="gs-box"><span>${l==='ko'?'발행 후 볼 지표':'Metrics after publishing'}</span><p class="fun"><em class="gl-m p">${l==='ko'?'조회':'Views'}</em>→<em class="gl-m">${l==='ko'?'모두 저장':'Save all'}</em>→<em class="gl-m">${l==='ko'?'길찾기':'Directions'}</em>→<em class="gl-m">${l==='ko'?'공유 · 팔로우':'Shares · follows'}</em></p></div>
           <div class="gs-box"><span>${l==='ko'?'알림 메시지 · 공감형 시안':'Talk Channel · relatable draft'}</span><div class="gl-mock"><span class="gl-ad">${l==='ko'?'(광고) 카카오맵 채널':'(Ad) Kakao Map channel'}</span><div class="gl-bub"><p class="km-copy" style="margin:0">${MSG[th.k].b[l]}</p><div class="gl-btn y">${l==='ko'?'테마지도 보기':'Open theme map'}</div></div></div></div>
         </div></div>`}
     function rep(l){const H=l==='ko'?['콘텐츠','채널','볼 지표','결과','판정 · 다음 액션']:['Content','Channel','Metrics','Result','Decision · next'];
@@ -1982,10 +2002,11 @@ void main(){
       R.querySelectorAll('.gs-tabs button').forEach(b=>{b.textContent=TAB[b.dataset.t][l];b.classList.toggle('on',b.dataset.t===S.tab)});
       const V=$('#gsView');V.innerHTML=S.tab==='exit'?exit(l):S.tab==='map'?map(l):rep(l);
       V.querySelectorAll('.kx-t').forEach(b=>b.onclick=()=>{S.x=+b.dataset.x;draw()});
-      V.querySelectorAll('.wc:not(.kx-t)').forEach(b=>b.onclick=()=>{S[b.dataset.k]=+b.dataset.i;draw()});}
+      V.querySelectorAll('.wc:not(.kx-t)').forEach(b=>b.onclick=()=>{S[b.dataset.k]=+b.dataset.i;S.c=0;draw()});}
     R.querySelectorAll('.gs-tabs button').forEach(b=>b.onclick=()=>{S.tab=b.dataset.t;draw()});
     new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
     let vis=0,seen=0,auto=setInterval(()=>{if(vis&&S.tab==='exit'&&!S.touch){S.x=1-S.x;draw()}},4200);
+    setInterval(()=>{const h=$('#kmHero');if(vis&&S.tab==='map'&&h){S.c++;h.innerHTML=hero(lg())}},2200);
     new IntersectionObserver(es=>es.forEach(e=>{vis=e.isIntersecting;if(vis&&!seen){seen=1;draw()}}),{threshold:.3}).observe(R);
     R.addEventListener('pointerdown',e=>{if(e.target.closest('.kx-t')){S.touch=1}});
     draw();
