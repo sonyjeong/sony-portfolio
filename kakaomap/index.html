@@ -1230,19 +1230,20 @@ html:not(.en) .gl-spec dt{font-family:"Pretendard",sans-serif;letter-spacing:.02
 @keyframes miRing{0%{transform:scale(.3);opacity:1}100%{transform:scale(2);opacity:0}}
 @keyframes miDrop{0%{opacity:0;transform:translateY(-150px)}100%{opacity:1;transform:none}}
 @keyframes miBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.mi-card{position:absolute;min-width:250px;padding:16px 18px 13px;border-radius:14px;background:rgba(10,14,38,.74);border:1px solid rgba(255,255,255,.14);
+.mi-card{position:absolute;min-width:330px;padding:22px 24px 18px;border-radius:18px;background:rgba(10,14,38,.74);border:1px solid rgba(255,255,255,.14);
   box-shadow:0 18px 40px rgba(0,0,0,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-family:"Pretendard",sans-serif;animation:miCard .6s ease 1.6s both}
 @keyframes miCard{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:none}}
 .mi-row{display:flex;align-items:center;gap:10px;margin:0}
-.mi-row i{width:12px;height:12px;border-radius:50%;flex:none}.mi-row i.o{background:#4f8bff;box-shadow:0 0 0 3px rgba(79,139,255,.25)}.mi-row i.d{background:#fee500;box-shadow:0 0 0 3px rgba(254,229,0,.25)}
-.mi-row .mi-lb{font:700 10.5px/1 "ArchivoV",sans-serif;letter-spacing:.14em;color:#8e97c4;width:44px}
-.mi-row b{font-size:15.5px;color:#fff;font-weight:700}
-.mi-line{margin:5px 0 5px 5px;width:2px;height:18px;background:linear-gradient(#4f8bff,#fee500)}
-.mi-eta{white-space:nowrap;margin:11px 0 0;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);font:600 11px/1 "ArchivoV",sans-serif;letter-spacing:.08em;color:#7ff6ff;text-transform:uppercase}
+.mi-row i{width:14px;height:14px;border-radius:50%;flex:none}.mi-row i.o{background:#4f8bff;box-shadow:0 0 0 3px rgba(79,139,255,.25)}.mi-row i.d{background:#fee500;box-shadow:0 0 0 3px rgba(254,229,0,.25)}
+.mi-row .mi-lb{font:700 12px/1 "ArchivoV",sans-serif;letter-spacing:.14em;color:#8e97c4;width:54px}
+.mi-row b{font-size:20px;color:#fff;font-weight:700}
+.mi-line{margin:6px 0 6px 6px;width:2px;height:24px;background:linear-gradient(#4f8bff,#fee500)}
+.mi-eta{white-space:nowrap;margin:14px 0 0;padding-top:13px;border-top:1px solid rgba(255,255,255,.1);font:600 12.5px/1 "ArchivoV",sans-serif;letter-spacing:.08em;color:#7ff6ff;text-transform:uppercase}
 .mi-cue{position:absolute;left:50%;bottom:5vh;transform:translateX(-50%);text-align:center;opacity:calc(1 - var(--ru,0) * 4)}
 .mi-cue span{font:700 12px/1 "ArchivoV",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#cfd8ff}
 .mi-cue i{display:block;width:2px;height:30px;margin:10px auto 0;background:linear-gradient(#fee500,transparent);animation:miCue 1.6s ease-in-out infinite}
 @keyframes miCue{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(8px);opacity:1}}
+@media (max-width:700px){.mi-card{min-width:280px;padding:16px 18px 14px}.mi-row b{font-size:17px}.mi-cue{display:none}}
 @media (prefers-reduced-motion:reduce){.mi-pin,.mi-pin svg,.mi-ring,.mi-cue i,.mi-holo,.mi-scan,.mi-card{animation:none}}
 </style>
 </head>
@@ -1998,6 +1999,28 @@ void main(){
       let s=`<path d="M-40 ${H*.9} C${W*.2} ${H*.85} ${W*.35} ${H*.97} ${W*.5} ${H*.92} S${W*.8} ${H*.84} ${W+40} ${H*.88} L${W+40} ${H+40} L-40 ${H+40} Z" fill="#12306b" opacity=".4"/>`;
       s+=`<g stroke="#26326a" stroke-width="${mob?12:18}" stroke-linecap="round">${vx.map(x=>`<path d="M${x} 0V${H}"/>`).join('')}${hy.map(y=>`<path d="M0 ${y}H${W}"/>`).join('')}</g>`;
       s+=`<g stroke="#3a4a8a" stroke-width="2" stroke-dasharray="14 18">${vx.map(x=>`<path d="M${x} 0V${H}"/>`).join('')}${hy.map(y=>`<path d="M0 ${y}H${W}"/>`).join('')}</g>`;
+
+      // --- city: dim iso buildings with neon trims (kept away from title, card, main building)
+      const iso=(x,y,w,h,c)=>{const t=y-h;let win='';for(let k=1;k<Math.floor(h/14);k++){const yy=y-k*14;win+=`M${x-w*.85} ${yy-w*.43}L${x-w*.15} ${yy-w*.08}M${x+w*.15} ${yy-w*.08}L${x+w*.85} ${yy-w*.43}`}
+        return `<g><path d="M${x} ${y}L${x-w} ${y-w/2}V${t-w/2}L${x} ${t}Z" fill="#0f1534"/><path d="M${x} ${y}L${x+w} ${y-w/2}V${t-w/2}L${x} ${t}Z" fill="#0b1029"/><path d="M${x} ${t}L${x-w} ${t-w/2}L${x} ${t-w}L${x+w} ${t-w/2}Z" fill="#18214a" stroke="${c}" stroke-opacity=".75" stroke-width="1.5"/>
+          <path d="${win}" stroke="${c}" stroke-opacity=".28" stroke-width="2" stroke-dasharray="3 5"/><path d="M${x-w} ${t-w/2}V${y-w/2}M${x+w} ${t-w/2}V${y-w/2}" stroke="${c}" stroke-opacity=".35" stroke-width="1"/></g>`};
+      const NC=['#ff4fd8','#7ff6ff','#ff9a3c','#9d7bff','#4fd18b'];let bi=0;const B=(x,y,w,h)=>iso(x,y,w,h,NC[(bi++)%NC.length]);
+      let city='';const cells=mob?[[vx[0],cy,cx,hy[2]],[cx,cy,vx[2],hy[2]]]:[[0,hy[0],vx[0],cy],[0,cy,vx[0],hy[2]],[vx[2],hy[0],W,cy],[vx[2],cy,W,hy[2]],[vx[0],cy,cx,hy[2]],[cx,cy,vx[2],hy[2]],[0,0,vx[0],hy[0]],[vx[2],0,W,hy[0]]];
+      cells.forEach((c,ci)=>{const cw=c[2]-c[0],chh=c[3]-c[1];if(cw<60||chh<60)return;const n=cw>220?2:1;
+        for(let k=0;k<n;k++){const w=Math.min(cw/(n*2.6),mob?26:42),x=c[0]+cw*(k+.5)/n,y=c[3]-14,h=Math.min(chh*.55,(mob?50:70)+((ci*37+k*53)%70));city+=B(x,y,w,h)}});
+      s+=`<g class="mi-city" opacity=".9">${city}</g>`;
+      // --- bridge over the river with a subway passing
+      const rby=H*(mob?.955:.95);
+      s+=`<g class="mi-bridge"><path d="M0 ${rby}H${W}" stroke="#2f3d7a" stroke-width="10"/><path d="M0 ${rby-6}H${W}M0 ${rby+6}H${W}" stroke="#7ff6ff" stroke-opacity=".35" stroke-width="1.5"/>${Array.from({length:Math.ceil(W/120)},(_,i)=>`<path d="M${i*120+60} ${rby+5}V${rby+40}" stroke="#2f3d7a" stroke-width="6"/>`).join('')}
+        <g><g transform="translate(0 ${rby-9})">${[0,1,2,3,4].map(i=>`<rect x="${i*46}" y="0" width="42" height="14" rx="5" fill="#2a5bd7"/><rect x="${i*46+6}" y="4" width="30" height="5" rx="2" fill="#fff3b0" opacity=".85"/>`).join('')}<circle cx="228" cy="7" r="4" fill="#fff"/></g>
+          <animateTransform attributeName="transform" type="translate" from="-260 0" to="${W+40} 0" dur="9s" repeatCount="indefinite"/></g></g>`;
+      // --- traffic on the streets
+      const car=(col,len,lt)=>`<g><rect x="${-len/2}" y="-5" width="${len}" height="10" rx="3" fill="${col}"/><rect x="${len/2-3}" y="-4" width="3" height="8" fill="${lt}"/><path d="M${len/2} -4 L${len/2+22} -9 L${len/2+22} 9 L${len/2} 4Z" fill="${lt}" opacity=".16"/></g>`;
+      const lane=(d,dur,begin,col,len)=>`<g>${car(col,len,'#fff6c4')}<animateMotion path="${d}" dur="${dur}s" begin="${begin}s" repeatCount="indefinite" rotate="auto"/></g>`;
+      const H1=`M-60 ${cy+6}H${W+60}`,H1r=`M${W+60} ${cy-6}H-60`,H2=`M-60 ${hy[2]+6}H${W+60}`,H0r=`M${W+60} ${hy[0]-6}H-60`,V0=`M${vx[0]+6} ${H+60}V-60`,V2=`M${vx[2]-6} -60V${H+60}`;
+      let traffic=lane(H1,11,0,'#ffcc00',20)+lane(H1,11,-5.5,'#e9edf5',16)+lane(H1r,13,-2,'#2fb36b',34)+lane(H2,10,-3,'#ff5a5a',16)+lane(H0r,14,-6,'#ffcc00',20)+lane(V2,12,-1,'#e9edf5',16)+lane(V0,15,-7,'#2fb36b',34);
+      if(!mob)traffic+=lane(H2,10,-8,'#ffcc00',20)+lane(V2,12,-7,'#7a8cff',16);
+      s+=`<g class="mi-traffic">${traffic}</g>`;
       s+=`<defs><filter id="neon" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>`;
       s+=`<path d="${d}" fill="none" stroke="rgba(254,229,0,.22)" stroke-width="5" stroke-dasharray="4 14" stroke-linecap="round"/>`;
       s+=`<path id="miRoute" class="mi-route" pathLength="1" d="${d}" fill="none" stroke="#fee500" stroke-width="${mob?6:8}" stroke-linecap="round" stroke-linejoin="round" filter="url(#neon)"/>`;
