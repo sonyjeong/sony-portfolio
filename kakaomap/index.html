@@ -2000,15 +2000,23 @@ void main(){
       s+=`<g stroke="#26326a" stroke-width="${mob?12:18}" stroke-linecap="round">${vx.map(x=>`<path d="M${x} 0V${H}"/>`).join('')}${hy.map(y=>`<path d="M0 ${y}H${W}"/>`).join('')}</g>`;
       s+=`<g stroke="#3a4a8a" stroke-width="2" stroke-dasharray="14 18">${vx.map(x=>`<path d="M${x} 0V${H}"/>`).join('')}${hy.map(y=>`<path d="M0 ${y}H${W}"/>`).join('')}</g>`;
 
-      // --- city: dim iso buildings with neon trims (kept away from title, card, main building)
-      const iso=(x,y,w,h,c)=>{const t=y-h;let win='';for(let k=1;k<Math.floor(h/14);k++){const yy=y-k*14;win+=`M${x-w*.85} ${yy-w*.43}L${x-w*.15} ${yy-w*.08}M${x+w*.15} ${yy-w*.08}L${x+w*.85} ${yy-w*.43}`}
-        return `<g><path d="M${x} ${y}L${x-w} ${y-w/2}V${t-w/2}L${x} ${t}Z" fill="#0f1534"/><path d="M${x} ${y}L${x+w} ${y-w/2}V${t-w/2}L${x} ${t}Z" fill="#0b1029"/><path d="M${x} ${t}L${x-w} ${t-w/2}L${x} ${t-w}L${x+w} ${t-w/2}Z" fill="#18214a" stroke="${c}" stroke-opacity=".75" stroke-width="1.5"/>
-          <path d="${win}" stroke="${c}" stroke-opacity=".28" stroke-width="2" stroke-dasharray="3 5"/><path d="M${x-w} ${t-w/2}V${y-w/2}M${x+w} ${t-w/2}V${y-w/2}" stroke="${c}" stroke-opacity=".35" stroke-width="1"/></g>`};
-      const NC=['#ff4fd8','#7ff6ff','#ff9a3c','#9d7bff','#4fd18b'];let bi=0;const B=(x,y,w,h)=>iso(x,y,w,h,NC[(bi++)%NC.length]);
+      // --- city: one-tone realistic iso blocks (main hologram building excluded)
+      let seed=7;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+      const box=(x,y,A,Bw,h)=>{const t=y-h;let w='';
+        const face=(sx,sy,dx,dy,len)=>{for(let r=8;r<h-6;r+=9){for(let c=5;c<len-4;c+=7){const lit=rnd();if(lit<.55)continue;const px=sx+dx*c/len*len/len*1,py=0;
+            const X=sx+dx*(c/len),Y=sy+dy*(c/len)-r;w+=`<rect x="${X.toFixed(1)}" y="${Y.toFixed(1)}" width="2.6" height="3.6" fill="#dfe7ff" opacity="${(lit>.9?.55:.22).toFixed(2)}"/>`}}};
+        face(x,y,-A,-A/2,A);face(x,y,Bw,-Bw/2,Bw);
+        return `<path d="M${x} ${y}L${x-A} ${y-A/2}V${t-A/2}L${x} ${t}Z" fill="#141c40"/><path d="M${x} ${y}L${x+Bw} ${y-Bw/2}V${t-Bw/2}L${x} ${t}Z" fill="#0e1533"/>
+          <path d="M${x} ${t}L${x-A} ${t-A/2}L${x-A+Bw} ${t-A/2-Bw/2}L${x+Bw} ${t-Bw/2}Z" fill="#1d2754" stroke="#3b4c8c" stroke-opacity=".6" stroke-width="1"/>${w}`};
+      const bldg=(x,y,A,Bw,h)=>{let g=box(x,y,A,Bw,h);
+        if(rnd()>.55){const a2=A*.55,b2=Bw*.55,h2=h*(.25+rnd()*.35);g+=box(x+(Bw-b2)/2-(A-a2)/2,y-h-(A-a2)/4-(Bw-b2)/4,a2,b2,h2)}
+        else if(rnd()>.4){g+=box(x+Bw*.3-A*.2,y-h-A*.12-Bw*.12,A*.25,Bw*.25,6)}
+        return `<g>${g}</g>`};
       let city='';const cells=mob?[[vx[0],cy,cx,hy[2]],[cx,cy,vx[2],hy[2]]]:[[0,hy[0],vx[0],cy],[0,cy,vx[0],hy[2]],[vx[2],hy[0],W,cy],[vx[2],cy,W,hy[2]],[vx[0],cy,cx,hy[2]],[cx,cy,vx[2],hy[2]],[0,0,vx[0],hy[0]],[vx[2],0,W,hy[0]]];
-      cells.forEach((c,ci)=>{const cw=c[2]-c[0],chh=c[3]-c[1];if(cw<60||chh<60)return;const n=cw>220?2:1;
-        for(let k=0;k<n;k++){const w=Math.min(cw/(n*2.6),mob?26:42),x=c[0]+cw*(k+.5)/n,y=c[3]-14,h=Math.min(chh*.55,(mob?50:70)+((ci*37+k*53)%70));city+=B(x,y,w,h)}});
-      s+=`<g class="mi-city" opacity=".9">${city}</g>`;
+      cells.forEach(c=>{const cw=c[2]-c[0]-24,chh=c[3]-c[1]-20;if(cw<60||chh<60)return;const list=[];const n=Math.max(2,Math.min(6,Math.floor(cw/(mob?55:70))));
+        for(let k=0;k<n;k++){const A=(mob?14:20)+rnd()*(mob?14:22),Bw=(mob?14:20)+rnd()*(mob?14:22),x=c[0]+12+A+(cw-A-Bw)*(k+.5)/n,y=c[3]-10-rnd()*Math.min(30,chh*.25),h0=(mob?30:40)+rnd()*(mob?60:110),h=Math.max(24,Math.min(h0,y-A/2-Bw/2-c[1]-26));list.push([x,y,A,Bw,h])}
+        list.sort((p,q)=>p[1]-q[1]).forEach(p=>city+=bldg(...p))});
+      s+=`<g class="mi-city">${city}</g>`;
       // --- bridge over the river with a subway passing
       const rby=H*(mob?.955:.95);
       s+=`<g class="mi-bridge"><path d="M0 ${rby}H${W}" stroke="#2f3d7a" stroke-width="10"/><path d="M0 ${rby-6}H${W}M0 ${rby+6}H${W}" stroke="#7ff6ff" stroke-opacity=".35" stroke-width="1.5"/>${Array.from({length:Math.ceil(W/120)},(_,i)=>`<path d="M${i*120+60} ${rby+5}V${rby+40}" stroke="#2f3d7a" stroke-width="6"/>`).join('')}
